@@ -1,0 +1,145 @@
+.dropdown-containercomponentPricing2 {
+ 
+  position: relative;
+  width: 300px;
+  height: 44px;
+  z-index: 1000;
+  transform: translateY(0px);
+}
+
+.dropdowncomponentPricing2 {
+  width: 300px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ArrowPricing2 {
+  width: 16px;
+  height: 8.67px;
+  opacity: 30%;
+}
+
+.ArrowPricingRotate {
+  transform: rotate(180deg);
+  width: 16px;
+  height: 8.67px;
+  opacity: 30%;
+}
+
+.dropdown-content2 {
+  position: absolute;
+  top: 100%; /* Align dropdown content directly below the trigger */
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  padding: 10px 0; /* Adjust padding as needed */
+}
+
+.optionsPricing2 {
+  height:90px; /* Adjust height as needed */
+  overflow-y: auto;
+  scrollbar-width: 0px;
+  overflow-x: hidden;
+  
+  
+  /* Add border to separate options and button */
+  width: 300px;
+  &::-webkit-scrollbar{display: none;}
+}
+
+.optionsPricing2 label {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+
+  margin: -10px;
+}
+
+.optionsPricing2 label:hover {
+  background-color: #f0f0f0;
+}
+
+.radiobtPricing2 {
+  accent-color: green;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  margin-left: 10px; /* Added margin to the right */
+}
+
+.labelDrop2 {
+  color: #979797;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.options-btnPricing2 {
+  display: flex;
+  width: 58px;
+  height: 35px;
+  font-family: Poppins;
+  font-size: 14px;
+  color: white;
+  background-color: #779749;
+  text-align: center;
+  // border-radius: 13px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+  margin-left: -50px;
+  margin-top: -10px;
+  padding: 6px;
+  
+}
+
+.inputntnoptionsPricing2 {
+ margin-top: -10px;
+ margin-left: -5px;
+  width: 292px;
+  height: 35px;
+  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 1px solid #779749;
+  
+}
+
+.addbtnPricing2 {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+}
+
+.btnADDPricing2 {
+  position: relative;
+ 
+ 
+  border: 1px solid #779749;
+  background-color: #779749;
+  color: #fff;
+  top: -5px;
+
+  width: 109px;
+  height: 33px;
+  border: 1px solid #779749;
+  background-color: #779749;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+;
+  left: 184px;
+  border-radius: 4px;
+ 
+}

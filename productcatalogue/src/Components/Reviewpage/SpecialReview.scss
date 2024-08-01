@@ -1,0 +1,287 @@
+
+
+/* {-----------------Heading-----------------------------------------------------} */
+
+.Special-Review-Container{
+    position: absolute;
+    top: 450px;
+    left: 0px;
+    
+    // border: 2px solid red;
+    width: 600px;
+    height: auto;
+}
+
+.Available-Service-Streams-container{
+    width: 600px;
+    // border: 2px solid green;
+    margin-bottom: 5px;
+    height: auto;
+
+}
+
+.Available-Service-Streams-heading{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* {--------------From to container----------------------------------------------------------------} */
+
+.from-to-container-Special{
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    // border: 2px solid grey; 
+    gap: 50px;
+    margin-left: -20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.from-to-container-Special-column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   
+}
+
+.Available-Service-Streams-label-heading{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #979797;
+   
+}
+
+.Available-Service-Streams-date-heading{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    position: relative;
+    top: -20px;
+}
+
+
+.Available-Days-Heading-Container{
+    width:400px ;
+    display: flex;
+  
+    flex-direction: column;
+    margin-top: -50px;
+    
+
+}
+
+.Available-days-heading{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin-left: 25px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+
+}
+
+// {/* ----------------------------{/Dine In/}------------------------------------ */}
+
+
+.dinein-review-container{
+    width: 400px;
+    height: auto;
+    // border: 2px solid yellow;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.Dine-in-Heading{
+
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dine-in-items-container{
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    
+
+}
+
+.dine-in-items-container-heading{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    margin-top: -1px;
+    margin-left: -1px;
+    
+    
+
+}
+
+.dine-in-items-container-column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dine-in-items-label{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: -10px;
+}
+
+
+//   {/* ----------------------------Online------------------------------------ */}
+
+.Online-review-container{
+
+    width: 400px;
+    height: auto;
+    // border: 2px solid orange;
+    margin-top: 20px;
+
+}
+
+
+.online-heading-special{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin-left: 30px;
+    
+}
+
+
+// {----------------------------------Pickup-----------------------------------------------------}
+
+.Pickup-Heading{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pickup-items-container{
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    
+
+
+
+}
+.pick-up-container-column
+{
+    display: flex;
+    flex-direction: column;
+      gap: 20px;
+
+
+
+}
+
+.pick-up-container-heading{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    margin-top: -1px;
+    margin-left: -1px;
+    
+
+}
+
+.pick-up-items-label{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: -10px;  
+
+
+}
+
+
+
+    //   {/* {----------------------------------Delivery--------------------------------------------} */}
+
+    .Special-Heading{
+        font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+
+    }
+    .Special-Heading1{
+        font-family: Poppins;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        margin-left: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+
+    .special-container{
+        width: 400px;
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;  
+    
+   
+
+
+    }
+    .special-container-column{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+.Special-container-heading{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    margin-top: -1px;
+    margin-left: -1px;
+
+
+}
+
+.special-items-label{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: -10px;  
+
+}

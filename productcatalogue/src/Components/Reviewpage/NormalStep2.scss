@@ -1,0 +1,198 @@
+*{
+    font-family:  "Poppins" ,sans-serif;
+}
+.Step2Avaliable{
+    // border:2px solid red
+}
+.Step2Avaliable-heading{
+font-size: 16px;
+font-weight: 500;
+}
+.Step2Dinein-heading{
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.Step2DineIn{
+    display: flex;
+    justify-content: flex-start;
+    // border: 2px solid pink;
+    margin-left: 22px;
+    margin-top: 12px;
+    gap: -35px;
+    margin-bottom: 15px;
+}
+.Step2DineInPrice{
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    // border:2px solid pink
+    gap:0px;
+}
+.Step2DineInPriceheading{
+    color:#6E6E6E;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+.Step2DineInPricevalue{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.Step2DineInServiceTime{
+    
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    // border:2px solid pink
+    gap: 5px;
+}
+.Step2DineInServiceheading{
+    
+    color:#6E6E6E;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 5px;
+
+}
+.Step2DineInServicevalue{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+
+}
+.Step2DineInServiceArea{
+    
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    
+    // border:2px solid blue
+}
+.AvailDaysheading{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-bottom: 15px
+
+}
+.dayacheckedavail
+{
+    margin-left: -20px;
+    margin-bottom: 20px;
+    color: 
+    #868686;
+
+}
+.Step2Onlineheading{
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-bottom: 15px
+
+}
+.Step2Pickupheading{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 25px;
+    margin-bottom: 15px
+
+}
+.Step2Pickup{
+display: flex;
+justify-content: flex-start;
+// border:2px solid orange;
+margin-top: -10px;
+margin-left: 35px;
+margin-bottom: 20px;
+gap: 150px;
+}
+.Step2SellingPrize{
+   
+
+       display: flex;
+    flex-direction: column;
+    // border:2px solid orange;
+}
+.Step2SellingPrizeheading{
+    margin-top: 5px;
+    color: #6E6E6E;
+    font-size: 12px;
+    font-weight: 400;
+}
+.Step2SellingPrizevalue{
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.AvailDaysheadingPickup{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 35px;
+    margin-bottom: 15px
+}
+.AvailDaysheadingthirparty
+{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 40px;
+    margin-bottom: 15px
+}
+.DaysPickUp{
+    margin-left: 2px;
+    margin-bottom: 25px;
+    color: 
+    #868686;
+}
+.Step2Deliveryheading{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 25px;
+    margin-bottom: 15px
+
+}
+.Step2Delivery{
+    display: flex;
+justify-content: flex-start;
+// border:2px solid orange;
+margin-top: -10px;
+margin-left: 40px;
+margin-bottom: 20px;
+gap: 150px;
+}
+.AvailDaysheadingdelivery{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 40px;
+    margin-bottom: 15px
+}
+.DaysDelivery{
+    margin-left: 25px;
+    margin-bottom: 25px;
+    color: 
+    #868686;
+}
+.Step2ThirdPartyDeliveryheading{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 25px;
+    margin-bottom: 15px
+}
+.Step2ThirdPartyDelivery{
+    display: flex;
+    justify-content: flex-start;
+    // border:2px solid orange;
+    margin-top: -10px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    gap: 150px;
+}
+.DaysThirdDelivery{
+    margin-left: 25px;
+    margin-bottom: 25px;
+    color: 
+    #868686;
+}

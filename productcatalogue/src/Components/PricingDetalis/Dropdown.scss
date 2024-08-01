@@ -1,0 +1,141 @@
+.dropdown-containercomponentPricing {
+ 
+  position: relative;
+  width: 300px;
+  height: 44px;
+  z-index: 1;
+  transform: translateY(-80px);
+}
+
+.dropdowncomponentPricing {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ArrowPricing {
+  width: 16px;
+  height: 8.67px;
+  opacity: 30%;
+}
+
+.ArrowPricingRotate {
+  transform: rotate(180deg);
+  width: 16px;
+  height: 8.67px;
+  opacity: 30%;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%; /* Align dropdown content directly below the trigger */
+  left: 0;
+  width: 100%;
+  height: 135px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  padding: 10px 0; /* Adjust padding as needed */
+}
+
+.optionsPricing {
+  height:90px; /* Adjust height as needed */
+  overflow-y: auto;
+  scrollbar-width: 0px;
+  overflow-x: hidden;
+  
+  
+  /* Add border to separate options and button */
+  width: 300px;
+  &::-webkit-scrollbar{display: none;}
+}
+
+.optionsPricing label {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+
+  margin: -10px;
+}
+
+.optionsPricing label:hover {
+  background-color: #f0f0f0;
+}
+
+.radiobtPricing {
+  accent-color: green;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  margin-left: 10px; /* Added margin to the right */
+}
+
+.labelDrop {
+  color: #979797;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.options-btnPricing {
+  display: flex;
+  width: 58px;
+  height: 35px;
+  font-family: Poppins;
+  font-size: 14px;
+  color: white;
+  background-color: #779749;
+  text-align: center;
+  border-radius: 13px;
+  cursor: pointer;
+  margin-left: -55px;
+  margin-top: -10px;
+  padding: 6px;
+  
+}
+
+.inputntnoptionsPricing {
+ margin-top: -10px;
+ margin-left: -5px;
+  width: 292px;
+  height: 35px;
+  border-radius: 20px;
+  border: 1px solid grey;
+  
+}
+
+.addbtnPricing {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.btnADDPricing {
+  position: relative;
+  left: 188px;
+  width: 99px;
+  height: 34px;
+  border: 1px solid #779749;
+  background-color: #779749;
+  color: #fff;
+  top: -10px;
+
+  width: 109px;
+  height: 33px;
+  border: 1px solid #779749;
+  background-color: #779749;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  top: -3px;
+  left: 185px;
+  border-radius: 4px;
+ 
+}
