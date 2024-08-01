@@ -1,12 +1,14 @@
-import {React,useState} from 'react'
+import {React,useState,useEffect} from 'react'
 import Toggle from '../Toggle/Toggle'
 import './Normalavail.scss'
 import DaysCheck from './DaysCheck'
 import Dropdown2 from './DropDown2'
 import DropDown3 from './DropDown3'
 import DaysCheckDin from "./DaysCheckDinein"
-const Specialavail = ({getNormalForm}) => {
-const [dinein, setDineIn] = useState(false);
+import { useSelector } from 'react-redux'
+
+const Specialavail = ({getNormalForm,validateDropdown,validationState,dinein,setDineIn}) => {
+
   const [online, setOnline] = useState(false)
   const [pickup, setPickup] = useState(false)
   const [delivery, setDelivery] = useState(false)
@@ -17,11 +19,12 @@ const [dinein, setDineIn] = useState(false);
  const [options4, setOptions4] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options5, setOptions5] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options6, setOptions6] = useState(['Breakfast', 'Lunch', 'Dinner']);
- const [selectedValues, setSelectedValues] = useState([]);
+ const [selectedValues, setSelectedValues] = useState("");
  const [selectedValues2, setSelectedValues2] = useState("");
  const [selectedValues3, setSelectedValues3] = useState("");
  const [selectedValues4, setSelectedValues4] = useState("");
  const [selectedValues5, setSelectedValues5] = useState("");
+ 
  
  
  const [selectedValuesmealtype, setSelectedValuesMealType] = useState([]);
@@ -40,6 +43,8 @@ const[showDayPickup,setShowDayPickup]=useState(false)
 
 const[showDayDelivery,setShowDayDelivery]=useState(false)
 const[showDayThird,setShowDayThird]=useState(false)
+const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingData.mainForm);
+
 
 
 
@@ -88,10 +93,124 @@ const[showDayThird,setShowDayThird]=useState(false)
       WeekDays:dineInDates1,
       Delivery:DayDelivery,
       thirdParty:DayThird,
-      DineIn:dineInDates1
+      DineIn:dineInDates1,
+      Swiggy:selectedValues4,
+      Zomato:selectedValues5
         }
+        useEffect(() => {
+          if (prizingDetail?.normalForm?.formNormal) {
+            setformNormal({
+              PickuppriceNormal: prizingDetail.normalForm.formNormal.PickuppriceNormal || "",
+              PickupmealtypeNormal: prizingDetail.normalForm.formNormal.PickupmealtypeNormal || "",
+              DeliverypriceNormal: prizingDetail.normalForm.formNormal.DeliverypriceNormal || "",
+              DeliverymealtypeNormal: prizingDetail.normalForm.formNormal.DeliverymealtypeNormal || "",
+              SwiggyorzomatoNormal: prizingDetail.normalForm.formNormal.SwiggyorzomatoNormal || "",
+              SwiggyNormal: prizingDetail.normalForm.formNormal.SwiggyNormal|| "",
+              SwiggymealtypeNormal: prizingDetail.normalForm.formNormal.SwiggymealtypeNormal || "",
+              ZomatoNormal: prizingDetail.normalForm.formNormal.ZomatoNormal || "",
+              ZomatomealtypeNormal: prizingDetail.normalForm.formNormal.ZomatomealtypeNormal || "",
+            });
+
+            const updatedFields = prizingDetail?.normalForm?.dineinfields.map(item => ({
+              DineInPrice: item?.DineInPrice || "",
+              DineInMealType: item.DineInMealType || [], // Ensure it's an array for dropdowns
+              DineInService: item?.DineInService || "",
+            }));
+        
+            setDineInFields(updatedFields);
+        
+            // Initialize selected values
+            const initialSelectedValues = updatedFields.map(item => item.DineInMealType);
+            setSelectedValuesMealType(initialSelectedValues);
+
+            const initialSelectedValues2 = updatedFields.map(item => item.DineInService);
+            setSelectedValues(initialSelectedValues2);
+            setDineIn(true)
+
+           const dates= prizingDetail?.normalForm?.WeekDays?.map((elem)=>setDineInDates1(elem) )
+           console.log("hi",dates)
+         
+       
+            
+      
+            
+          
+          }
+
+          
+      const mainForm= 
+      {
+      formNormal,
+      dineinfields,
+     Normaldays:Normaldays, 
+     DeliveryMealType:selectedValues3,
+     PicupMealType:prizingDetail?.normalForm?.PicupMealType||selectedValues2,
+    Pickup:DayPickup,
+ 
+     DineInServiceArea:[selectedValues],
+      Delivery:DayDelivery,
+ 
+      thirdParty:DayThird,
+    WeekDays:dineInDates1,
+    Delivery:DayDelivery,
+    thirdParty:DayThird,
+    DineIn:dineInDates1
+      }
+
+          if (prizingDetail?.normalForm) {
+            setSelectedValues2(prizingDetail.normalForm.PicupMealType  || selectedValues2);
+            // Other state initializations...
+          }
+      
+      if (prizingDetail?.normalForm) {
+        setSelectedValues3(prizingDetail.normalForm.DeliveryMealType  || selectedValues3);
+        // Other state initializations...
+      }
+      if (prizingDetail?.normalForm) {
+        setSelectedValues4(prizingDetail.normalForm.Swiggy  || selectedValues4);
+        // Other state initializations...
+      }
+      if (prizingDetail?.normalForm) {
+        setSelectedValues5(prizingDetail.normalForm.Zomato  || selectedValues5);
+        // Other state initializations...
+      }
+
+      if (prizingDetail?.normalForm) {
+      
+        setDayPickup(prizingDetail.normalForm.Pickup || []);
+        
+        setShowDayPickup(true     )
+    } 
+
+    if (prizingDetail?.normalForm) {
+      
+      setDayDelivery(prizingDetail.normalForm.Delivery || []);
+      
+      setShowDayDelivery(true)
+  } 
+
+  
+  if (prizingDetail?.normalForm) {
+      
+    setDayThird(prizingDetail.normalForm.thirdParty || []);
+
+    setShowDayThird(true)
+} 
+
+if (prizingDetail?.normalForm) {
+      
+  setNormalDays(prizingDetail.normalForm.Normaldays || []);
+
+} 
+  
     
-   
+      
+
+
+
+
+        }, []);
+      
     
         
     
@@ -134,19 +253,22 @@ const[showDayThird,setShowDayThird]=useState(false)
       console.log(mainForm)
       getNormalForm(mainForm)
 
-      const handleSelect2 = (value, index) => {
-        const newSelectedValues = [...selectedValues];
-        newSelectedValues[index] = value;
-        setSelectedValues(newSelectedValues);
-    
+      const handleSelect2 = (values, index) => {
+        setSelectedValues(prevState => ({
+          ...prevState,
+          [index]: values
+        }));
+      
         const newDineInFields = [...dineinfields];
-        newDineInFields[index].DineInService = value;
+        newDineInFields[index].DineInService = values;
         setDineInFields(newDineInFields);
       };
-const addOption2 = (newOption) => {
-  setOptions2([...options2, newOption]);
-};
+      
+      const addOption2 = (newOption) => {
+        setOptions2([...options2, newOption]);
+      };
 const handleSelect3 = (value) => {
+
   setSelectedValues2(value);
 };
 const addOption3 = (newOption) => {
@@ -178,7 +300,11 @@ const handleSelectMealtype = (value, index) => {
 
   const newDineInFields = [...dineinfields];
   newDineInFields[index].DineInMealType = value;
+  
   setDineInFields(newDineInFields);
+  if(dinein){
+validateDropdown(value,index)
+}
 };
 const addOptionMealType = (newOption) => {
   setOptionsMealType([...optionsmealtype, newOption]);
@@ -198,9 +324,9 @@ const handleMealSelect2 = (index, value) => {
  
   };
 
-  console.log(DayThird)
-
-    
+  console.log("From",DayPickup)
+  
+  
   return (
     <div>
       <div className='AvailDaycheck'>
@@ -220,42 +346,50 @@ const handleMealSelect2 = (index, value) => {
           <>
             {/* <h1 className='AvailableDaysHeadingNormal'>Available days</h1> */}
             
-            {dineinentry.map((entry,index) => {
+            {dineinfields.map((entry,index) => {
               return (
                 <>
+                 <p className='LabelPrice'>Price*</p>
                    <div className='DineInInput11Normal' key={index}>
           <input
             type="text"
-            placeholder='Price*'
+            
             name='DineInPrice'
             value={entry.DineInPrice}
             className='DineInInput1Normal'
             onChange={(e) => handleChange(index, e)}
+            
           />
+          <div className='Mealz'>
           <DropDown3
-                    selectedValue={selectedValuesmealtype[index] || ''}
-                    onSelect={handleSelectMealtype}
+                    selectedValues={selectedValuesmealtype[index] || ''}
+                    onSelect={(values)=>handleSelectMealtype(values,index)}
                     options={optionsmealtype}
                     addOption={addOptionMealType}
                     placeholder="Meal Type*"
                     index={index}
+                    label="Meal Type*"
+                    onBlur={() => validateDropdown(selectedValuesmealtype[index] || [], index)}
+                    validation={validationState[index] || { isValid: true, errorMessage: '' }}
                     onChange={(e)=>handleMealSelect2(index,e.target.value)}
                   />
 
+</div>
           
-          
-       
+       <div className='Service'>
           <Dropdown2
-                    selectedValue={selectedValues[index] || ''}
-                    onSelect={handleSelect2}
+                    selectedValues={selectedValues[index] || ''}
+                
+                    onSelect={(values) => handleSelect2(values, index)}
                     options={options2}
                     addOption={addOption2}
                     placeholder="Service Area*"
                     index={index}
+                    label="Service Area*"
                     onChange={(e)=>handleServiceSelect2(index,e.target.value)}
                   />
        
-          
+       </div>
         </div>
         <div className='dineInChooseDayContainer'>
             <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>
@@ -299,17 +433,19 @@ const handleMealSelect2 = (index, value) => {
                 <div className='PickupSectionNormal'>
                 {pickup ?
                  <div>
-                   
+                   <p className='LabelPrice'> Price*</p>
                    <div className='PickupInput11Normal'>
-                    <input type="text" className='DineInInput1Normal' placeholder='Price*' onChange={(e) => setformNormal({ ...formNormal,"PickuppriceNormal":e.target.value })} ></input>
-                
+                    <input type="text" className='DineInInput1Normal'  value={formNormal.PickuppriceNormal}  onChange={(e) => setformNormal({ ...formNormal,"PickuppriceNormal":e.target.value })} ></input>
+                <div className='PrizeD'>
                     <DropDown3
-          selectedValue={selectedValues2}
+          selectedValues={ selectedValues2}
           onSelect={handleSelect3}
           options={options3}
           addOption={addOption3}
-          placeholder="Meal Type*"
+          
+          label="Meal Type*"
         />
+        </div>
       
                     </div>
                     <div>
@@ -344,18 +480,18 @@ const handleMealSelect2 = (index, value) => {
                 <div className='DeliverySectionNormal'>
                 {delivery ?
                  <div>
-                   
+                   <p className='LabelPrice'> Price*</p>
                    <div className='DineInInput11Normal delivery'>
-                    <input type="text" className='DineInInput1Normal' placeholder='Price*' onChange={(e) => setformNormal({ ...formNormal,"DeliverypriceNormal":e.target.value })} ></input>
-                    
+                    <input type="text" className='DineInInput1Normal' value={formNormal.DeliverypriceNormal} onChange={(e) => setformNormal({ ...formNormal,"DeliverypriceNormal":e.target.value })} ></input>
+                    <div className='DeliveryD'>
                     <DropDown3
-          selectedValue={selectedValues3}
+          selectedValues={ selectedValues3}
           onSelect={handleSelect4}
           options={options4}
           addOption={addOption4}
-          placeholder="Meal Type*"
+          label="Meal Type*"
         />
-                  
+        </div>          
                     </div>
                     <div className='dineInChooseDayContainer'>
             <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>
@@ -378,32 +514,36 @@ const handleMealSelect2 = (index, value) => {
                   
                    <h1 className='ThirdDeliveryRelatedHeadingNormal'>Third Party delivery</h1>
                    <div>
-                   
+                   <p className='LabelPrice1'> Swiggy,Zomato*</p>
                    <div className='Delivery11'>
-                   <input type="text" className='DeliveryInput2Normal' placeholder='Swiggy,Zomato' onChange={(e)=>setformNormal({ ...formNormal,"SwiggyorzomatoNormal":e.target.value })} ></input>
+                   <input type="text" className='DeliveryInput2Normal'     onChange={(e)=>setformNormal({ ...formNormal,"SwiggyorzomatoNormal":e.target.value })} ></input>
                    </div>
+                   <p className='LabelPrice2'> Swiggy Price*</p>
                    <div className='Delivery12'>
-                    <input type="text" className='DineInInput1Normal' placeholder=' Swiggy Price*' onChange={(e)=>setformNormal({ ...formNormal,"SwiggyNormal":e.target.value })} ></input>
+                    <input type="text" className='DineInInput1Normal' value={formNormal.SwiggyNormal}   onChange={(e)=>setformNormal({ ...formNormal,"SwiggyNormal":e.target.value })} ></input>
                     <div className='Third1'>
                     <DropDown3
-          selectedValue={selectedValues4}
+          selectedValues={selectedValues4}
           onSelect={handleSelect5}
           options={options5}
           addOption={addOption5}
           placeholder="Meal Type*"
+          label="Meal Type*"
         />
         </div>
                   
                     </div>
+                    <p className='LabelPrice2'> Zomato Price*</p>
                     <div className='Delivery13'>
-                    <input type="text" className='DineInInput1Normal' placeholder=' Zomato Price*' onChange={(e)=>setformNormal({ ...formNormal,"ZomatoNormal":e.target.value })} ></input>
+                    <input type="text" className='DineInInput1Normal' value={formNormal.ZomatoNormal} onChange={(e)=>setformNormal({ ...formNormal,"ZomatoNormal":e.target.value })} ></input>
                     <div className='Third2'>
                     <DropDown3
-          selectedValue={selectedValues5}
+          selectedValues={selectedValues5}
           onSelect={handleSelect6}
           options={options6}
           addOption={addOption6}
           placeholder="Meal Type*"
+          label="Meal Type*"
         />
         </div>
                   

@@ -1,23 +1,38 @@
-import React, { useState, useEffect, useRef } from 'react';
-import "./DropDown3.scss"
+import React, { useState, useRef, useEffect } from 'react';
+import './DropDown3.scss';
+import UpArrow from "../../assets/images/dropdown.png";
 
-import Arrow from "../../assets/images/dropdown.png";
-
-const Dropdown = ({ selectedValue, onSelect, options, addOption, placeholder,index }) => {
+const DropDown3 = ({ selectedValues = [], onSelect, options = [], addOption, label, validation, onBlur }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [showTextBox, setShowTextBox] = useState(false);
-  const[rotateimg,setRotateImg]=useState(false)
+  const [rotateImg, setRotateImg] = useState(false);
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+        setRotateImg(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleDropdownClick = () => {
     setIsOpen(!isOpen);
-    setRotateImg(!rotateimg)
+    setRotateImg(!rotateImg);
   };
 
   const handleOptionClick = (event) => {
-    onSelect(event.target.value, index);
-    setIsOpen(false);
+    const value = event.target.value;
+    const newSelectedValues = selectedValues.includes(value)
+      ? selectedValues.filter((item) => item !== value)
+      : [...selectedValues, value];
+    onSelect(newSelectedValues);
   };
 
   const handleInputChange = (e) => {
@@ -28,68 +43,57 @@ const Dropdown = ({ selectedValue, onSelect, options, addOption, placeholder,ind
     e.preventDefault();
     if (inputValue.trim() !== '') {
       addOption(inputValue);
-      setInputValue(''); // Clear the input field after adding
+      setInputValue('');
     }
   };
 
-  const showTextBox1 = () => {
-    setShowTextBox(true);
-  };
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
-      setShowTextBox(false)
-      setRotateImg(false)
+  const handleBlur = () => {
+    if (onBlur) {
+      onBlur();
     }
   };
-  
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   return (
-    <div className="dropdown-containercomponentPricing2" ref={dropdownRef}>
-      <div className="dropdowncomponentPricing2" onClick={handleDropdownClick}>
-        {selectedValue || <div style={{ color: "#979797", fontSize: "14px" }}>{placeholder}</div>}
-        { rotateimg? (<div><img src={Arrow} className='ArrowPricingRotate' alt="Arrow" /></div>):
-        <div><img src={Arrow} className='ArrowPricing' alt="Arrow" /></div>}
+    <div className="dropdown-containerPricing2" ref={dropdownRef}>
+      <label className='droplabelPricing2'>{label}</label>
+      <div className={!validation?.isValid ? "dropdownPricingred2":"dropdownPricing2"} onClick={handleDropdownClick} onBlur={handleBlur} tabIndex={0}>
+        {selectedValues.length > 0 ? (
+          <div className='valuePricing2'>
+            {selectedValues.slice(0, 3).join(', ')}
+          </div>
+        ) : (
+          <div className='valuePlaceholder2'>
+            {/* Placeholder or empty state can be handled here */}
+          </div>
+        )}
+        <div><img src={UpArrow} className={rotateImg ? 'arrowrotatePricing2' : 'arrowdropPricing2'} alt="arrow" /></div>
       </div>
       {isOpen && (
-        <div className="dropdown-content2">
-          <div className="optionsPricing2">
-            {options.map((option, index) => (
-              <label key={index} className='labelDrop'>
+        <div className="optionsPricing2">
+          {options.length > 0 ? (
+            options.map((option, index) => (
+              <label key={index}>
                 <input
-                  type="radio"
-                  name="option"
-                  className='radiobtPricing'
+                  type="checkbox"
+                  name={option}
+                  className="checkboxPricing2"
                   value={option}
-                  checked={selectedValue === option}
+                  checked={selectedValues.includes(option)}
                   onChange={handleOptionClick}
                 />
                 {option}
               </label>
-            ))}
-          </div>
-          {showTextBox ? (
-            <div className='addbtnPricing2'>
-              <input type='text' className="inputntnoptionsPricing2" value={inputValue} onChange={handleInputChange} />
-              <a className='options-btnPricing2' onClick={addNewItem}>+Add</a>
-            </div>
+            ))
           ) : (
-            <div>
-              <button className='btnADDPricing2' onClick={showTextBox1}>+Add Item</button>
-            </div>
+            <div>No options available</div>
           )}
         </div>
+      )}
+      {!validation?.isValid && (
+        <p style={{ color: 'red',fontSize:"0.75rem",fontWeight:"500" }}>{validation?.errorMessage}</p>
       )}
     </div>
   );
 };
 
-export default Dropdown;
+export default DropDown3;

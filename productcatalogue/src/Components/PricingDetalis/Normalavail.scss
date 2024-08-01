@@ -66,9 +66,20 @@
     margin-top: 20px;
     gap:1.8rem;
     z-index: 0;
+    
     // margin-top: 0.3rem;
   
 
+}
+.LabelPrice{
+    transform: translateY(20px);
+    margin-left: 7px;
+    color:#666666;
+    font-size: 14px;
+    font-weight: 400;
+}
+.Service{
+    z-index: 10;
 }
 
 .DineInInput2Normal{
@@ -104,7 +115,7 @@
     width: 9.75rem;
     height:2.75rem;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     color:#979797;
     padding-left: 10px;
 }
@@ -134,8 +145,13 @@
     gap: 0.313rem;
     margin-top: 0.775rem;
     margin-bottom: 10px;
+   
+    
 
     
+}
+.Mealz{
+    z-index: 1;
 }
 
 .dineInChooseDayContainerHeading{
@@ -155,6 +171,7 @@
     color: #67833E;
     margin-top: 0px;
     cursor: pointer;
+   
 
 }
 
@@ -197,8 +214,28 @@
 .PickupSectionNormal{
     display: flex;
     flex-direction: column;
-    margin-top: -5px;
+    margin-top: -7px;
 }
+.PrizeD{
+    margin-left: 20px;
+    z-index: 10;
+}
+.DeliveryD{
+    z-index: 1;
+}
+.LabelPrice1{
+    transform: translateY(13px);
+    color:#666666;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+.LabelPrice2{
+    transform: translateY(-4px);
+    color:#666666;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 5px;}
 
 
 .PickupInput11Normal{
@@ -236,6 +273,8 @@
     height:2.75rem;
     margin-bottom: 0.625rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #979797;
+    font-size: 14px;
 }
 .DeliveryInput2::placeholder{
     // padding-left: 0.625rem;
@@ -305,8 +344,10 @@
     margin-left: -10px;
 }
 .Third1{
-    z-index: 1;
+    margin-left: 15px;
+    z-index: 2;
 }
 .Third2{
-    z-index: 0;
+    margin-left: 15px;
+    z-index: 1;
 }

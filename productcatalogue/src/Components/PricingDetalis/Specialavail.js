@@ -1,4 +1,4 @@
-import {React,useRef,useState} from 'react'
+import {React,useEffect,useRef,useState} from 'react'
 import DatePicker from 'react-datepicker';
 import Toggle from '../Toggle/Toggle'
 import "./Specialvail.scss"
@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import calender from "./calendar 1.png"
 import DropDown3 from "./DropDown3"
 import { format } from 'date-fns';
+import { useSelector } from 'react-redux';
 
 
 import DropDown2 from './DropDown2';
@@ -34,6 +35,8 @@ const [dinein, setDineIn] = useState(true);
 
   const datePickerRef = useRef(null);
   const datePickerRef1 = useRef(null);
+  const prizingDetail=useSelector((state)=> state.PricingDetailReducer.prizingData.mainForm )
+
  
     const[form,setForm]=useState({
 
@@ -93,7 +96,11 @@ const [dinein, setDineIn] = useState(true);
     fromDate,
     toDate,
     selectedValuespickup: selectedValuespickup,
-    selectedValuesdelivery:selectedValuesdelivery
+    selectedValuesdelivery:selectedValuesdelivery,
+    Swiggy:selectedValuesthird1,
+    Zomato:selectedValuesthird2,
+
+
 
   }
   console.log(payLoad)
@@ -192,6 +199,60 @@ const [dinein, setDineIn] = useState(true);
     
     }
 
+    useEffect(()=>{
+      if(prizingDetail){
+        setSelectedDate(prizingDetail?.specialForm?.fromDate||"")
+        setSelectedDate1(prizingDetail?.specialForm?.toDate||"")
+        setSpecialcheck(prizingDetail?.specialForm?.specialcheck||"")
+        setForm({
+          Pickupprice:prizingDetail?.specialForm?.form?.Pickupprice||"",
+        Pickupmealtype:"",
+        Deliveryprice:prizingDetail?.specialForm?.form?.Deliveryprice||"",
+        Deliverymealtype:"",
+        Swiggyorzomato:prizingDetail?.specialForm?.form?.Swiggyorzomato||"",
+        Swiggy:prizingDetail?.specialForm?.form?.Swiggy||"",
+        Swiggymealtype:"",
+        Zomato:prizingDetail?.specialForm?.form?.Zomato||"",
+        Zomatomealtype:"",
+
+        })
+
+        setSelectedValuesPickup(prizingDetail?.specialForm?.selectedValuespickup)
+        setSelectedValuesDelivery(prizingDetail?.specialForm?.selectedValuesdelivery)
+        setSelectedValuesThird1(prizingDetail?.specialForm?.Swiggy)
+        setSelectedValuesThird2(prizingDetail?.specialForm?.Zomato)
+
+        const updated=prizingDetail?.specialForm?.dineinfields.map((elem)=>
+        ({
+       
+            DineInPrice:elem?.DineInPrice||"",
+            DineInMealType:elem.DineInMealType||[],
+            DineInServiceArea:elem.DineInServiceArea||[],
+
+          }
+        ))
+        setDineInFields(updated)
+        const initialSelectedValues = updated.map(item => item.DineInMealType);
+        
+        setSelectedValuesMealType(initialSelectedValues);
+        
+        const initialSelectedValues2 = updated.map(item => item.DineInServiceArea);
+        setSelectedValues1(initialSelectedValues2);
+        setDineIn(true)
+
+
+   
+        console.log(initialSelectedValues)
+
+
+
+      }
+
+    },[])
+
+   
+
+
   
     
   return (
@@ -204,6 +265,7 @@ const [dinein, setDineIn] = useState(true);
         placeholderText="7/1/2034" // Placeholder text for the date picker
         dateFormat="MM/dd/yyyy"
         selected={selectedDate}
+        value={selectedDate}
       
         onChange={handleDateChange} // Date format for display
         ref={datePickerRef}
@@ -235,41 +297,45 @@ const [dinein, setDineIn] = useState(true);
         {/* DineIn Related */}
         <div className='DineInRelatedSpecial'>
           <h1 className='DineInRelatedHeading'>Dine In</h1>
-          <div className='toggleII'><Toggle toggle={dinein} setToggle={setDineIn} /></div>
+          <div className='toggleDinein'><Toggle toggle={dinein} setToggle={setDineIn} /></div>
         </div>
         {dinein ? (
           <>
             
             
-            {dineinentry.map((entry,index) => (
-        <div className='DineInInput11Special' key={index}>
+            {dineinfields.map((item,index) => (
+             
+ 
+<div className='DineInInput11Special' key={index}>
+           <p className='LabelSpecialPrice'>Price*</p>
           <input
             type="text"
-            placeholder='Price*'
+            
+            
             name='DineInPrice'
-            value={entry.DineInPrice}
+            value={item.DineInPrice}
             className='DineInInput1'
             onChange={(e) => handleChange(index, e)}
           />
-          
+           <div className='DropD4'>  
             <DropDown3
             key={index}
-            selectedValue={selectedValuesMealType[index] || ''}
+            selectedValues={selectedValuesMealType[index] || ''}
             onSelect={(value) => handleSelect(value, index)}
             options={options3}
             addOption={addOption3}
-            placeholder="MealType*"
+            label="Meal Type*"
             onChange={(e)=>handleSelectMealtype(index,e.target.value)}
           />
-          
+          </div>
           <div className='SpecialDropDown'>
           <DropDown2
             key={index}
-            selectedValue={selectedValues1[index] || ''}
+            selectedValues={selectedValues1[index] || ''}
             onSelect={(value) => handleSelect3(value, index)}
             options={options3}
             addOption={addOption3}
-            placeholder="Service Area*"
+            label="Service Area*"
             onChange={(e)=>handleSelectService(index,e.target.value)}
           />
           </div>
@@ -301,16 +367,18 @@ const [dinein, setDineIn] = useState(true);
                 <div className='PickupSection'>
                 {pickup ?
                  <div>
-                   
+                   <p className='LabelPrice'> Price*</p>
                    <div className='PickupInput11'>
-                    <input type="text" className='DineInInput1' placeholder='Price*' onChange={(e) => setForm({ ...form,"Pickupprice":e.target.value })} ></input>
+                    <input type="text" className='DineInInput1' value={form.Pickupprice}  onChange={(e) => setForm({ ...form,"Pickupprice":e.target.value })} ></input>
+                   <div className='PickDrop5'>
                     <DropDown3
-          selectedValue={selectedValuespickup}
+          selectedValues={selectedValuespickup}
           onSelect={handleSelectpick}
           options={optionspick}
           addOption={addOptionpickup}
-          placeholder="Meal Type*"
+          label="Meal Type*"
         />
+        </div>
                     </div>
                     </div>
                    : ""}
@@ -323,31 +391,34 @@ const [dinein, setDineIn] = useState(true);
                 <div className='DeliverySection'>
                 {delivery ?
                  <div>
-                   
+                   <p className='DelLabelPrice'> Price*</p>
                    <div className='Delivery11'>
-                    <input type="text" className='DineInInput1' placeholder='Price*' onChange={(e) => setForm({ ...form,"Deliveryprice":e.target.value })} ></input>
+                    <input type="text" className='DineInInput1' value={form.Deliveryprice}  onChange={(e) => setForm({ ...form,"Deliveryprice":e.target.value })} ></input>
+                    <div className='DelDrop'>
                     <DropDown3
-          selectedValue={selectedValuesdelivery}
+          selectedValues={selectedValuesdelivery}
           onSelect={handleSelectdelivery}
           options={optionsdelivery}
           addOption={addOptiondelivery}
-          placeholder="Meal Type*"
+          label="Meal Type*"
         />
+        </div>
                     </div>
                     </div>
                    : ""}
                    </div>
                    <h1 className='ThirdDeliveryRelatedHeading'>Third Party delivery</h1>
                    <div>
-                   
+                   <p className='LabelPrice1'> Swiggy,Zomato*</p>
                    <div className='Delivery11'>
-                   <input type="text" className='DeliveryInput2' placeholder='Swiggy,Zomato' onChange={(e)=>setForm({ ...form,"Swiggyorzomato":e.target.value })} ></input>
+                   <input type="text" className='DeliveryInput2' value={form.Swiggyorzomato}  onChange={(e)=>setForm({ ...form,"Swiggyorzomato":e.target.value })} ></input>
                    </div>
+                   <p className='LabelPriceSwiggy'> Swiggy*</p>
                    <div className='Delivery11  thirdparty '>
-                    <input type="text" className='DineInInput1' placeholder=' Swiggy Price*' onChange={(e)=>setForm({ ...form,"Swiggy":e.target.value })} ></input>
-                  <div className='Third1'>
+                    <input type="text" className='DineInInput1' value={form.Swiggy}  onChange={(e)=>setForm({ ...form,"Swiggy":e.target.value })} ></input>
+                  <div className='Third1Special'>
                     <DropDown3
-          selectedValue={selectedValuesthird1}
+          selectedValues={selectedValuesthird1}
           onSelect={handleSelectThird1}
           options={optionsthird1}
           addOption={addOptionThird1}
@@ -355,11 +426,12 @@ const [dinein, setDineIn] = useState(true);
         />
         </div>
                     </div>
+                    <p className='LabelPriceSwiggy'> Zomato*</p>
                     <div className='Delivery11 thirdparty'>
-                    <input type="text" className='DineInInput1' placeholder=' Zomato Price*' onChange={(e)=>setForm({ ...form,"Zomato":e.target.value })} ></input>
+                    <input type="text" className='DineInInput1' value={form.Zomato} onChange={(e)=>setForm({ ...form,"Zomato":e.target.value })} ></input>
                     <div className='Third2'>
                     <DropDown3
-          selectedValue={selectedValuesthird2}
+          selectedValues={selectedValuesthird2}
           onSelect={handleSelectThird2}
           options={optionsthird2}
           addOption={addOptionThird2}
