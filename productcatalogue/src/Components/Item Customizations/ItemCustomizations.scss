@@ -258,6 +258,7 @@ width: 232px;
   margin-bottom: 10.5rem;
   height: 15.625rem;
 
+
 }
 
 .option-margin {
@@ -391,7 +392,8 @@ input[type="number"] {
 .modifier-div-margin2 {
   height: 15.625rem;
   
-  transform: translateY(0px);
+  transform: translateY(30px);
+  margin-bottom: 30px;
 }
 
 .radiobtnMargin {
@@ -471,4 +473,33 @@ input[type="number"] {
 
 .dropdown-container{
   margin-left: 30px;
+}
+
+.searchbox{
+  display: flex;
+  justify-content: start;
+  position: relative;
+  left: 60px;
+  top: -15px;
+}
+
+.searchBox-input{
+  width: 400px;
+  height: 44px;
+  border: 1px  solid #979797;
+  opacity: 0.7;
+  font-family:Poppins ;
+  font-weight: 400;
+  font-size: 14px;
+  color:#979797;
+  padding-left: 10px;
+}
+
+.searchIcon{
+  width: 21px;
+  height: 21px;
+  position: relative;
+  top: 10px;
+  left: -35px;
+cursor: pointer;
 }

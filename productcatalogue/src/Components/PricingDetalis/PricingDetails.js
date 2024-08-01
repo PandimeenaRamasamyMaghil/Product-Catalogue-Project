@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import "./PricingDetails.scss";
 import Toggle from "../Toggle/Toggle";
 import Specialavail from './Specialavail';
@@ -10,52 +10,63 @@ import Dropdown from './Dropdown';
 import { useNavigate } from 'react-router-dom';
 import { Contextpagejs } from '../contextpage';
 import info from "../../assets/images/info.png";
+import { useSelector } from 'react-redux';
+import { Value } from 'sass';
+ 
 
 const PricingDetails = () => {
-  const [options, setOptions] = useState(['Kitchen Related', 'Option 2', 'Option 3']);
-  const [options1, setOptions1] = useState(['Preparation Time', 'Option 2', 'Option 3']);
+  const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingData.mainForm);
+  const [options, setOptions] = useState(['Kitchen Related', 'Option 2', 'Option 3', 'Option 6', 'Option 7']);
+  const [options1, setOptions1] = useState(['Preparation Time', 'Option 2', 'Option 3', 'Option 5', 'Option 4']);
   const navigate = useNavigate();
   const { activeCategory, setActiveCategory } = useContext(Contextpagejs);
 
-  const [selectedValue, setSelectedValue] = useState('');
-  const [selectedValue1, setSelectedValue1] = useState('');
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [selectedValue1, setSelectedValue1] = useState([]);
 
   const dispatch = useDispatch();
   const [form, setForm] = useState({
-    Inventory1: 0,
-    Inventory2: 0,
+    Inventory1: "",
+    Inventory2: "",
   });
-
+  const [formerrors, setFormErrors] = useState({
+    Inventory1: "",
+    Inventory2: "",
+  });
+  const [dinein, setDineIn] = useState(false);
   const [inventory, setInventory] = useState(false);
   const [isOptionTrue, setIsOptionTrue] = useState(true);
   const [validationState, setValidationState] = useState({
     kitchen: { isValid: true, errorMessage: '' },
-    preparationTime: { isValid: true, errorMessage: '' }
+    preparationTime: { isValid: true, errorMessage: '' },
+    DineinMeal: { isValid: true, errorMessage: '' },
+    DineinService: { isValid: true, errorMessage: '' }
+
   });
 
-  const handleSelect = (value) => {
-    setSelectedValue(value);
-    validateDropdown(value, 'kitchen');
+  const handleSelect = (values) => {
+    setSelectedValues(values);
+    validateDropdown(values, 'kitchen');
   };
 
   const addOption = (newOption) => {
-    setOptions([...options, newOption]);
+    setOptions((prevOptions) => [...prevOptions, newOption]);
   };
 
-  const handleSelect1 = (value) => {
-    setSelectedValue1(value);
-    validateDropdown(value, 'preparationTime');
+  const handleSelect1 = (values) => {
+    setSelectedValue1(values);
+    validateDropdown(values, 'preparationTime');
   };
 
   const addOption1 = (newOption) => {
-    setOptions1([...options1, newOption]);
+    setOptions1((prevOptions) => [...prevOptions, newOption]);
   };
 
   const validateDropdown = (value, field) => {
     let isValid = true;
     let errorMessage = '';
 
-    if (!value) {
+    if (value.length === 0) {
       isValid = false;
       errorMessage = 'This field is required';
     }
@@ -67,10 +78,13 @@ const PricingDetails = () => {
   };
 
   const validateForm = () => {
-    validateDropdown(selectedValue, 'kitchen');
+    validateDropdown(selectedValues, 'kitchen');
     validateDropdown(selectedValue1, 'preparationTime');
-    return validationState.kitchen.isValid && validationState.preparationTime.isValid;
+    validateDropdown(selectedValue1, 'DineinMeal');
+    validateDropdown(selectedValue1, 'DineinService');
+    return validationState.kitchen.isValid && validationState.preparationTime.isValid && validationState.DineinMeal.isValid;
   };
+
   const getNormalForm = (normalForm) => {
     mainForm = { ...mainForm, normalForm };
   };
@@ -78,25 +92,92 @@ const PricingDetails = () => {
   const getSpecialForm = (specialForm) => {
     mainForm = { ...mainForm, specialForm };
   };
+
   let mainForm = {
     form,
-    kitchenstation: selectedValue,
+    kitchenstation: selectedValues,
     Preparationtime: selectedValue1,
   };
 
+  
+ 
+  useEffect(()=>{
 
-  const dispatchEvent = () => {
-    const isValid = validateForm();
-    if (isValid) {
-      dispatch(PricingDetailRequest({
-        form,
-        kitchenstation: selectedValue,
-        Preparationtime: selectedValue1,
-      }));
-      setActiveCategory("Step 3: Item customizations");
+    if (prizingDetail?.form) {
+      setSelectedValues(prizingDetail?.kitchenstation  || selectedValues);
+      // Other state initializations...
     }
-  };
 
+    if (prizingDetail?.normalForm) {
+      setSelectedValue1(prizingDetail?.Preparationtime  || selectedValue1);
+      // Other state initializations...
+    }
+
+    if (prizingDetail?.normalForm) {
+      setSelectedValue1(prizingDetail?.Preparationtime  || selectedValue1);
+      // Other state initializations...
+    }
+
+       if (prizingDetail?.form) {
+        setForm({Inventory1:prizingDetail?.form.Inventory1  || form.Inventory1 ,
+          Inventory2:prizingDetail?.form.Inventory2  || form.Inventory2
+
+        });
+
+        setInventory(true )
+ 
+      // Other state initializations...
+    }
+
+   
+
+
+
+
+
+
+  },[])
+  const validateField = (name, value) => {
+    let flag=true
+    let errors = { ...formerrors };
+    if (name === 'Inventory1') {
+        if (!value && inventory) {
+            errors.Inventory1 = "Please Fill this Field";
+            flag=false
+        } else {
+            delete errors.Inventory1;
+        }
+    } else if (name === 'Inventory2') {
+        if (!value && inventory) {
+            errors.Inventory2 = "Please Fill this Field";
+            flag=false
+        } else {
+            delete errors.Inventory2;
+        }
+    }
+    setFormErrors(errors);
+    return flag
+};
+    const handleBlur=(e)=>{
+      const {name,value}=e.target
+      validateField(name,value)
+    }
+
+    const dispatchEvent = () => {
+      // Validate each field individually before dispatching
+      const allFieldsValid = Object.keys(form).every(field => {
+          const isValid = validateField(field, form[field]);
+          return isValid;
+      });
+  
+      // Optionally validate the entire form
+      const isValid = validateForm(); // Ensure validateForm handles overall form validation
+      
+      if (allFieldsValid && isValid) {
+          dispatch(PricingDetailRequest({ mainForm }));
+          setActiveCategory("Step 3: Item customizations");
+      }
+  };
   return (
     <div className="pricingdetails-container">
       <div className='pricing-form'>
@@ -111,24 +192,24 @@ const PricingDetails = () => {
 
         <div className='KitchenRelated'>
           <div className='D1kitchen'>
-            <Dropdown
-              selectedValue={selectedValue}
-              onSelect={handleSelect}
-              options={options}
+            <Dropdown 
+              selectedValues={selectedValues} 
+              onSelect={handleSelect} 
+              options={options} 
               addOption={addOption}
-              placeholder="Kitchen Related1*"
-              onBlur={() => validateDropdown(selectedValue, 'kitchen')}
+              label="Kitchen Station1*"
+              onBlur={() => validateDropdown(selectedValues, 'kitchen')}
               validation={validationState.kitchen}
             />
           </div>
 
           <div className='D2kitchen'>
             <Dropdown
-              selectedValue={selectedValue1}
+              selectedValues={selectedValue1}
               onSelect={handleSelect1}
               options={options1}
               addOption={addOption1}
-              placeholder="Preparation Time*"
+              label="Preparation Time*"
               onBlur={() => validateDropdown(selectedValue1, 'preparationTime')}
               validation={validationState.preparationTime}
             />
@@ -137,7 +218,7 @@ const PricingDetails = () => {
 
         <div className='Kitchen-checkbox'>
           <input type="checkbox" className='checkbox1-Kitchen' />
-          <label className='InventoryHeadingII'>Don't print the item in Master KOT</label>
+          <label className='Inventorycheck'>Don't print the item in Master KOT</label>
         </div>
 
         <div className='InventoryToggle'>
@@ -154,21 +235,33 @@ const PricingDetails = () => {
               </div>
               <div className='InventoryInput'>
                 <input
-                  className='I1'
+                  className="I1"
                   type="text"
+                  name='Inventory1'
                   value={form.Inventory1}
                   onChange={(e) => setForm({ ...form, "Inventory1": e.target.value })}
+                  onBlur={handleBlur}
+                  style={{
+                    borderColor:formerrors.Inventory1 ? 'red' : 'rgba(0, 0, 0, 0.3)'
+                }}
                 />
+                
                 <Tooltip message="Max no Serving per day">
                   <div className="ToolInventory">
                     <img src={info} alt="" width={20} height={20} />
                   </div>
                 </Tooltip>
+                
                 <input
                   className='I1'
                   type="text"
+                  name='Inventory2'
                   value={form.Inventory2}
+                  onBlur={handleBlur}
                   onChange={(e) => setForm({ ...form, "Inventory2": e.target.value })}
+                  style={{
+                    borderColor:formerrors.Inventory1 ? 'red' : 'rgba(0, 0, 0, 0.3)'
+                }}
                 />
                 <Tooltip message="Threshold">
                   <div className="ToolInventory1">
@@ -176,7 +269,8 @@ const PricingDetails = () => {
                   </div>
                 </Tooltip>
               </div>
-
+              {formerrors.Inventory1 && <p className='ErrorsForm' >{formerrors.Inventory1}</p>}
+              {formerrors.Inventory2 && <p className='ErrorsFormi2' >{formerrors.Inventory2}</p>}
               <div className='Inventcheckbox'>
                 <div className='checkboxI'>
                   <input type="checkbox" className='checkbox1-color' />
@@ -215,11 +309,10 @@ const PricingDetails = () => {
           </div>
         </div>
 
-        {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} /> : <Specialavail getSpecialForm={getSpecialForm} />}
+        {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState} /> : <Specialavail getSpecialForm={getSpecialForm} />}
 
         <div className="buttoncomponent">
           <div className="saveandnextPricing">
-            
             <button className="clearallPricing">
               Clear All
             </button>

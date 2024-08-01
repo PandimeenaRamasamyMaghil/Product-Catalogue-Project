@@ -1,145 +1,111 @@
-.dropdown-containercomponentPricing1 {
- 
+*{
+  font-family: "Poppins",sans-serif;
+}
+.dropdown-containerPricing1 {
   position: relative;
   width: 200px;
-  height: 44px;
-  z-index: 1;
-  transform: translateY(0px);
+ height: 44px;
+ margin-left: 30px;
+ transform: translateY(-23px);
+ margin-left: -10px;
 }
 
-.dropdowncomponentPricing1 {
-  width: 200px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  cursor: pointer;
+.dropdownPricing1{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  width:200px;
+  height:44px;
+  border-radius: 5px;
 }
 
-.ArrowPricing1 {
-  width: 16px;
-  height: 8.67px;
-  opacity: 30%;
-}
-
-.ArrowPricingRotate {
-  transform: rotate(180deg);
-  width: 16px;
-  height: 8.67px;
-  opacity: 30%;
-}
-
-.dropdown-content1 {
-  position: absolute;
-  top: 100%; /* Align dropdown content directly below the trigger */
-  left: 0;
-  width: 100%;
-  height: 145px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  z-index: 1000;
-  padding: 10px 0; /* Adjust padding as needed */
-}
 
 .optionsPricing1 {
-  height:90px; /* Adjust height as needed */
+  
+position: absolute;
+  top: 68px;
+  left: 0;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+height: 156px; /* Adjust this height as needed */
   overflow-y: auto;
-  scrollbar-width: 0px;
-  overflow-x: hidden;
-  
-  
-  /* Add border to separate options and button */
-  width: 300px;
-  &::-webkit-scrollbar{display: none;}
+  font-size: 14px;
 }
 
 .optionsPricing1 label {
-  display: flex;
-  align-items: center;
+  margin-top: -5px;
+  display: block;
   padding: 10px;
-  cursor: pointer;
-
-  margin: -10px;
-}
-
-.optionsPricing1 label:hover {
-  background-color: #f0f0f0;
-  width:200px
-}
-
-.radiobtPricing1 {
-  accent-color: green;
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  margin-left: 10px; /* Added margin to the right */
-}
-
-.labelDrop1 {
   color: #979797;
-  font-size: 14px;
-  font-weight: 400;
 }
 
-.options-btnPricing1 {
-  display: flex;
-  width: 58px;
-  height: 35px;
-  font-family: Poppins;
-  font-size: 14px;
-  color: white;
-  background-color: #779749;
-  text-align: center;
- 
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  cursor: pointer;
-  margin-left: -50px;
-  margin-top: -10px;
-  padding: 6px;
-  
-}
-
-.inputntnoptionsPricing1 {
- margin-top: -10px;
- margin-left: -5px;
-  width: 292px;
-  height: 35px;
-  border-radius: 20px;
-  
-  border: 1px solid #779749;
-  
+.optionsPricing1 input[type="checkbox"] {
+  margin-right: 8px;
 }
 
 .addbtnPricing1 {
-  display: flex;
-  align-items: center;
   padding: 10px;
 }
 
-.btnADDPricing1 {
-  position: relative;
-  left: 188px;
-  width: 99px;
-  height: 34px;
-  border: 1px solid #779749;
-  background-color: #779749;
-  color: #fff;
-  top: -15px;
+.inputntnoptionsPricing1 {
+  width: calc(100% - 60px);
+  padding: 5px;
+}
 
-  width: 109px;
-  height: 33px;
-  border: 1px solid #779749;
-  background-color: #779749;
+.add-item-btn, .btn-add-item {
+  padding: 5px 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
   color: #fff;
   cursor: pointer;
-  position: relative;
-  top: 0px;
-  left: 84px;
-  border-radius: 4px;
- 
+}
+.placePricing1{
+  color: #979797;
+  margin-left: 10px;
+}
+.imgplacePricing1{
+  display: flex;
+  justify-content: start;
+}
+.add-item-btn:hover, .btn-add-item:hover {
+  background-color: #0056b3;
+}
+.checkboxPricing1{
+  width: 20px;
+  height: 20px;
+  transform: translateY(5px);
+  accent-color:#779749;
+  margin-left: 10px;
+}
+.valuePricing1{
+  font-size: 14px;
+  font-weight: 400;
+  color: #979797;
+}
+.arrowdropPricing1{
+  width: 16px;
+  height: 8.67px;
+  opacity: 30%;
+
+}
+.arrowrotatePricing1{
+  width: 16px;
+  height: 8.67px;
+  transform: rotate(180deg);
+  opacity: 30%;
+}
+.droplabelPricing1{
+  color: #666666;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 5px;
 }

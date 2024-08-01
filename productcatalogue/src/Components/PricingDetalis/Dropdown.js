@@ -1,13 +1,26 @@
- import React, { useState, useRef, useEffect } from 'react';
-import "./Dropdown.scss";
-import Arrow from "../../assets/images/dropdown.png";
+import React, { useState, useRef, useEffect } from 'react';
+import './Dropdown.scss';
+import UpArrow from "../../assets/images/dropdown.png";
 
-const Dropdown = ({ selectedValue, onSelect, options, addOption, placeholder, onBlur, validation }) => {
+const Dropdown = ({ selectedValues = [], onSelect, options = [], addOption, label, validation, onBlur }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [showTextBox, setShowTextBox] = useState(false);
   const [rotateImg, setRotateImg] = useState(false);
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+        setRotateImg(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleDropdownClick = () => {
     setIsOpen(!isOpen);
@@ -15,8 +28,11 @@ const Dropdown = ({ selectedValue, onSelect, options, addOption, placeholder, on
   };
 
   const handleOptionClick = (event) => {
-    onSelect(event.target.value);
-    setIsOpen(false);
+    const value = event.target.value;
+    const newSelectedValues = selectedValues.includes(value)
+      ? selectedValues.filter((item) => item !== value)
+      : [...selectedValues, value];
+    onSelect(newSelectedValues);
   };
 
   const handleInputChange = (e) => {
@@ -27,19 +43,7 @@ const Dropdown = ({ selectedValue, onSelect, options, addOption, placeholder, on
     e.preventDefault();
     if (inputValue.trim() !== '') {
       addOption(inputValue);
-      setInputValue(''); // Clear the input field after adding
-    }
-  };
-
-  const showTextBox1 = () => {
-    setShowTextBox(true);
-  };
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
-      setShowTextBox(false);
-      setRotateImg(false);
+      setInputValue('');
     }
   };
 
@@ -49,64 +53,44 @@ const Dropdown = ({ selectedValue, onSelect, options, addOption, placeholder, on
     }
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   return (
-    <div className="dropdown-containercomponentPricing" ref={dropdownRef}>
-      <div
-        className="dropdowncomponentPricing"
-        onClick={handleDropdownClick}
-        onBlur={handleBlur}
-        tabIndex={0}
-      >
-        {selectedValue || <div style={{ color: "#979797", fontSize: "14px" }}>{placeholder}</div>}
-        {rotateImg ? (
-          <div><img src={Arrow} className='ArrowPricingRotate' alt="Arrow" /></div>
+    <div className="dropdown-containerPricing" ref={dropdownRef}>
+      <label className='droplabelPricing'>{label}</label>
+      <div className={!validation?.isValid ? "dropdownPricingred":"dropdownPricing"} onClick={handleDropdownClick} onBlur={handleBlur} tabIndex={0}>
+        {selectedValues.length > 0 ? (
+          <div className='valuePricing'>
+            {selectedValues.slice(0, 3).join(', ')}
+          </div>
         ) : (
-          <div><img src={Arrow} className='ArrowPricing' alt="Arrow" /></div>
+          <div className='valuePlaceholder'>
+            {/* Placeholder or empty state can be handled here */}
+          </div>
         )}
+        <div><img src={UpArrow} className={rotateImg ? 'arrowrotatePricing' : 'arrowdropPricing'} alt="arrow" /></div>
       </div>
       {isOpen && (
-        <div className="dropdown-content">
-          <div className="optionsPricing">
-            {options.map((option, index) => (
-              <label key={index} className='labelDrop'>
+        <div className="optionsPricing">
+          {options.length > 0 ? (
+            options.map((option, index) => (
+              <label key={index}>
                 <input
-                  type="radio"
-                  name="option"
-                  className='radiobtPricing'
+                  type="checkbox"
+                  name={option}
+                  className="checkboxPricing"
                   value={option}
-                  checked={selectedValue === option}
+                  checked={selectedValues.includes(option)}
                   onChange={handleOptionClick}
                 />
                 {option}
               </label>
-            ))}
-          </div>
-          {showTextBox ? (
-            <div className='addbtnPricing'>
-              <input
-                type='text'
-                className="inputntnoptionsPricing"
-                value={inputValue}
-                onChange={handleInputChange}
-              />
-              <a className='options-btnPricing' onClick={addNewItem}>+Add</a>
-            </div>
+            ))
           ) : (
-            <div>
-              <button className='btnADDPricing' onClick={showTextBox1}>+Add Item</button>
-            </div>
+            <div>No options available</div>
           )}
         </div>
       )}
       {!validation?.isValid && (
-        <div style={{ color: 'red' }}>{validation?.errorMessage}</div>
+        <p style={{ color: 'red',fontSize:"0.75rem",fontWeight:"500" }}>{validation?.errorMessage}</p>
       )}
     </div>
   );
