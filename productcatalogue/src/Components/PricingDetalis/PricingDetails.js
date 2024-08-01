@@ -43,8 +43,11 @@ const PricingDetails = () => {
     Pickup: { isValid: true, errorMessage: '' },
     Delivery: { isValid: true, errorMessage: '' },
     ThirdDelivery1: { isValid: true, errorMessage: '' },
-    ThirdDelivery2: { isValid: true, errorMessage: '' }
-
+    ThirdDelivery2: { isValid: true, errorMessage: '' },
+    Pickupspecial: { isValid: true, errorMessage: '' },
+    Deliveryspecial: { isValid: true, errorMessage: '' },
+    Deliveryspecial1: { isValid: true, errorMessage: '' },
+    Deliveryspecial2: { isValid: true, errorMessage: '' },
 
   });
 
@@ -86,7 +89,7 @@ const PricingDetails = () => {
     validateDropdown(selectedValue1, 'preparationTime');
     validateDropdown(selectedValue1, 'DineinMeal');
     validateDropdown(selectedValue1, 'DineinService');
-    return validationState.kitchen.isValid && validationState.preparationTime.isValid && validationState.Pickup.isValid && validationState.Delivery.isValid&& validationState.ThirdDelivery1.isValid&& validationState.ThirdDelivery2.isValid;
+    return validationState.kitchen.isValid && validationState.preparationTime.isValid && validationState.Pickup.isValid && validationState.Delivery.isValid&& validationState.ThirdDelivery1.isValid&& validationState.ThirdDelivery2.isValid&& validationState.Pickupspecial.isValid&& validationState.Deliveryspecial.isValid&& validationState.Deliveryspecial1.isValid&& validationState.Deliveryspecial2.isValid;
   };
 
   const getNormalForm = (normalForm) => {
@@ -313,7 +316,7 @@ const PricingDetails = () => {
           </div>
         </div>
 
-        {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState} /> : <Specialavail getSpecialForm={getSpecialForm} />}
+        {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState} /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />}
 
         <div className="buttoncomponent">
           <div className="saveandnextPricing">

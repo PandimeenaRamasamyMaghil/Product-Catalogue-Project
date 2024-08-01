@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 
 import DropDown2 from './DropDown2';
-const Specialavail = ({getSpecialForm}) => {
+const Specialavail = ({getSpecialForm,validateDropdown,validationState}) => {
 const [dinein, setDineIn] = useState(true);
   const [online, setOnline] = useState(false)
   const [pickup, setPickup] = useState(false)
@@ -132,24 +132,29 @@ const [dinein, setDineIn] = useState(true);
   };
   const handleSelectpick = (value) => {
     setSelectedValuesPickup(value);
+    validateDropdown(selectedValuespickup, 'Pickupspecial')
   };
   const addOptionpickup = (newOption) => {
     setOptionsPick3([...optionspick, newOption]);
   };
   const handleSelectdelivery = (value) => {
     setSelectedValuesDelivery(value);
+    validateDropdown(selectedValuesdelivery, 'Deliveryspecial')
   };
   const addOptiondelivery = (newOption) => {
     setOptionsDelivery([...optionsdelivery, newOption]);
   };
   const handleSelectThird1 = (value) => {
     setSelectedValuesThird1(value);
+    validateDropdown(selectedValuesthird1, 'Deliveryspecial1')
+
   };
   const addOptionThird1 = (newOption) => {
     setOptionsThird1([...optionsthird1, newOption]);
   };
   const handleSelectThird2 = (value) => {
     setSelectedValuesThird2(value);
+    validateDropdown(selectedValuesthird2, 'Deliveryspecial2')
   };
   const addOptionThird2 = (newOption) => {
     setOptionsThird2([...optionsthird2, newOption]);
@@ -188,6 +193,7 @@ const [dinein, setDineIn] = useState(true);
     const newDineInFields = [...dineinfields];
     newDineInFields[index].DineInMealType = value;
     setDineInFields(newDineInFields);
+    validateDropdown(value,index)
   };
 
   
@@ -306,7 +312,7 @@ const [dinein, setDineIn] = useState(true);
             {dineinfields.map((item,index) => (
              
  
-<div className='DineInInput11Special' key={index}>
+<div className='DineInInput11Special'  style={{ zIndex: dineinfields.length - index }}> 
            <p className='LabelSpecialPrice'>Price*</p>
           <input
             type="text"
@@ -325,6 +331,8 @@ const [dinein, setDineIn] = useState(true);
             options={options3}
             addOption={addOption3}
             label="Meal Type*"
+            onBlur={() => validateDropdown(selectedValuesMealType[index] || [], index)}
+                    validation={validationState[index] || { isValid: true, errorMessage: '' }}
             onChange={(e)=>handleSelectMealtype(index,e.target.value)}
           />
           </div>
@@ -377,6 +385,8 @@ const [dinein, setDineIn] = useState(true);
           options={optionspick}
           addOption={addOptionpickup}
           label="Meal Type*"
+          onBlur={() => validateDropdown(selectedValuespickup, 'Pickupspecial')}
+              validation={validationState.Pickupspecial}
         />
         </div>
                     </div>
@@ -401,6 +411,8 @@ const [dinein, setDineIn] = useState(true);
           options={optionsdelivery}
           addOption={addOptiondelivery}
           label="Meal Type*"
+          onBlur={() => validateDropdown(selectedValuespickup, 'Deliveryspecial')}
+          validation={validationState.Deliveryspecial}
         />
         </div>
                     </div>
@@ -423,6 +435,8 @@ const [dinein, setDineIn] = useState(true);
           options={optionsthird1}
           addOption={addOptionThird1}
           placeholder="Meal Type*"
+          onBlur={() => validateDropdown(selectedValuesthird1, 'Deliveryspecial1')}
+          validation={validationState.Deliveryspecial1}
         />
         </div>
                     </div>
@@ -436,6 +450,9 @@ const [dinein, setDineIn] = useState(true);
           options={optionsthird2}
           addOption={addOptionThird2}
           placeholder="Meal Type*"
+          onBlur={() => validateDropdown(selectedValuesthird2, 'Deliveryspecial2')}
+          validation={validationState.Deliveryspecial2}
+
         />
         </div>
                     </div>
