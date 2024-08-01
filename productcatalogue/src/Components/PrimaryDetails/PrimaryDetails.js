@@ -1781,7 +1781,7 @@ const PrimaryDetails = () => {
                   </div>
                 </div>
 
-                <button className="arrowbtn">
+                <button className="arrowbtn bestpairarrowbtn">
                   {dropdownStates.bestPairdropdown ? (
                     <img
                       src={dropdown}

@@ -8,6 +8,7 @@ import Reviewpage from './Reviewpage/Reviewpage'
 import { Routes, Route } from 'react-router-dom';
 import PricingDetails from './PricingDetalis/PricingDetails'
 import { Contextpage } from './contextpage'
+import Pricingpage from './Pricingpage/Pricingpage'
 
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -16,6 +17,7 @@ const Landingpage = () => {
       <Contextpage>
 
 <Sidenavbar/>
+{/* <Pricingpage/> */}
         {/* <Navigationpage  /> */}
        {/* < Reviewpage/> */}
 
