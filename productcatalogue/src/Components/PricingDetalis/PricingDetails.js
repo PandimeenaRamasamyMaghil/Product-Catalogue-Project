@@ -40,7 +40,11 @@ const PricingDetails = () => {
     kitchen: { isValid: true, errorMessage: '' },
     preparationTime: { isValid: true, errorMessage: '' },
     DineinMeal: { isValid: true, errorMessage: '' },
-    DineinService: { isValid: true, errorMessage: '' }
+    Pickup: { isValid: true, errorMessage: '' },
+    Delivery: { isValid: true, errorMessage: '' },
+    ThirdDelivery1: { isValid: true, errorMessage: '' },
+    ThirdDelivery2: { isValid: true, errorMessage: '' }
+
 
   });
 
@@ -82,7 +86,7 @@ const PricingDetails = () => {
     validateDropdown(selectedValue1, 'preparationTime');
     validateDropdown(selectedValue1, 'DineinMeal');
     validateDropdown(selectedValue1, 'DineinService');
-    return validationState.kitchen.isValid && validationState.preparationTime.isValid && validationState.DineinMeal.isValid;
+    return validationState.kitchen.isValid && validationState.preparationTime.isValid && validationState.Pickup.isValid && validationState.Delivery.isValid&& validationState.ThirdDelivery1.isValid&& validationState.ThirdDelivery2.isValid;
   };
 
   const getNormalForm = (normalForm) => {

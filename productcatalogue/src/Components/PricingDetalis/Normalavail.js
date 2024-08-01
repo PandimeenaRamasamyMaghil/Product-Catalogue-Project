@@ -270,24 +270,29 @@ if (prizingDetail?.normalForm) {
 const handleSelect3 = (value) => {
 
   setSelectedValues2(value);
+  validateDropdown(value, 'Pickup');
 };
 const addOption3 = (newOption) => {
   setOptions3([...options3, newOption]);
 };
 const handleSelect4 = (value) => {
   setSelectedValues3(value);
+  validateDropdown(value, 'Delivery');
 };
 const addOption4 = (newOption) => {
   setOptions4([...options4, newOption]);
 };
 const handleSelect5 = (value) => {
   setSelectedValues4(value);
+  validateDropdown(value, 'ThirdDelivery1');
+
 };
 const addOption5 = (newOption) => {
   setOptions5([...options5, newOption]);
 };
 const handleSelect6 = (value) => {
   setSelectedValues5(value);
+  validateDropdown(value, 'ThirdDelivery2');
 };
 const addOption6 = (newOption) => {
   setOptions6([...options6, newOption]);
@@ -442,6 +447,8 @@ const handleMealSelect2 = (index, value) => {
           onSelect={handleSelect3}
           options={options3}
           addOption={addOption3}
+          onBlur={() => validateDropdown(selectedValues2, 'Pickup')}
+              validation={validationState.Pickup}
           
           label="Meal Type*"
         />
@@ -490,6 +497,8 @@ const handleMealSelect2 = (index, value) => {
           options={options4}
           addOption={addOption4}
           label="Meal Type*"
+          onBlur={() => validateDropdown(selectedValues3, 'Delivery')}
+              validation={validationState.Delivery}
         />
         </div>          
                     </div>
@@ -529,6 +538,8 @@ const handleMealSelect2 = (index, value) => {
           addOption={addOption5}
           placeholder="Meal Type*"
           label="Meal Type*"
+          onBlur={() => validateDropdown(selectedValues4, 'ThirdDelivery1')}
+              validation={validationState.ThirdDelivery1}
         />
         </div>
                   
@@ -544,6 +555,8 @@ const handleMealSelect2 = (index, value) => {
           addOption={addOption6}
           placeholder="Meal Type*"
           label="Meal Type*"
+          onBlur={() => validateDropdown(selectedValues5, 'ThirdDelivery2')}
+              validation={validationState.ThirdDelivery2}
         />
         </div>
                   
