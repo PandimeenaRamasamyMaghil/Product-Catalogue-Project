@@ -1,11 +1,6 @@
 import React,{useContext} from "react";
 import "./Reviewpage.scss";
-import Egg2 from "../../assets/images/icon/egg2.png";
-import Dairy from "../../assets/images/icon/Dairy.png";
-import Shellfish from "../../assets/images/icon/Shellfish.png";
-import Fish from "../../assets/images/icon/Fish.png";
-import nuts from "../../assets/images/icon/nuts.png";
-import Legumes from "../../assets/images/icon/Legumes.png";
+import emptyfoodimg from "../../assets/images/emptyfoodimg.png";
 import edit from "../../assets/images/edit.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -264,7 +259,7 @@ const Reviewpage = () => {
           </div>
           <div className="primaryimagepart">
           {
-            fetchedprimarydata&& fetchedprimarydata.imageUrls &&  fetchedprimarydata.imageUrls.length > 0 && (
+           
               <div className="primaryimages">
               <p>Primary Image</p>
               <div className="images">
@@ -306,12 +301,24 @@ const Reviewpage = () => {
                             />
                           </li>
                         ))}
+
+                         {  fetchedprimarydata &&
+                      fetchedprimarydata.imageUrls &&
+                     fetchedprimarydata.imageUrls.length < 7 &&
+        Array.from({ length: 7 - fetchedprimarydata.imageUrls.length }).map((_, index) => (
+          <li key={`sample-${index}`}>
+            <img
+              src={emptyfoodimg}
+              alt={`sample ${index}`}
+            />
+          </li>
+        ))}
                   </div>
                 </ol>
               </div>
             </div>
               
-            )
+            
 
           }
 
