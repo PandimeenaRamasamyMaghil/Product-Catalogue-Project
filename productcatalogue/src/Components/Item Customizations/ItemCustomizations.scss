@@ -2,8 +2,16 @@
   position: relative;
   top:2.7rem;
   left: 1rem;
-  width: 65.375rem;
-  height: auto;
+  overflow-y: scroll;
+  height: 550px;
+  width: 1160px;
+
+
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
+
 }
 
 .AddModifiersSection {
@@ -379,14 +387,7 @@ input[type="number"] {
 }
 .modifiersitem
 {
-  overflow-y: auto;
-  height: 580px;
-
-
-
-  &::-webkit-scrollbar{
-    display: none;
-  }
+  
 }
 
 .modifier-div-margin2 {
