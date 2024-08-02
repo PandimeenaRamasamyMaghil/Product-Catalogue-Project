@@ -10,7 +10,11 @@
     display: flex;
     justify-content: flex-start;
     width:62.5rem;
-    height:40.5rem;
+    height:550px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        display: none;
+    }
    
 }
 .pricing-form{
@@ -330,10 +334,10 @@ transform: translateY(5px);
  
  
  
-.buttoncomponent{
+.buttoncomponentpricing{
     // margin-bottom: 10px;
     position: relative;
-    top: 300px;
+    // top: 300px;
     display: flex;
     width: 1200px;
    
