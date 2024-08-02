@@ -29,7 +29,7 @@
 
   flex-direction: column;
   height: 530px;
-  width: 71.875rem;
+  width: 78.875rem;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;
@@ -1245,6 +1245,7 @@ input:focus{
     {
       position: relative;
       top:  350px;
+    
       .link{
         text-decoration: none;
       }
