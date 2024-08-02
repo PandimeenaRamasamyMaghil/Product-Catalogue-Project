@@ -534,6 +534,7 @@
                       />
                     </div>
                   </div>
+                  <div className="dropDown-item">
                   <Dropdown
                   selectedValues={modifier.selectedValue}
 
@@ -543,7 +544,9 @@
             addOption={addOption1}
             placeholder="Available Service Stream* "
             onChange={(e)=>handleSelectedValueChange(modIndex,e.target.value)}
+            label="Meal Type*"
           />
+          </div>
                 </div>
               </div>
             )}

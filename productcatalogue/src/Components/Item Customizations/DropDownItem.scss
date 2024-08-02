@@ -1,4 +1,4 @@
-.dropdown-containercomponentPricing {
+.dropdown-containercomponentitem {
  
     position: relative;
     width: 300px;
@@ -11,7 +11,7 @@
 
   }
   
-  .dropdowncomponentPricing {
+  .dropdowncomponentitem  {
     width: 300px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -23,20 +23,20 @@
     align-items: center;
   }
   
-  .ArrowPricing {
+  .ArrowPricingitem  {
     width: 16px;
     height: 8.67px;
     opacity: 30%;
   }
   
-  .ArrowPricingRotate {
+  .ArrowPricingRotateitem  {
     transform: rotate(180deg);
     width: 16px;
     height: 8.67px;
     opacity: 30%;
   }
   
-  .dropdown-content {
+  .dropdown-contentitem {
     position: absolute;
     top: 100%; /* Align dropdown content directly below the trigger */
     left: 0;
@@ -49,7 +49,7 @@
     padding: 10px 0; /* Adjust padding as needed */
   }
   
-  .optionsPricing {
+  .optionsPricingitem  {
     height:90px; /* Adjust height as needed */
     overflow-y: auto;
     scrollbar-width: 0px;
@@ -74,7 +74,7 @@
     background-color: #f0f0f0;
   }
   
-  .radiobtPricing {
+  .radiobtPricingitem  {
     accent-color: green;
     width: 20px;
     height: 20px;
@@ -82,13 +82,13 @@
     margin-left: 10px; /* Added margin to the right */
   }
   
-  .labelDrop {
+  .labelDropitem  {
     color: #979797;
     font-size: 14px;
     font-weight: 400;
   }
   
-  .options-btnPricing {
+  .options-btnPricingitem  {
     display: flex;
     width: 58px;
     height: 35px;
@@ -105,7 +105,7 @@
     
   }
   
-  .inputntnoptionsPricing {
+  .inputntnoptionsPricingitem  {
    margin-top: -10px;
    margin-left: -5px;
     width: 292px;
@@ -115,13 +115,13 @@
     
   }
   
-  .addbtnPricing {
+  .addbtnPricingitem {
     display: flex;
     align-items: center;
     padding: 10px;
   }
   
-  .btnADDPricing {
+  .btnADDPricingitem {
     position: relative;
     left: 188px;
     width: 99px;
