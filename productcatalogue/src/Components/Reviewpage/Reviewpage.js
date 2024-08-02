@@ -281,6 +281,21 @@ const Reviewpage = () => {
                         />
                       </li>
                     )}
+                    {  fetchedprimarydata &&
+                     ! fetchedprimarydata.imageUrls &&
+                     
+        [0].map((_, index) => (
+
+          <li key={index+1}>
+            
+            <img
+              src={emptyfoodimg}
+              alt={`sample ${index}`}
+            />
+          </li>
+
+        ))}
+       
   
                   <div className="selectediagelist">
                     {/* {imageslist.slice(1).map((image, index) => (
@@ -306,13 +321,32 @@ const Reviewpage = () => {
                       fetchedprimarydata.imageUrls &&
                      fetchedprimarydata.imageUrls.length < 7 &&
         Array.from({ length: 7 - fetchedprimarydata.imageUrls.length }).map((_, index) => (
+
           <li key={`sample-${index}`}>
+            
             <img
               src={emptyfoodimg}
               alt={`sample ${index}`}
             />
           </li>
+
         ))}
+
+{  fetchedprimarydata &&
+                     ! fetchedprimarydata.imageUrls &&
+                     
+        [0,1,2,3,4,5].slice(1).map((_, index) => (
+
+          <li key={index+1}>
+            
+            <img
+              src={emptyfoodimg}
+              alt={`sample ${index}`}
+            />
+          </li>
+
+        ))}
+       
                   </div>
                 </ol>
               </div>

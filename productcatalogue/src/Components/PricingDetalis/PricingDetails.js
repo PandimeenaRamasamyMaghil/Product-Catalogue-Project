@@ -318,7 +318,7 @@ const PricingDetails = () => {
 
         {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState} /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />}
 
-        <div className="buttoncomponent">
+        <div className="buttoncomponentpricing">
           <div className="saveandnextPricing">
             <button className="clearallPricing">
               Clear All
