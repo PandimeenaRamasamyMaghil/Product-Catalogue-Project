@@ -355,7 +355,7 @@ const handleMealSelect2 = (index, value) => {
               return (
                 <>
                  <p className='LabelPrice'>Price*</p>
-                   <div className='DineInInput11Normal' key={index}>
+                   <div className='DineInInput11Normal' key={index} style={{ zIndex: dineinfields.length - index }}>
           <input
             type="text"
             
