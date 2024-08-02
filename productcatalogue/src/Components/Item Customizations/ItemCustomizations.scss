@@ -2,9 +2,12 @@
   position: relative;
   top:2.7rem;
   left: 1rem;
+  // bottom: 100px;
   overflow-y: scroll;
-  height: 550px;
+  height: 498px;
   width: 1160px;
+  // margin-bottom: 10px;
+  // border: 1px solid red;
 
 
 
@@ -21,6 +24,7 @@
   justify-content: start;
   gap: 1.4rem;
   margin-bottom: 0.5rem;
+  // border: 1px solid black;
 }
 
 .headingItemCustomizations {
@@ -433,7 +437,14 @@ input[type="number"] {
 .footer-save-next{
 
   position: relative;
-  top: 200px;
+  // top: 100px;
+
+  // border: 1px solid red;
+bottom: -10px;
+  margin-left: -5px;
+ 
+  // border: 1px solid red;
+ 
 }
 
 .modifier-div-margin > div:nth-child(1) {
@@ -474,7 +485,9 @@ input[type="number"] {
 }
 
 .dropdown-container{
-  margin-left: 30px;
+  // margin-left: 30px;
+  margin-top: 20px;
+ 
 }
 
 .searchbox{
