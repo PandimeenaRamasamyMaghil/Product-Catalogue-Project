@@ -28,7 +28,7 @@
 
 
   flex-direction: column;
-  height: 530px;
+  height: 33.125rem;
   width: 78.875rem;
   overflow-y: scroll;
   &::-webkit-scrollbar {
@@ -1206,7 +1206,17 @@ input:focus{
       position: relative;
       top: -21px;
     }
-
+.erormsgformastercode
+{
+  font-family: "Poppins", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: red;
+      margin-top: 50px;
+      margin-left: 135px;
+      position: relative;
+     
+}
 
 .errormsgforinputfield{
   font-family: "Poppins", sans-serif;

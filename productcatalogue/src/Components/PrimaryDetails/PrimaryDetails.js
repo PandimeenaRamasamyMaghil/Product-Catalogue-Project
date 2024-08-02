@@ -572,6 +572,12 @@ const PrimaryDetails = () => {
       isValid = false;
       errorsvalidate.categoryerror = "Category is required.";
     }
+    if(!Primarydetailsform.masterCode)
+    {
+      isValid = false;
+      errorsvalidate.masterCodeerror = "master code is required.";
+
+    }
     setPrimarydetailsformerrors(errorsvalidate);
 
     return isValid;
@@ -2803,6 +2809,7 @@ const PrimaryDetails = () => {
                     </Tooltip>
                   </div>
                 </div>
+                <div style={{display:'flex',flexDirection:'column'}}>
 
                 <div className="MasterCode">
                   {/* <p>Master Item Code</p> */}
@@ -2882,13 +2889,16 @@ const PrimaryDetails = () => {
                       </div>
                     </Tooltip>
                   </div>
-                  <p className="errormsgfordropdown">
+                  
+                </div>
+                <p className="errormsgfordropdown erormsgformastercode">
                     {" "}
                     {Primarydetailsformerrors.masterCodeerror && (
                       <span> {Primarydetailsformerrors.masterCodeerror}</span>
                     )}
                   </p>
                 </div>
+               
               </div>
 
 
