@@ -63,7 +63,7 @@ const Step3Review = () => {
               <div className="Step-3-Modifier-Section-Each-Menu-container">
                 <h3 className="Step-3-Modifier-Section-Menu-heading">Price</h3>
                 {elem.options && elem.options.map((price, priceIndex) => (
-                  <h2 key={priceIndex} className="Step-3-Modifier-Section-Menu-details-price">Rs {price.price}</h2>
+                  <h2 key={priceIndex} className="Step-3-Modifier-Section-Menu-details-price">₹ {price.price}</h2>
                 ))}
               </div>
             </div>
@@ -75,10 +75,10 @@ const Step3Review = () => {
 
             <div className="Free-Modification-Section">
               <h3 className="Step-3-Modifier-Section-Menu-heading">Service Stream</h3>
-              <h3 className="Step-3-free-details">{elem.selectedValue|| "-"}</h3>
+              <h3 class   Name="Step-3-free-details">{elem.selectedValue && elem.selectedValue.map((e)=> e +" "+"") || "-"}   </h3>
               <div className="Step-3-Review-Stream-Modification-container">
                 {elem.serviceStreams && elem.serviceStreams.map((stream, streamIndex) => (
-                  <h1 key={streamIndex} className="Step-3-Review-Stream-Modification-heading">{stream}</h1>
+                  <h1 key={streamIndex} className="Step-3-Review-Stream-Modification-heading">{stream} </h1>
                 ))}
               </div>
             </div>

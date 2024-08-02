@@ -17,7 +17,8 @@ const DaysOfWeek = ({ days = [], setDays }) => {
             {daysOfWeek.map((day, index) => (
                 <li 
                     key={index} 
-                    className={`list ${days.includes(index) ? "included" : ""}`} 
+                    className={`list ${Array.isArray(days) && days.includes(index) ? "included" : ""}`}
+
                     onClick={() => toggleHighlight(index)}
                     role="button"
                     tabIndex={0}

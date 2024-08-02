@@ -171,7 +171,7 @@
   /* {-----------------------------Free Modification Section---------------------------------- } */
 
   .Free-Modification-Section{
-    width: 105px;
+    width: 200px;
     height: 60px;
     display: flex;
     flex-direction: column;
@@ -189,6 +189,9 @@
     position: relative;
     margin-left: 10px;
     margin-top: 10px;
+    display: flex;
+    justify-content: start;
+    gap: 20px;
    
 
 
