@@ -442,6 +442,8 @@ input[type="number"] {
   // border: 1px solid red;
 bottom: -10px;
   margin-left: -5px;
+  
+  position: relative;
  
   // border: 1px solid red;
  
@@ -523,6 +525,11 @@ cursor: pointer;
   height: 248px;
 }
 
+.dropDown-item{
+  position: relative;
+  z-index: 10;
+}
+
 @media (max-width: 1400px) {
 
   .mainItemCustomizations {
@@ -578,6 +585,7 @@ cursor: pointer;
   .dropDown-item{
     position: relative;
     top: 80px;
+    z-index: -10;
   }
 
 

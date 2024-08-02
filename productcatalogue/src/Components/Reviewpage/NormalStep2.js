@@ -87,7 +87,7 @@ const NormalStep2 = () => {
         
         </div>
         <h1 className='AvailDaysheading'>Available Days</h1>
-        {prizingDetail && prizingDetail.normalForm && prizingDetail.normalForm.DineIn.map((elem,index)=>{
+        {prizingDetail && prizingDetail?.normalForm && prizingDetail?.normalForm.DineIn.map((elem,index)=>{
           return(
 
             <>
