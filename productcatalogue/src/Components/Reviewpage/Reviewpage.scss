@@ -77,8 +77,6 @@
         // border: 1px solid black;
         div{
             margin-top: 30px;
-            //  border: 1px solid black;
-
             p{
                 font-family: "Poppins",sans-serif;
 font-size: 12px;
@@ -139,19 +137,10 @@ top: 5px;
 .primaryreviewdetailspart2{
     width: 500px;
     height: 580px;
-    
+    // border: 1px solid black;
     position: relative;
     
     left: 30px;
-    .Edit-heading{
-      margin-left: 5px;
-    }
-    .primaryimagepart
-    {
-      position: relative;
-      top: 30px;
-      // border: 1px solid black;
-    }
     .primarypageedit{
         position: relative;
         top:24px;
@@ -197,12 +186,11 @@ left: 5px;
 
     .primaryimages{
         width: 500px;
-        height: 217px;
-        // border: 1px solid red;
+        height: 250px;
         // border: 1px solid green;
         position: relative;
-        top: 5px;
-        // bottom: 10px;
+        top: 50px;
+        bottom: 10px;
         p{
             font-family: "Poppins",sans-serif;
 font-size: 12px;
@@ -251,10 +239,10 @@ margin-bottom: 5px;
     }
     .primarydescription{
         width: 500px;
-        height: 70px;
+        height: 85px;
         // border: 1px solid red;
      position: relative;
-       top: 4px;
+       top: 20px;
       
        p{
         font-family: "Poppins",sans-serif;
@@ -321,10 +309,10 @@ color: #000000;
         flex-direction: row;
       
         width: 500px;
-        height: 115px;
+        height: 105px;
         // border: 1px solid black;
         position: relative;
-        top: 3px;
+        top: 5px;
         margin-bottom: 5px;
     
         .allergens{

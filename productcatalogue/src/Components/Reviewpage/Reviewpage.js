@@ -1,6 +1,11 @@
 import React,{useContext} from "react";
 import "./Reviewpage.scss";
-import emptyfoodimg from "../../assets/images/emptyfoodimg.png";
+import Egg2 from "../../assets/images/icon/egg2.png";
+import Dairy from "../../assets/images/icon/Dairy.png";
+import Shellfish from "../../assets/images/icon/Shellfish.png";
+import Fish from "../../assets/images/icon/Fish.png";
+import nuts from "../../assets/images/icon/nuts.png";
+import Legumes from "../../assets/images/icon/Legumes.png";
 import edit from "../../assets/images/edit.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +25,6 @@ const Reviewpage = () => {
   const dispatch=useDispatch();
 
   const primarydata = useSelector((state) => state.primarypage.data);
-
   const fetchedprimarydata = primarydata;
   const {activeCategory,pages,setActiveCategory}=useContext(Contextpagejs);
 
@@ -124,7 +128,7 @@ const Reviewpage = () => {
                  <p>Calorie Point</p>{" "}
                  <span>
                   
-                     {fetchedprimarydata.caloriePoint} Cal
+                     {fetchedprimarydata.caloriePoint} 
                     
                  </span>{" "}
                </div>)
@@ -141,11 +145,6 @@ const Reviewpage = () => {
                       ? fetchedprimarydata.portionSize
                       : "-"}
                   </span>{" "}
-                  {
-                    fetchedprimarydata.portionSizeSeleted ==="Portion(count)"? <span>Pieces</span>:
-                    <span>Grams</span>
-
-                  }
                 </div>
 
                 )
@@ -224,10 +223,9 @@ const Reviewpage = () => {
     <div className="unitofmeasurement">
                   <p>Unit of measurement</p>{" "}
                   <span>
-                    {/* {fetchedprimarydata.portionSizeSeleted
+                    {fetchedprimarydata.portionSizeSeleted
                       ? fetchedprimarydata.portionSizeSeleted
-                      : "-"} */}
-                      Per plate
+                      : "-"}
                   </span>{" "}
                 </div>
 
@@ -257,9 +255,8 @@ const Reviewpage = () => {
               </Link>{" "}
           
           </div>
-          <div className="primaryimagepart">
           {
-           
+            fetchedprimarydata&& fetchedprimarydata.imageUrls &&  fetchedprimarydata.imageUrls.length > 0 && (
               <div className="primaryimages">
               <p>Primary Image</p>
               <div className="images">
@@ -281,21 +278,6 @@ const Reviewpage = () => {
                         />
                       </li>
                     )}
-                    {  fetchedprimarydata &&
-                     ! fetchedprimarydata.imageUrls &&
-                     
-        [0].map((_, index) => (
-
-          <li key={index+1}>
-            
-            <img
-              src={emptyfoodimg}
-              alt={`sample ${index}`}
-            />
-          </li>
-
-        ))}
-       
   
                   <div className="selectediagelist">
                     {/* {imageslist.slice(1).map((image, index) => (
@@ -316,43 +298,12 @@ const Reviewpage = () => {
                             />
                           </li>
                         ))}
-
-                         {  fetchedprimarydata &&
-                      fetchedprimarydata.imageUrls &&
-                     fetchedprimarydata.imageUrls.length < 7 &&
-        Array.from({ length: 7 - fetchedprimarydata.imageUrls.length }).map((_, index) => (
-
-          <li key={`sample-${index}`}>
-            
-            <img
-              src={emptyfoodimg}
-              alt={`sample ${index}`}
-            />
-          </li>
-
-        ))}
-
-{  fetchedprimarydata &&
-                     ! fetchedprimarydata.imageUrls &&
-                     
-        [0,1,2,3,4,5].slice(1).map((_, index) => (
-
-          <li key={index+1}>
-            
-            <img
-              src={emptyfoodimg}
-              alt={`sample ${index}`}
-            />
-          </li>
-
-        ))}
-       
                   </div>
                 </ol>
               </div>
             </div>
               
-            
+            )
 
           }
 
@@ -424,8 +375,6 @@ const Reviewpage = () => {
             }
           
            
-          </div>
-
           </div>
 
 

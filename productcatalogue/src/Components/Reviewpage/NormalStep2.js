@@ -2,27 +2,30 @@ import React, { useState } from 'react'
 import "./NormalStep2.scss"
 import DaysOfWeek from "../DaysOfWeek/DaysOfWeek"
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 const NormalStep2 = () => {
-  const prizingDetail=useSelector((state)=>state.PricingDetailReducer.prizingData)
-  const thirdParty= prizingDetail && prizingDetail.normalForm &&prizingDetail.normalForm.thirdParty;
+  const prizingDetail=useSelector((state)=>state.PricingDetailReducer.prizingData.mainForm)
+  const thirdParty= prizingDetail && prizingDetail.normalForm &&prizingDetail?.normalForm.thirdParty;
   const [thirdParty1, setThirdParty1] = useState(thirdParty);
 
 
-  const Pickup=prizingDetail && prizingDetail.normalForm && prizingDetail.normalForm.Pickup;
+  const Pickup=prizingDetail && prizingDetail.normalForm && prizingDetail?.normalForm.Pickup;
   const [Pickup1, setPickup1] = useState(Pickup);
 
-  const Delivery=prizingDetail && prizingDetail.normalForm && prizingDetail.normalForm.Delivery;
+  const Delivery=prizingDetail && prizingDetail.normalForm && prizingDetail?.normalForm.Delivery;
   const [delivery1, setDelivery1] = useState(Delivery);
 
 
-  const Dinein=prizingDetail && prizingDetail.normalForm && prizingDetail.normalForm.DineIn;
+  const Dinein=prizingDetail && prizingDetail.normalForm && prizingDetail?.normalForm.DineIn;
   const [Dinein1, setDinein] = useState(Dinein);
   
   
   console.log(thirdParty)
 
   console.log(prizingDetail)
+
+
   return (
     <div>
         <div className='Step2Avaliable'>
@@ -56,7 +59,7 @@ const NormalStep2 = () => {
             <>
              <div className='Step2DineInServiceTime'>
      
-         <div > <h1 className='Step2DineInPricevalue'>{elem.DineInMealType||"-"}</h1></div>
+         <div > <h1 className='Step2DineInPricevalue'>{elem.DineInMealType+" "||"-"}</h1></div>
           </div>
             
             </>
@@ -67,13 +70,13 @@ const NormalStep2 = () => {
          
         
          <div className='Step2DineInServiceArea'>
-         <div ><h1 className='Step2DineInServiceheading'>Service Area</h1></div>
+         <div ><h1 className='Step2DineInServiceAreaheading'>Service Area</h1></div>
 
          {prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.dineinfields.map((elem,index)=>{
           return(
 
             <>
-             <div ><h1 className='Step2DineInPricevalue'>{elem.DineInService||"-"}</h1></div>
+             <div ><h1 className='Step2DineInPricevalue'>{elem.DineInService+" "||"-"}</h1></div>
             
             </>
           )
@@ -107,7 +110,7 @@ const NormalStep2 = () => {
          </div>
          <div className='Step2SellingPrize'>
           <div><h1 className='Step2SellingPrizeheading'>Service Time</h1></div>
-          <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.DeliveryMealType || '-'}</h1></div>
+          <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.PicupMealType || '-'}</h1></div>
          </div>
         </div>
         <h1 className='AvailDaysheadingPickup'>Available Days</h1>
@@ -117,12 +120,12 @@ const NormalStep2 = () => {
         <h1 className='Step2Deliveryheading'>Delivery</h1>
         <div className='Step2Delivery'>
          <div className='Step2SellingPrize'>
-          <div><h1 className='Step2SellingPrizeheading'>Selling Price for Pickup</h1></div>
+          <div><h1 className='Step2SellingPrizeheading'>Selling Price for Delivery</h1></div>
           <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.formNormal &&prizingDetail.normalForm.formNormal.DeliverypriceNormal||"-"}</h1></div>
          </div>
          <div className='Step2SellingPrize'>
           <div><h1 className='Step2SellingPrizeheading'>Service Time</h1></div>
-          <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.PicupMealType || '-'}</h1></div>
+          <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.DeliveryMealType || '-'}</h1></div>
          </div>
         </div>
         <h1 className='AvailDaysheadingdelivery'>Available Days</h1>

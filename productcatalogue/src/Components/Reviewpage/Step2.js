@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import SpecialReview from './SpecialReview'
 
 const Step2 = () => {
-  const prizingDetail=useSelector((state)=>state.PricingDetailReducer.prizingData)
+  const prizingDetail=useSelector((state)=>state.PricingDetailReducer.prizingData?.mainForm)
   
  
 
@@ -43,11 +43,11 @@ const Step2 = () => {
             <div className='Step2KitchenRelated'>
                <div className='Step2KitchenStation'>
                  <h1 className='Step2KitchenStationheading'>Kitchen Station</h1>
-                 <h1 className='Step2KitchenStationvalue'> {prizingDetail.kitchenstation||"-"}</h1>
+                 <h1 className='Step2KitchenStationvalue'> {prizingDetail?.kitchenstation||"-"}</h1>
                 </div> 
                 <div className='Step2Preparation'>
                  <h1 className='Step2Preparationheading'>Preparation</h1>
-                 <h1 className='Step2Preparationvalue'>{prizingDetail.Preparationtime || "-"                 } </h1>
+                 <h1 className='Step2Preparationvalue'>{prizingDetail?.Preparationtime || "-"                 } </h1>
                 </div> 
                 
             </div>
@@ -74,7 +74,7 @@ const Step2 = () => {
                 </div> 
                 
             </div>
-            {prizingDetail && prizingDetail.normalForm ?<NormalStep2/>:<SpecialReview/>}
+            {prizingDetail && prizingDetail?.normalForm ?<NormalStep2/>:<SpecialReview/>}
             
             
             </div>

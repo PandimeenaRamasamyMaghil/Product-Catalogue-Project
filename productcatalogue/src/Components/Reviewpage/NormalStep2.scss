@@ -18,9 +18,9 @@ font-weight: 500;
     display: flex;
     justify-content: flex-start;
     // border: 2px solid pink;
-    margin-left: 22px;
+    margin-left: 12px;
     margin-top: 12px;
-    gap: -35px;
+    gap: 35px;
     margin-bottom: 15px;
 }
 .Step2DineInPrice{
@@ -48,6 +48,7 @@ font-weight: 500;
     flex-direction: column;
     // border:2px solid pink
     gap: 5px;
+    margin-left: -120px;
 }
 .Step2DineInServiceheading{
     
@@ -55,6 +56,7 @@ font-weight: 500;
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 5px;
+    margin-left: -120px;
 
 }
 .Step2DineInServicevalue{
@@ -69,7 +71,14 @@ font-weight: 500;
     display: flex;
     flex-direction: column;
     
+    
     // border:2px solid blue
+}
+.Step2DineInServiceAreaheading{
+    color:#6E6E6E;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 5px;
 }
 .AvailDaysheading{
     font-size: 14px;
