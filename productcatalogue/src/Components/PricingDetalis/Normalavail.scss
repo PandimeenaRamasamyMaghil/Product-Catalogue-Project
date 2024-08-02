@@ -63,7 +63,7 @@
 .DineInInput11Normal{
     display: flex;
     justify-content:flex-start;
-    margin-top: 20px;
+    margin-top: 7px;
     gap:1.8rem;
     position: relative;
     
@@ -79,7 +79,7 @@
     z-index: 2;
   }
 .LabelPrice{
-    transform: translateY(20px);
+    transform: translateY(4px);
     margin-left: 7px;
     color:#666666;
     font-size: 14px;
@@ -226,6 +226,13 @@
 .PrizeD{
     margin-left: 20px;
     z-index: 10;
+}
+.LabelPricePickup{
+    transform: translateY(18px);
+    margin-left: 7px;
+    color:#666666;
+    font-size: 14px;
+    font-weight: 400;
 }
 .DeliveryD{
     z-index: 1;

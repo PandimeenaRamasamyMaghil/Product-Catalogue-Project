@@ -438,7 +438,7 @@ const handleMealSelect2 = (index, value) => {
                 <div className='PickupSectionNormal'>
                 {pickup ?
                  <div>
-                   <p className='LabelPrice'> Price*</p>
+                   <p className='LabelPricePickup'> Price*</p>
                    <div className='PickupInput11Normal'>
                     <input type="text" className='DineInInput1Normal'  value={formNormal.PickuppriceNormal}  onChange={(e) => setformNormal({ ...formNormal,"PickuppriceNormal":e.target.value })} ></input>
                 <div className='PrizeD'>
