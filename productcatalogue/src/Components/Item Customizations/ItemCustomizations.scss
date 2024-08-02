@@ -71,6 +71,18 @@
   color: #979797;
 }
 
+.inputItemCustomizationserror {
+  width: 10.813rem;
+  height: 2.75rem;
+  border-radius: 0.313rem;
+  border: 1px solid red;
+  margin-top: -0.4rem;
+  margin-bottom: 0.625rem;
+  padding-left: 1rem;
+  font-size: 1rem;
+  color: #979797;
+}
+
 .radioboxItemCustomizations {
   display: flex;
   justify-content: center;
@@ -125,6 +137,16 @@
   opacity: 80%;
   font-size: 1rem;
   padding-left: 0.75rem;
+}
+.input2ItemCustomizationserror {
+  width: 11.375rem;
+  height: 2.75rem;
+  border-radius: 0.313rem;
+  border: 1px solid rgba(0,0,0,0.2);
+  opacity: 80%;
+  font-size: 1rem;
+  padding-left: 0.75rem;
+  border: 1px solid red;
 }
 
 .btn-ItemCustomizations {
