@@ -1,33 +1,27 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import "./Reviewpage.scss";
-import Egg2 from "../../assets/images/icon/egg2.png";
-import Dairy from "../../assets/images/icon/Dairy.png";
-import Shellfish from "../../assets/images/icon/Shellfish.png";
-import Fish from "../../assets/images/icon/Fish.png";
-import nuts from "../../assets/images/icon/nuts.png";
-import Legumes from "../../assets/images/icon/Legumes.png";
+import emptyfoodimg from "../../assets/images/emptyfoodimg.png";
 import edit from "../../assets/images/edit.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import imageslist from "../imageslist/imageslist";
-import ingredientimagelist from '../imageslist/ingredientimagelist'
+import ingredientimagelist from "../imageslist/ingredientimagelist";
 
-import Savenext from '../Savenextbutton/Savenextbutton'
+import Savenext from "../Savenextbutton/Savenextbutton";
 import { primarypost } from "../../redux/Actions";
 import Step2 from "./Step2";
 import { Contextpagejs } from "../contextpage";
-
 
 import Step3Review from "./Step3Review";
 
 const Reviewpage = () => {
   let navigate = useNavigate();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
   const primarydata = useSelector((state) => state.primarypage.data);
   const fetchedprimarydata = primarydata;
-  const {activeCategory,pages,setActiveCategory}=useContext(Contextpagejs);
-
+  const { activeCategory, pages, setActiveCategory } =
+    useContext(Contextpagejs);
 
   // const imageslist = [
   //   {
@@ -70,28 +64,16 @@ const Reviewpage = () => {
       fetchedprimarydata.ingredientFood.includes(item.id)
     );
 
-    const handleedit=(navlink)=>{
-      // dispatch(primarypost(fetchedprimarydata));
-   
-      if("Primary"===navlink)
-      {
-        setActiveCategory("Step 1: Primary Details")
+  const handleedit = (navlink) => {
+    // dispatch(primarypost(fetchedprimarydata));
 
-      }
-      
-
-
-
-
+    if ("Primary" === navlink) {
+      setActiveCategory("Step 1: Primary Details");
     }
-    
+  };
+
   return (
     <div className="reviewpage">
-
-      
-
-
-
       <div className="reviewheading">
         <p>Review menu item - Idli</p>
       </div>
@@ -105,54 +87,63 @@ const Reviewpage = () => {
           <div className="primaryreviews">
             <div className="primaryreviewdetails">
               <div className="primaryreviewdetails1">
-
-
                 <div className="itemname">
-                  <p>Item Name</p> <span>{fetchedprimarydata.itemName}</span>{" "}
-                </div>
-
-                <div className="dietary">
-                  <p>Dietary type</p> <span>{fetchedprimarydata.dietary}</span>{" "}
-                </div>
-
-                <div className="mealtype">
-                  <p>Meal type</p> <span>{fetchedprimarydata.mealType}</span>{" "}
-                </div>
-
-                <div className="Category">
-                  <p>Category</p> <span>{fetchedprimarydata.category}</span>{" "}
-                </div>
-
-                { fetchedprimarydata.caloriePoint && (
-                 <div className="Calorie">
-                 <p>Calorie Point</p>{" "}
-                 <span>
-                  
-                     {fetchedprimarydata.caloriePoint} 
-                    
-                 </span>{" "}
-               </div>)
-
-                }
-
-               
-               {
-                fetchedprimarydata.portionSize && (
-                  <div className="PortionSize">
-                  <p>Portion Size</p>{" "}
+                  <p>Item Name</p>{" "}
                   <span>
-                    {fetchedprimarydata.portionSize
-                      ? fetchedprimarydata.portionSize
+                    {fetchedprimarydata.itemName
+                      ? fetchedprimarydata.itemName
                       : "-"}
                   </span>{" "}
                 </div>
 
-                )
-               }
+                <div className="dietary">
+                  <p>Dietary type</p>{" "}
+                  <span>
+                    {fetchedprimarydata.dietary
+                      ? fetchedprimarydata.dietary
+                      : "-"}
+                  </span>{" "}
+                </div>
 
+                <div className="mealtype">
+                  <p>Meal type</p>{" "}
+                  <span>
+                    {fetchedprimarydata.mealType
+                      ? fetchedprimarydata.mealType
+                      : "-"}
+                  </span>{" "}
+                </div>
 
+                <div className="Category">
+                  <p>Category</p>{" "}
+                  <span>
+                    {fetchedprimarydata.category
+                      ? fetchedprimarydata.category
+                      : "-"}
+                  </span>{" "}
+                </div>
 
-               
+                {
+                  <div className="Calorie">
+                    <p>Calorie Point</p>{" "}
+                    <span>
+                      {fetchedprimarydata.caloriePoint
+                        ? fetchedprimarydata.caloriePoint
+                        : "-"}
+                    </span>{" "}
+                  </div>
+                }
+
+                {
+                  <div className="PortionSize">
+                    <p>Portion Size</p>{" "}
+                    <span>
+                      {fetchedprimarydata.portionSize
+                        ? fetchedprimarydata.portionSize
+                        : "-"}
+                    </span>{" "}
+                  </div>
+                }
 
                 <div className="taxclass">
                   <p>Tax Class Association</p>{" "}
@@ -164,104 +155,96 @@ const Reviewpage = () => {
                 </div>
               </div>
 
-
-
               <div className="primaryreviewdetails2">
-                
-              {
-                fetchedprimarydata.itemCode && (
+                {
                   <div className="itemcode">
-                  <p>Item code</p>{" "}
-                  <span>
-                    {fetchedprimarydata.itemCode
-                      ? fetchedprimarydata.itemCode
-                      : "-"}
-                  </span>{" "}
-                </div>
-                  
-                )
+                    <p>Item code</p>{" "}
+                    <span>
+                      {fetchedprimarydata.itemCode
+                        ? fetchedprimarydata.itemCode
+                        : "-"}
+                    </span>{" "}
+                  </div>
+                }
 
-              }
-              
-              { fetchedprimarydata.itemCode &&(
-                <div className="othedietarydetails">
-                <p>Other dietary details</p>{" "}
-                <span>
-                  {fetchedprimarydata.itemCode
-                    ? fetchedprimarydata.itemCode
-                    : "-"}
-                </span>{" "}
-               </div>
-              )
- 
-              }
-
-               
+                {
+                  <div className="othedietarydetails">
+                    <p>Other dietary details</p>{" "}
+                    <span>
+                      {fetchedprimarydata.itemCode
+                        ? fetchedprimarydata.itemCode
+                        : "-"}
+                    </span>{" "}
+                  </div>
+                }
 
                 <div className="cuisine">
-                  <p>Cuisine</p> <span>{fetchedprimarydata.cuisine}</span>{" "}
-                </div>
-
-
-{
-  fetchedprimarydata.subCategory && (
-    <div className="subcategory">
-                  <p>SubCategory</p>{" "}
+                  <p>Cuisine</p>{" "}
                   <span>
-                    {fetchedprimarydata.subCategory
-                      ? fetchedprimarydata.subCategory
+                    {fetchedprimarydata.cuisine
+                      ? fetchedprimarydata.cuisine
                       : "-"}
                   </span>{" "}
                 </div>
 
-  )
-}
+                {
+                  <div className="subcategory">
+                    <p>SubCategory</p>{" "}
+                    <span>
+                      {fetchedprimarydata.subCategory
+                        ? fetchedprimarydata.subCategory
+                        : "-"}
+                    </span>{" "}
+                  </div>
+                }
 
-
-{
-  fetchedprimarydata.portionSizeSeleted && (
-    <div className="unitofmeasurement">
-                  <p>Unit of measurement</p>{" "}
-                  <span>
-                    {fetchedprimarydata.portionSizeSeleted
-                      ? fetchedprimarydata.portionSizeSeleted
-                      : "-"}
-                  </span>{" "}
-                </div>
-
-  )
-}
-
-
-
-                
-                
+                {
+                  <div className="unitofmeasurement">
+                    <p>Unit of measurement</p>{" "}
+                    <span>
+                      {fetchedprimarydata.portionSizeSeleted
+                        ? fetchedprimarydata.portionSizeSeleted
+                        : "-"}
+                    </span>{" "}
+                  </div>
+                }
 
                 <div className="mastercode">
                   <p>Master product code</p>{" "}
-                  <span>{fetchedprimarydata.masterCode}</span>{" "}
+                  <span>
+                    {fetchedprimarydata.masterCode
+                      ? fetchedprimarydata.masterCode
+                      : "-"}
+                  </span>{" "}
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="primaryreviewdetailspart2">
-          <div >
-           
-          
-            <Link to="/Navigationpage" className="primarypageedit" onClick={()=>setActiveCategory("Step 1: Primary Details")}>
-              <img src={edit} alt=""  className="step3-Review-Container-heading-EditImage" width={15} height={15}/>
-              <h3 className="Edit-heading" >Edit</h3>
-              </Link>{" "}
-          
+          <div>
+            <Link
+              to="/Navigationpage"
+              className="primarypageedit"
+              onClick={() => setActiveCategory("Step 1: Primary Details")}
+            >
+              <img
+                src={edit}
+                alt=""
+                className="step3-Review-Container-heading-EditImage"
+                width={15}
+                height={15}
+              />
+              <h3 className="Edit-heading">Edit</h3>
+            </Link>{" "}
           </div>
           {
-            fetchedprimarydata&& fetchedprimarydata.imageUrls &&  fetchedprimarydata.imageUrls.length > 0 && (
-              <div className="primaryimages">
+            <div className="primaryimages">
               <p>Primary Image</p>
               <div className="images">
                 <ol>
-                  {fetchedprimarydata && fetchedprimarydata.imageUrls&&
+                  {fetchedprimarydata &&
+                    fetchedprimarydata.imageUrls &&
                     fetchedprimarydata.imageUrls.length > 0 && (
                       <li>
                         <img
@@ -278,14 +261,22 @@ const Reviewpage = () => {
                         />
                       </li>
                     )}
-  
+
+                  {fetchedprimarydata &&
+                    !fetchedprimarydata.imageUrls &&
+                    [0].map((_, index) => (
+                      <li key={index + 1}>
+                        <img src={emptyfoodimg} alt={`sample ${index}`} />
+                      </li>
+                    ))}
+
                   <div className="selectediagelist">
                     {/* {imageslist.slice(1).map((image, index) => (
                       <li key={index + 1}>
                         <img src={image.image} alt="" />
                       </li>
                     ))} */}
-  
+
                     {fetchedprimarydata &&
                       fetchedprimarydata.imageUrls &&
                       fetchedprimarydata.imageUrls
@@ -298,125 +289,81 @@ const Reviewpage = () => {
                             />
                           </li>
                         ))}
+                    {fetchedprimarydata &&
+                      !fetchedprimarydata.imageUrls &&
+                      [0, 1, 2, 3, 4, 5].slice(1).map((_, index) => (
+                        <li key={index + 1}>
+                          <img src={emptyfoodimg} alt={`sample ${index}`} />
+                        </li>
+                      ))}
                   </div>
                 </ol>
               </div>
             </div>
-              
-            )
-
           }
 
-         {
-          fetchedprimarydata.description &&(
+          {fetchedprimarydata.description && (
             <div className="primarydescription">
-            <p>Description</p>
-            <div className="description">
-              <p>{fetchedprimarydata.description}</p>
+              <p>Description</p>
+              <div className="description">
+                <p>{fetchedprimarydata.description}</p>
+              </div>
             </div>
-          </div>
+          )}
+          {fetchedprimarydata.bestPair && (
+            <div className="primarybestpairedfood">
+              <p>Best paired with</p>
+              <div className="bestpairfoods">
+                <p>{fetchedprimarydata.bestPair}</p>
+              </div>
+            </div>
+          )}
 
-          )
-
-         }
-{
-  fetchedprimarydata.bestPair &&(
-    <div className="primarybestpairedfood">
-    <p>Best paired with</p>
-    <div className="bestpairfoods">
-      <p>{fetchedprimarydata.bestPair}</p>
-    </div>
-  </div>
-
-  )
-}
-
-
-
-         
-        
           <div className="allergensandingredients">
-
-            {
-               fetchedprimarydata &&
-               fetchedprimarydata.ingredientFood && fetchedprimarydata.ingredientFood.length>0 &&(
+            {fetchedprimarydata &&
+              fetchedprimarydata.ingredientFood &&
+              fetchedprimarydata.ingredientFood.length > 0 && (
                 <div className="ingredients">
-                <p>Ingredients</p>
-                <div className="imagesingredients">
-                  {foundItemsingredient &&
-                    foundItemsingredient.map((image) => (
-                      <div className="selectedingredientsimage">
-                        <img src={image.image} alt="image" />
-                        <span>{image.name}</span>
-                      </div>
-                    ))}
+                  <p>Ingredients</p>
+                  <div className="imagesingredients">
+                    {foundItemsingredient &&
+                      foundItemsingredient.map((image) => (
+                        <div className="selectedingredientsimage">
+                          <img src={image.image} alt="image" />
+                          <span>{image.name}</span>
+                        </div>
+                      ))}
+                  </div>
                 </div>
-              </div>
-
-              )
-            }
-            {
-               fetchedprimarydata &&
-               fetchedprimarydata.allergensFood && fetchedprimarydata.allergensFood.length>0  &&
-             
-              <div className=" allergens">
-              <p> Allergens</p>
-              <div className="imagesallergens">
-                {foundItemsallergens &&
-                  foundItemsallergens.map((image) => (
-                    <div className="selectedallergensimage">
-                      <img src={image.image} alt="image" />
-                      <span>{image.name}</span>
-                    </div>
-                  ))}
-              </div>
-            </div>
-
-            }
-          
-           
+              )}
+            {fetchedprimarydata &&
+              fetchedprimarydata.allergensFood &&
+              fetchedprimarydata.allergensFood.length > 0 && (
+                <div className=" allergens">
+                  <p> Allergens</p>
+                  <div className="imagesallergens">
+                    {foundItemsallergens &&
+                      foundItemsallergens.map((image) => (
+                        <div className="selectedallergensimage">
+                          <img src={image.image} alt="image" />
+                          <span>{image.name}</span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              )}
           </div>
-
-
-
-
-
         </div>
-      
-     
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-      <Step2 />
-      <div  className="verticalLine" />
-      <Step3Review />
-    </div>
+
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Step2 />
+          <div className="verticalLine" />
+          <Step3Review />
+        </div>
         <div className="Itemcustomizationpreview"></div>
-
-        
       </div>
-      <div className="buttoncomponent">
-
-              
-                 
-             
-
-        
-        </div>
-
-       
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-   
-
+      <div className="buttoncomponent"></div>
+    </div>
   );
 };
 

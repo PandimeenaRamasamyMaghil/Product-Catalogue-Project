@@ -5,7 +5,7 @@
 .Primarymain {
   position: relative;
   // top: 20%;
-  left: 1%;
+  left: 1.5%;
   width: 71.875rem;
   // margin-top: -100px;
  
@@ -28,7 +28,7 @@
 
 
   flex-direction: column;
-  height: 33.125rem;
+  height: 35.125rem;
   width: 78.875rem;
   overflow-y: scroll;
   &::-webkit-scrollbar {
@@ -1255,6 +1255,7 @@ input:focus{
     {
       position: relative;
       top:  350px;
+      left: -10px;
     
       .link{
         text-decoration: none;
