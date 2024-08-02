@@ -75,7 +75,7 @@ const Step3Review = () => {
 
             <div className="Free-Modification-Section">
               <h3 className="Step-3-Modifier-Section-Menu-heading">Service Stream</h3>
-              <h3 class   Name="Step-3-free-details">{elem.selectedValue && elem.selectedValue.map((e)=> e +" "+"") || "-"}   </h3>
+              <h3 class   className="Step-3-free-details">{elem.selectedValue && elem.selectedValue.map((e)=> e +" "+"") || "-"}   </h3>
               <div className="Step-3-Review-Stream-Modification-container">
                 {elem.serviceStreams && elem.serviceStreams.map((stream, streamIndex) => (
                   <h1 key={streamIndex} className="Step-3-Review-Stream-Modification-heading">{stream} </h1>

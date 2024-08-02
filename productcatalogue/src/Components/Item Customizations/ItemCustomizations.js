@@ -302,7 +302,7 @@
       
           
           {filteredModifications.length === 0 ? (
-              <div>No modifiers found</div>): (filteredModifications.map((modifier, modIndex) =>(
+              <div className="modifier-no-content">No modifiers found</div>): (filteredModifications.map((modifier, modIndex) =>(
 
             
           
