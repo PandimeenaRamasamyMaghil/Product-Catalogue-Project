@@ -329,7 +329,7 @@ const handleMealSelect2 = (index, value) => {
  
   };
 
-  console.log("From",DayPickup)
+  console.log(dineInDates1)
   
   
   return (

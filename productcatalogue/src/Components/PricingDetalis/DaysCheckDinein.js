@@ -23,7 +23,6 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="1"
         onChange={handleCheckboxChange}
         className='aa'
-        checked={checkedItems.includes(1)}
        
       />
       <label>Monday</label>
@@ -33,7 +32,6 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="2"
         onChange={handleCheckboxChange}
         className='aa'
-        checked={checkedItems.includes(2)}
       />
       <label>Tuesday</label>
 
@@ -42,7 +40,6 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="3"
         onChange={handleCheckboxChange}
         className='aa'
-        checked={checkedItems.includes(3)}
       />
       <label>Wednesday</label>
 
@@ -51,7 +48,6 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="4"
         onChange={handleCheckboxChange}
         className='aa'
-        checked={checkedItems.includes(4)}
       />
       <label>Thursday</label>
 
@@ -60,7 +56,6 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="5"
         onChange={handleCheckboxChange}
         className='aa'
-        checked={checkedItems.includes(5)}
       />
       <label>Friday</label>
 
@@ -69,7 +64,6 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="6"
         onChange={handleCheckboxChange}
         className='aa'
-        checked={checkedItems.includes(6)}
       />
       <label>Saturday</label>
 
@@ -78,7 +72,6 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="0"
         onChange={handleCheckboxChange}
         className='aa'
-        checked={checkedItems.includes(0)}
       />
       <label>Sunday</label>
     </div>

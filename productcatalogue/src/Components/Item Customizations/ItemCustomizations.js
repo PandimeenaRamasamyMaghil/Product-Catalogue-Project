@@ -534,7 +534,7 @@
                       />
                     </div>
                   </div>
-                  <div className="dropDown-item">
+                  <div className="dropDown-item" >
                   <Dropdown
                   selectedValues={modifier.selectedValue}
 
