@@ -15,6 +15,9 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
 
     setCheckedItems(newCheckedItems);
   };
+  const checkedItemsForIndex = Array.isArray(checkedItems[index]) ? checkedItems[index] : [];
+
+  
 
   return (
     <div className='DaysCheckContainer1'>
@@ -23,6 +26,7 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="1"
         onChange={handleCheckboxChange}
         className='aa'
+        checked={checkedItemsForIndex.includes(1)}
        
       />
       <label>Monday</label>
@@ -32,6 +36,7 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="2"
         onChange={handleCheckboxChange}
         className='aa'
+        checked={checkedItemsForIndex.includes(2)}
       />
       <label>Tuesday</label>
 
@@ -40,6 +45,7 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="3"
         onChange={handleCheckboxChange}
         className='aa'
+        checked={checkedItemsForIndex.includes(3)}
       />
       <label>Wednesday</label>
 
@@ -48,6 +54,7 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="4"
         onChange={handleCheckboxChange}
         className='aa'
+        checked={checkedItemsForIndex.includes(4)}
       />
       <label>Thursday</label>
 
@@ -56,7 +63,7 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="5"
         onChange={handleCheckboxChange}
         className='aa'
-      />
+        checked={checkedItemsForIndex.includes(5)}      />
       <label>Friday</label>
 
       <input
@@ -64,6 +71,7 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="6"
         onChange={handleCheckboxChange}
         className='aa'
+        checked={checkedItemsForIndex.includes(6)}
       />
       <label>Saturday</label>
 
@@ -72,6 +80,7 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
         name="0"
         onChange={handleCheckboxChange}
         className='aa'
+        checked={checkedItemsForIndex.includes(0)}
       />
       <label>Sunday</label>
     </div>

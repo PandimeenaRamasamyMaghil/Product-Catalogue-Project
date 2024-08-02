@@ -127,9 +127,11 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
             setSelectedValues(initialSelectedValues2);
             setDineIn(true)
 
-           const dates= prizingDetail?.normalForm?.WeekDays?.map((elem)=>setDineInDates1(elem) )
-           console.log("hi",dates)
-         
+            const WeekDays = prizingDetail?.normalForm?.WeekDays;
+            if (Array.isArray(WeekDays) && WeekDays.every(Array.isArray)) {
+              setDineInDates1(WeekDays);
+              console.log(WeekDays)
+            }
        
             
       
