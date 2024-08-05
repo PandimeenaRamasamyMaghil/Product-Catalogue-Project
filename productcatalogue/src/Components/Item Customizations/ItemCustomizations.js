@@ -334,7 +334,7 @@
                     <h3 className="paraItemCustomizations">{modIndex + 1}.</h3>
                     <input
                       placeholder="Modifier Name"
-                      className="inputItemCustomizations"
+                      className={!modificationError[modIndex]?.modifierName?"inputItemCustomizations":"inputItemCustomizationserror"}
                       name="modifierName"
                       value={filteredModifications[modIndex].modifierName}
                       onChange={(e) => handleModifierChange(modIndex, e)}
@@ -389,7 +389,7 @@
                       
                         <input
                           placeholder="Option (Item)*"
-                          className="input2ItemCustomizations"
+                          className={!modificationError[modIndex]?.options[optIndex]?.item?"input2ItemCustomizations":"input2ItemCustomizationserror"}
                           name="item"
                           type="text"
                           value={modifier.options[optIndex].item}
@@ -407,7 +407,7 @@
                       
                         <input
                           placeholder="Price*"
-                          className="input2ItemCustomizations"
+                          className={!modificationError[modIndex]?.options[optIndex]?.price?"input2ItemCustomizations":"input2ItemCustomizationserror"}
                           name="price"
                           type="number"
                           value={modifier.options[optIndex].price}
