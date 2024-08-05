@@ -15,6 +15,29 @@ const Savenextbutton = (probs) => {
   let navigate = useNavigate();
   const {activeCategory, setActiveCategory,pages}=useContext(Contextpagejs);
 
+  const primarydetailsdata=probs.formData;
+
+
+  const data=
+  {
+    locationId:"9c485244-afd4-11eb-b6c7-42010a010026",
+    itemCode:primarydetailsdata.itemCode,
+    altName:"alt name",
+    itemName:primarydetailsdata.itemName,
+    description:primarydetailsdata.description,
+    price:"12",
+    categoryId:"2434d5ed-8144-408f-b75a-c0e50f8de102",
+    subCategoryId:"",
+    kitchenStations:["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],
+    taxFeeId:"",
+    ingredients:["03348389-4b2a-4fca-affa-6ad4291b0241"],
+    modifiers:[],
+    availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
+    category:"",
+    subCategory:"",
+    itemId:null
+  }
+
   
   const dispatch = useDispatch();
   const scrollToTop = () => {
@@ -28,10 +51,10 @@ const Savenextbutton = (probs) => {
   const handleclick = () => {
    
    
-    if (probs.selectedpage === "primary" && probs.validation()) {
+    if (probs.selectedpage === "primary" ) {
       setActiveCategory("Step 2: Pricing and kitchen details")
       
-      dispatch(primarypost(probs.formData));
+      dispatch(primarypost(data));
     } 
     else if (probs.selectedpage === "PricingDetails" && probs.validation()) {
       setActiveCategory("Step 3: Item customizations")
