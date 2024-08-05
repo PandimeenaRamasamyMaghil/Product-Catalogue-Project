@@ -14,20 +14,40 @@ import { Pricing_Detail_Data_Request,Pricing_Detail_Data_Success } from "./const
   function* postprimary(action) {
 
     try{
-      const payload=action.payload;
-      const response= yield call(primarypageAPI,payload)
-      console.log("Posted Successfully");
-      console.log("primary post data",payload)
+      // const payload=action.payload;
+      const response= yield call(primarypageAPI,action.payload)
+  if(response.status===200 ||response.status===201)
+  {
+    yield put(primarysuccess(response.data));
+  } else {
+    yield put(primaryfailure(response.statusText));
+  }
+
   
-      yield put(primarysuccess(payload));
-      console.log("Posted Successfully");
+  
+      // yield put(primarysuccess(payload));
+      // console.log("Posted Successfully");
 
 
   }catch (error) {
   }
-    
   }
 
+
+  
+// function* postData(action) {
+//   try {
+//     const response = yield call(postOutletRegistration, action.payload);
+
+//     if (response.status === 200) {
+//       console.log("response fro pm ",response.data)
+//       yield put(postDataSuccess(response.data));
+//     } else {
+//       yield put(postDataFailure(response.statusText));
+//     }
+//   } catch (error) {
+//  }
+// }
 
  
 
