@@ -102,7 +102,7 @@ const SpecialReview = () => {
         <h3 className="Pickup-Heading">Pick Up </h3>
         <div className="pickup-items-container">
           <div className="pick-up-container-column">
-            <h3 className="pick-up-container-heading">
+            <h3 className="pick-up-container-heading pickupselling">
               Selling Price For Pick up
             </h3>
 
@@ -110,8 +110,8 @@ const SpecialReview = () => {
           </div>
 
           <div className="pick-up-container-column">
-            <h3 className="pick-up-container-heading">Service Time</h3>
-            <h3 className="pick-up-items-label"> { prizingDetail && prizingDetail.specialForm  && prizingDetail.specialForm.selectedValuespickup || "-"} </h3>
+            <h3 className="pick-up-container-heading pickupservicetime">Service Time</h3>
+            <h3 className="pick-up-items-label pickupservicetime"> { prizingDetail && prizingDetail.specialForm  && prizingDetail.specialForm.selectedValuespickup || "-"} </h3>
           </div>
         </div>
 
@@ -122,7 +122,7 @@ const SpecialReview = () => {
 
           <div className="special-container">
             <div className="special-container-column">
-              <h3 className="Special-container-heading">
+              <h3 className="Special-container-heading deliveryselling">
               Selling Price For Delivery
               </h3>
 
@@ -130,7 +130,7 @@ const SpecialReview = () => {
             </div>
 
             <div className="special-container-column">
-              <h3 className="Special-container-heading">Service Time</h3>
+              <h3 className="Special-container-heading deliveryservice">Service Time</h3>
               <h3 className="special-items-label">   { prizingDetail && prizingDetail.specialForm  && prizingDetail.specialForm.selectedValuesdelivery || "-"} </h3>
             </div>
 
@@ -142,18 +142,18 @@ const SpecialReview = () => {
         <div>
           <h3 className="Special-Heading1">Third Party Delivery </h3>
 
-          <div className="special-container">
-            <div className="special-container-column">
-              <h3 className="Special-container-heading">
+          <div className="special-container-thirdparty">
+            <div className="special-container-column-thirdparty">
+              <h3 className="Special-container-heading-thirdparty thirdpartyselling">
               Selling Price For Third Party
               </h3>
 
               <h3 className="special-items-label">{ prizingDetail && prizingDetail.specialForm && prizingDetail.specialForm.form && prizingDetail.specialForm.form.Swiggy || "-"}</h3>
             </div>
 
-            <div className="special-container-column">
-              <h3 className="Special-container-heading">Zomato Price </h3>
-              <h3 className="special-items-label"> {prizingDetail && prizingDetail.specialForm && prizingDetail.specialForm.form && prizingDetail.specialForm.form.Zomato || "-"} </h3>
+            <div className="special-container-column-thirdparty">
+              <h3 className="Special-container-heading-thirdparty thirdpartyprice">Zomato Price </h3>
+              <h3 className="special-items-label-thirdparty"> {prizingDetail && prizingDetail.specialForm && prizingDetail.specialForm.form && prizingDetail.specialForm.form.Zomato || "-"} </h3>
             </div>
 
           </div>
