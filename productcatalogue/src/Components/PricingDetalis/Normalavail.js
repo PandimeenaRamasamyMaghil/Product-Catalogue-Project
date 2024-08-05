@@ -413,7 +413,7 @@ const handleMealSelect2 = (index, value) => {
                   />
        
        </div>
-       <h1 onClick={() => handleDelete(index)} className='Delete'>Delete</h1>
+       <h1 onClick={() => handleDelete(index)} className='Delete'>- Delete</h1>
         </div>
         <div className='dineInChooseDayContainer'>
             <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>
