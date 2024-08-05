@@ -74,7 +74,7 @@ font-weight: 500;
 
 }
 .Step2DineInServiceArea{
-    
+        
     width:200px;
     display: flex;
     flex-direction: column;
@@ -126,14 +126,13 @@ margin-top: -10px;
 margin-left: 35px;
 margin-bottom: 20px;
 gap: 150px;
-border: 2px solid red;
+
 }
 .Step2SellingPrize{
    
 
        display: flex;
     flex-direction: column;
-    border: 2px solid blue
     // border:2px solid orange;
 }
 .Step2SellingPrizeheading{
@@ -181,7 +180,6 @@ margin-top: -10px;
 margin-left: 36px;
 margin-bottom: 20px;
 gap: 150px;
-border: 2px solid red;
 }
 .AvailDaysheadingdelivery{
     font-size: 14px;
@@ -209,7 +207,6 @@ border: 2px solid red;
     margin-left: 36px;
     margin-bottom: 20px;
     gap: 150px;
-    border: 2px solid red;
 }
 .DaysThirdDelivery{
     margin-left: 15px;
