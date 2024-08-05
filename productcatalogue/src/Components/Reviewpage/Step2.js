@@ -55,11 +55,11 @@ const Step2 = () => {
             <div className='Step2InventoryRelated'>
                <div className='Step2InventoryServings'>
                  <h1 className='Step2Servingsheading'>Max No of servings per day</h1>
-                 <h1 className='Step2Servingsvalue'> { prizingDetail && prizingDetail.form && prizingDetail.form.Inventory1 && prizingDetail.form.Inventory1} </h1>
+                 <h1 className='Step2Servingsvalue'> { prizingDetail && prizingDetail.form && prizingDetail.form.Inventory1 && prizingDetail.form.Inventory1||"-"} </h1>
                 </div> 
                 <div className='Step2Threshold'>
                  <h1 className='Step2Thresholdheading'>Threshold</h1>
-                 <h1 className='Step2Thresholdvalue'>{ prizingDetail && prizingDetail.form &&prizingDetail.form.Inventory2}</h1>
+                 <h1 className='Step2Thresholdvalue'>{ prizingDetail && prizingDetail.form &&prizingDetail.form.Inventory2||"-"}</h1>
                 </div> 
                 
             </div>
