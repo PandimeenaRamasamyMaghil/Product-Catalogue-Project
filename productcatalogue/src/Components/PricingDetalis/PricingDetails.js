@@ -267,7 +267,7 @@ const PricingDetails = () => {
                   onBlur={handleBlur}
                   onChange={(e) => setForm({ ...form, "Inventory2": e.target.value })}
                   style={{
-                    borderColor:formerrors.Inventory1 ? 'red' : 'rgba(0, 0, 0, 0.3)'
+                    borderColor:formerrors.Inventory2 ? 'red' : 'rgba(0, 0, 0, 0.3)'
                 }}
                 />
                 <Tooltip message="Threshold">
