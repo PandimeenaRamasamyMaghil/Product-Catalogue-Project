@@ -212,6 +212,22 @@ if (prizingDetail?.normalForm) {
 
 
         }, []);
+        const handleDelete = (index) => {
+          const newEntries = dineinfields.filter((_, i) => i !== index); // Filter out the entry at the given index
+          setDineInFields(newEntries); // Update the dineinfields state
+      
+          const newSelectedValues1 = { ...selectedValues };
+          delete newSelectedValues1[index];
+          setSelectedValues(newSelectedValues1);
+      
+          const newSelectedValuesMealtype = { ...selectedValuesmealtype };
+          delete newSelectedValuesMealtype[index];
+          setSelectedValuesMealType(newSelectedValuesMealtype);
+          const newarrary=[...dineInDates1]
+          newarrary.splice(index,1)
+          setDineInDates1(newarrary)
+          console.log(newarrary)
+      };
       
     
         
@@ -397,6 +413,7 @@ const handleMealSelect2 = (index, value) => {
                   />
        
        </div>
+       <h1 onClick={() => handleDelete(index)} className='Delete'>Delete</h1>
         </div>
         <div className='dineInChooseDayContainer'>
             <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>

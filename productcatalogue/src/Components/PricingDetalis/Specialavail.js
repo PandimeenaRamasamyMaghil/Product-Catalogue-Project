@@ -176,15 +176,17 @@ const [dinein, setDineIn] = useState(true);
     setOptionsMealType([...optionsmealtype, newOption]);
   };
   const handleDelete = (index) => {
-    const newEntries = dineinentry.filter((_, i) => i !== index);
-    setDineInEntry(newEntries);
+    const newEntries = dineinfields.filter((_, i) => i !== index); // Filter out the entry at the given index
+    setDineInFields(newEntries); // Update the dineinfields state
+
     const newSelectedValues1 = { ...selectedValues1 };
     delete newSelectedValues1[index];
     setSelectedValues1(newSelectedValues1);
+
     const newSelectedValuesMealtype = { ...selectedValuesMealType };
     delete newSelectedValuesMealtype[index];
     setSelectedValuesMealType(newSelectedValuesMealtype);
-  };
+};
   const handleSelect = (value, index) => {
     const newSelectedValues = [...selectedValuesMealType];
     newSelectedValues[index] = value;
