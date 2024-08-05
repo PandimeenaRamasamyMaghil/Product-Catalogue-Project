@@ -18,17 +18,17 @@ font-weight: 500;
     display: flex;
     justify-content: flex-start;
     // border: 2px solid pink;
-    margin-left: 12px;
+  
     margin-top: 12px;
-    gap: 35px;
+   
     margin-bottom: 15px;
 }
 .Step2DineInPrice{
     width:200px;
     display: flex;
     flex-direction: column;
-    // border:2px solid pink
-    gap:0px;
+    // border:2px solid black;
+  
 }
 .Step2DineInPriceheading{
     color:#6E6E6E;
@@ -47,8 +47,8 @@ font-weight: 500;
     display: flex;
     flex-direction: column;
     // border:2px solid pink
-    gap: 5px;
-    margin-left: -120px;
+    // gap: 35px;
+  
 }
 .Step2DineInServiceheading{
     
@@ -56,7 +56,7 @@ font-weight: 500;
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 5px;
-    margin-left: -120px;
+  
 
 }
 .Step2DineInServicevalue{
@@ -151,7 +151,7 @@ gap: 150px;
     margin-bottom: 15px
 }
 .DaysPickUp{
-    margin-left: 2px;
+    margin-left: 10px;
     margin-bottom: 25px;
     color: 
     #868686;
@@ -179,7 +179,7 @@ gap: 150px;
     margin-bottom: 15px
 }
 .DaysDelivery{
-    margin-left: 25px;
+    margin-left: 15px;
     margin-bottom: 25px;
     color: 
     #868686;
@@ -200,7 +200,7 @@ gap: 150px;
     gap: 150px;
 }
 .DaysThirdDelivery{
-    margin-left: 25px;
+    margin-left: 15px;
     margin-bottom: 25px;
     color: 
     #868686;
