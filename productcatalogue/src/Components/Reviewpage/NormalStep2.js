@@ -108,8 +108,8 @@
             <div><h1 className='Step2SellingPrizeheading'>Selling Price for Pickup</h1></div>
             <div><h1 className='Step2SellingPrizevalue'>{ prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.formNormal &&prizingDetail.normalForm.formNormal.PickuppriceNormal||"-"}</h1></div>
           </div>
-          <div className='Step2SellingPrize'>
-            <div><h1 className='Step2SellingPrizeheading'>Service Time</h1></div>
+          <div className='Step2SellingPrize2'>
+            <div><h1 className='Step2SellingPrizeheading2'>Service Time</h1></div>
             <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.PicupMealType || '-'}</h1></div>
           </div>
           </div>
@@ -123,8 +123,8 @@
             <div><h1 className='Step2SellingPrizeheading'>Selling Price for Delivery</h1></div>
             <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.formNormal &&prizingDetail.normalForm.formNormal.DeliverypriceNormal||"-"}</h1></div>
           </div>
-          <div className='Step2SellingPrize'>
-            <div><h1 className='Step2SellingPrizeheading'>Service Time</h1></div>
+          <div className='Step2SellingPrize2'>
+            <div><h1 className='Step2SellingPrizeheading2'>Service Time</h1></div>
             <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.DeliveryMealType || '-'}</h1></div>
           </div>
           </div>
@@ -138,8 +138,8 @@
             <div><h1 className='Step2SellingPrizeheading'>Swiggy Prize Listed</h1></div>
             <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.formNormal &&prizingDetail.normalForm.formNormal.SwiggyNormal||"-"}</h1></div>
           </div>
-          <div className='Step2SellingPrize'>
-            <div><h1 className='Step2SellingPrizeheading'>Zomato Price Listed</h1></div>
+          <div className='Step2SellingPrize2'>
+            <div><h1 className='Step2SellingPrizeheading2'>Zomato Price Listed</h1></div>
             <div><h1 className='Step2SellingPrizevalue'>{prizingDetail && prizingDetail.normalForm &&  prizingDetail.normalForm.formNormal &&prizingDetail.normalForm.formNormal.ZomatoNormal||"-"}</h1></div>
           </div>
           </div>
