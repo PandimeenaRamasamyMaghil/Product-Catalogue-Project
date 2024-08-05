@@ -239,6 +239,8 @@ const PrimaryDetails = () => {
   //   });
   // };
   const [description, setDescription] = useState("");
+  const [descriptionstyle,setdescriptionstyle]=useState();
+
   const maxLength = 100;
   const handledescriptionChange = (event) => {
     if (event.target.value.length <= maxLength) {
@@ -248,6 +250,8 @@ const PrimaryDetails = () => {
         description: event.target.value,
       });
     }
+   
+
   };
   let [allergensimage, setAllergensimage] = useState([]);
   const [seletedingredients, setseletedingredients] = useState([]);
@@ -1047,6 +1051,10 @@ const PrimaryDetails = () => {
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
+  const handledescriptiontextcolor=()=>{
+    // alert("hi");
+    setdescriptionstyle(true);
+  }
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
@@ -1956,11 +1964,25 @@ const PrimaryDetails = () => {
                   autoComplete="off"
                   value={Primarydetailsform.description}
                 />
-                <div className="character-count">
+                <div className="character-count" style={{color:(Math.round(
+                    (Math.round(description.length) / maxLength) * 100
+                  ))==100 && "red"}} >
+                    
+                    
                   {Math.round(
                     (Math.round(description.length) / maxLength) * 100
                   )}
+
+
+
                   /{maxLength}
+
+                  
+                    {/* {(Math.round(
+                      (Math.round(description.length) / maxLength) * 100
+                    ))==100 && handledescriptiontextcolor
+                    }  */}
+                  
                 </div>
               </div>
 

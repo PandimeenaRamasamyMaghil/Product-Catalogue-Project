@@ -347,7 +347,7 @@ const [dinein, setDineIn] = useState(true);
             onChange={(e)=>handleSelectService(index,e.target.value)}
           />
           </div>
-          <h1 onClick={() => handleDelete(index)} className='Delete'>Delete</h1>
+          <h1 onClick={() => handleDelete(index)} className='Delete'>- Delete</h1>
         </div>
       ))}
 
