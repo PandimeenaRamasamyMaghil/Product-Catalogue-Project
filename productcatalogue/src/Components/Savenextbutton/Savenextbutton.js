@@ -54,7 +54,7 @@ const Savenextbutton = (probs) => {
     if (probs.selectedpage === "primary" ) {
       setActiveCategory("Step 2: Pricing and kitchen details")
       
-      dispatch(primarypost(data));
+      dispatch(primarypost(probs.formData));
     } 
     else if (probs.selectedpage === "PricingDetails" && probs.validation()) {
       setActiveCategory("Step 3: Item customizations")
