@@ -7,14 +7,14 @@ import dropdown from "../../assets/images/dropdown.png";
 // import uparrow from "../../assets/images/uparrow.png";
 import initialimage from "../imageslist/imageslist";
 import ingredientimageinitial from "../imageslist/ingredientimagelist";
-
+import axios from 'axios';
 import searchicon from "../../assets/images/searchicon.png";
 import deleteicon from "../../assets/images/delete.png";
 import Savenext from "../Savenextbutton/Savenextbutton";
 import Tooltip from "../Tooltip/Tooltip";
 import info from "../../assets/images/info.png";
-import { Link } from "react-router-dom";
-import { primarypost } from "../../redux/Actions";
+
+import edit from "../../assets/images/edit.svg"
 
 const PrimaryDetails = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const PrimaryDetails = () => {
 
   const primarydata = useSelector((state) => state.primarypage.data);
   const fetchedprimarydata = primarydata;
-
+  const [productcatalog, setproductcatalog] = useState([]);
   const [Primarydetailsform, setPrimarydetailsform] = useState({
     itemName: "",
     dietary: "",
@@ -44,6 +44,7 @@ const PrimaryDetails = () => {
     itemCode: "",
     barCode: "",
     category: "",
+    categoryid:"",
     subCategory: "",
     caloriePoint: "",
     selectedOption: "100grams",
@@ -55,6 +56,21 @@ const PrimaryDetails = () => {
     allergensFood: [],
     ingredientFood: [],
   });
+  
+  useEffect(() => {
+   
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Category');
+        setproductcatalog(response.data && response.data);
+        console.log("productcatalog",productcatalog);
+      } catch (error) {
+        return error;
+      } 
+    };
+   
+    fetchData();
+  }, []);
 
   useEffect(() => {
     if (fetchedprimarydata) {
@@ -221,23 +237,8 @@ const PrimaryDetails = () => {
     subCategory: "",
   });
 
-  const countWords = (text) => {
-    return text.trim().split(/\s+/).filter(Boolean).length;
-  };
-
-  // const handledescriptionChange = (event) => {
-  //   // const newDescription = event.target.value;
-  //   // const wordCount = newDescription;
-
-  //   // if (newDescription <= maxLength) {
-  //   //   setDescription(newDescription);
-
-  //   // }
-  //   setPrimarydetailsform({
-  //     ...Primarydetailsform,
-  //     description: event.target.value,
-  //   });
-  // };
+ 
+ 
   const [description, setDescription] = useState("");
   const [descriptionstyle,setdescriptionstyle]=useState();
 
@@ -357,11 +358,14 @@ const PrimaryDetails = () => {
     masterCodeerror: "",
   });
 
-  const handleDropdownSelection = (name, value) => {
+  const handleDropdownSelection = (name, value,id) => {
     setPrimarydetailsform((prevData) => ({
       ...prevData,
       [name]: value,
+      [`${name}Id`]:id
     }));
+
+
     setischecked((prevChecked) => ({
       ...prevChecked,
       [name]: value,
@@ -380,6 +384,17 @@ const PrimaryDetails = () => {
     category: false,
     subCategory: false,
   });
+
+  const [showeditbtn, setshoweditbtn] = useState({
+    dietary: false,
+    cuisine: false,
+    mealtype: false,
+    bestpair: false,
+    category: false,
+    subCategory: false,
+  });
+
+
 
   const [showaddnewcusine, setshowaddnewcusine] = useState(false);
   const [showaddnewdietary, setshowaddnewdietary] = useState(false);
@@ -724,8 +739,8 @@ const PrimaryDetails = () => {
   const bestpairfiltered = bestpairfoodarray.filter((item) =>
     item.toLowerCase().includes(Primarydetailsform.bestPair.toLowerCase())
   );
-  const Categoryfiltered = categoryfoodarray.filter((item) =>
-    item.toLowerCase().includes(Primarydetailsform.category.toLowerCase())
+  const Categoryfiltered = productcatalog.filter((item) =>
+    item.name.toLowerCase().includes(Primarydetailsform.category.toLowerCase())
   );
   const Subcategoryfiltered = subcategoryfoodarray.filter((item) =>
     item.toLowerCase().includes(Primarydetailsform.subCategory.toLowerCase())
@@ -837,8 +852,8 @@ const PrimaryDetails = () => {
           bestPairdropdown: false,
         });
       } else if (category === "category") {
-        setcategoryfoodarray([
-          ...categoryfoodarray,
+        setproductcatalog([
+          ...productcatalog,
           Primarydetailsform[category],
         ]);
         setshowaddnewbtn({ ...showaddnewbtn, category: false });
@@ -1064,6 +1079,32 @@ const PrimaryDetails = () => {
   }, [Primarydetailsform]);
 
   const handleChangemastercode = (e) => {};
+
+  const handledropdowndeletion =(type,indexval)=>{
+    if(type==="dietary")
+    {
+     const newupdatedarray= dietryfoodarray.filter((item,index)=>index!==indexval);
+      setdietryfoodarray(newupdatedarray);
+    }
+    else if(type==="cuisine")
+      {
+       const newupdatedarray= Cuisinefoodarray.filter((item,index)=>index!==indexval);
+        setCuisinefoodarray(newupdatedarray);
+      }
+      else if(type==="mealtype")
+        {
+         const newupdatedarray= mealtypefoodarray.filter((item,index)=>index!==indexval);
+          setmealtypefoodarray(newupdatedarray);
+        }
+      else if(type==="bestpair")
+        {
+         const newupdatedarray= bestpairfoodarray.filter((item,index)=>index!==indexval);
+          setbestpairfoodarray(newupdatedarray);
+        }
+        
+        
+
+  }
   return (
     <>
       <div className="mainpage">
@@ -1101,15 +1142,20 @@ const PrimaryDetails = () => {
               >
                 <div
                   onClick={() =>
-                    setDropdownStates({
-                      ...dropdownStates,
-                      dietarydropdown: !dropdownStates.dietarydropdown,
-                      cuisinedropdown: false,
-                      mealTypedropdown: false,
-                      bestPairdropdown: false,
-                      categorydropdown: false,
-                      subCategorydropdown: false,
-                    })
+                {  setDropdownStates({
+                    ...dropdownStates,
+                    dietarydropdown: !dropdownStates.dietarydropdown,
+                    cuisinedropdown: false,
+                    mealTypedropdown: false,
+                    bestPairdropdown: false,
+                    categorydropdown: false,
+                    subCategorydropdown: false,
+                  })
+                  setshowaddnewbtn({
+                    ...showaddnewbtn,
+                    dietary: false,
+                  })
+                }
                   }
                     className="labelandinput"
                 >
@@ -1190,7 +1236,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                     
+                                    >
+                                      <span className="listofitems"  onClick={() => {
                                         handleDropdownSelection(
                                           "dietary",
                                           food
@@ -1208,10 +1256,13 @@ const PrimaryDetails = () => {
                                           ...Primarydetailsformerrors,
                                           dietaryerror: "",
                                         });
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.dietary===true &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("dietary",index)} style={{color:'red'}}>Delete</span>
+                                      }
+                                     
                                     </li>
+                                    
                                   </div>
                                 ))
                               : dietryfoodarray.map((food, index) => (
@@ -1241,7 +1292,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                      
+                                    >
+                                      <span className="listofitems" onClick={() => {
                                         handleDropdownSelection(
                                           "dietary",
                                           food
@@ -1259,9 +1312,17 @@ const PrimaryDetails = () => {
                                           ...Primarydetailsformerrors,
                                           dietaryerror: "",
                                         });
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.dietary &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("dietary",index)
+
+                                          
+                                      } style={{color:'red'}}>Delete</span>
+                                      }
+                                     
+
+                                     
+                                     
                                     </li>
                                   </div>
                                 ))}
@@ -1303,6 +1364,28 @@ const PrimaryDetails = () => {
                     )}
                     {!showaddnewbtn.dietary && (
                       <div className="addnewlist">
+                        { showeditbtn.dietary===false && <p
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              dietary: true,
+                            })
+                          }
+                        >
+                         <img src={edit} alt="" className="editicon" />
+                        </p>}
+                        { showeditbtn.dietary===true && <p
+                        className="dropdowndone"
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              dietary: false,
+                            })
+                          }
+                        >
+                        done
+                        </p>}
+
                         <button
                           onClick={() =>
                             setshowaddnewbtn({
@@ -1324,7 +1407,7 @@ const PrimaryDetails = () => {
               >
                 <div
                   onClick={() =>
-                    setDropdownStates({
+                  {  setDropdownStates({
                       ...dropdownStates,
                       dietarydropdown: false,
                       cuisinedropdown: !dropdownStates.cuisinedropdown,
@@ -1333,6 +1416,13 @@ const PrimaryDetails = () => {
                       categorydropdown: false,
                       subCategorydropdown: false,
                     })
+                    setshowaddnewbtn({
+                      ...showaddnewbtn,
+                      cuisine: false,
+                    })
+                    
+                  }
+
                   }
                     className="labelandinput"
                 >
@@ -1412,7 +1502,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                     
+                                    >
+                                      <span className="listofitems"  onClick={() => {
                                         handleDropdownSelection(
                                           "cuisine",
                                           food
@@ -1429,9 +1521,10 @@ const PrimaryDetails = () => {
                                           ...Primarydetailsformerrors,
                                           cuisineerror: "",
                                         });
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.cuisine &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("cuisine",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                     </li>
                                   </div>
                                 ))
@@ -1461,7 +1554,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                     
+                                    >
+                                       <span className="listofitems"  onClick={() => {
                                         handleDropdownSelection(
                                           "cuisine",
                                           food
@@ -1478,9 +1573,10 @@ const PrimaryDetails = () => {
                                           ...Primarydetailsformerrors,
                                           cuisineerror: "",
                                         });
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.cuisine &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("cuisine",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                     </li>
                                   </div>
                                 ))}
@@ -1521,6 +1617,27 @@ const PrimaryDetails = () => {
                     )}
                     {!showaddnewbtn.cuisine && (
                       <div className="addnewlist">
+                         { showeditbtn.cuisine===false && <p
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              cuisine: true,
+                            })
+                          }
+                        >
+                         <img src={edit} alt="" className="editicon" />
+                        </p>}
+                        { showeditbtn.cuisine===true && <p
+                        className="dropdowndone"
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              cuisine: false,
+                            })
+                          }
+                        >
+                        done
+                        </p>}
                         <button
                           onClick={() =>
                             setshowaddnewbtn({
@@ -1542,7 +1659,7 @@ const PrimaryDetails = () => {
               >
                 <div
                   onClick={() =>
-                    setDropdownStates({
+                  {  setDropdownStates({
                       ...dropdownStates,
                       dietarydropdown: false,
                       cuisinedropdown: false,
@@ -1551,7 +1668,11 @@ const PrimaryDetails = () => {
                       categorydropdown: false,
                       subCategorydropdown: false,
                     })
-                  }
+                    setshowaddnewbtn({
+                      ...showaddnewbtn,
+                      mealtype: false,
+                    })
+                  }}
                     className="labelandinput"
                 >
                   <label htmlFor="" className="primarylables">
@@ -1630,7 +1751,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                     
+                                    >
+                                       <span className="listofitems"  onClick={() => {
                                         handleDropdownSelection(
                                           "mealType",
                                           food
@@ -1647,9 +1770,10 @@ const PrimaryDetails = () => {
                                           ...Primarydetailsformerrors,
                                           mealTypeerror: "",
                                         });
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.mealtype &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("mealtype",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                     </li>
                                   </div>
                                 ))
@@ -1679,7 +1803,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                     
+                                    >
+                                      <span className="listofitems"  onClick={() => {
                                         handleDropdownSelection(
                                           "mealType",
                                           food
@@ -1696,9 +1822,10 @@ const PrimaryDetails = () => {
                                           ...Primarydetailsformerrors,
                                           mealTypeerror: "",
                                         });
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.mealtype &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("mealtype",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                     </li>
                                   </div>
                                 ))}
@@ -1739,6 +1866,27 @@ const PrimaryDetails = () => {
                     )}
                     {!showaddnewbtn.mealtype && (
                       <div className="addnewlist">
+                         { showeditbtn.mealtype===false && <p
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              mealtype: true,
+                            })
+                          }
+                        >
+                         <img src={edit} alt="" className="editicon" />
+                        </p>}
+                        { showeditbtn.mealtype===true && <p
+                        className="dropdowndone"
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              mealtype: false,
+                            })
+                          }
+                        >
+                        done
+                        </p>}
                         <button
                           onClick={() =>
                             setshowaddnewbtn({
@@ -1761,7 +1909,7 @@ const PrimaryDetails = () => {
                 <div style={{ display: "flex", flexDirection: "row" }}>
                   <div
                     onClick={() =>
-                      setDropdownStates({
+                      {setDropdownStates({
                         ...dropdownStates,
                         bestPairdropdown: !dropdownStates.bestPairdropdown,
                         dietarydropdown: false,
@@ -1771,6 +1919,10 @@ const PrimaryDetails = () => {
                         categorydropdown: false,
                         subCategorydropdown: false,
                       })
+                      setshowaddnewbtn({
+                        ...showaddnewbtn,
+                        bestPair: false,
+                      })}
                     }
                   >
                     <label htmlFor="" className="primarylables">
@@ -1842,7 +1994,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                     
+                                    >
+                                      <span className="listofitems"  onClick={() => {
                                         handleDropdownSelection(
                                           "bestPair",
                                           food
@@ -1855,9 +2009,10 @@ const PrimaryDetails = () => {
                                           "bestPairdropdown",
                                           false
                                         );
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.bestpair &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("bestpair",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                     </li>
                                   </div>
                                 ))
@@ -1883,7 +2038,9 @@ const PrimaryDetails = () => {
                                       }}
                                     />
                                     <li
-                                      onClick={() => {
+                                     
+                                    >
+                                      <span className="listofitems"  onClick={() => {
                                         handleDropdownSelection(
                                           "bestPair",
                                           food
@@ -1896,9 +2053,10 @@ const PrimaryDetails = () => {
                                           ...dropdownoptionlist,
                                           bestPair: false,
                                         });
-                                      }}
-                                    >
-                                      {food}
+                                      }}> {food}</span>
+                                      {
+                                        showeditbtn.bestpair &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("bestpair",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                     </li>
                                   </div>
                                 ))}
@@ -1935,6 +2093,27 @@ const PrimaryDetails = () => {
                     )}
                     {!showaddnewbtn.bestpair && (
                       <div className="addnewlist">
+                         { showeditbtn.bestpair===false && <p
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              bestpair: true,
+                            })
+                          }
+                        >
+                         <img src={edit} alt="" className="editicon" />
+                        </p>}
+                        { showeditbtn.bestpair===true && <p
+                        className="dropdowndone"
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              bestpair: false,
+                            })
+                          }
+                        >
+                        done
+                        </p>}
                         <button
                           onClick={() =>
                             setshowaddnewbtn({
@@ -2101,16 +2280,21 @@ const PrimaryDetails = () => {
                 >
                   <div
                     onClick={() =>
-                      setDropdownStates({
-                        ...dropdownStates,
-                        categorydropdown: !dropdownStates.categorydropdown,
-                        bestPairdropdown: false,
-                        dietarydropdown: false,
-                        cuisinedropdown: false,
-                        mealTypedropdown: false,
+                    { setDropdownStates({
+                      ...dropdownStates,
+                      categorydropdown: !dropdownStates.categorydropdown,
+                      bestPairdropdown: false,
+                      dietarydropdown: false,
+                      cuisinedropdown: false,
+                      mealTypedropdown: false,
 
-                        subCategorydropdown: false,
-                      })
+                      subCategorydropdown: false,
+                    })
+                    setshowaddnewbtn({
+                      ...showaddnewbtn,
+                      category: false,
+                    })}
+                     
                     }
                     className="labelandinput"
                   >
@@ -2169,16 +2353,17 @@ const PrimaryDetails = () => {
                             <ul className="dropdown">
                               {dropdownoptionlist.category
                                 ? Categoryfiltered.map((food, index) => (
-                                    <div key={index} className="dropdowns">
+                                    <div key={food.id} className="dropdowns">
                                       <input
                                         type="radio"
                                         readOnly
-                                        checked={ischecked.category === food}
+                                        checked={ischecked.category === food.name}
                                         onClick={() => {
                                           handleDropdownSelection(
                                             "category",
-                                            food
+                                            food.name,food.id
                                           );
+                                         
                                           dropdownshowing(
                                             "categorydropdown",
                                             false
@@ -2196,11 +2381,14 @@ const PrimaryDetails = () => {
                                         }}
                                       />
                                       <li
-                                        onClick={() => {
+                                       
+                                      >
+                                         <span className="listofitems"  onClick={() => {
                                           handleDropdownSelection(
                                             "category",
-                                            food
+                                            food.name,food.id
                                           );
+                                          
                                           dropdownshowing(
                                             "categorydropdown",
                                             false
@@ -2214,23 +2402,25 @@ const PrimaryDetails = () => {
                                             ...Primarydetailsformerrors,
                                             categoryerror: "",
                                           });
-                                        }}
-                                      >
-                                        {food}
+                                        }}> {food.name}</span>
+                                      {
+                                        showeditbtn.category &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("category",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                       </li>
                                     </div>
                                   ))
-                                : categoryfoodarray.map((food, index) => (
+                                : productcatalog.map((food, index) => (
                                     <div key={index} className="dropdowns">
                                       <input
                                         type="radio"
                                         readOnly
-                                        checked={ischecked.category === food}
+                                        checked={ischecked.category === food.name}
                                         onClick={() => {
                                           handleDropdownSelection(
                                             "category",
-                                            food
+                                            food.name,food.id
                                           );
+                                         
                                           dropdownshowing(
                                             "categorydropdown",
                                             false
@@ -2246,11 +2436,14 @@ const PrimaryDetails = () => {
                                         }}
                                       />
                                       <li
-                                        onClick={() => {
+                                       
+                                      >
+                                       <span className="listofitems"  onClick={() => {
                                           handleDropdownSelection(
                                             "category",
-                                            food
+                                            food.name,food.id
                                           );
+                                         
                                           dropdownshowing(
                                             "categorydropdown",
                                             false
@@ -2263,9 +2456,10 @@ const PrimaryDetails = () => {
                                             ...Primarydetailsformerrors,
                                             categoryerror: "",
                                           });
-                                        }}
-                                      >
-                                        {food}
+                                        }}> {food.name}</span>
+                                      {
+                                        showeditbtn.category &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("category",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                       </li>
                                     </div>
                                   ))}
@@ -2306,6 +2500,27 @@ const PrimaryDetails = () => {
                       )}
                       {!showaddnewbtn.category && (
                         <div className="addnewlist">
+                          { showeditbtn.category===false && <p
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              category: true,
+                            })
+                          }
+                        >
+                         <img src={edit} alt="" className="editicon" />
+                        </p>}
+                        { showeditbtn.category===true && <p
+                        className="dropdowndone"
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              category: false,
+                            })
+                          }
+                        >
+                        done
+                        </p>}
                           <button
                             onClick={() =>
                               setshowaddnewbtn({
@@ -2328,6 +2543,7 @@ const PrimaryDetails = () => {
                 >
                   <div
                     onClick={() =>
+                    {
                       setDropdownStates({
                         ...dropdownStates,
                         subCategorydropdown:
@@ -2338,6 +2554,12 @@ const PrimaryDetails = () => {
                         cuisinedropdown: false,
                         mealTypedropdown: false,
                       })
+                      setshowaddnewbtn({
+                        ...showaddnewbtn,
+                        subCategory: false,
+                      })
+                    }
+                     
                     }
                   >
                     <label htmlFor="" className="primarylables">
@@ -2413,7 +2635,9 @@ const PrimaryDetails = () => {
                                         }}
                                       />
                                       <li
-                                        onClick={() => {
+                                       
+                                      >
+                                        <span className="listofitems"  onClick={() => {
                                           handleDropdownSelection(
                                             "subCategory",
                                             food
@@ -2426,9 +2650,10 @@ const PrimaryDetails = () => {
                                             "subCategorydropdown",
                                             false
                                           );
-                                        }}
-                                      >
-                                        {food}
+                                        }}> {food}</span>
+                                      {
+                                        showeditbtn.subCategory &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("subCategory",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                       </li>
                                     </div>
                                   ))
@@ -2455,7 +2680,9 @@ const PrimaryDetails = () => {
                                         }}
                                       />
                                       <li
-                                        onClick={() => {
+                                       
+                                      >
+                                        <span className="listofitems"  onClick={() => {
                                           handleDropdownSelection(
                                             "subCategory",
                                             food
@@ -2468,9 +2695,10 @@ const PrimaryDetails = () => {
                                             "subCategorydropdown",
                                             false
                                           );
-                                        }}
-                                      >
-                                        {food}
+                                        }}> {food}</span>
+                                      {
+                                        showeditbtn.subCategory &&  <span className="dropdowndeletionbtn" onClick={()=>handledropdowndeletion("subCategory",index)} style={{color:'red'}}>Delete</span>
+                                      }
                                       </li>
                                     </div>
                                   ))}
@@ -2507,6 +2735,27 @@ const PrimaryDetails = () => {
                       )}
                       {!showaddnewbtn.subCategory && (
                         <div className="addnewlist">
+                          { showeditbtn.subCategory===false && <p
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              subCategory: true,
+                            })
+                          }
+                        >
+                         <img src={edit} alt="" className="editicon" />
+                        </p>}
+                        { showeditbtn.subCategory===true && <p
+                        className="dropdowndone"
+                          onClick={() =>
+                            setshoweditbtn({
+                              ...showeditbtn,
+                              subCategory: false,
+                            })
+                          }
+                        >
+                        done
+                        </p>}
                           <button
                             onClick={() =>
                               setshowaddnewbtn({
@@ -2975,3 +3224,6 @@ export default PrimaryDetails;
 //   "subCategory":"",
 //   "itemId":null
 // }
+
+
+// {"locationId":"9c485244-afd4-11eb-b6c7-42010a010026","altName":"alt name","price":"12","categoryId":"2434d5ed-8144-408f-b75a-c0e50f8de102","subCategoryId":"","kitchenStations":["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],"taxFeeId":"","ingredients":["03348389-4b2a-4fca-affa-6ad4291b0241"],"modifiers":[],"availabilityId":["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],"category":"","subCategory":"","itemId":null}

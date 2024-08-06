@@ -1,0 +1,57 @@
+.menumain
+{
+   position: relative;
+   left: 350px;
+   top: 150px;
+ 
+display: flex;
+flex-direction: row;
+
+}
+.table-container {
+    width: 90%;
+    overflow-x: scroll;
+    position: relative;
+  }
+  
+  table {
+   
+    border-collapse: collapse;
+    position: relative;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  .item-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .sticky-col {
+    position: -webkit-sticky;
+    position: fixed;
+    margin-left: 100px;
+    background-color: red;
+    z-index: 10; /* To keep it above other table cells */
+  }
+  
+  .sticky-col + .sticky-col {
+    margin-left: 100px; 
+    background-color: red;/* Adjust according to the width of your first sticky column */
+  }
+  
+  .sticky-col + .sticky-col + .sticky-col {
+    margin-left: 100px; 
+    background-color: red;/* Adjust according to the width of your first and second sticky columns */
+  }
+  

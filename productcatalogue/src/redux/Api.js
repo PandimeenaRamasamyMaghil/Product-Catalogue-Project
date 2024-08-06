@@ -11,15 +11,23 @@ export const itemCustomizationAPI= async(payload)=>{
 }
 
 
-export const primarypageAPI= async(payload)=>{
-    try{
-       const response= await axios.post("https://jsonplaceholder.typicode.com/todos",payload);
-        console.log("payload",payload);
+export const primarypageAPI = async (payload) => {
+    try {
+        const formData = new FormData();
+formData.append('item', JSON.stringify(payload));
+        const response = await axios.post(
+            "https://api.magilhub.com/magilhub-data-services/merchants/productCatalog",
+            formData,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+        );
+        console.log("payload", payload);
         return response;
-
-    }catch(error){
+    } catch (error) {
         throw error;
-
     }
 }
 

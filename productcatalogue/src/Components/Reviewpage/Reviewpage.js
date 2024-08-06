@@ -310,11 +310,11 @@ const Reviewpage = () => {
               </div>
             </div>
           )}
-          {fetchedprimarydata.bestPair && (
+          {(
             <div className="primarybestpairedfood">
               <p>Best paired with</p>
               <div className="bestpairfoods">
-                <p>{fetchedprimarydata.bestPair}</p>
+                <p>{fetchedprimarydata.bestPair ? fetchedprimarydata.bestPair:"No item selected"}</p>
               </div>
             </div>
           )}
@@ -360,9 +360,23 @@ const Reviewpage = () => {
           <div className="verticalLine" />
           <Step3Review />
         </div>
-        <div className="Itemcustomizationpreview"></div>
+        
       </div>
-      <div className="buttoncomponent"></div>
+      <div className="buttoncomponentreview">
+      <div className="saveandnextreview">
+        <button className="clearall" >
+          Cancel
+        </button>
+        <button className="saveall" >
+        Submit for review
+        </button>
+        
+       
+   
+      </div>
+
+
+      </div>
     </div>
   );
 };

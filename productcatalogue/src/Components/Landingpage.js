@@ -9,6 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import PricingDetails from './PricingDetalis/PricingDetails'
 import { Contextpage } from './contextpage'
 import Pricingpage from './Pricingpage/Pricingpage'
+import { Menulisting } from './Menulisting/Menulisting'
 
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -18,8 +19,8 @@ const Landingpage = () => {
 
 <Sidenavbar/>
 {/* <Pricingpage/> */}
-        {/* <Navigationpage  /> */}
-       {/* < Reviewpage/> */}
+     
+     {/* <Menulisting/> */}
 
        <Routes>
         <Route path="/" element={<Navigationpage />} />
@@ -34,8 +35,7 @@ const Landingpage = () => {
         </Route>
       </Routes>
        
-        {/* <Primary/> */}
-         {/* <ItemCustomization/> */}
+     
          </Contextpage>
        
 

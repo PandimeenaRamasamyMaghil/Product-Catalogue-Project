@@ -75,12 +75,27 @@ border: 0.031rem solid #67833E;
       top: 0.3rem;
       padding: 0.188rem;
       left: 1.5rem;
+      // border: 1px solid black;
+      width: 240px;
+      height: 30px;
      
 font-size: 0.875rem;
 font-weight: 400;
 color:#979797;
+.dropdowndeletionbtn
+{
+  position: relative;
+ display: flex;
+ justify-content:right;
+  // border: 1px solid red;
+  top: -20px;
+ 
+}
+
 
     }
+
+  
   }
   }
 
@@ -390,21 +405,7 @@ color:#979797;
     width: 20rem;
     height: 6rem;
     // border: 1px solid red;
-    .addnewlist {
-      position: relative;
-      top: 0.613rem;
-      left:11.5rem;
-      button {
-        width: 6.813rem;
-        height: 2.063rem;
-        left: 1px;
-        color: #ffffff;
-        border-radius: 4px;
-        background: #779749;
-        outline: none;
-        border: 1px solid #779749;
-      }
-    }
+    
   }
   .subcategory {
     position: relative;
@@ -413,21 +414,7 @@ color:#979797;
     // border: 1px solid red;
 
     left: 0.625rem;
-    .addnewlist {
-      position: relative;
-      top: 0.613rem;
-      left:11.5rem;
-      button {
-        width: 6.813rem;
-        height: 2.063rem;
-        left: 0.063rem;
-        color: #ffffff;
-        border-radius: 0.25rem;
-        background: #779749;
-        outline: none;
-        border: 1px solid #779749;
-      }
-    }
+  
   }
   .description {
     position: relative;
@@ -1166,7 +1153,7 @@ left: 5px;
 width: 290px;
 height: 34px;
 border: 1px solid #779749;
- border-radius: 10px;
+ border-radius: 4px;
   input{
     width: 232px;
     height: 30px;
@@ -1177,14 +1164,15 @@ border: 1px solid #779749;
     border-radius: 10px 0px 0px 10px;
   }
   button{
-    width: 56.2px;
+    width: 56.3px;
     height: 33px;
     border: none;
     outline: none;
     // border: 1px solid #779749;
     background-color:#779749 ;
     color: #ffffff;
-    border-radius: 0px 9px 9px 0px;
+
+    border-radius: 0px 3px 3px 0px;
 
   }
 
@@ -1230,9 +1218,12 @@ input:focus{
 
     
     .addnewlist {
+      display: flex;
+      flex-direction:row;
       position: relative;
       top: 0.613rem;
-      left:11.5rem;
+
+      left:8rem;
       button {
         width: 6.813rem;
         height: 2.063rem;
@@ -1242,6 +1233,34 @@ input:focus{
         background: #779749;
         outline: none;
         border: 1px solid #779749;
+      }
+      p{
+        position: relative;
+        left: -10px;
+        cursor: pointer;
+        width: 50px;
+        padding: 2px;
+        
+
+      }
+      .dropdowndone
+      {
+       border-radius: 4px;
+        border: 1px solid #779749;
+
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+text-align: center;
+color: #67833E;
+
+
+      }
+      .editicon
+      {
+        position: relative;
+        left: 25px;
+       
       }
     }
 
@@ -1261,6 +1280,12 @@ input:focus{
       .link{
         text-decoration: none;
       }
+    }
+
+    .dropdowndeletionbtn
+    {
+     position: relative;
+   
     }
 
 

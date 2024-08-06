@@ -25,8 +25,9 @@ const Step2 = () => {
              
 
               <Link to="/Navigationpage" className='editbuttonpricing' onClick={()=>setActiveCategory("Step 2: Pricing and kitchen details")}>
-              <img src={edit} alt=""  width={15} height={15}/>
-                Edit
+              <img src={edit} alt="" width={15}
+                height={15}/>
+              <span style={{marginLeft:'2px'}}> Edit</span> 
               </Link>{" "}
 </div>
               </div>
