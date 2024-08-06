@@ -50,6 +50,8 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
 
 
 
+
+
  
     const[formNormal,setformNormal]=useState({
 
@@ -76,6 +78,8 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
         showDay:false
        
       }])
+      const [buttonText, setButtonText] = useState(dineinfields.map(() => 'Choose Day'));
+      const [Text, setText] = useState(dineinfields.map(() => 'Set up for Specific Day'));
 
       const mainForm= 
         {
@@ -235,6 +239,9 @@ if (prizingDetail?.normalForm) {
       const AddDineInEntry = () => {
         setDineInEntry([...dineinentry, dineinentry])
         setDineInFields([...dineinfields, { DineInPrice: '', DineInMealType: '', DineInService: '' }]);
+        setButtonText([...buttonText, 'Choose Day']);
+        setText([...buttonText, 'Set up for Specific Days']);
+
       
       }
       const handleChange = (index, e) => {
@@ -247,27 +254,44 @@ if (prizingDetail?.normalForm) {
 
       const addDay=(index)=>{
       const newEntries = [...dineinfields];
+      const updatedFields = [...dineinfields];
+      const updatedtextFields=[...dineinfields]
     newEntries[index].showDay = newEntries[index].showDay;
     setDineInFields(newEntries);
     const newFields = [...dineinfields];
     newFields[index].showDay = !newFields[index].showDay;
     setDineInFields(newFields);
+     const updatedButtonText = [...buttonText];
+    updatedButtonText[index] = updatedFields[index].showDay ? 'Default Day' : 'Choose Day';
+    setButtonText(updatedButtonText);
 }
 
       const addDayPickup=()=>{
-        setShowDayPickup(!showDayPickup)
+        setShowDayPickup(true)
+
+      }
+      
+      const addDayPickupfalse=()=>{
+        setShowDayPickup(false)
 
       }
 
       const addDayDelivery=()=>{
-        setShowDayDelivery(!showDayDelivery)
+        setShowDayDelivery(true)
+
+      }
+      const addDayDeliveryfalse=()=>{
+        setShowDayDelivery(false)
 
       }
 
       const addDayThird=()=>{
-        setShowDayThird(!showDayThird)
+        setShowDayThird(true)
       }
       
+      const addDayThirdfalse=()=>{
+        setShowDayThird(false)
+      }
       console.log(mainForm)
       getNormalForm(mainForm)
 
@@ -416,13 +440,14 @@ const handleMealSelect2 = (index, value) => {
        <h1 onClick={() => handleDelete(index)} className='Delete'>- Delete</h1>
         </div>
         <div className='dineInChooseDayContainer'>
-            <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>
-            <h3 className='dineInChooseDayContainer-chooseheading' onClick={()=>addDay(index)}>Choose Day</h3>
-
-            
-
-
-        </div>
+              
+                  
+                  <h3 className='dineInChooseDayContainerHeading'>Choose for Specific day</h3>
+                  <h3 className='dineInChooseDayContainer-chooseheading' onClick={() => addDay(index)}>
+                  {buttonText[index]}
+                </h3>
+               
+              </div>
         <div className='dayspickup'>
         {dineinfields[index].showDay && (
             <DaysCheckDin checkedItems={dineInDates1} setCheckedItems={setDineInDates1} index={index} />
@@ -475,25 +500,21 @@ const handleMealSelect2 = (index, value) => {
       
                     </div>
                     <div>
-                    
-                    <div className='dineInChooseDayContainer'>
-            <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>
-            <h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayPickup}>Choose Day</h3>
-          
-              
-          
+             
+            <div className='dineInChooseDayContainer'>
+            {showDayPickup?<h3 className='dineInChooseDayContainerHeading'>Back for default days</h3>:<h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>}
+            {showDayPickup?<h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayPickupfalse}>Default days</h3>:<h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayPickup}>Choose Day</h3>}
+          </div>
 
-            
-
-
-        </div>
         <div className='dayspickup'>
         {showDayPickup?<DaysCheck checkedItems={DayPickup} setCheckedItems={setDayPickup}/>:""}
 
         </div>
+                    
 
         </div>
                     </div>
+
                     
                    : ""}
                    </div>
@@ -522,15 +543,12 @@ const handleMealSelect2 = (index, value) => {
         </div>          
                     </div>
                     <div className='dineInChooseDayContainer'>
-            <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>
-            <h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayDelivery}>Choose Day</h3>
+            {showDayDelivery?<h3 className='dineInChooseDayContainerHeading'>Back for default days</h3>:<h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>}
+            {showDayDelivery?<h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayDeliveryfalse}>Default days</h3>:<h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayDelivery}>Choose Day</h3>}
+          </div>
 
-            
-
-
-        </div>
         <div className='dayspickup'>
-        {showDayDelivery?<DaysCheck  checkedItems={DayDelivery} setCheckedItems={setDayDelivery}/>:""}
+        {showDayDelivery?<DaysCheck checkedItems={DayDelivery} setCheckedItems={setDayDelivery}/>:""}
 
         </div>
                     </div>
@@ -582,8 +600,8 @@ const handleMealSelect2 = (index, value) => {
                     </div>
                     </div>
                     <div className='dineInChooseDayContainer'>
-            <h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>
-            <h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayThird}>Choose Day</h3>
+            {showDayThird?<h3 className='dineInChooseDayContainerHeading'>Back to Default days</h3>:<h3 className='dineInChooseDayContainerHeading'>Setup for specific days?</h3>}
+            {showDayThird?<h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayThirdfalse}>Default Days</h3>:<h3 className='dineInChooseDayContainer-chooseheading' onClick={addDayThird}>Choose Day</h3>}
 
             
 

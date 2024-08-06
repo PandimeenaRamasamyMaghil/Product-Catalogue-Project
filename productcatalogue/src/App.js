@@ -2,12 +2,12 @@ import ItemCustomizations from "./Components/Item Customizations/ItemCustomizati
 import Navigation from "./Components/Navigation/Navigation"
 import Landing from './Components/Landingpage'
 import  {BrowserRouter}  from 'react-router-dom';
-import Step2 from "./Components/Landingpage"
+import Sidenav from "./Components/SideNav/Sidenav"
 function App() {
   return (
    <div>
   
-<Step2/>
+<Sidenav/>
 
 
   
