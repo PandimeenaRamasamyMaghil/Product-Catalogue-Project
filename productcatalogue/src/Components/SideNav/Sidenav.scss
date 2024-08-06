@@ -1,0 +1,96 @@
+
+.container-sidenav{
+    display: flex;
+    justify-content: start;
+}
+.sidebar {
+    width: 90px;
+    height: 100vh;
+    padding: 20px;
+    transition: width 0.3s ease;
+    overflow: hidden; /* Ensure content doesn't overflow during transition */
+  }
+
+  .sidebar.expanded {
+    width: 280px; /* Expanded width */
+  }
+
+.flexSidenav{
+    display: flex;
+    justify-content: start;
+    
+}
+
+
+.flexcol{
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0px;
+    cursor: pointer;
+  }
+.imgNavbar{
+    width: 24px;
+    height: 22px;
+}
+
+.sidebar:nth-child(0) {
+    width: 20px ;
+  }
+  
+ .logo{
+    width:76px;
+    height: 76px;
+    position: relative;
+    top: -20px;
+    left: -15px;
+
+
+ }
+
+ .logo1{
+  width:106px;
+  height: 76px;
+  position: relative;
+  top: -20px;
+  left: 55px;
+
+
+}
+
+ .vertical-line-navbar{
+   width: 0.1px;
+    height: 974px;
+    border: 0.5px solid #D9D9D9;
+    position: relative;
+   
+ }
+
+ .btn-nav{
+    width: 23px;
+    height: 24px;
+    color: black;
+    text-decoration: none;
+    font-size: 10px;
+    background-color: #67833E;
+    border-radius: 50%;
+    padding: 5px;
+  
+    color: #D9D9D9;
+    position: relative;
+    top: 81px;
+    left: -12px;
+    cursor: pointer;
+  
+
+
+ }
+
+ .NavName{
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    margin-left: 20px;
+ }
