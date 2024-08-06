@@ -28,18 +28,38 @@ const Sidenav = () => {
 
       ];
       const [isExpanded, setIsExpanded] = useState(false);
+      const [selectedOption, setSelectedOption] = useState('');
+      const options = ['Option 1', 'Option 2', 'Option 3'];
 
       const toggleExpanded=()=>{
         setIsExpanded(!isExpanded);
 
       }
+      const handleChange = (event) => {
+        setSelectedOption(event.target.value);
+      };
 
   return (
     <div className='container-sidenav'>
         
         <nav className={`sidebar ${isExpanded ? 'expanded' : ''}`}>
             <ul>
+                <div className='headingContainer'>
                 <img className={isExpanded?"logo1":"logo"} src={logo} alt="" />
+
+                <div className='flexcolhheading'>
+                    <h1 className='heading-Thalapakatti'>Thalapakatti Biriyani</h1>
+                    <select name="Op" id="dropdown" value={selectedOption} onChange={handleChange} className='dropdown-nav'>
+        <option value="" disabled>Select an option</option>
+        {options.map((option, index) => (
+          <option key={index} value={option}>{option}</option>
+        ))}
+      </select>
+
+
+                </div>
+
+                </div>
             {sidebarData.map((item,index)=>{
                 return(
                     <>
@@ -71,7 +91,7 @@ const Sidenav = () => {
 </div>  
 
 <div>
-    <img  onClick={toggleExpanded}className='btn-nav' src={btnnav} alt="" />
+    <img  onClick={toggleExpanded}className={isExpanded?"btn-nav1":"btn-nav"} src={btnnav} alt="" />
 </div>
 
      
