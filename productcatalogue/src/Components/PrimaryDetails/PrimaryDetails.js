@@ -20,6 +20,14 @@ const PrimaryDetails = () => {
   const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState("");
   const [portionSizeSeleted, setportionSizeSeleted] = useState("");
+  // const  testimg={
+  //   "id": "03348389-4b2a-4fca-affa-6ad4291b0241",
+  //   "name": "Sauces",
+  //   "imageId": "03348389-4b2a-4fca-affa-6ad4291b0241",
+  //   "imageType": "img/png"
+  //  }
+
+  //  console.log(testimg.imageId ,"  ",testimg.imageType.split('/')[1]);
 
   const [dropdownoptionlist, setdropdownoptionlist] = useState({
     dietary: false,
@@ -56,14 +64,20 @@ const PrimaryDetails = () => {
     allergensFood: [],
     ingredientFood: [],
   });
+
+  const [imagefromapi,setimagefromapi]=useState([]);
   
   useEffect(() => {
    
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Category');
-        setproductcatalog(response.data && response.data);
-        console.log("productcatalog",productcatalog);
+        const productdetails = await axios.get('https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Category');
+        const imagesapi = await axios.get('https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=INGR');
+        setimagefromapi(imagesapi.data && imagesapi.data);
+
+        setproductcatalog(productdetails.data && productdetails.data);
+        console.log("productcatalog",productdetails);
+        console.log("imagefromapi",imagesapi);
       } catch (error) {
         return error;
       } 
@@ -71,6 +85,24 @@ const PrimaryDetails = () => {
    
     fetchData();
   }, []);
+
+
+  // useEffect(() => {
+   
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=INGR');
+  //       setimagefromapi(response.data && response.data);
+  //       console.log("imagefromapi",imagefromapi);
+  //     } catch (error) {
+  //       return error;
+  //     } 
+  //   };
+   
+  //   fetchData();
+  // }, []);
+
+
 
   useEffect(() => {
     if (fetchedprimarydata) {
@@ -524,6 +556,8 @@ const PrimaryDetails = () => {
     });
   };
 
+  
+
   // const validationform = () => {
   //   let isValid = true;
   //   if (!Primarydetailsform.itemName) {
@@ -752,7 +786,7 @@ const PrimaryDetails = () => {
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  let filteredimg = ingredientimagelist.filter((item) =>
+  let filteredimg = imagefromapi.filter((item) =>
     item.name.toLowerCase().includes(searchingredients.toLowerCase())
   );
 
@@ -2919,13 +2953,14 @@ const PrimaryDetails = () => {
                           >
                             <img
                               className="images"
-                              src={image.image}
-                              alt={`Image ${index + 1}`}
+                              src={`/assets/${image.imageId}.${image.imageType && image.imageType.split('/')[1]}`}                             // src={``}
+                              alt={` ${index + 1}`}
                             />
                             <p>{image.name}</p>
                           </div>
                         ))
-                      : ingredientimagelist.map((image, index) => (
+                        
+                      : imagefromapi.map((image, index) => (
                           <div
                             className="eachimg"
                             key={index}
@@ -2934,8 +2969,7 @@ const PrimaryDetails = () => {
                             <div className="imagelist">
                               <img
                                 className="images"
-                                src={image.image}
-                                alt={`Image ${index + 1}`}
+                                src={`/assets/${image.imageId}.${image.imageType && image.imageType.split('/')[1]}`}                                alt={` ${index + 1}`}
                               />
                               <p>{image.name}</p>
                             </div>

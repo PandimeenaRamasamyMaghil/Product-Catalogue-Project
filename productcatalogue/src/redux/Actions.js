@@ -5,7 +5,11 @@ import {
   Item_Customizations_Data_Success,
   Item_Customizations_Data_Request,
   Item_Customizations_Data_Failure,
-  Pricing_Detail_Data_Request
+  Pricing_Detail_Data_Request,
+  API_Failure,
+  API_Success,
+  API_Request
+
 } from "./constans";
 
 export const primarypost = (data) => ({
@@ -47,5 +51,21 @@ export const PricingDetailSuccess = (response) => ({
 });
 export const PricingDetailFailure = (error) => ({
   type: Pricing_Detail_Data_Request,
+  payload: error,
+});
+
+
+export const ApiPost = (data) => ({
+  type:  API_Request,
+  payload: data,
+});
+
+export const ApiSuccess = (response) => ({
+  type:  API_Success,
+  payload: response,
+});
+
+export const ApiFailure = (error) => ({
+  type:  API_Failure,
   payload: error,
 });

@@ -7,7 +7,10 @@ import {
   Item_Customizations_Data_Failure,
   Pricing_Detail_Data_Request,
   Pricing_Detail_Data_Success,
-  Pricing_Detail_Data_Failure
+  Pricing_Detail_Data_Failure,
+  API_Request,
+  API_Success,
+  API_Failure
 } from "./constans";
 
 const primarypagedata = {
@@ -17,21 +20,13 @@ const primarypagedata = {
 };
 
 export const primarypagereducer = (state = primarypagedata, action) => {
-    switch (action.type) {
-      case Primary_Post_Data_Send:
-
-      return { ...state, loading: true, error: null };
-        
-  
-      case Primary_Post_Data_Success:
-        return { ...state, loading: false, data: action.payload };
-        
-      case Primary_Post_Data_Failure:
-        return { ...state, loading: false, error: action.payload };
-        
-      default:
-        return state;
-    }
+  switch (action.type) {
+    case Primary_Post_Data_Send:
+      return {  ...state,data:action.payload }; // Merge payload into existing state
+    // ...other cases
+    default:
+      return state;
+  }
   };
   
 const initialState = {
@@ -68,3 +63,29 @@ switch(action.type)
       return state;
 }
 }
+
+
+
+const Apidata={
+  data:[],
+  loading:false,
+  error:null
+}
+
+export const Apidatas = (state = Apidata, action) => {
+  switch (action.type) {
+    case API_Request:
+
+    return { ...state, loading: true, error: null };
+      
+
+    case API_Success:
+      return { ...state, loading: false, data: action.payload };
+      
+    case API_Failure:
+      return { ...state, loading: false, error: action.payload };
+      
+    default:
+      return state;
+  }
+};
