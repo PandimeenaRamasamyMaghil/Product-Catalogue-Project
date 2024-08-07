@@ -3,6 +3,7 @@ import Navigationpage from './Navigation/Navigation'
 import './Landingpage.scss'
 import Primary from './PrimaryDetails/PrimaryDetails'
 import ItemCustomization from './Item Customizations/ItemCustomizations'
+import Slider from './Slider/Slider'
 import Sidenavbar from './sidenavbar/SideNavbar'
 import Reviewpage from './Reviewpage/Reviewpage'
 import { Routes, Route } from 'react-router-dom';
@@ -17,7 +18,7 @@ const Landingpage = () => {
     <div>
       <Contextpage>
 
-<Sidenavbar/>
+<Slider/>
 {/* <Pricingpage/> */}
      
      {/* <Menulisting/> */}
