@@ -86,7 +86,7 @@ const PrimaryDetails = () => {
     fetchData();
   }, []);
 
-  
+
   // useEffect(() => {
    
   //   const fetchData = async () => {
@@ -2959,6 +2959,7 @@ const PrimaryDetails = () => {
                             <p>{image.name}</p>
                           </div>
                         ))
+                        
                       : imagefromapi.map((image, index) => (
                           <div
                             className="eachimg"

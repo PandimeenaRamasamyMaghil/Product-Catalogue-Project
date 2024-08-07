@@ -23,6 +23,38 @@ const Reviewpage = () => {
   const { activeCategory, pages, setActiveCategory } =
     useContext(Contextpagejs);
 
+const primarypagedetails= useSelector((state)=>state);
+console.log("primary",primarypagedetails);
+
+const data=
+{
+  locationId:"9c485244-afd4-11eb-b6c7-42010a010026",
+  itemCode:primarypagedetails.
+  primarypage.data.itemCode,
+  altName:"alt name",
+  itemName:primarypagedetails.
+  primarypage.data.itemName,
+  description:primarypagedetails.
+  primarypage.data.description,
+  price:"12",
+  categoryId:primarypagedetails.
+  primarypage.data.categoryId,
+  subCategoryId:"",
+  kitchenStations:["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],
+  taxFeeId:"",
+  ingredients:["03348389-4b2a-4fca-affa-6ad4291b0241"],
+  modifiers:[],
+  availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
+  category:primarypagedetails.
+  primarypage.data.category,
+  subCategory:primarypagedetails.
+  primarypage.data.subCategory,
+  itemId:null
+}
+
+
+
+
   // const imageslist = [
   //   {
   //     name: "Egg",
@@ -367,7 +399,7 @@ const Reviewpage = () => {
         <button className="clearall" >
           Cancel
         </button>
-        <button className="saveall" >
+        <button className="saveall" onClick={()=> dispatch(primarypost(data))} >
         Submit for review
         </button>
         
