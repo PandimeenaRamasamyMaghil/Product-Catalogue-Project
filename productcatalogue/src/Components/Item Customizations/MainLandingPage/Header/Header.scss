@@ -1,0 +1,140 @@
+
+
+
+// {/* {**********************HeaderSection*****************************************************************} */}
+.Header-Container {
+  width: 85%;
+  position: fixed;
+  height: auto;
+
+  left: 108px;
+    // border: 2px solid red;
+  padding: 10px;
+  z-index: 1000;
+  top: 25px;
+  display: flex;
+  justify-content: space-between;
+  transition: left 0.6s linear;
+}
+
+.Header-Container1{
+  width: 85%;
+  position: fixed;
+  height: auto;
+
+  left: 300px;
+    // border: 2px solid red;
+  padding: 10px;
+  z-index: 1000;
+  top: 25px;
+  display: flex;
+  justify-content: space-between;
+  transition: left 0.4s linear;
+
+
+}
+
+.Header-Heading-Search-Filter-Container {
+  display: flex;
+  width: 962.45px;
+  height: 44px;
+//   border: 2px solid powderblue;
+  justify-content: start;
+  padding-left: 30px;
+  gap: 20px;
+}
+
+.Header-Heading {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: #67833e;
+  cursor: pointer;
+}
+
+.Header-Search {
+  width: 606.57px;
+  height: 44px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #000000;
+  transform: translateY(-2px);
+  border: 1px solid #979797;
+  opacity: 0.7;
+  padding-left: 10px;
+}
+
+.SerchIcon-Header {
+  width: 24px;
+  height: 21px;
+  position: relative;
+  top: 10px;
+  left: -70px;
+  cursor: pointer;
+  opacity: 0.4;
+}
+.FilterIcon-Header{
+    width: 34px;
+    height: 34px;
+    position: relative;
+    left: -50px;
+    top: 2px;
+    cursor: pointer;
+
+}
+.Excel-Header{
+    width: 65.53px;
+    height: 44px;
+    position: relative;
+    left: -40px;
+    top: -2px;
+    cursor: pointer;
+}
+
+.Excel-Header-Download{
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: -100px;
+    top: 25px;
+    cursor: pointer;
+}
+
+
+
+/* {**********************Header Button*****************************************************************} */
+
+
+.Add-Item-Container{
+    width: 114px;
+    height: 44px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #67833E;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 2px;
+    cursor: pointer;
+
+
+}
+.Add-Item-Heading-Plus{
+    font-family: Poppins;
+font-weight: 200;
+font-size: 28px;
+line-height: 24px;
+color: #FFFFFF;
+
+}
+
+.Add-Item-Heading{
+font-family: Poppins;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #FFFFFF;
+text-align: center;
+}
