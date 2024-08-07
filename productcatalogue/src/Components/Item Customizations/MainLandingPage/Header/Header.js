@@ -5,13 +5,18 @@ import filterIcon from '../../../../assets/images/filter1.svg'
 import Excel from '../../../../assets/images/Excel.svg'
 import DownloadExcel from '../../../../assets/images/ExcelDownload.png'
 import { Contextpagejs } from '../../../contextpage'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
+  const navigate=useNavigate()
+
+
+  
 
   return (
     <div className={isExpanded?'Header-Container1':"Header-Container"}>
-      
+
       {/* {**********************HeaderSection*****************************************************************} */}
 
       <div className='Header-Heading-Search-Filter-Container'>
@@ -26,7 +31,7 @@ const Header = () => {
 
   {/* {**********************Header Button*****************************************************************} */}
 
-      <div className='Add-Item-Container'>
+      <div  className='Add-Item-Container'>
         <h3 className='Add-Item-Heading-Plus'>+</h3>
         <h3 className='Add-Item-Heading'>Add Item</h3>
         

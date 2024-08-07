@@ -3,7 +3,7 @@
 
 // {/* {**********************HeaderSection*****************************************************************} */}
 .Header-Container {
-  width: 85%;
+  width: 75%;
   position: fixed;
   height: auto;
 
@@ -14,15 +14,15 @@
   top: 25px;
   display: flex;
   justify-content: space-between;
-  transition: left 0.6s linear;
+  transition: left 0.4s ease-in;
 }
 
 .Header-Container1{
-  width: 85%;
+  width: 75%;
   position: fixed;
   height: auto;
 
-  left: 300px;
+  left: 350px;
     // border: 2px solid red;
   padding: 10px;
   z-index: 1000;
@@ -134,7 +134,11 @@ color: #FFFFFF;
 font-family: Poppins;
 font-weight: 400;
 font-size: 16px;
-line-height: 24px;
+line-height: 24px;      
 color: #FFFFFF;
 text-align: center;
+}
+
+.Add-Item-Container:hover{
+  background-color: #335400f0;
 }
