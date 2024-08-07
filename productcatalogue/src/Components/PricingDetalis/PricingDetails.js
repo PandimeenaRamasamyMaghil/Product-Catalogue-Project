@@ -58,7 +58,7 @@ const PricingDetails = () => {
     setSelectedValues(values);
     console.log(values)
     const matchingIds = values.map(value => {
-      const foundOption = options.find(option => option.name === value);
+      const foundOption = options.find(option => option.tagName === value);
       return foundOption ? foundOption.id : null;
     }).filter(id => id !== null);
 
@@ -214,7 +214,7 @@ const PricingDetails = () => {
 
   const getApi=async()=>{
     try{
-      const response= await axios.get("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Availability")
+      const response= await axios.get("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Tag")
       
       setOptions(response.data)
     
@@ -244,7 +244,7 @@ const PricingDetails = () => {
             <Dropdown 
               selectedValues={selectedValues} 
               onSelect={handleSelect} 
-              options={options.map((elem)=>elem.name)  } 
+              options={options.map((elem)=>elem.tagName)  } 
               addOption={addOption}
               label="Kitchen Station1*"
               onBlur={() => validateDropdown(selectedValues, 'kitchen')}
