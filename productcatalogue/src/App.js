@@ -7,9 +7,11 @@ import Header from "./Components/Item Customizations/MainLandingPage/Header/Head
 function App() {
   return (
    <div>
-  
+{/*   
 <Sidenav/>
-<Header/>
+<Header/> */}
+<Landing/>
+
 
 
   
