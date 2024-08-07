@@ -12,17 +12,19 @@ import { Contextpagejs } from '../contextpage';
 import info from "../../assets/images/info.png";
 import { useSelector } from 'react-redux';
 import { Value } from 'sass';
+import axios from 'axios';
  
 
 const PricingDetails = () => {
   const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingData.mainForm);
-  const [options, setOptions] = useState(['Kitchen Related', 'Option 2', 'Option 3', 'Option 6', 'Option 7']);
+  const [options, setOptions] = useState([]);
   const [options1, setOptions1] = useState(['Preparation Time', 'Option 2', 'Option 3', 'Option 5', 'Option 4']);
   const navigate = useNavigate();
   const { activeCategory, setActiveCategory } = useContext(Contextpagejs);
 
   const [selectedValues, setSelectedValues] = useState([]);
   const [selectedValue1, setSelectedValue1] = useState([]);
+  const[id,setId]=useState([])
 
   const dispatch = useDispatch();
   const [form, setForm] = useState({
@@ -52,7 +54,22 @@ const PricingDetails = () => {
   });
 
   const handleSelect = (values) => {
+      
     setSelectedValues(values);
+    console.log(values)
+    const matchingIds = values.map(value => {
+      const foundOption = options.find(option => option.name === value);
+      return foundOption ? foundOption.id : null;
+    }).filter(id => id !== null);
+
+    if (matchingIds.length > 0) {
+      setId(  matchingIds)
+
+
+    }
+     
+     
+   
     validateDropdown(values, 'kitchen');
   };
 
@@ -184,7 +201,32 @@ const PricingDetails = () => {
           dispatch(PricingDetailRequest({ mainForm }));
           setActiveCategory("Step 3: Item customizations");
       }
+
+
+    
   };
+
+
+  useEffect(()=>{
+    getApi();
+  
+  },[])
+
+  const getApi=async()=>{
+    try{
+      const response= await axios.get("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Availability")
+      
+      setOptions(response.data)
+    
+ 
+     }catch(error){
+       console.log(error)
+     }
+  }
+
+  console.log(id  )
+
+  
   return (
     <div className="pricingdetails-container">
       <div className='pricing-form'>
@@ -202,7 +244,7 @@ const PricingDetails = () => {
             <Dropdown 
               selectedValues={selectedValues} 
               onSelect={handleSelect} 
-              options={options} 
+              options={options.map((elem)=>elem.name)  } 
               addOption={addOption}
               label="Kitchen Station1*"
               onBlur={() => validateDropdown(selectedValues, 'kitchen')}
