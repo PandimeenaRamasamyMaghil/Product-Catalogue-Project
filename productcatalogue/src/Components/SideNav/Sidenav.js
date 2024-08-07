@@ -9,13 +9,18 @@ import vI from '../SideNav/6.svg'
 import logo from '../SideNav/thalappakatti-logo-anim 1@2x.svg'
 import btnnav from '../SideNav/btnnav.svg'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { Contextpagejs } from '../contextpage'
 
 
 
 
 
 const Sidenav = () => {
+
+  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
     const sidebarData = [
+      
        
 
         { id: 1, name: "Business", img:I },
@@ -27,7 +32,7 @@ const Sidenav = () => {
 
 
       ];
-      const [isExpanded, setIsExpanded] = useState(false);
+    
       const [selectedOption, setSelectedOption] = useState('');
       const options = ['Option 1', 'Option 2', 'Option 3'];
 
@@ -38,6 +43,7 @@ const Sidenav = () => {
       const handleChange = (event) => {
         setSelectedOption(event.target.value);
       };
+
 
   return (
     <div className='container-sidenav'>
