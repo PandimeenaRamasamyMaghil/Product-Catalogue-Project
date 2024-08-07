@@ -68,13 +68,29 @@ export const Menulisting = () => {
     <div className="table-container menumain ">
 
         <table>
+          
             <thead>
+                <tr className="headerrow">
+                    <th className="itemimage">Image</th>
+                    <th className="itemname">Item name</th>
+                    <th className="itemcode"><span>Code</span><button>+</button></th>
+                </tr>
                 <tr>
-                    <th>Image</th>
-                    <th>Item name</th>
-                    <th>sp</th>
+                  <th colSpan={3}>Steamed-Veg(6)</th>
                 </tr>
             </thead>
+            <tbody>
+              <tr>
+
+
+              </tr>
+
+            </tbody>
+            <table>
+
+
+
+            </table>
 
 
         </table>
