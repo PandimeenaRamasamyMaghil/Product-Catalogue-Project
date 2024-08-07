@@ -1,5 +1,5 @@
-import apple from '../../assets/images/ingredientimages/apple.svg'
-import banana from '../../assets/images/ingredientimages/banana.svg'
+// import apple from '../../assets/images/ingredientimages/apple.svg'
+// import banana from '../../assets/images/ingredientimages/banana.svg'
 import blackbeans from '../../assets/images/ingredientimages/blackbeans.svg'
 import Capsicum from '../../assets/images/ingredientimages/Capsicum.svg'
 import Cheese from '../../assets/images/ingredientimages/Cheese.svg'
@@ -31,16 +31,13 @@ import whippedcrema from '../../assets/images/ingredientimages/whippedcrema.svg'
 
 
 const ingredientsimageslist = [
-    {
-        name: "apple",
-        image: apple,
-        id: "1234",
-    },
-    {
-        name: "banana",
-        image: banana,
-        id: "2762",
-    },
+   
+    
+    // {
+    //     name: "banana",
+    //     image: banana,
+    //     id: "2762",
+    // },
     {
         name: "blackbeans",
         image: blackbeans,

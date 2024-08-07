@@ -1,8 +1,8 @@
 .menumain
 {
    position: relative;
-   left: 350px;
-   top: 150px;
+   left: 10px;
+   top: 120px;
  
 display: flex;
 flex-direction: row;
@@ -26,6 +26,11 @@ flex-direction: row;
     border: 1px solid #ddd;
     white-space: nowrap;
   }
+.itemimage
+{
+  
+}
+
   
   th {
     background-color: #f4f4f4;

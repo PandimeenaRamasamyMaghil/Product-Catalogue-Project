@@ -11,6 +11,13 @@ import { Pricing_Detail_Data_Request,Pricing_Detail_Data_Success } from "./const
   import {primarypost,primarysuccess,primaryfailure}from './Actions'
 
 
+
+
+
+
+  
+
+
   function* postprimary(action) {
 
     try{
