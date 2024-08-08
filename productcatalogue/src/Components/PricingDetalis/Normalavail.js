@@ -451,7 +451,8 @@ const handleMealSelect2 = (index, value) => {
               </div>
         <div className='dayspickup'>
         {dineinfields[index].showDay && (
-            <DaysCheckDin checkedItems={dineInDates1} setCheckedItems={setDineInDates1} index={index} />
+            <DaysCheckDin checkedItems={dineInDates1} setCheckedItems={setDineInDates1} index={index} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})} 
+/>
         )}
         </div>
        
@@ -508,7 +509,8 @@ const handleMealSelect2 = (index, value) => {
           </div>
 
         <div className='dayspickup'>
-        {showDayPickup?<DaysCheck checkedItems={DayPickup} setCheckedItems={setDayPickup}/>:""}
+        {showDayPickup?<DaysCheck checkedItems={DayPickup} setCheckedItems={setDayPickup} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})} 
+      />:""}
 
         </div>
                     
@@ -549,7 +551,8 @@ const handleMealSelect2 = (index, value) => {
           </div>
 
         <div className='dayspickup'>
-        {showDayDelivery?<DaysCheck checkedItems={DayDelivery} setCheckedItems={setDayDelivery}/>:""}
+        {showDayDelivery?<DaysCheck checkedItems={DayDelivery} setCheckedItems={setDayDelivery} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})} 
+        />:""}
 
         </div>
                     </div>
@@ -608,7 +611,8 @@ const handleMealSelect2 = (index, value) => {
 
 
         </div>
-        {showDayThird?<DaysCheck checkedItems={DayThird} setCheckedItems={setDayThird}/>:""}
+        {showDayThird?<DaysCheck checkedItems={DayThird} setCheckedItems={setDayThird} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})} 
+        />:""}
             </div>
              
             
