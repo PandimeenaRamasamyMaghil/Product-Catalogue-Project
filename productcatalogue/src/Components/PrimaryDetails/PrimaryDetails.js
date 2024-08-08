@@ -61,6 +61,7 @@ const PrimaryDetails = () => {
     taxClassAssociation: "",
     masterCode: [0, 0, 0, 0],
     imageUrls: [],
+    ingredients:[],
     allergensFood: [],
     ingredientFood: [],
   });
@@ -805,13 +806,15 @@ const PrimaryDetails = () => {
   const handleImageClick2 = (image) => {
     setseletedingredients([
       ...seletedingredients,
-      { name: image.name, image: image.image, id: image.id },
+      { name: image.name, image: image.imageId, id: image.id,imageType:image.imageType },
     ]);
 
     setPrimarydetailsform({
       ...Primarydetailsform,
 
       ingredientFood: [...Primarydetailsform.ingredientFood, image.id],
+      ingredients: [...Primarydetailsform.ingredients, image.id],
+
     });
   };
   const allergenRefs = useRef([]);
@@ -2924,7 +2927,7 @@ const PrimaryDetails = () => {
                           <img
                             className="images"
                             src={imageitem.image}
-                            alt={`Image ${index + 1}`}
+                            alt=""
                           />
                           <div
                             style={{ display: "flex", flexDirection: "row" }}

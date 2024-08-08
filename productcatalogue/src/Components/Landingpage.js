@@ -18,12 +18,13 @@ const Landingpage = () => {
     <div style={{display:'flex',flexDirection:'row'}}>
       <Contextpage>
 
+
 <Sidenav/>
 {/* <Pricingpage/> */}
      
-     <Menulisting/>
+     {/* <Menulisting/> */}
 
-       {/* <Routes>
+       <Routes>
         <Route path="/" element={<Navigationpage />} />
         <Route path="/Reviewpage" element={<Reviewpage />} />
         <Route path="/Primary" element={<Primary />} />
@@ -34,7 +35,7 @@ const Landingpage = () => {
           
           <Route path="ItemCustomization" element={<ItemCustomization />} />
         </Route>
-      </Routes> */}
+      </Routes>
        
      
          </Contextpage>
