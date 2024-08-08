@@ -1,62 +1,243 @@
-.menumain
-{
-   position: relative;
-   left: 10px;
-   top: 120px;
- 
-display: flex;
-flex-direction: row;
+* {
+  font-family: "Poppins", sans-serif;
+}
 
+.menumain {
+  position: relative;
+  left: 10px;
+  top: 120px;
+
+  display: flex;
+  flex-direction: row;
 }
 .table-container {
-    width: 90%;
-    overflow-x: scroll;
-    position: relative;
-  }
-  
-  table {
-   
-    border-collapse: collapse;
-    position: relative;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-    white-space: nowrap;
-  }
-.itemimage
-{
-  
+  position: relative;
+  display: flex;
+  flex-direction: row;
 }
 
-  
+.tabletwo {
+  border: 1px solid red;
+  width: 875px;
+  height: 700px;
+  overflow-x: scroll;
   th {
-    background-color: #f4f4f4;
+    font-weight: normal;
   }
+  .headingonesection {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    .dinein1
+    {
+      width: 155px;
+      height: 30px;
+      border: 0.5px solid #D9D9D9;
+      margin-left: 20px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      
+
+      .dots{
+        padding-right: 10px;
+
+      }
+      .dollar{
+        padding-right: 10px;
+
+      }
+      .dineintext
+      {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+    .dinein2
+    {
+      width: 155px;
+      height: 30px;
+      border: 0.5px solid #D9D9D9;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .dots{
+        padding-right: 10px;
+
+      }
+      .dollar{
+        padding-right: 10px;
+
+      }
+      .dineintext
+      {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+     
+    }
   
-  .item-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    .pickup1
+    {
+      width: 205px;
+      height: 30px;
+      border: 0.5px solid #D9D9D9;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .dots{
+        padding-right: 10px;
+
+      }
+      .dollar{
+        padding-right: 10px;
+
+      }
+      .pickuptext
+      {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    
+    }
+     .pickup2
+    {
+      width: 205px;
+      height: 30px;
+      border: 0.5px solid #D9D9D9;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .dots{
+        padding-right: 10px;
+
+      }
+      .dollar{
+        padding-right: 10px;
+
+      }
+      .pickuptext
+      {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+     
+    }
+
+    .delivery1
+    {
+      width: 205px;
+      height: 30px;
+      border: 0.5px solid #D9D9D9;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .dots{
+        padding-right: 10px;
+
+      }
+      .dollar{
+        padding-right: 10px;
+
+      }
+      .deliverytext
+      {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+    
+    }
+    .delivery2
+    {
+      width: 205px;
+      height: 30px;
+      border: 0.5px solid #D9D9D9;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .dots{
+        padding-right: 10px;
+
+      }
+      .dollar{
+        padding-right: 10px;
+
+      }
+      .deliverytext
+      {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+     
+    }
+  
+  
+  
+
+  
+     
   }
-  
-  .sticky-col {
-    position: -webkit-sticky;
-    position: fixed;
-    margin-left: 100px;
-    background-color: red;
-    z-index: 10; /* To keep it above other table cells */
+  .headingtwosection {
+   display: flex;
+   flex-direction: row;
+
+   
+
   }
-  
-  .sticky-col + .sticky-col {
-    margin-left: 100px; 
-    background-color: red;/* Adjust according to the width of your first sticky column */
+}
+.tableone {
+  width: 340px;
+  height: 700px;
+  .itemheading {
+    height: 25px;
   }
-  
-  .sticky-col + .sticky-col + .sticky-col {
-    margin-left: 100px; 
-    background-color: red;/* Adjust according to the width of your first and second sticky columns */
+  .itemimage {
+    width: 60px;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid red;
   }
-  
+  .itemname {
+    width: 150px;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid red;
+  }
+  .itemcode {
+    width: 60px;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid red;
+  }
+}
