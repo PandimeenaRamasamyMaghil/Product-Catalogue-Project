@@ -8,10 +8,9 @@ function App() {
   return (
    <div>
   
-  <Sidenav/>
-<Header/>
-{/* <Landing/> */}
-
+  {/* <Sidenav/>
+<Header/> */}
+<Landing/>
   
 
 

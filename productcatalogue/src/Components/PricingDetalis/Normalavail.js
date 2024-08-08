@@ -13,12 +13,13 @@ const Specialavail = ({getNormalForm,validateDropdown,validationState,dinein,set
   const [pickup, setPickup] = useState(false)
   const [delivery, setDelivery] = useState(false)
   const [dineinentry, setDineInEntry] = useState([""]);
- const[Normaldays,setNormalDays]=useState([])
+ const[Normaldays, setNormalDays ]=useState([ ])
  const [options2, setOptions2] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options3, setOptions3] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options4, setOptions4] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options5, setOptions5] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options6, setOptions6] = useState(['Breakfast', 'Lunch', 'Dinner']);
+ const [availabilityid,setAvailabilityid]=useState([])
  const [selectedValues, setSelectedValues] = useState("");
  const [selectedValues2, setSelectedValues2] = useState("");
  const [selectedValues3, setSelectedValues3] = useState("");
@@ -83,6 +84,7 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
 
       const mainForm= 
         {
+          availabilityid:availabilityid,
         formNormal,
         dineinfields,
        Normaldays:Normaldays, 
@@ -146,6 +148,7 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
           
       const mainForm= 
       {
+        availabilityid,
       formNormal,
       dineinfields,
      Normaldays:Normaldays, 
@@ -160,7 +163,8 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
     WeekDays:dineInDates1,
     Delivery:DayDelivery,
     thirdParty:DayThird,
-    DineIn:dineInDates1
+    DineIn:dineInDates1,
+   
       }
 
           if (prizingDetail?.normalForm) {
@@ -371,7 +375,7 @@ const handleMealSelect2 = (index, value) => {
  
   };
 
-  console.log(dineInDates1)
+  console.log(mainForm)
   
   
   return (
@@ -379,7 +383,7 @@ const handleMealSelect2 = (index, value) => {
       <div className='AvailDaycheck'>
         <h1 className='AvailableDaysHeading'>Available days</h1>
         <div className='dayschecking'>
-        <DaysCheck checkedItems={Normaldays} setCheckedItems={setNormalDays}></DaysCheck>
+        <DaysCheck checkedItems={Normaldays} setCheckedItems={setNormalDays} id={availabilityid} setId={setAvailabilityid}></DaysCheck>
 
         </div>
         </div>
