@@ -36,6 +36,7 @@ const [dinein, setDineIn] = useState(true);
   const datePickerRef = useRef(null);
   const datePickerRef1 = useRef(null);
   const prizingDetail=useSelector((state)=> state.PricingDetailReducer.prizingData.mainForm )
+  const [availabilityid1,setAvailabilityid1]=useState([])
 
  
     const[form,setForm]=useState({
@@ -99,6 +100,7 @@ const [dinein, setDineIn] = useState(true);
     selectedValuesdelivery:selectedValuesdelivery,
     Swiggy:selectedValuesthird1,
     Zomato:selectedValuesthird2,
+    Availabilityid:availabilityid1
 
 
 
@@ -240,11 +242,11 @@ const [dinein, setDineIn] = useState(true);
           }
         ))
         setDineInFields(updated)
-        const initialSelectedValues = updated.map(item => item.DineInMealType);
+        const initialSelectedValues = updated?.map(item => item.DineInMealType);
         
         setSelectedValuesMealType(initialSelectedValues);
         
-        const initialSelectedValues2 = updated.map(item => item.DineInServiceArea);
+        const initialSelectedValues2 = updated?.map(item => item.DineInServiceArea);
         setSelectedValues1(initialSelectedValues2);
         setDineIn(true)
 
@@ -297,7 +299,7 @@ const [dinein, setDineIn] = useState(true);
     <img src={calender} className='calender1' onClick={handleImageClick2}></img>
     </div>
     <div className='dayschecking'>
-    <DaysCheck checkedItems={specialcheck} setCheckedItems={setSpecialcheck}/>
+    <DaysCheck checkedItems={specialcheck} setCheckedItems={setSpecialcheck} id={availabilityid1} setId={setAvailabilityid1}/>
 
     </div>
 
@@ -311,7 +313,7 @@ const [dinein, setDineIn] = useState(true);
           <>
             
             
-            {dineinfields.map((item,index) => (
+            {dineinfields && dineinfields.map((item,index) => (
              
  
 <div className='DineInInput11Special'  style={{ zIndex: dineinfields.length - index }}> 

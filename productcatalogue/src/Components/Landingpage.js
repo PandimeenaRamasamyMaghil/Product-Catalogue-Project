@@ -28,7 +28,6 @@ const Landingpage = () => {
      
      {/* <Menulisting/> */}
 
-        <Routes>
        <Routes>
         <Route path="/" element={<Navigationpage />} />
         <Route path="/Reviewpage" element={<Reviewpage />} />
