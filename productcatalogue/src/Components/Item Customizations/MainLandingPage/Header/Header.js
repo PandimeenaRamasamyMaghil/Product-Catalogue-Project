@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
 import '../Header/Header.scss'
+import SearchBox from './SearchBox1'
 import searchIcon from '../../../../assets/images/searchicon.png'
 import filterIcon from '../../../../assets/images/filter1.svg'
 import Excel from '../../../../assets/images/Excel.svg'
 import DownloadExcel from '../../../../assets/images/ExcelDownload.png'
 import { Contextpagejs } from '../../../contextpage'
 import { useNavigate } from 'react-router-dom'
+
 
 const Header = () => {
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
@@ -21,8 +23,8 @@ const Header = () => {
 
       <div className='Header-Heading-Search-Filter-Container'>
         <h1 className='Header-Heading'>Menu(120)</h1>
-        <input className='Header-Search' placeholder='Search' type="text" />
-        <img  className="SerchIcon-Header" src={searchIcon} alt="" />
+        <SearchBox/>
+        
         <img className="FilterIcon-Header" src={filterIcon} alt="" />
         <img className="Excel-Header" src={Excel} alt="" />
         <img className="Excel-Header-Download" src={DownloadExcel} alt="" />
