@@ -6,6 +6,18 @@ import Sidenav from "./Components/SideNav/Sidenav";
 import Header from "./Components/Item Customizations/MainLandingPage/Header/Header";
 function App() {
   return (
+   <div>
+  
+  {/* <Sidenav/>
+<Header/> */}
+<Landing/>
+  
+
+
+  
+
+
+</div>
     <div >
       <Landing />
     </div>
