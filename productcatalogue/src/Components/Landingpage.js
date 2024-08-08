@@ -11,14 +11,19 @@ import PricingDetails from './PricingDetalis/PricingDetails'
 import { Contextpage } from './contextpage'
 import Pricingpage from './Pricingpage/Pricingpage'
 import { Menulisting } from './Menulisting/Menulisting'
+import Sidenav from "./SideNav/Sidenav"
 
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
   return (
-    <div>
+    <div style={{display:'flex',flexDirection:'row'}}>
       <Contextpage>
 
-<Slider/>
+
+
+
+<Sidenav/>
+
 {/* <Pricingpage/> */}
      
      {/* <Menulisting/> */}

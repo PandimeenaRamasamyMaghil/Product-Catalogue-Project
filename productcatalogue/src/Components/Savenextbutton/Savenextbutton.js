@@ -54,13 +54,13 @@ const Savenextbutton = (probs) => {
     if (probs.selectedpage === "primary" ) {
       setActiveCategory("Step 2: Pricing and kitchen details")
       
-      dispatch(primarypost(data));
+      dispatch(primarypost(probs.formData));
     } 
-    else if (probs.selectedpage === "PricingDetails" && probs.validation()) {
-      setActiveCategory("Step 3: Item customizations")
-      dispatch(PricingDetailRequest(probs.formData));
-    } 
-    else if (probs.selectedpage === "ItemCustomization" && probs.validation()) {
+    // else if (probs.selectedpage === "PricingDetails" && probs.validation()) {
+    //   setActiveCategory("Step 3: Item customizations")
+    //   dispatch(PricingDetailRequest(probs.formData));
+    // } 
+    else if (probs.selectedpage === "ItemCustomization") {
       setnavigationpage("Reviewpage")
       // navigate('./Reviewpage')
       dispatch(itemCustomizationPost(probs.formData));

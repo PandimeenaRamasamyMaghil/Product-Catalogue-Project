@@ -1,41 +1,66 @@
-import React, { useState } from 'react';
-import "./DaysCheck.scss";
+  import React, { useState } from 'react';
+  import "./DaysCheck.scss";
+  import { useEffect } from 'react';
+  import axios from 'axios';
 
-const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
-  
-  const handleCheckboxChange = (event) => {
-    const { name, checked } = event.target;
-    const numericName = parseInt(name, 10);
+  const DaysCheck = ({ checkedItems, setCheckedItems, index ,id,setId}) => {
+    const [data,setData]=useState([])
+    
+    const handleCheckboxChange = (event) => {
+      const { name, checked } = event.target;
+      const numericName = parseInt(name, 10);
 
-    if (checked) {
-      // Add the checkbox value to the state if it is checked
-      setCheckedItems([...checkedItems, numericName]);
-    } else {
-      // Remove the checkbox value from the state if it is unchecked
-      setCheckedItems(checkedItems.filter((item) => item !== numericName));
+      if (checked) {
+        // Add the checkbox value to the state if it is checked
+        setCheckedItems([...checkedItems, numericName]);
+setId([...id,data[numericName].id])      
+      } else {
+        // Remove the checkbox value from the state if it is unchecked
+        setCheckedItems(checkedItems.filter((item) => item !== numericName));
+        setId(id.filter((itemId) => itemId !== data[numericName].id));
+      }
+    
+    };
+
+    useEffect(()=>{
+      getApi()
+    },[])
+
+    const getApi=async()=>{
+      try{
+        const response=await axios.get("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Availability")
+        console.log(response.data)
+        setData(response.data)
+
+      }catch(error){
+        console.log(error)
+
+      }
+
     }
+    console.log(checkedItems)
+
+    return (
+      <div>
+        <div className='DaysCheckContainer1'>
+          {data.map((elem,index)=>{
+               const isChecked = checkedItems.includes(index);
+            return(
+              <>
+            
+
+              <input type="checkbox" name={index} onChange={handleCheckboxChange}   checked={isChecked}     className='aa' />
+              <label>{elem.name}</label>
+              
+              </>
+
+       
+          
+       ) })}
+         
+        </div>
+      </div>
+    );
   };
 
-  return (
-    <div>
-      <div className='DaysCheckContainer1'>
-        <input type="checkbox" name='1' onChange={handleCheckboxChange} checked={checkedItems.includes(1)} className='aa' />
-        <label>Monday</label>
-        <input type="checkbox" name='2' onChange={handleCheckboxChange} checked={checkedItems.includes(2)} className='aa' />
-        <label>Tuesday</label>
-        <input type="checkbox" name='3' onChange={handleCheckboxChange} checked={checkedItems.includes(3)} className='aa' />
-        <label>Wednesday</label>
-        <input type="checkbox" name='4' onChange={handleCheckboxChange} checked={checkedItems.includes(4)} className='aa' />
-        <label>Thursday</label>
-        <input type="checkbox" name='5' onChange={handleCheckboxChange} checked={checkedItems.includes(5)} className='aa' />
-        <label>Friday</label>
-        <input type="checkbox" name='6' onChange={handleCheckboxChange} checked={checkedItems.includes(6)} className='aa' />
-        <label>Saturday</label>
-        <input type="checkbox" name='0' onChange={handleCheckboxChange} checked={checkedItems.includes(0)} className='aa' />
-        <label>Sunday</label>
-      </div>
-    </div>
-  );
-};
-
-export default DaysCheck;
+  export default DaysCheck;

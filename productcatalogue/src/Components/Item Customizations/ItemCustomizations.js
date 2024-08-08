@@ -275,6 +275,7 @@
       console.log(isvalid)
       return (
         <div className="mainItemCustomizations">
+          <div className="itemcustomizationpage">
           <div className="AddModifiersSection">
             <div>
               <h3 className="headingItemCustomizations">Add Modifiers</h3>
@@ -607,7 +608,7 @@
         </div>
         </div>
 
-
+        </div>
 
       </div>
     );

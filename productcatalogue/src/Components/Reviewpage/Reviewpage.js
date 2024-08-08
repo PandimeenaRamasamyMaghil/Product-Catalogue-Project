@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import "./Reviewpage.scss";
+import axios from 'axios';
+
 import emptyfoodimg from "../../assets/images/emptyfoodimg.png";
 import edit from "../../assets/images/edit.png";
 import { useNavigate, Link } from "react-router-dom";
@@ -9,6 +11,8 @@ import ingredientimagelist from "../imageslist/ingredientimagelist";
 
 import Savenext from "../Savenextbutton/Savenextbutton";
 import { primarypost } from "../../redux/Actions";
+import { ApiPost} from "../../redux/Actions";
+
 import Step2 from "./Step2";
 import { Contextpagejs } from "../contextpage";
 
@@ -20,8 +24,59 @@ const Reviewpage = () => {
 
   const primarydata = useSelector((state) => state.primarypage.data);
   const fetchedprimarydata = primarydata;
+  console.log("fetchedprimarydata",fetchedprimarydata);
   const { activeCategory, pages, setActiveCategory } =
     useContext(Contextpagejs);
+
+    const [imagenamesfromapi,setimagenamesfromapi]=useState([])
+    useEffect(() => {
+   
+      const fetchData = async () => {
+        try {
+          const imagesapi = await axios.get('https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=INGR');
+          setimagenamesfromapi(imagesapi.data && imagesapi.data);
+
+        } catch (error) {
+          return error;
+        } 
+      };
+     
+      fetchData();
+    }, []);
+
+const primarypagedetails= useSelector((state)=>state);
+console.log("primary",primarypagedetails);
+
+const data=
+{
+  locationId:"9c485244-afd4-11eb-b6c7-42010a010026",
+  itemCode:primarypagedetails.
+  primarypage.data.itemCode,
+  altName:"alt name",
+  itemName:primarypagedetails.
+  primarypage.data.itemName,
+  description:primarypagedetails.
+  primarypage.data.description,
+  price:"12",
+  categoryId:primarypagedetails.
+  primarypage.data.categoryId,
+  subCategoryId:"",
+  kitchenStations:["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],
+  taxFeeId:"",
+  ingredients:primarypagedetails.
+  primarypage.data.ingredients && primarypagedetails.
+  primarypage.data.ingredients||[],
+  modifiers:[],
+  availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
+  category:primarypagedetails.
+  primarypage.data.category,
+  subCategory:primarypagedetails.
+  primarypage.data.subCategory,
+  itemId:null
+}
+
+
+
 
   // const imageslist = [
   //   {
@@ -60,7 +115,7 @@ const Reviewpage = () => {
   const foundItemsingredient =
     fetchedprimarydata &&
     fetchedprimarydata.ingredientFood &&
-    ingredientimagelist.filter((item) =>
+    imagenamesfromapi.filter((item) =>
       fetchedprimarydata.ingredientFood.includes(item.id)
     );
 
@@ -73,10 +128,14 @@ const Reviewpage = () => {
   };
 
   return (
+    <div style={{display:'flex',flexDirection:'column'}}>
+    <div className="reviewheading">
+    <p>Review menu item - Idli</p>
+  </div>
     <div className="reviewpage">
-      <div className="reviewheading">
-        <p>Review menu item - Idli</p>
-      </div>
+      
+
+      <div className="reviewpagebody">
 
       <div className="primaryreview">
         <div className="primaryreviewdetailspart1">
@@ -262,8 +321,8 @@ const Reviewpage = () => {
                       </li>
                     )}
 
-                  {fetchedprimarydata &&
-                    !fetchedprimarydata.imageUrls &&
+                  {fetchedprimarydata && fetchedprimarydata.imageUrls&&
+                    fetchedprimarydata.imageUrls.length===0 &&
                     [0].map((_, index) => (
                       <li key={index + 1}>
                         <img src={emptyfoodimg} alt={`sample ${index}`} />
@@ -289,10 +348,11 @@ const Reviewpage = () => {
                             />
                           </li>
                         ))}
-                    {fetchedprimarydata &&
-                      !fetchedprimarydata.imageUrls &&
+                    {fetchedprimarydata && fetchedprimarydata.imageUrls &&
+                      fetchedprimarydata.imageUrls.length===0 &&
                       [0, 1, 2, 3, 4, 5].slice(1).map((_, index) => (
                         <li key={index + 1}>
+                         
                           <img src={emptyfoodimg} alt={`sample ${index}`} />
                         </li>
                       ))}
@@ -367,7 +427,7 @@ const Reviewpage = () => {
         <button className="clearall" >
           Cancel
         </button>
-        <button className="saveall" >
+        <button className="saveall" onClick={()=> dispatch(ApiPost(data))} >
         Submit for review
         </button>
         
@@ -377,7 +437,8 @@ const Reviewpage = () => {
 
 
       </div>
-    </div>
+      </div>
+    </div> </div>
   );
 };
 

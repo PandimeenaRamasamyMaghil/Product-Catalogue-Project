@@ -121,6 +121,7 @@ const PricingDetails = () => {
     form,
     kitchenstation: selectedValues,
     Preparationtime: selectedValue1,
+    KitchenStationId:id
   };
 
   
@@ -224,7 +225,7 @@ const PricingDetails = () => {
      }
   }
 
-  console.log(id  )
+  console.log(mainForm  )
 
   
   return (
