@@ -2,6 +2,7 @@ import {
     Primary_Post_Data_Send,
     Primary_Post_Data_Success,
     Primary_Post_Data_Failure,
+    API_Request
   } from "./constans";
 
   
@@ -10,7 +11,7 @@ import {
 import { Item_Customizations_Data_Request, Item_Customizations_Data_Success } from "./constans";
 import { Pricing_Detail_Data_Request,Pricing_Detail_Data_Success } from "./constans";
   import { takeEvery, call, put } from 'redux-saga/effects';
-  import {primarypost,primarysuccess,primaryfailure}from './Actions'
+  import {primarypost,primarysuccess,primaryfailure,ApiSuccess,ApiFailure}from './Actions'
 
 
 
@@ -49,9 +50,9 @@ import { Pricing_Detail_Data_Request,Pricing_Detail_Data_Success } from "./const
       const response= yield call(primarypageAPI,action.payload)
   if(response.status===200 ||response.status===201)
   {
-    yield put(primarysuccess(response.data));
+    yield put(ApiSuccess(response.data));
   } else {
-    yield put(primaryfailure(response.statusText));
+    yield put(ApiFailure(response.statusText));
   }
 
   
@@ -122,7 +123,7 @@ import { Pricing_Detail_Data_Request,Pricing_Detail_Data_Success } from "./const
 // }
 
 export function* watchPostprimary() {
-    yield takeEvery( Primary_Post_Data_Send, postprimary);
+    yield takeEvery(API_Request, postprimary);
 
 
   }

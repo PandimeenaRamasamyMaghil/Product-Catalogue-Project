@@ -60,7 +60,7 @@ const Savenextbutton = (probs) => {
     //   setActiveCategory("Step 3: Item customizations")
     //   dispatch(PricingDetailRequest(probs.formData));
     // } 
-    else if (probs.selectedpage === "ItemCustomization" && probs.validation()) {
+    else if (probs.selectedpage === "ItemCustomization") {
       setnavigationpage("Reviewpage")
       // navigate('./Reviewpage')
       dispatch(itemCustomizationPost(probs.formData));

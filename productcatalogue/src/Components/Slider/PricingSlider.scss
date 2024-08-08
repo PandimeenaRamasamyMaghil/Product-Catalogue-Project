@@ -1,0 +1,240 @@
+*{
+   font-family: "Poppins",sans-serif;
+}
+.PricingSlider-Container{
+    width:395px;
+    
+    border: 2px solid red;
+    margin-top: 20px;
+}
+.PricingSlider-Heading{
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.Onprem-Ofprem{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction:column ;
+    border:2px solid black
+}
+.Onprem-Heading{
+    font-size: 16px;
+    font-weight:400;
+}
+.SectionA{
+    margin-left: 27px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.SectionA-Heading{
+    font-size: 16px;
+    font-weight: 400;
+}
+.SectionA-Input{
+    margin-left: 25px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.SectionA-Image{
+    margin-left: 10px;
+}
+.WeighImages{
+    margin-left: 10px;
+    width:30px;
+    height: 23px;
+    border-color:#D9D9D9;
+
+}
+.SectionB{
+    margin-left: 27px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.SectionB-Heading{
+    font-size: 16px;
+    font-weight: 400;
+}
+.SectionB-Input{
+    margin-left: 25px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.SectionB-Image{
+    margin-left: 10px;
+}
+.Ofprem-Heading{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight:400;
+}
+.OfPickup{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.OfPickup-Heading{
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.OfPickup-Input{
+    margin-left: 34.2px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.OfDelivery{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.OfDelivery-Heading{
+    font-size: 16px;
+    font-weight: 400;
+     margin-left: 10px;
+}
+.OfDelivery-Input{
+    margin-left: 23px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfZomato{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.OfZomato-Heading{
+    font-size: 16px;
+    font-weight: 400;
+     margin-left: 10px;
+}
+.OfZomato-Input{
+    margin-left: 23px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfSwiggy{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.OfSwiggy-Heading{
+    font-size: 16px;
+    font-weight: 400;
+     margin-left: 10px;
+}
+.OfSwiggy-Input{
+    margin-left: 28px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfUberEats{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.OfUberEats-Heading{
+    font-size: 16px;
+    font-weight: 400;
+     margin-left: 10px;
+}
+.OfUberEats-Input{
+    margin-left: 15px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfOther1{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.OfOther1-Heading{
+    font-size: 16px;
+    font-weight: 400;
+     margin-left: 12px;
+}
+.OfOther1-Input{
+    margin-left: 30px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfOther2{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #932418;
+    display: flex;
+    justify-content: flex-start;
+}
+.OfOther2-Heading{
+    font-size: 16px;
+    font-weight: 400;
+     margin-left: 12px;
+}
+.OfOther2-Input{
+    margin-left: 26px;
+    border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
