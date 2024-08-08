@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react'
 import "./Slider.scss"
-
+import PricingSlider from './PricingSlider'
+import Pen from "../../assets/images/edit 1.png"
+import Eye from "../../assets/images/eye-off.png"
+import Bin from "../../assets/images/Frame 3466811.png"
 const Slider = ({ onclose }) => {
   const types = ["Pricing", "Availability", "Inventory", "Customize"]
   const [active, setActive] = useState("Pricing")
@@ -21,9 +24,9 @@ const Slider = ({ onclose }) => {
           <div className='Slider-First-Row'>
             <h1 className='Slider-Heading1'>Veg Burger Pizza - 12345</h1>
             <div className='Slider-icons'>
-              <p>th</p>
-              <p>th</p>
-              <p>th</p>
+              <img src={Pen} alt='hello' className='PenImage'/>
+              <img src={Eye} alt='hello' className='PenImage'/>
+              <img src={Bin} alt='hello' className='PenImage'/>
             </div>
           </div>
           <div className='Types-Menu'>
@@ -38,7 +41,7 @@ const Slider = ({ onclose }) => {
             }
           </div>
           <div className='Types-Line'></div>
-
+          {active==="Pricing" && <PricingSlider/>}
         </div>
 
       </div>
