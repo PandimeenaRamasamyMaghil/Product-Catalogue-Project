@@ -79,7 +79,7 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
         showDay:false
        
       }])
-      const [buttonText, setButtonText] = useState(dineinfields.map(() => 'Choose Day'));
+      const [buttonText, setButtonText] = useState( [{ChooseDay: 'Choose Day'}]);
       const [Text, setText] = useState(dineinfields.map(() => 'Set up for Specific Day'));
 
       const mainForm= 
@@ -265,10 +265,7 @@ if (prizingDetail?.normalForm) {
     const newFields = [...dineinfields];
     newFields[index].showDay = !newFields[index].showDay;
     setDineInFields(newFields);
-     const updatedButtonText = [...buttonText];
-    updatedButtonText[index] = updatedFields[index].showDay ? 'Default Day' : 'Choose Day';
-    setButtonText(updatedButtonText);
-}
+     }
 
       const addDayPickup=()=>{
         setShowDayPickup(true)
@@ -448,7 +445,7 @@ const handleMealSelect2 = (index, value) => {
                   
                   <h3 className='dineInChooseDayContainerHeading'>Choose for Specific day</h3>
                   <h3 className='dineInChooseDayContainer-chooseheading' onClick={() => addDay(index)}>
-                  {buttonText[index]}
+                 ChooseDay
                 </h3>
                
               </div>
