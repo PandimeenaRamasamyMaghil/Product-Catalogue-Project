@@ -4,7 +4,10 @@ import PricingSlider from './PricingSlider'
 import Pen from "../../assets/images/edit 1.png"
 import Eye from "../../assets/images/eye-off.png"
 import Bin from "../../assets/images/Frame 3466811.png"
+import Basic from "../../assets/images/Basic.png"
+import ToggleSlider from "./ToggleSlider"
 const Slider = ({ onclose }) => {
+  
   const types = ["Pricing", "Availability", "Inventory", "Customize"]
   const [active, setActive] = useState("Pricing")
   const modelref = useRef();
@@ -12,8 +15,9 @@ const Slider = ({ onclose }) => {
     if (modelref.current === e.target)
       onclose();
     }
-
-
+const[outlet1,setOutlet1]=useState(false)
+const[outlet2,setOutlet2]=useState(false)
+const[outlet3,setOutlet3]=useState(false)
   const handleItemClick = (item) => {
     setActive(item);
   };
@@ -43,7 +47,35 @@ const Slider = ({ onclose }) => {
           <div className='Types-Line'></div>
           {active==="Pricing" && <PricingSlider/>}
         </div>
-
+        <div className='BasicChangesContainer'>
+        <div className='BasicChanges'>
+          <img src={Basic} className='BasicChangesImage'></img>
+         <p className='BasicChangesText'>Make basic changes here.Click the edit icon for all options</p>
+        </div>
+        <div className='BasicChangesDiv'></div>
+        <div className='BasicChangescheckbox'>
+         <input type='checkbox' className='BasicCheckboxInput'></input>
+         <h1 className='BasicChangescheckbox-Heading'>Change across all outlets</h1>
+        </div>
+        <div className='ToggleBasicChanges'>
+         <div className='Toggle1BasicChange'>
+          <ToggleSlider toggle={outlet1} setToggle={setOutlet1}/>
+          <h1 className='Toggle1Basic-Heading'>Outlet 1</h1>
+         </div>
+         <div className='Toggle1BasicChange'>
+          <ToggleSlider toggle={outlet2} setToggle={setOutlet2}/>
+          <h1 className='Toggle1Basic-Heading'>Outlet 2</h1>
+         </div>
+         <div className='Toggle1BasicChange'>
+          <ToggleSlider toggle={outlet3} setToggle={setOutlet3}/>
+          <h1 className='Toggle1Basic-Heading'>Outlet 3</h1>
+         </div>
+        </div>
+        <div className='CancelChange'>
+         <button className='CancelBtn'>Cancel</button>
+         <button className='ChangeBtn'>Change</button>
+        </div>
+        </div>
       </div>
     </div>
   )
