@@ -76,8 +76,7 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
         DineInPrice:"",
         DineInMealType:"",
         DineInService:"",
-        showDay:false,
-        dayButtonText: "Choose Day"
+        showDay:false
        
       }])
       const [buttonText, setButtonText] = useState( [{ChooseDay: 'Choose Day'}]);
@@ -122,7 +121,6 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
               DineInPrice: item?.DineInPrice || "",
               DineInMealType: item.DineInMealType || [], // Ensure it's an array for dropdowns
               DineInService: item?.DineInService || "",
-              dayButtonText:"Choose Day"
             }));
         
             setDineInFields(updatedFields);
@@ -244,9 +242,9 @@ if (prizingDetail?.normalForm) {
     
       const AddDineInEntry = () => {
         setDineInEntry([...dineinentry, dineinentry])
-        setDineInFields([...dineinfields, { DineInPrice: '', DineInMealType: '', DineInService: '',dayButtonText:"Choose Day" }]);
-        
-        
+        setDineInFields([...dineinfields, { DineInPrice: '', DineInMealType: '', DineInService: '' }]);
+        setButtonText([...buttonText, 'Choose Day']);
+        setText([...buttonText, 'Set up for Specific Days']);
 
       
       }
@@ -258,13 +256,16 @@ if (prizingDetail?.normalForm) {
         
       };
 
-      const addDay = (index) => {
-        const updatedFields = [...dineinfields];
-        updatedFields[index].showDay = !updatedFields[index].showDay;
-        updatedFields[index].dayButtonText = updatedFields[index].showDay ? "Default Day" : "Choose Day";
-        setDineInFields(updatedFields);
-    };
-    
+      const addDay=(index)=>{
+      const newEntries = [...dineinfields];
+      const updatedFields = [...dineinfields];
+      const updatedtextFields=[...dineinfields]
+    newEntries[index].showDay = newEntries[index].showDay;
+    setDineInFields(newEntries);
+    const newFields = [...dineinfields];
+    newFields[index].showDay = !newFields[index].showDay;
+    setDineInFields(newFields);
+     }
 
       const addDayPickup=()=>{
         setShowDayPickup(true)
@@ -444,13 +445,11 @@ const handleMealSelect2 = (index, value) => {
                   
                   <h3 className='dineInChooseDayContainerHeading'>Choose for Specific day</h3>
                   <h3 className='dineInChooseDayContainer-chooseheading' onClick={() => addDay(index)}>
-                 {entry.dayButtonText}
+                 ChooseDay
                 </h3>
                
               </div>
         <div className='dayspickup'>
-        {entry.showDay && (
-            <DaysCheckDin checkedItems={dineInDates1} setCheckedItems={setDineInDates1} index={index} />
         {dineinfields[index].showDay && (
             <DaysCheckDin checkedItems={dineInDates1} setCheckedItems={setDineInDates1} index={index} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})} 
 />
