@@ -8,20 +8,13 @@ function App() {
   return (
    <div>
   
-  {/* <Sidenav/>
-<Header/> */}
+  
 <Landing/>
-  
+ </div> 
 
-
-  
-
-
-</div>
-    <div >
-      <Landing />
-    </div>
-  );
+)
 }
+  
+
 
 export default App;
