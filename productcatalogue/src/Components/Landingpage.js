@@ -16,6 +16,7 @@ import './Landingpage.scss';
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
 
+
     return (
         <div style={{ display: 'flex', flexDirection: 'row' }}>
             <Contextpage>
@@ -38,3 +39,35 @@ const Landingpage = () => {
 };
 
 export default Landingpage;
+
+
+
+<Sidenav/>
+
+{/* <Pricingpage/> */}
+     
+     {/* <Menulisting/> */}
+
+       <Routes>
+        <Route path="/" element={<Navigationpage />} />
+        <Route path="/Reviewpage" element={<Reviewpage />} />
+        <Route path="/Primary" element={<Primary />} />
+        <Route path="/ItemCustomization" element={<ItemCustomization />} />
+        <Route path="/PricingDetails" element={<PricingDetails />} />
+        <Route path="/Navigationpage" element={<Navigationpage />}>
+          <Route path="Primary" element={<Primary />} />
+          
+          <Route path="ItemCustomization" element={<ItemCustomization />} />
+        </Route>
+      </Routes>
+       
+     
+         </Contextpage>
+       
+
+     
+    </div>
+  )
+}
+
+export default Landingpage

@@ -11,10 +11,23 @@ function App() {
   
 <Landing/>
  </div> 
+ 
+  
+ 
+
 
 )
 }
   
+
+
+
+
+    <div >
+      <Landing />
+    </div>
+  );
+}
 
 
 export default App;
