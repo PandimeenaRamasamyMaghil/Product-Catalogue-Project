@@ -225,7 +225,6 @@ const PricingDetails = () => {
      }
   }
 
-  console.log(mainForm  )
 
   
   return (
