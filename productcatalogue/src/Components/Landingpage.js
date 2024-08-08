@@ -12,6 +12,7 @@ import { Menulisting } from './Menulisting/Menulisting';
 import Sidenav from './SideNav/Sidenav';
 import { Contextpage } from './contextpage';
 import './Landingpage.scss';
+import Header from './Item Customizations/MainLandingPage/Header/Header';
 
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -21,8 +22,9 @@ const Landingpage = () => {
         <div style={{ display: 'flex', flexDirection: 'row' }}>
             <Contextpage>
                 <Sidenav />
+                <Header/>
 
-                <Routes>
+                {/* <Routes>
                     <Route path="/" element={<Navigationpage />} />
                     <Route path="/Reviewpage" element={<Reviewpage />} />
                     <Route path="/Primary" element={<Primary />} />
@@ -32,7 +34,7 @@ const Landingpage = () => {
                         <Route path="Primary" element={<Primary />} />
                         <Route path="ItemCustomization" element={<ItemCustomization />} />
                     </Route>
-                </Routes>
+                </Routes> */}
             </Contextpage>
         </div>
     );
