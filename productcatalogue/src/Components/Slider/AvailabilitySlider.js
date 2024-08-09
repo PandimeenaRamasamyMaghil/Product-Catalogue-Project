@@ -8,6 +8,7 @@ const PricingSlider = () => {
     const[onPrem,setOnPrem]=useState(false)
     const[sectionA,setSectionA]=useState(false)
     const[sectionB,setSectionB]=useState(false)
+    const[pickup,setPickup]=useState(false)
     useEffect(() => {
       if (!onPrem) {
           setSectionA(false);
@@ -38,7 +39,7 @@ const PricingSlider = () => {
      <h1 className='AvailOfprem-Heading'>Of-prem</h1>
      <div className='AvailOfPickup'>
       <h1 className='AvailOfPickup-Heading'>Pickup: </h1>
-      <input type='text' className='AvailOfPickup-Input'></input>
+      <div className='PickupToggle'><ToggleSliderAvail toggle={pickup} setToggle={setPickup}/></div>
      </div>
      <div className='AvailOfDelivery'>
       <h1 className='AvailOfDelivery-Heading'>Delivery: </h1>
