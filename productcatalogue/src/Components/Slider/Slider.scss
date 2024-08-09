@@ -7,16 +7,27 @@
     background: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
     display: flex;
     justify-content: flex-end;
-    align-items: center;
     transition: 0.3s ease-out;
+   
+
     z-index: 1000; /* Ensure it appears above other content */
   }
   .Slider-Window{
     width:416px;
     height: 908px;
-    background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     background-color: white;
+   
     overflow-y:scroll;
+  }
+  .Slider-WindowBlur{
+    width:416px;
+    height: 908px;
+    background: rgba(0, 0, 0, 0.1); 
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y:scroll;
+    z-index: 1200;
+    
   }
   .Slider-Mainform{
     margin-top: 80px;
@@ -67,12 +78,28 @@
     height: 20px;
     transform: translateY(3px);
   }
+  .PenBlurImage{
+    width:36px;
+    height: 36px;
+    padding: 9px;
+    border-radius: 19px;
+    background-color: white;
+      ;
+  }
   .BasicChangesContainer{
     margin-top: 10px;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     height:400px;
     border:2px solid red;
+   
+  }
+  .BasicChangesContainerPen{
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);;
+    height:400px;
+    z-index: 1600;
    
   }
   .BasicChanges{
@@ -112,6 +139,7 @@
     accent-color: #67833E;
     transform: translateY(3px);
   }
+  
   .ToggleBasicChanges{
     display: flex;
     flex-direction: column;
