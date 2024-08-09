@@ -6,6 +6,7 @@ import Eye from "../../assets/images/eye-off.png"
 import Bin from "../../assets/images/Frame 3466811.png"
 import Basic from "../../assets/images/Basic.png"
 import ToggleSlider from "./ToggleSlider"
+import AvailabitySlider from "./AvailabilitySlider"
 const Slider = ({ onclose }) => {
   
   const types = ["Pricing", "Availability", "Inventory", "Customize"]
@@ -46,6 +47,7 @@ const[outlet3,setOutlet3]=useState(false)
           </div>
           <div className='Types-Line'></div>
           {active==="Pricing" && <PricingSlider/>}
+          {active==="Availability" && <AvailabitySlider/>}
         </div>
         <div className='BasicChangesContainer'>
         <div className='BasicChanges'>
