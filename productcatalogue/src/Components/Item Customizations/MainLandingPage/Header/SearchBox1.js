@@ -96,7 +96,7 @@ const SearchBox = () => {
 
     {searchTerm && (
         <ul>
-          {filteredOptions.length>0? (filteredOptions.map((option, index) => (
+          {filteredOptions.length>=0? (filteredOptions.map((option, index) => (
             <li
               key={index}
               onClick={()=>handleOptionClick(option)}

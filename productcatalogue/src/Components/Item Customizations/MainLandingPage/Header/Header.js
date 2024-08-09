@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import '../Header/Header.scss'
+
 import SearchBox from './SearchBox1'
 import searchIcon from '../../../../assets/images/searchicon.png'
 import filterIcon from '../../../../assets/images/filter1.svg'
@@ -8,11 +9,19 @@ import DownloadExcel from '../../../../assets/images/ExcelDownload.png'
 import { Contextpagejs } from '../../../contextpage'
 import { useNavigate } from 'react-router-dom'
 import Menu120 from './Menu120'
+import Filter from './Filter'
 
 
 const Header = () => {
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
+
+  const [filterSelected,setFilterSelected]=useState(false)
   const navigate=useNavigate()
+
+  const handleFilter=()=>{
+    setFilterSelected(!filterSelected)
+
+  }
 
 
   
@@ -26,10 +35,13 @@ const Header = () => {
         <Menu120/>
      
         <SearchBox/>
+        <div className='Filter-Div'  >
         
-        <img className="FilterIcon-Header" src={filterIcon} alt="" />
-        <img className="Excel-Header" src={Excel} alt="" />
-        <img className="Excel-Header-Download" src={DownloadExcel} alt="" />
+        <img className="FilterIcon-Header"  onClick={handleFilter}  src={filterIcon} alt="" />
+        {filterSelected && <Filter/>}
+        </div>
+        <img className={filterSelected?"Excel-Header1":"Excel-Header"}src={Excel} alt="" />
+        <img className={filterSelected?"Excel-Header-Download1":"Excel-Header-Download"} src={DownloadExcel} alt="" />
         
         </div>
 
