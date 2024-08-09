@@ -18,9 +18,9 @@
 
 .tabletwo {
   border: 1px solid red;
-  width: 875px;
+  width: 1000px;
   height: 700px;
-  overflow-x: scroll;
+  overflow-x: auto;
   th {
     font-weight: normal;
   }
@@ -28,11 +28,13 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    .dinein1
-    {
-      width: 155px;
+    position: relative;
+  
+    .dinein1 {
+      width: 135px;
       height: 30px;
-      border: 0.5px solid #D9D9D9;
+      border-radius: 4px;
+      border: 0.5px solid #d9d9d9;
       margin-left: 20px;
       display: flex;
       justify-content: left;
@@ -40,180 +42,573 @@
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
-      
 
-      .dots{
+      .dots {
         padding-right: 10px;
-
       }
-      .dollar{
+      .dollar {
         padding-right: 10px;
-
       }
-      .dineintext
-      {
+      .dineintext {
         position: relative;
         top: -3px;
         font-size: 16px;
         font-weight: 500;
       }
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -5px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
     }
-    .dinein2
-    {
-      width: 155px;
+    .dinein2 {
+      width: 135px;
       height: 30px;
-      border: 0.5px solid #D9D9D9;
+      border-radius: 4px;
+      border: 0.5px solid #d9d9d9;
       display: flex;
       justify-content: left;
       align-items: center;
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
-      .dots{
+      .dots {
         padding-right: 10px;
-
       }
-      .dollar{
+      .dollar {
         padding-right: 10px;
-
       }
-      .dineintext
-      {
+      .dineintext {
         position: relative;
         top: -3px;
         font-size: 16px;
         font-weight: 500;
       }
-     
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -5px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
     }
-  
-    .pickup1
-    {
-      width: 205px;
+
+    .pickup1 {
+      width: 215px;
       height: 30px;
-      border: 0.5px solid #D9D9D9;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 4px;
       display: flex;
       justify-content: left;
       align-items: center;
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
-      .dots{
+      .dots {
         padding-right: 10px;
-
       }
-      .dollar{
+      .dollar {
         padding-right: 10px;
-
       }
-      .pickuptext
-      {
+      .pickuptext {
         position: relative;
         top: -3px;
         font-size: 16px;
         font-weight: 500;
       }
-    
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -85px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
     }
-     .pickup2
-    {
-      width: 205px;
+    .pickup2 {
+      width: 215px;
       height: 30px;
-      border: 0.5px solid #D9D9D9;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 4px;
       display: flex;
       justify-content: left;
       align-items: center;
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
-      .dots{
+      .dots {
         padding-right: 10px;
-
       }
-      .dollar{
+      .dollar {
         padding-right: 10px;
-
       }
-      .pickuptext
-      {
+      .pickuptext {
         position: relative;
         top: -3px;
         font-size: 16px;
         font-weight: 500;
       }
-     
+
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -85px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
     }
 
-    .delivery1
-    {
-      width: 205px;
+    .delivery1 {
+      width: 215px;
       height: 30px;
-      border: 0.5px solid #D9D9D9;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 4px;
       display: flex;
       justify-content: left;
       align-items: center;
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
-      .dots{
+      .dots {
         padding-right: 10px;
-
       }
-      .dollar{
+      .dollar {
         padding-right: 10px;
-
       }
-      .deliverytext
-      {
+      .deliverytext {
         position: relative;
         top: -3px;
         font-size: 16px;
         font-weight: 500;
       }
 
-    
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -75px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
     }
-    .delivery2
-    {
-      width: 205px;
+    .delivery2 {
+      width: 215px;
       height: 30px;
-      border: 0.5px solid #D9D9D9;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 4px;
       display: flex;
       justify-content: left;
       align-items: center;
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
-      .dots{
+      .dots {
         padding-right: 10px;
-
       }
-      .dollar{
+      .dollar {
         padding-right: 10px;
-
       }
-      .deliverytext
-      {
+      .deliverytext {
         position: relative;
         top: -3px;
         font-size: 16px;
         font-weight: 500;
       }
-     
-    }
-  
-  
-  
 
-  
-     
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -75px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+
+    .inventory {
+      width: 145px;
+      height: 30px;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 4px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .dots {
+        padding-right: 10px;
+      }
+      .dollar {
+        padding-right: 10px;
+      }
+      .deliverytext {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -15px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+    .customization {
+      width: 145px;
+      height: 30px;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 4px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .dots {
+        padding-right: 10px;
+      }
+      .dollar {
+        padding-right: 10px;
+      }
+      .deliverytext {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: -5px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
   }
   .headingtwosection {
-   display: flex;
-   flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 5px;
+    margin-left: 20px;
+    gap:20px;
+    .dinein1div
+    {
+      width: 135px;
+      height: 30px;
+      // border: 1px solid black;
+      .dinein1ac{
+        position: relative;
+        left: 5px;
 
+
+      }
+
+      .dinein1nonac{
+        position: relative;
+        left: 25px;
+       
+      }
+     
+    
+    }
+    .pickup1div
+    {
+      width: 215px;
+      height: 30px;
+  
+      // border: 1px solid black;
+
+      .pickup1swiggy{
+      position: relative;
+      left: 22px;
+
+      }
+      .pickup1zomato
+      {
+        position: relative;
+        left: 45px;
+      }
+
+    
+
+    }
+    .delivery1div
+    {
+      width: 215px;
+      height: 30px;
+      // border: 1px solid black;
+      .delivery1swiggy{
+        position: relative;
+        left: 22px;
+
+      }
+      .delivery1zomato{
+        position: relative;
+        left: 45px;
+
+      }
+
+    
+
+    }
+
+    .dinein2div
+    {
+      width: 135px;
+      height: 30px;
+    
+      // border: 1px solid black;
+      .dinein2nonac{
+        position: relative;
+        left: 25px;
+       
+      }
+    
+    }
+    .pickup2div
+    {
+      width: 215px;
+      height: 30px;
+      // border: 1px solid black;
+      .pickup2swiggy{
+        position: relative;
+        left: 22px;
+  
+        }
+        .pickup2zomato
+        {
+          position: relative;
+          left: 45px;
+        }
+  
+     
+
+    }
+    .delivery2div
+    {
+      width: 215px;
+      height: 30px;
+      // border: 1px solid black;
+      .delivery2swiggy{
+        position: relative;
+        left: 22px;
+
+      }
+      .delivery2zomato{
+        position: relative;
+        left: 45px;
+
+      }
+    
+
+    }
+    .inventorydiv
+    {
+      width: 165px;
+      height: 30px;
+      // border: 1px solid black;
+      margin-left: 0px;
+      .inventorythreshold{
+       position: relative;
+       left: 25px;
+      }
+
+      
+    }
+
+    .secondhead {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      // padding-left: 20px;
+    }
+    th{
+      width: 52px;
+      height: 24px;
+      // border: 1px solid red;
+    }
+    
+    
+  }
+
+  .tabletwobody
+  {
+   position: relative;
+   top: 8px;
+  
+   .tabletwobodyrow
+   {
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+  border-collapse: collapse;
+    border: 1px solid #D9D9D9;
+    border-bottom: none;
+    
+  //  .availability{
+  //  position: relative;
+  //  left: 25px;
+  //  }
+    
+    .dineindiv
+    {
+      width: 135px;
+      height: 60px;
+      // border: 1px solid black;
+      margin-left: 25px;
+     
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      .dineinnonac{
+        margin-left: 25px;
+      }
+
+    }
+    .pickupdiv{
+      width: 215px;
+      height: 60px;
+      // border: 1px solid black;
+      margin-left: 15px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      .pickupswiggy{
+        margin-left: 25px;
+
+      }
+      .pickupzomato{
+        margin-left: 25px;
+
+      }
+
+    }
+    .deliverydiv{
+      width: 215px;
+      height: 60px;
+      // border: 1px solid black; 
+        margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      .deliveryswiggy{
+        margin-left: 25px;
+
+      }
+      .deliveryzomato{
+        margin-left: 25px;
+
+      }
+
+    }
    
 
+    .availabilitydineindiv
+    {
+      width: 135px;
+      height: 60px;
+      // border: 1px solid black;
+      margin-left: 20px;
+     
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      .dineinnonac{
+        margin-left: 25px;
+      }
+
+    }
+    .availabilitypickupdiv{
+      width: 215px;
+      height: 60px;
+      // border: 1px solid black;
+      margin-left: 20px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      .pickupswiggy{
+        margin-left: 25px;
+
+      }
+      .pickupzomato{
+        margin-left: 25px;
+
+      }
+
+    }
+    .availabilitydeliverydiv{
+      width: 215px;
+      height: 60px;
+      // border: 1px solid black; 
+        margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      .deliveryswiggy{
+        margin-left: 25px;
+
+      }
+      .deliveryzomato{
+        margin-left: 25px;
+
+      }
+
+    }
+   .inventorydivtion{
+    width: 215px;
+    height: 60px;
+    // border: 1px solid black; 
+      margin-left: 24px;
+      display: flex;
+    justify-content: left;
+    align-items: center;
+    .inventorythresholddata{
+      margin-left: 48px;
+    }
+
+   }
+   .customizediv
+   {
+    width: 215px;
+    height: 60px;
+    // border: 1px solid black; 
+      margin-left: 20px;
+      display: flex;
+    justify-content: left;
+    align-items: center;
+
+
+   }
+
+
+    
+   
+   }
   }
 }
 .tableone {

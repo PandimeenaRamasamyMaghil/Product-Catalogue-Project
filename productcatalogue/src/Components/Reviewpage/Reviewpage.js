@@ -61,13 +61,17 @@ const data=
   categoryId:primarypagedetails.
   primarypage.data.categoryId,
   subCategoryId:"",
-  kitchenStations:["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],
+  kitchenStations:primarypagedetails.PricingDetailReducer
+.prizingData.mainForm?.
+KitchenStationId?.KitchenStationId||[],
   taxFeeId:"",
   ingredients:primarypagedetails.
   primarypage.data.ingredients && primarypagedetails.
   primarypage.data.ingredients||[],
   modifiers:[],
-  availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
+  availabilityId:primarypagedetails.PricingDetailReducer
+  .prizingData.mainForm?.normalForm?.availabilityid?.availabilityid||primarypagedetails.PricingDetailReducer
+  .prizingData.mainForm?.specialForm?.availabilityid?.availabilityid||[] ,
   category:primarypagedetails.
   primarypage.data.category,
   subCategory:primarypagedetails.

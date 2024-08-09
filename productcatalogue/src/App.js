@@ -18,9 +18,7 @@ function App() {
 
 
 </div>
-    <div >
-      <Landing />
-    </div>
+   
   );
 }
 
