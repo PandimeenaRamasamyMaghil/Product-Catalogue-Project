@@ -12,8 +12,7 @@ function App() {
    <div>
   
 
-<Landing/>
-
+<Slider/> 
   
     
 

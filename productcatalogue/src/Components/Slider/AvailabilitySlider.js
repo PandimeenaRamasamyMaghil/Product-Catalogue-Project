@@ -9,6 +9,13 @@ const PricingSlider = () => {
     const[sectionA,setSectionA]=useState(false)
     const[sectionB,setSectionB]=useState(false)
     const[pickup,setPickup]=useState(false)
+    const[delivery,setDelivery]=useState(false)
+    const[ofPrem,setOfPrem]=useState(false)
+    const[zomato,setZomato]=useState(false)
+    const[swiggy,setSwiggy]=useState(false)
+    const[ubereats,setUberEats]=useState(false)
+    const[other1,setOther1]=useState(false)
+    const[other2,setOther2]=useState(false)
     useEffect(() => {
       if (!onPrem) {
           setSectionA(false);
@@ -18,6 +25,25 @@ const PricingSlider = () => {
           setSectionB(true);
       }
   }, [onPrem]);
+  useEffect(() => {
+    if (!ofPrem) {
+        setPickup(false);
+        setDelivery(false);
+        setZomato(false)
+        setSwiggy(false);
+        setUberEats(false);
+        setOther1(false);
+        setOther2(false);
+    } else {
+      setPickup(true);
+      setDelivery(true);
+      setZomato(true)
+      setSwiggy(true);
+      setUberEats(true);
+      setOther1(true);
+      setOther2(true);
+    }
+}, [ofPrem]);
   return (
     <div className='AvailSlider-Container'>
      <h1 className='AvailSlider-Heading'>Availability</h1>
@@ -36,39 +62,42 @@ const PricingSlider = () => {
       <div className='SectionBToggle'><ToggleSliderAvail toggle={sectionB} setToggle={setSectionB}/></div>
       
      </div>
+     <div className='AvailOfToggle'>
      <h1 className='AvailOfprem-Heading'>Of-prem</h1>
+     <div className='OfpremToggle'><ToggleSliderAvail toggle={ofPrem} setToggle={setOfPrem}/></div>
+     </div>
      <div className='AvailOfPickup'>
       <h1 className='AvailOfPickup-Heading'>Pickup: </h1>
       <div className='PickupToggle'><ToggleSliderAvail toggle={pickup} setToggle={setPickup}/></div>
      </div>
      <div className='AvailOfDelivery'>
       <h1 className='AvailOfDelivery-Heading'>Delivery: </h1>
-      <input type='text' className='AvailOfDelivery-Input'></input>
+      <div className='DeliveryToggle'><ToggleSliderAvail toggle={delivery} setToggle={setDelivery}/></div>
       
      </div>
      <div className='AvailOfZomato'>
       <h1 className='AvailOfZomato-Heading'>Zomato: </h1>
-      <input type='text' className='AvailOfZomato-Input'></input>
+      <div className='ZomatoToggle'><ToggleSliderAvail toggle={zomato} setToggle={setZomato}/></div>
       
      </div>
      <div className='AvailOfSwiggy'>
       <h1 className='AvailOfSwiggy-Heading'>Swiggy: </h1>
-      <input type='text' className='AvailOfSwiggy-Input'></input>
+      <div className='SwiggyToggle'><ToggleSliderAvail toggle={swiggy} setToggle={setSwiggy}/></div>
       
      </div>
      <div className='AvailOfUberEats'>
       <h1 className='AvailOfUberEats-Heading'>UberEats: </h1>
-      <input type='text' className='AvailOfUberEats-Input'></input>
+      <div className='UberToggle'><ToggleSliderAvail toggle={ubereats} setToggle={setUberEats}/></div>
       
      </div>
      <div className='AvailOfOther1'>
       <h1 className='AvailOfOther1-Heading'>Other 1: </h1>
-      <input type='text' className='AvailOfOther1-Input'></input>
+      <div className='Other1Toggle'><ToggleSliderAvail toggle={other1} setToggle={setOther1}/></div>
       
      </div>
      <div className='AvailOfOther2'>
       <h1 className='AvailOfOther2-Heading'>Other 2: </h1>
-      <input type='text' className='AvailOfOther2-Input'></input>
+      <div className='Other2Toggle'><ToggleSliderAvail toggle={other2} setToggle={setOther2}/></div>
       
      </div>
      </div>
