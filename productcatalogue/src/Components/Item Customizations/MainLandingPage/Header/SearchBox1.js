@@ -2,6 +2,7 @@ import React from 'react'
 import './SearchBox.scss'
 import { useState } from 'react'
 import searchIcon from '../../../../assets/images/searchicon.png'
+import NotFound from '../../../../assets/images/NotFound.svg'
 
 const SearchBox = () => {
  
@@ -95,7 +96,7 @@ const SearchBox = () => {
 
     {searchTerm && (
         <ul>
-          {filteredOptions.map((option, index) => (
+          {filteredOptions.length>0? (filteredOptions.map((option, index) => (
             <li
               key={index}
               onClick={()=>handleOptionClick(option)}
@@ -106,7 +107,17 @@ const SearchBox = () => {
             >
               <div className='Search-Container-options-items' >{option}</div>
             </li>
-          ))}
+          ))):(
+
+          <div className='Search-Container-options-none'>
+            <div className='Search-Container-options-none-flex-direction'>
+            <img className="NotFoundImage"src={NotFound} alt="" />
+            <h3 className='heading-none'>No Results Found</h3>
+
+            </div>
+           
+          </div>
+          )}
         </ul>
       )}
 
