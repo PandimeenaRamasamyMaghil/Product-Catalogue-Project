@@ -299,6 +299,7 @@
           </div>
 
     <div className="modifiersitem">
+      <div className="modifiers">
 
       
           
@@ -553,6 +554,24 @@
             )}
           </div>
         )))}
+
+</div>
+
+
+
+
+
+<div className="dropdown-container">
+
+<div className="footer-save-next">
+<Savenextbutton
+selectedpage="ItemCustomization"
+formData={modifications}
+validation={validationforitemcustom}
+formclear={clerall}
+/>
+</div>
+</div>
         </div>
         {/* <div
           className={
@@ -596,17 +615,7 @@
             </div>
           </div>
         )} */}
-        <div className="dropdown-container">
-
-        <div className="footer-save-next">
-        <Savenextbutton
-        selectedpage="ItemCustomization"
-        formData={modifications}
-        validation={validationforitemcustom}
-        formclear={clerall}
-        />
-        </div>
-        </div>
+       
 
         </div>
 

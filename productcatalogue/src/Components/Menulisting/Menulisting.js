@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Menulisting.scss";
 import { tr } from "date-fns/locale";
-import dots from '../../assets/images/dots.png'
-import dollar from '../../assets/images/dollar.png'
+import dots from "../../assets/images/dots.svg";
+import dollar from "../../assets/images/dollar.svg";
+import removeicon from "../../assets/images/removeicon.svg";
 export const Menulisting = () => {
   const items = [
     {
@@ -86,6 +87,136 @@ export const Menulisting = () => {
   const onDragStart = (e, index) => {
     e.dataTransfer.setData("index", index);
   };
+  const price = [
+    {
+      dineIn: {
+        AC: "$100.00",
+        nonAC: "$100.00",
+      },
+      pickup: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      delivery: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      inventory:{
+        total:"1000",
+        threshold:"100"
+      },
+      customize:"5"
+    },
+    {
+      dineIn: {
+        AC: "$100.00",
+        nonAC: "$100.00",
+      },
+      pickup: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      delivery: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      inventory:{
+        total:"1000",
+        threshold:"100"
+      },
+
+      customize:"5"
+    },
+    {
+      dineIn: {
+        AC: "$100.00",
+        nonAC: "$100.00",
+      },
+      pickup: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      delivery: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      inventory:{
+        total:"1000",
+        threshold:"100"
+      },
+      customize:"5"
+    },
+    {
+      dineIn: {
+        AC: "$100.00",
+        nonAC: "$100.00",
+      },
+      pickup: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      delivery: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      inventory:{
+        total:"1000",
+        threshold:"100"
+      },
+      customize:"5"
+    },
+    {
+      dineIn: {
+        AC: "$100.00",
+        nonAC: "$100.00",
+      },
+      pickup: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      delivery: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      inventory:{
+        total:"1000",
+        threshold:"100"
+      },
+      customize:"5"
+    },
+    {
+      dineIn: {
+        AC: "$100.00",
+        nonAC: "$100.00",
+      },
+      pickup: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      delivery: {
+        inHouse: "$100.00",
+        swiggy: "$100.00",
+        zomato: "$100.00",
+      },
+      inventory:{
+        total:"1000",
+        threshold:"100"
+      },
+      customize:"5"
+    },
+    // Add more objects here for additional rows if needed
+  ];
 
   return (
     <div className="table-container menumain ">
@@ -102,7 +233,9 @@ export const Menulisting = () => {
         </thead>
         <tbody>
           <tr>
-            <th className="itemheading" colSpan={3}>Steamed-Veg(6)</th>
+            <th className="itemheading" colSpan={3}>
+              Steamed-Veg(6)
+            </th>
           </tr>
           {items.map((item, index) => (
             <tr key={index}>
@@ -112,7 +245,9 @@ export const Menulisting = () => {
             </tr>
           ))}
           <tr>
-            <th className="itemheading" colSpan={3}>Steamed-Veg(6)</th>
+            <th className="itemheading" colSpan={3}>
+              Steamed-Veg(6)
+            </th>
           </tr>
           {items.map((item, index) => (
             <tr key={index}>
@@ -124,40 +259,218 @@ export const Menulisting = () => {
         </tbody>
       </table>
       <div className="tabletwo">
-      <table >
-        <thead>
-          <tr className="headingonesection">
-            <th colSpan={2} className="dinein1"><span className="dots"><img src={dots} alt="" /></span> <span className="dollar"><img src={dollar} alt="" /></span><span className="dineintext">Dine in </span></th>
-            <th colSpan={3} className="pickup1"><span className="dots"><img src={dots} alt="" /></span> <span className="dollar"><img src={dollar} alt="" /></span><span className="pickuptext">Pickup</span></th>
-            <th colSpan={3} className="delivery1"><span className="dots"><img src={dots} alt="" /></span> <span className="dollar"><img src={dollar} alt="" /></span><span className="deliverytext">Delivery</span></th>
-            <th colSpan={2} className="dinein2"><span className="dots"><img src={dots} alt="" /></span> <span className="dollar"><img src={dollar} alt="" /></span><span className="dineintext">Dine in </span></th>
-            <th colSpan={3} className="pickup2"><span className="dots"><img src={dots} alt="" /></span> <span className="dollar"><img src={dollar} alt="" /></span><span className="pickuptext">Pickup</span></th>
-            <th colSpan={3} className="delivery2"><span className="dots"><img src={dots} alt="" /></span> <span className="dollar"><img src={dollar} alt="" /></span><span className="deliverytext"> Delivery</span></th>
-          </tr>
+        <table>
+          <thead>
+            <tr className="headingonesection">
+              <th colSpan={2} className="dinein1">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+                <span className="dollar">
+                  <img src={dollar} alt="" />
+                </span>
+                <span className="dineintext">Dine in </span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+              <th colSpan={3} className="pickup1">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+                <span className="dollar">
+                  <img src={dollar} alt="" />
+                </span>
+                <span className="pickuptext">Pickup</span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+              <th colSpan={3} className="delivery1">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+                <span className="dollar">
+                  <img src={dollar} alt="" />
+                </span>
+                <span className="deliverytext">Delivery</span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+              <th colSpan={2} className="dinein2">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+                <span className="dollar">
+                  <img src={dollar} alt="" />
+                </span>
+                <span className="dineintext">Dine in </span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+              <th colSpan={3} className="pickup2">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+                <span className="dollar">
+                  <img src={dollar} alt="" />
+                </span>
+                <span className="pickuptext">Pickup</span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+              <th colSpan={3} className="delivery2">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+                <span className="dollar">
+                  <img src={dollar} alt="" />
+                </span>
+                <span className="deliverytext"> Delivery</span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+              <th colSpan={1} className="inventory">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+               
+                <span className="deliverytext">Inventory</span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+              <th colSpan={1} className="customization">
+                <span className="dots">
+                  <img src={dots} alt="" />
+                </span>{" "}
+               
+                <span className="deliverytext">Customize</span>
+                <span className="removeicon">
+                  <img src={removeicon} alt="" />
+                </span>
+              </th>
+            </tr>
+          
+          </thead>
+          <tbody>
           <tr className="headingtwosection">
-            <th>AC</th>
-            <th>Non Ac</th>
-            <th>In house</th>
-            <th>Swiggy</th>
-            <th>Zomato</th>
-            <th>In house</th>
-            <th>Swiggy</th>
-            <th>Zomato</th>
-            <th>AC</th>
-            <th>Non Ac</th>
-            <th>In house</th>
-            <th>Swiggy</th>
-            <th>Zomato</th>
-            <th>In house</th>
-            <th>Swiggy</th>
-            <th>Zomato</th>
-          </tr>
-        </thead>
-        <tbody>
-        
+            <div className="dinein1div">
+            <th className="secondhead dineinsubfirst1 dineinsub1 dinein1ac">AC</th>
+            <th className="secondhead dineinsub1 dinein1nonac">Non Ac</th>
+            </div>
+            <div className="pickup1div">
+            <th className="secondhead pickupsufirst1 pickupsub1  pickup1inhouse">
+      Inhou...
+    </th>
+    <th className="secondhead  pickupsub1 pickup1swiggy">Swiggy</th>
+    <th className="secondhead  pickupsub1 pickup1zomato">Zoma...</th>
+            </div>
+   <div className="delivery1div">
+   <th className="secondhead deliverysubfirst1 deliverysub1 delivery1inhouse">
+      Inhou...
+    </th>
+    <th className="secondhead deliverysub1 delivery1swiggy">
+      Swiggy
+    </th>
+    <th className="secondhead deliverysub1 delivery1zomato">
+      Zoma...
+    </th>
+   </div>
+   <div className="dinein2div">
+   
+    <th className="secondhead dineinsubfirst2 dineinsub2 dinein2ac">AC</th>
+    <th className="secondhead dineinsub2 dinein2nonac">Non Ac</th></div>
+    <div className="pickup2div">
+    <th className="secondhead pickupsufirst2 pickupsub2 pickup2inhouse">Inhou...</th>
+    <th className="secondhead pickupsub2 pickup2swiggy">Swiggy</th>
+    <th className="secondhead pickupsub2 pickup2zomato">Zomato</th>
 
-        </tbody>
-      </table>
+    </div>
+    <div className="delivery2div">
+    <th className="secondhead deliverysubfirst2 deliverysub2 delivery2inhouse">
+      InHou...
+    </th>
+    <th className="secondhead deliverysub2 delivery2swiggy">
+      Swiggy
+    </th>
+    <th className="secondhead deliverysub2 delivery2zomato">
+      Zoma...
+    </th>
+    </div>
+   <div className="inventorydiv">
+   <th className="secondhead inventoryfirst inventorytotal">Total</th>
+   <th className="secondhead inventorythreshold">Thers...</th>
+   </div>
+   
+    
+    <th></th>
+  </tr>
+  <tr className="tabletwobody">
+          {
+  price.map((item, index) => (
+    <>
+    
+    <tr key={index} className="tabletwobodyrow">
+      <div className="dineindiv">
+      <td className="dieninac">{item.dineIn.AC}</td>
+      <td className="dineinnonac">{item.dineIn.nonAC}</td>
+      </div>
+      <div className="pickupdiv">
+      <td className="pickupfirst pickupinhouse">{item.pickup.inHouse}</td>
+      <td className="pickupswiggy">{item.pickup.swiggy}</td>
+      <td className="pickupzomato">{item.pickup.zomato}</td>
+      </div>
+      <div className="deliverydiv">
+      <td className="deliveryfirst deliveryinhouse">{item.delivery.inHouse}</td>
+      <td className="deliveryswiggy">{item.delivery.swiggy}</td>
+      <td className="deliveryzomato">{item.delivery.zomato}</td>
+      
+      </div>
+      <div className="availabilitydineindiv">
+      <td className="dieninac">{item.dineIn.AC}</td>
+      <td className="dineinnonac">{item.dineIn.nonAC}</td>
+      </div>
+      <div className=" availabilitypickupdiv">
+      <td className="pickupfirst pickupinhouse">{item.pickup.inHouse}</td>
+      <td className="pickupswiggy">{item.pickup.swiggy}</td>
+      <td className="pickupzomato">{item.pickup.zomato}</td>
+      </div>
+      <div className="availabilitydeliverydiv">
+      <td className="deliveryfirst deliveryinhouse">{item.delivery.inHouse}</td>
+      <td className="deliveryswiggy">{item.delivery.swiggy}</td>
+      <td className="deliveryzomato">{item.delivery.zomato}</td>
+
+      
+      </div>
+      <div className="inventorydivtion">
+        <td className="inventorytotaldata">{item.inventory.total}</td>
+
+        <td className="inventorythresholddata">{item.inventory.threshold}</td>
+
+      </div>
+      <div className="customizediv">
+        <td className="customizedata">{item.customize}</td>
+      </div>
+     
+    
+     
+    </tr>
+    </>
+  ))
+
+  
+  
+  
+}
+
+</tr>
+          </tbody>
+        </table>
       </div>
 
       {/* <table>

@@ -5,24 +5,23 @@
 .pricingdetails-container{
    
     position: relative;
-    top:0rem;
-    left: -2.6rem;
+    top: 150px;
+    margin-left:-325px ;
+    height: 570px;
+    
     // border: 1px solid red;
-    display: flex;
-    justify-content: flex-start;
-    width: 78.875rem;
-    height:36.6rem;
-    overflow-y: scroll;
-    &::-webkit-scrollbar{
-        display: none;
-    }
+    overflow-y: auto;
+    
+   
+
    
 }
 .pricing-form{
     display: flex;
     flex-direction: column;
-    width:62.5rem;
+    width: 1120px;
     margin-left: 55px;
+
     // border: 1px solid red;
    
 }
@@ -118,12 +117,12 @@ transform: translateY(5px);
     height: 300px;
     margin-bottom: 25px;
     position: relative;
-   top: 43px;
+   top: 20px;
    
 }
  
 .InventoryToggle{
-    margin-top: 37px;
+    margin-top: -240px;
     display: flex;
     justify-content: flex-start;
     gap:25px;

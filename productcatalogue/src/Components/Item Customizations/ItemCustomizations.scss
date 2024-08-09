@@ -1,14 +1,15 @@
 .mainItemCustomizations {
   position: relative;
-  top:1.2rem;
-  left: -2.7rem;
-  // bottom: 100px;
-  overflow-y: scroll;
-  height: 35.375rem;
-  width: 73.9rem;
-  // margin-bottom: 10px;
+  margin-left: -325px;
+  top: 170px;
+ 
+  // width: 100%;
+  width: 1165px;
+  height: 500px;
+ 
   // border: 1px solid red;
  
+  
 
 
 
@@ -20,13 +21,21 @@
 .itemcustomizationpage
 {
   position: relative;
-  left: 55px;
+ margin-left: 0px;
+  width: 100%;
+  height: 565px;
+  // border: 1px solid blue;
+  
+
+
+  
 }
 .AddModifiersSection {
   width: 65rem;
   height: 2.813rem;
   display: flex;
   justify-content: start;
+  margin-left: 55px;
   gap: 1.4rem;
   margin-bottom: 0.5rem;
   // border: 1px solid black;
@@ -419,7 +428,14 @@ input[type="number"] {
 }
 .modifiersitem
 {
-  
+  height: 470px;
+  overflow-y: auto;
+  // // margin-left: 55px;
+  // border: 1px solid red;
+  .modifiers{
+     margin-left: 55px;
+
+  }
 }
 
 .modifier-div-margin2 {
@@ -468,12 +484,12 @@ input[type="number"] {
 
   // border: 1px solid red;
   bottom: -2.5rem;
-  margin-left: -4.7rem;
-  width: 1100px;
+  // margin-left: -7.7rem;
+  width: 1160px;
   position: relative;
- 
+ margin-left: -30px;
   // border: 1px solid red;
-  top: 80px;
+  top: 70px;
  
 }
 
@@ -516,7 +532,7 @@ input[type="number"] {
 
 .dropdown-container{
   // margin-left: 30px;
-  margin-top: 96px;
+  margin-top: 40px;
  
 }
 
