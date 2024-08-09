@@ -79,6 +79,15 @@
      font-size: 16px;
      font-weight:400;
  }
+ .AvailOfToggle{
+    display: flex;
+    justify-content: flex-start;
+    gap:29px;
+ }
+ .OfpremToggle{
+    margin-top: 13px;
+   
+ }
  .AvailOfPickup{
      margin-left: 30px;
      margin-top: 10px;
@@ -102,20 +111,14 @@
      justify-content: flex-start;
  }
  .AvailOfDelivery-Heading{
-     font-size: 16px;
-     font-weight: 400;
-      margin-left: 10px;
-      color:#5F5F5F
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+    color:#5F5F5F
  }
- .AvailOfDelivery-Input{
-     margin-left: 23px;
-     border:1px solid #000000;
-     width:83px;
-     height: 28px;
-     border-radius: 3.18px;
-     padding-left: 8.07px;
-     font-size: 16px;
-     font-weight: 400;
+ .DeliveryToggle{
+    margin-top: 3px;
+    margin-left: 36px;
  }
  .AvailOfZomato{
      margin-left: 30px;
@@ -129,15 +132,9 @@
       margin-left: 10px;
       color:#5F5F5F
  }
- .AvailOfZomato-Input{
-     margin-left: 23px;
-     border:1px solid #000000;
-     width:83px;
-     height: 28px;
-     border-radius: 3.18px;
-     padding-left: 8.07px;
-     font-size: 16px;
-     font-weight: 400;
+ .ZomatoToggle{
+    margin-top: 3px;
+    margin-left: 36px;
  }
  .AvailOfSwiggy{
      margin-left: 30px;
@@ -151,15 +148,9 @@
       margin-left: 10px;
       color:#5F5F5F
  }
- .AvailOfSwiggy-Input{
-     margin-left: 28px;
-     border:1px solid #000000;
-     width:83px;
-     height: 28px;
-     border-radius: 3.18px;
-     padding-left: 8.07px;
-     font-size: 16px;
-     font-weight: 400;
+ .SwiggyToggle{
+    margin-top: 3px;
+    margin-left: 42px;
  }
  .AvailOfUberEats{
      margin-left: 30px;
@@ -173,16 +164,9 @@
       margin-left: 10px;
       color:#5F5F5F
  }
- .AvailOfUberEats-Input{
-     margin-left: 15px;
-     border:1px solid #000000;
-     width:83px;
-     height: 28px;
-     border-radius: 3.18px;
-     padding-left: 8.07px;
-     font-size: 16px;
-     font-weight: 400;
-    
+ .UberToggle{
+    margin-top: 3px;
+    margin-left: 30px;
  }
  .AvailOfOther1{
      margin-left: 30px;
@@ -196,15 +180,9 @@
       margin-left: 12px;
       color:#5F5F5F
  }
- .AvailOfOther1-Input{
-     margin-left: 30px;
-     border:1px solid #000000;
-     width:83px;
-     height: 28px;
-     border-radius: 3.18px;
-     padding-left: 8.07px;
-     font-size: 16px;
-     font-weight: 400;
+ .Other1Toggle{
+    margin-top: 3px;
+    margin-left: 45px;
  }
  .AvailOfOther2{
      margin-left: 30px;
@@ -218,14 +196,7 @@
       margin-left: 12px;
       color:#5F5F5F
  }
- .AvailOfOther2-Input{
-     margin-left: 26px;
-     border:1px solid #000000;
-     width:83px;
-     height: 28px;
-     border-radius: 3.18px;
-     padding-left: 8.07px;
-     font-size: 16px;
-     font-weight: 400;
+ .Other2Toggle{
+    margin-top: 3px;
+    margin-left: 40px;
  }
- 
