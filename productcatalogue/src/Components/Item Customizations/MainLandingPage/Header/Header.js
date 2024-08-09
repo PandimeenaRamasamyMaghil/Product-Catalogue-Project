@@ -7,6 +7,7 @@ import Excel from '../../../../assets/images/Excel.svg'
 import DownloadExcel from '../../../../assets/images/ExcelDownload.png'
 import { Contextpagejs } from '../../../contextpage'
 import { useNavigate } from 'react-router-dom'
+import Menu120 from './Menu120'
 
 
 const Header = () => {
@@ -22,7 +23,8 @@ const Header = () => {
       {/* {**********************HeaderSection*****************************************************************} */}
 
       <div className='Header-Heading-Search-Filter-Container'>
-        <h1 className='Header-Heading'>Menu(120)</h1>
+        <Menu120/>
+     
         <SearchBox/>
         
         <img className="FilterIcon-Header" src={filterIcon} alt="" />
