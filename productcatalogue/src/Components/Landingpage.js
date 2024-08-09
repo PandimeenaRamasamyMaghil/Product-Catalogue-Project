@@ -74,5 +74,7 @@ const Landingpage = () => {
          </Contextpage>
        )
       }
-
+</div>
+  )
+}
 
