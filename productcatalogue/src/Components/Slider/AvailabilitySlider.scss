@@ -1,0 +1,231 @@
+*{
+    font-family: "Poppins",sans-serif;
+ }
+ .AvailSlider-Container{
+     width:395px;
+     height: 390px;
+     margin-top: 20px;
+     overflow: scroll;
+     margin-left: 20px;
+ }
+ .AvailSlider-Heading{
+     margin-left: 20px;
+     font-size: 20px;
+     font-weight: 500;
+ }
+ .AvailOnprem-Ofprem{
+     margin-top: 20px;
+     margin-left: 20px;
+     display: flex;
+     flex-direction:column ;
+ }
+ .AvailOnToggle{
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+ }
+ .AvailOnprem-Heading{
+     font-size: 16px;
+     font-weight:400;
+ }
+ .OnpremToggle{
+    margin-top: 3px;
+ }
+ .AvailSectionA{
+     margin-left: 27px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailSectionA-Heading{
+     font-size: 16px;
+     font-weight: 400;
+     color:#5F5F5F
+ }
+ .SectionAToggle{
+    margin-left: 35px;
+    margin-top: 3px;
+ }
+ .AvailSectionA-Image{
+     margin-left: 10px;
+ }
+ .AvailWeighImages{
+     margin-left: 10px;
+     width:30px;
+     height: 23px;
+     border-color:#D9D9D9;
+ 
+ }
+ .AvailSectionB{
+     margin-left: 27px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailSectionB-Heading{
+     font-size: 16px;
+     font-weight: 400;
+     color:#5F5F5F
+ }
+ .SectionBToggle{
+    margin-left: 37px;
+    margin-top: 3px;
+ }
+ .AvailSectionB-Image{
+     margin-left: 10px;
+ }
+ .AvailOfprem-Heading{
+     margin-top: 10px;
+     font-size: 16px;
+     font-weight:400;
+ }
+ .AvailOfPickup{
+     margin-left: 30px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailOfPickup-Heading{
+     font-size: 16px;
+     font-weight: 400;
+     margin-left: 10px;
+     color:#5F5F5F
+ }
+ .PickupToggle{
+    margin-top: 3px;
+    margin-left: 46px;
+ }
+ .AvailOfDelivery{
+     margin-left: 30px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailOfDelivery-Heading{
+     font-size: 16px;
+     font-weight: 400;
+      margin-left: 10px;
+      color:#5F5F5F
+ }
+ .AvailOfDelivery-Input{
+     margin-left: 23px;
+     border:1px solid #000000;
+     width:83px;
+     height: 28px;
+     border-radius: 3.18px;
+     padding-left: 8.07px;
+     font-size: 16px;
+     font-weight: 400;
+ }
+ .AvailOfZomato{
+     margin-left: 30px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailOfZomato-Heading{
+     font-size: 16px;
+     font-weight: 400;
+      margin-left: 10px;
+      color:#5F5F5F
+ }
+ .AvailOfZomato-Input{
+     margin-left: 23px;
+     border:1px solid #000000;
+     width:83px;
+     height: 28px;
+     border-radius: 3.18px;
+     padding-left: 8.07px;
+     font-size: 16px;
+     font-weight: 400;
+ }
+ .AvailOfSwiggy{
+     margin-left: 30px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailOfSwiggy-Heading{
+     font-size: 16px;
+     font-weight: 400;
+      margin-left: 10px;
+      color:#5F5F5F
+ }
+ .AvailOfSwiggy-Input{
+     margin-left: 28px;
+     border:1px solid #000000;
+     width:83px;
+     height: 28px;
+     border-radius: 3.18px;
+     padding-left: 8.07px;
+     font-size: 16px;
+     font-weight: 400;
+ }
+ .AvailOfUberEats{
+     margin-left: 30px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailOfUberEats-Heading{
+     font-size: 16px;
+     font-weight: 400;
+      margin-left: 10px;
+      color:#5F5F5F
+ }
+ .AvailOfUberEats-Input{
+     margin-left: 15px;
+     border:1px solid #000000;
+     width:83px;
+     height: 28px;
+     border-radius: 3.18px;
+     padding-left: 8.07px;
+     font-size: 16px;
+     font-weight: 400;
+    
+ }
+ .AvailOfOther1{
+     margin-left: 30px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailOfOther1-Heading{
+     font-size: 16px;
+     font-weight: 400;
+      margin-left: 12px;
+      color:#5F5F5F
+ }
+ .AvailOfOther1-Input{
+     margin-left: 30px;
+     border:1px solid #000000;
+     width:83px;
+     height: 28px;
+     border-radius: 3.18px;
+     padding-left: 8.07px;
+     font-size: 16px;
+     font-weight: 400;
+ }
+ .AvailOfOther2{
+     margin-left: 30px;
+     margin-top: 10px;
+     display: flex;
+     justify-content: flex-start;
+ }
+ .AvailOfOther2-Heading{
+     font-size: 16px;
+     font-weight: 400;
+      margin-left: 12px;
+      color:#5F5F5F
+ }
+ .AvailOfOther2-Input{
+     margin-left: 26px;
+     border:1px solid #000000;
+     width:83px;
+     height: 28px;
+     border-radius: 3.18px;
+     padding-left: 8.07px;
+     font-size: 16px;
+     font-weight: 400;
+ }
+ 
