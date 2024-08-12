@@ -44,6 +44,8 @@
   gap: 20px;
 }
 
+// {******************************Filter**************************************************************************}
+
 
 
 .FilterIcon-Header{
@@ -55,11 +57,46 @@
     cursor: pointer;
 
 }
+
+.Filter-FlexCol{
+  display: flex;
+  flex-direction: column;
+}
+.FilterHover{
+visibility: hidden;
+  width: 60px;
+  height: 18px;
+  background-color: #67833E;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  
+  opacity: 0;
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  transform: translateX(-12px);
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 2px 2px 2px 2px ;
+}
+
+.Filter-FlexCol:hover .FilterHover {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+// {***********Excel********************************************************************}
+
+
+
 .Excel-Header{
     width: 65.53px;
     height: 44px;
     position: relative;
-    left: -2px;
+    left: -28px;
     top: -2px;
     cursor: pointer;
 }
@@ -71,24 +108,60 @@
   top: -2px;
   cursor: pointer;
 }
-.Excel-Header-Download{
-    width: 24px;
-    height: 24px;
-    position: relative;
-    left: -66px;
-    top: 25px;
-    cursor: pointer;
+
+.Excel-flex-col{
+  display: flex;
+  flex-direction: column;
 }
+
+.Excel-flex-col:hover .FilterHover {
+  visibility: visible;
+  opacity: 1;
+}
+.Excel-flex-col:hover .FilterHover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.Excel-Header-Download{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: -8px;
+  top: -16px;
+  cursor: pointer;
+}
+
 
 .Excel-Header-Download1{
   width: 24px;
   height: 24px;
   position: relative;
-  left: -588px;
-  top: 25px;
+  left: -504px;
+  top: -16px;
   cursor: pointer;
 }
 
+
+.ArrowHoverHeader{
+  visibility: hidden;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  top: 3px;
+  left: 10px;
+
+
+}
+
+.Filter-FlexCol:hover .ArrowHoverHeader {
+  visibility: visible;
+  opacity: 1;
+}
+.Excel-flex-col:hover .ArrowHoverHeader {
+  visibility: visible;
+  opacity: 1;
+}
 
 
 
