@@ -11,6 +11,7 @@ import { Contextpage } from './contextpage'
 import Pricingpage from './Pricingpage/Pricingpage'
 import { Menulisting } from './Menulisting/Menulisting'
 import Sidenav from "./SideNav/Sidenav"
+import Header from './Item Customizations/MainLandingPage/Header/Header'
 
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -48,11 +49,12 @@ const Landingpage = () => {
 
 
 <Sidenav/>
+<Header/>
 {/* <Pricingpage/> */}
      
      {/* <Menulisting/> */}
    
-
+{/* 
        <Routes>
         <Route path="/" element={<Navigationpage />} />
         <Route path="/Reviewpage" element={<Reviewpage />} />
@@ -68,13 +70,15 @@ const Landingpage = () => {
         </Route>
 
 
-      </Routes>
+      </Routes> */}
      
      
          </Contextpage>
        )
       }
 </div>
+
   )
 }
+export default Landingpage
 

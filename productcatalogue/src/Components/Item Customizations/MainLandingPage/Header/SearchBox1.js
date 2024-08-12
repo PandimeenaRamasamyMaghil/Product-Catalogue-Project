@@ -70,6 +70,7 @@ const SearchBox = () => {
       if (highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
         handleOptionClick(filteredOptions[highlightedIndex]);
         setHighlightedIndex(-1)
+        
       }
     }
     else if (e.key === 'Backspace') {
@@ -96,7 +97,7 @@ const SearchBox = () => {
 
     {searchTerm && (
         <ul>
-          {filteredOptions.length>=0? (filteredOptions.map((option, index) => (
+          {filteredOptions.length>0 ?(filteredOptions.map((option, index) => (
             <li
               key={index}
               onClick={()=>handleOptionClick(option)}
