@@ -20,11 +20,13 @@
     border-radius: 7.88rem;
     width: 7.57px;
     height: 8px;
-    background-color: #ffffff;
+    background-color:rgba(255, 255, 255, 1);
     position: absolute;
     left: 0.188rem;
     transition: left 0.2s;
   }
+  .thumbAvailDark{
+    background-color:rgba(255, 255, 255, 0.2);  }
   
   .toggleBtnAvail.ToggledAvail {
     background-color: #00B71D
