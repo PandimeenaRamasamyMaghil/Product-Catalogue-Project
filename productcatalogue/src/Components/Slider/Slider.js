@@ -9,12 +9,14 @@ import ToggleSlider from "./ToggleSlider"
 import AvailabitySlider from "./AvailabilitySlider"
 import TooltipSlider from "./TooltipSlider"
 import EyeModal from './EyeModal'
+import Trash from './Trash'
 
 const Slider = ({ onclose }) => {
   
   const types = ["Pricing", "Availability", "Inventory", "Customize"]
   const[pen,setPen]=useState(false)
   const[eye,setEye]=useState(false)
+  const[trash,setTrash]=useState(false)
   const [active, setActive] = useState("Pricing")
   const modelref = useRef();
   const closeModal = (e) => {
@@ -29,6 +31,9 @@ const[outlet3,setOutlet3]=useState(false)
   };
   const handleEyeClick=()=>{
     setEye(true)
+  }
+  const handleBinClick=()=>{
+    setTrash(true)
   }
   return (
     <div ref={modelref} className='Slider-Container' >
@@ -46,11 +51,12 @@ const[outlet3,setOutlet3]=useState(false)
                 </TooltipSlider>
                  
               <img src={Eye} alt='hello' className='PenImage' onClick={handleEyeClick}/>
-              <img src={Bin} alt='hello' className='PenImage'/>
+              <img src={Bin} alt='hello' onClick={handleBinClick} className='PenImage'/>
             </div>
             
           </div>
-           {eye?<EyeModal onEyeclose={()=>setEye(false)}/>:""} 
+           {eye?<EyeModal onEyeclose={()=>setEye(false)}/>:""}
+           {trash?<Trash onTrashclose={()=>setTrash(false)}/>:""} 
                     <div className='Types-Menu'>
             {
               types.map((elem, index) => {
