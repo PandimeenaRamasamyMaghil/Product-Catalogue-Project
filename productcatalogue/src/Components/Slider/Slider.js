@@ -57,7 +57,7 @@ const[outlet3,setOutlet3]=useState(false)
             }
           </div>
           <div className='Types-Line'></div>
-          {active==="Pricing" && <PricingSlider />}
+          {active==="Pricing" && <PricingSlider pen={pen} />}
           {active==="Availability" && <AvailabitySlider pen={pen}/>}
         </div>
         <div className={pen?"BasicChangesContainer":"BasicChangesContainerPen"}>

@@ -44,6 +44,19 @@
     font-size: 16px;
     font-weight: 400;
 }
+.SectionA-InputDark{
+    margin-left: 25px;
+    width:83px;
+    height: 28px;
+    opacity: 30%;
+
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1); 
+}
 .SectionA-Image{
     margin-left: 10px;
 }
@@ -68,6 +81,19 @@
 .SectionB-Input{
     margin-left: 25px;
     border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.SectionB-InputDark{
+    background: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1); 
+    margin-left: 25px;
+    opacity: 30%;
+
     width:83px;
     height: 28px;
     border-radius: 3.18px;
@@ -105,7 +131,19 @@
     font-size: 16px;
     font-weight: 400;
 }
+.OfPickup-InputDark{
+    margin-left: 34.2px;
+    background: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1);
+    opacity: 30%;
 
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
 .OfDelivery{
     margin-left: 30px;
     margin-top: 10px;
@@ -120,7 +158,21 @@
 }
 .OfDelivery-Input{
     margin-left: 23px;
+    background-color: white;
     border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfDelivery-InputDark{
+    margin-left: 23px;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1);
+    opacity: 30%;
+
     width:83px;
     height: 28px;
     border-radius: 3.18px;
@@ -143,6 +195,19 @@
 .OfZomato-Input{
     margin-left: 23px;
     border:1px solid #000000;
+
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfZomato-InputDark{
+    margin-left: 23px;
+    opacity: 30%;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1);
     width:83px;
     height: 28px;
     border-radius: 3.18px;
@@ -165,6 +230,18 @@
 .OfSwiggy-Input{
     margin-left: 28px;
     border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfSwiggy-InputDark{
+    margin-left: 28px;
+    opacity: 30%;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1);
     width:83px;
     height: 28px;
     border-radius: 3.18px;
@@ -195,6 +272,19 @@
     font-weight: 400;
    
 }
+.OfUberEats-InputDark{
+    margin-left: 15px;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1);
+    opacity: 30%;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+   
+}
 .OfOther1{
     margin-left: 30px;
     margin-top: 10px;
@@ -217,6 +307,18 @@
     font-size: 16px;
     font-weight: 400;
 }
+.OfOther1-InputDark{
+    margin-left: 30px;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1);
+    opacity: 30%;    
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
 .OfOther2{
     margin-left: 30px;
     margin-top: 10px;
@@ -232,6 +334,18 @@
 .OfOther2-Input{
     margin-left: 26px;
     border:1px solid #000000;
+    width:83px;
+    height: 28px;
+    border-radius: 3.18px;
+    padding-left: 8.07px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.OfOther2-InputDark{
+    margin-left: 26px;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border: rgba(0, 0, 0, 0.1);
+    opacity: 30%;    
     width:83px;
     height: 28px;
     border-radius: 3.18px;
