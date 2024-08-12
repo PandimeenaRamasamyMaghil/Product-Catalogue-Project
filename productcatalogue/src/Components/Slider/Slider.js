@@ -8,6 +8,7 @@ import Basic from "../../assets/images/Basic.png"
 import ToggleSlider from "./ToggleSlider"
 import AvailabitySlider from "./AvailabilitySlider"
 import TooltipSlider from "./TooltipSlider"
+
 const Slider = ({ onclose }) => {
   
   const types = ["Pricing", "Availability", "Inventory", "Customize"]
@@ -30,20 +31,21 @@ const[outlet3,setOutlet3]=useState(false)
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
             <h1 className='Slider-Heading1'>Veg Burger Pizza - 12345</h1>
+            
             <div className='Slider-icons'>
-
-              <TooltipSlider message="Tap the 'Edit' button to modify the additional details that are not shown in the slider for this item.">
+            
+              <TooltipSlider className="toolSliderI" message="Tap the 'Edit' button to modify the additional details that are not shown in the slider for this item.">
                   <div >
                     <img src={Pen}  className={pen?"PenImage":"PenBlurImage"} onMouseOver={()=>setPen(false)} onMouseLeave={()=>setPen(true)} />
                   </div>
                 </TooltipSlider>
-
+                 
               <img src={Eye} alt='hello' className='PenImage'/>
               <img src={Bin} alt='hello' className='PenImage'/>
             </div>
             
           </div>
-          <div className='Types-Menu'>
+                    <div className='Types-Menu'>
             {
               types.map((elem, index) => {
                 return (
