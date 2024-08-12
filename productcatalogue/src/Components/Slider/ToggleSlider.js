@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./ToggleSlider.scss";
 
-const Toggle = ({toggle,setToggle}) => {
+const Toggle = ({toggle,setToggle,pen}) => {
 
 
   
@@ -9,12 +9,12 @@ const Toggle = ({toggle,setToggle}) => {
   return (
     <div>
       <button
-        className={`toggleBtn${toggle ? " Toggled" : ""}`}
+        className={`toggleBtnSlider${toggle ? " ToggledSlider" : ""}`}
         onClick={() => setToggle(!toggle)}
        
         
       >
-        <div className='thumb'></div>
+        <div className={`thumbSlider ${!pen ? 'thumbSliderDark' : ''}`}></div>
       </button>
     </div>
   );

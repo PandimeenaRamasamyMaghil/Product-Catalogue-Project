@@ -1,4 +1,4 @@
-.toggleBtn {
+.toggleBtnSlider {
 
     background-color:#D9D9D9;
     width: 1.688rem;
@@ -16,7 +16,7 @@
     left: -10px;
   }
   
-  .thumb {
+  .thumbSlider {
     border-radius: 7.188rem;
     width: 0.725rem;
     height: 0.725rem;
@@ -25,15 +25,18 @@
     left: 0.188rem;
     transition: left 0.2s;
   }
+  .thumbSliderDark{
+    background-color:rgba(255, 255, 255, 0.2); 
+  }
   
-  .toggleBtn.Toggled {
+  .toggleBtnSlider.ToggledSlider {
     background-color: #00B71D
     ;
     border-color: #00B71D
 
   }
   
-  .toggleBtn.Toggled .thumb {
+  .toggleBtnSlider.ToggledSlider .thumbSlider {
     left: calc(100% - 13px);
   }
   

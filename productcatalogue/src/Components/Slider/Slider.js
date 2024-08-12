@@ -8,11 +8,13 @@ import Basic from "../../assets/images/Basic.png"
 import ToggleSlider from "./ToggleSlider"
 import AvailabitySlider from "./AvailabilitySlider"
 import TooltipSlider from "./TooltipSlider"
+import EyeModal from './EyeModal'
 
 const Slider = ({ onclose }) => {
   
   const types = ["Pricing", "Availability", "Inventory", "Customize"]
   const[pen,setPen]=useState(false)
+  const[eye,setEye]=useState(false)
   const [active, setActive] = useState("Pricing")
   const modelref = useRef();
   const closeModal = (e) => {
@@ -25,6 +27,9 @@ const[outlet3,setOutlet3]=useState(false)
   const handleItemClick = (item) => {
     setActive(item);
   };
+  const handleEyeClick=()=>{
+    setEye(true)
+  }
   return (
     <div ref={modelref} className='Slider-Container' >
       <div className={pen?"Slider-Window":"Slider-WindowBlur"}>
@@ -40,11 +45,12 @@ const[outlet3,setOutlet3]=useState(false)
                   </div>
                 </TooltipSlider>
                  
-              <img src={Eye} alt='hello' className='PenImage'/>
+              <img src={Eye} alt='hello' className='PenImage' onClick={handleEyeClick}/>
               <img src={Bin} alt='hello' className='PenImage'/>
             </div>
             
           </div>
+           {eye?<EyeModal onEyeclose={()=>setEye(false)}/>:""} 
                     <div className='Types-Menu'>
             {
               types.map((elem, index) => {
@@ -57,7 +63,7 @@ const[outlet3,setOutlet3]=useState(false)
             }
           </div>
           <div className='Types-Line'></div>
-          {active==="Pricing" && <PricingSlider />}
+          {active==="Pricing" && <PricingSlider pen={pen} />}
           {active==="Availability" && <AvailabitySlider pen={pen}/>}
         </div>
         <div className={pen?"BasicChangesContainer":"BasicChangesContainerPen"}>
@@ -72,15 +78,15 @@ const[outlet3,setOutlet3]=useState(false)
         </div>
         <div className='ToggleBasicChanges'>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet1} setToggle={setOutlet1}/>
+          <ToggleSlider toggle={outlet1} setToggle={setOutlet1} pen={pen}/>
           <h1 className='Toggle1Basic-Heading'>Outlet 1</h1>
          </div>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet2} setToggle={setOutlet2}/>
+          <ToggleSlider toggle={outlet2} setToggle={setOutlet2} pen={pen}/>
           <h1 className='Toggle1Basic-Heading'>Outlet 2</h1>
          </div>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet3} setToggle={setOutlet3}/>
+          <ToggleSlider toggle={outlet3} setToggle={setOutlet3} pen={pen}/>
           <h1 className='Toggle1Basic-Heading'>Outlet 3</h1>
          </div>
         </div>
