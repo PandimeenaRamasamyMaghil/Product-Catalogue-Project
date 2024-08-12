@@ -72,15 +72,15 @@ const[outlet3,setOutlet3]=useState(false)
         </div>
         <div className='ToggleBasicChanges'>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet1} setToggle={setOutlet1}/>
+          <ToggleSlider toggle={outlet1} setToggle={setOutlet1} pen={pen}/>
           <h1 className='Toggle1Basic-Heading'>Outlet 1</h1>
          </div>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet2} setToggle={setOutlet2}/>
+          <ToggleSlider toggle={outlet2} setToggle={setOutlet2} pen={pen}/>
           <h1 className='Toggle1Basic-Heading'>Outlet 2</h1>
          </div>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet3} setToggle={setOutlet3}/>
+          <ToggleSlider toggle={outlet3} setToggle={setOutlet3} pen={pen}/>
           <h1 className='Toggle1Basic-Heading'>Outlet 3</h1>
          </div>
         </div>
