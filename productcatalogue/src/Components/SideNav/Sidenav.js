@@ -7,6 +7,7 @@ import Iv from '../SideNav/4.svg'
 import v from '../SideNav/5.svg'
 import vI from '../SideNav/6.svg'
 import logo from '../SideNav/thalappakatti-logo-anim 1@2x.svg'
+import ArrowHover from '../../assets/images/ArrowHover.svg'
 import btnnav from '../SideNav/btnnav.svg'
 import { useState } from 'react'
 import { useContext } from 'react'
@@ -71,13 +72,20 @@ const Sidenav = () => {
                     <>
                 <div className='flexSidenav'>
 
+                  
+
                     
                 <li key={item.id}></li>
+              
+                
 
 
                 <div className='flexcol'>
+                  
 
                 <img className='imgNavbar' src={item.img} alt="" />
+                <img  className="ArrowHover"src={ArrowHover}></img>
+                <div className='imgNavbarHover'>{item.name}</div>
                 </div>
 
                 

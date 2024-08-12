@@ -26,6 +26,8 @@
 .flexcol{
     margin-bottom: 50px;
     margin-left: 10px;
+    z-index: 100;
+
 }
 .sidebar ul {
     list-style: none;
@@ -35,6 +37,7 @@
 .imgNavbar{
     width: 24px;
     height: 22px;
+    position: relative;
 }
 
 .sidebar:nth-child(0) {
@@ -117,8 +120,8 @@
     font-size: 20px;
     font-family: Poppins;
     font-weight: 400;
-    margin-left: 20px;
-    transform: translateY(-2px);
+    transform: translateX(-20px,-5px);
+    margin-left: -20px;
  }
 
 
@@ -131,6 +134,7 @@
 .flexcolhheading{
   display: flex;
   flex-direction: column;
+  
   gap: 40px;
 }
 
@@ -148,4 +152,40 @@
 
 
 
+}
+
+.imgNavbarHover {
+  visibility: hidden;
+  width: 60px;
+  height: 18px;
+  background-color: #67833E;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  transform: translateX(-15px);
+  
+  opacity: 0;
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 2px 2px 2px 2px ;
+}
+.ArrowHover{
+  visibility: hidden;
+  position: relative;
+  top: 7px;
+  left: -17px;
+
+
+}
+
+.flexcol:hover .ArrowHover  {
+  visibility: visible;
+  opacity: 1;
+}
+
+.flexcol:hover .imgNavbarHover  {
+  visibility: visible;
+  opacity: 1;
 }
