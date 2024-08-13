@@ -12,7 +12,7 @@ function App() {
    <div>
   
 
-<Slider/> 
+<Landing/> 
   
     
 
@@ -21,4 +21,13 @@ function App() {
   );
 }
 
+
 export default App;
+
+
+
+
+
+
+
+
