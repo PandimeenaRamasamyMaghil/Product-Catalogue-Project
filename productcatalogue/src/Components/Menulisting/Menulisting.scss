@@ -4,44 +4,377 @@
 
 .menumain {
   position: relative;
-  left: 10px;
+  // left: -10px;
   top: 120px;
-
+  
+ 
   display: flex;
   flex-direction: row;
+  
+  // height: 600px;
+  width: 100%;
+  // width: 1400px;
+  // overflow-y: auto;
+  
+  // border: 1px solid red;
+  
+}
+table,th,td{
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
 }
 .table-container {
+ 
   position: relative;
   display: flex;
   flex-direction: row;
 }
+.headingstextlist{
 
-.tabletwo {
-  border: 1px solid red;
-  width: 1000px;
-  height: 700px;
+  
+ 
+  position: absolute;
+  top:0px;
+  left: 100px;
+  z-index: 1;
+  width: 217px;
+height: 357px;
+gap: 0px;
+border-radius: 4px ;
+// border: 0.5px solid #5F5F5F;
+background-color: #FFFFFF;
+box-shadow: 0px 4px 14px 0px #00000040;
+ul,li {
+  list-style: none;
+
+};
+.insertheading{
+  width: 217px;
+  height: 42px;
+ border-bottom: 0.5px solid #D9D9D9;
+ h3{
+  display: flex;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  img{
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+  }
+
+ }
+
+
+
+color: 
+#67833E;
+
+
+}
+.inserbody{
+  margin-top: 10px;
+  margin-left: 37px;
+  li{
+    padding-top: 5px;
+  }
+  .headtext{
+    display: flex;
+    flex-direction: row;
+    span{
+      display: flex;
+      padding-left: 10px;
+      
+     
+    }
+   
+    .dollaricon{
+      width: 27px;
+      height: 27px;
+      // margin-top: -12px;
+      margin-left: 15px;
+      
+    }
+    .toggleicon{
+     position: relative;
+     left: -22px;
+
+      
+    }
+  }
+  .pricingheadtext{
+    span{
+      margin-top: -5px;
+     
+    }
+
+  }
+  .availheadtext{
+    span{
+      margin-top: -5px;
+     
+    }
+
+  }
+  .inventoryheadtext{
+    padding: 5px;
+    span{
+      margin-top: -5px;
+     
+    }
+
+
+  }
+  .customheadtext{
+    padding: 5px;
+
+    span{
+      margin-top: -5px;
+     
+    }
+
+
+  }
+
+
+  input{
+    width: 15px;
+    height: 15px;
+    
+  
+  
+    accent-color: rgba(103, 131, 62, 1);
+    border: 1px solid #000000;    
+
+  }
+  .indenttexts
+  {
+    
+  margin-left: 29px;
+  span{
+    padding-left: 10px;
+  }
+  }
+}
+
+
+
+}
+.tableone {
+  width:321px;
+  // margin-left: -36px;
+  // border: 1px solid red;
+  .itemheading{
+   position: relative;
+   display: flex;
+   justify-content: left;
+   left: 5px;
+   top: 10px;
+   font-family: Poppins;
+font-size: 20px;
+font-weight: 600;
+line-height: 30px;
+text-align: left;
+img{
+  margin-right: 10px;
+}
+
+  
+  }
+  .steamednonveg{
+    margin-top: 10px;
+  }
+  .headerrow
+  {
+
+    width:321px;
+    display: flex;
+    
+   gap: 12px;
+   position: sticky;
+   left: 20px;
+   top: -5px;
+   .itemimage{
+    width: 70px;
+    font-size: 16px;
+    font-weight: 500;
+    height: 25px;
+    // border: 1px solid red;
+
+   }
+   .itemname{
+    
+    width: 164px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 32px;
+    // border: 1px solid red;
+
+   }
+   .itemcode{
+    font-size: 16px;
+    font-weight: 500;
+    width: 84px;
+    height: 25px;
+    // border: 1px solid red;
+    margin-left: 20px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    button{
+      margin-top: 5px;
+     margin-left: 10px;
+      width: 23px;
+      height: 27px;
+      border-radius: 4px;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: 0.5px solid #5F5F5F;
+      cursor: pointer;
+    }
+    // border: 1px solid red;
+
+   }
+
+  }
+
+  .itemdetails{
+    // width: 100%;
+    transition: box-shadow 0.3s ease;
+    height: 60px;
+    position: relative;
+    top: 12px;
+    // left: 10px;
+    display: flex;
+    flex-direction: row;
+    // width:340px;
+    border: 1px solid #D9D9D9;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    // border-right: none;
+    width:351px;
+    display: flex;
+    justify-content: center;
+   gap: 10px;
+  //  padding: 5px;
+
+
+  
+   .itemimage2{
+    width: 70px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    // padding-left: 12px;
+    gap: 5px;
+    .draggableimg{
+      cursor: pointer;
+    }
+    // border: 1px solid red;
+
+   }
+   .itemname2{
+    width: 164px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+    padding-left: -12px;
+    // border: 1px solid red;
+
+   }
+   .itemcode2{
+    width: 84px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: -30px;
+    position: relative;
+    left: -10px;
+    // border: 1px solid red;
+
+   }
+    
+  }
+ 
+}
+
+
+
+
+  // border: 1px solid red;
+  // width: 1000px;
+  
+  // // height:152%;
+  // margin-left: 30px;
+  // overflow-x: auto;
+  // overflow-y: hidden;
+  // overflow-y: hidden;
+  
+.tabletwo
+{
+ position: relative;
+ left: 30px;
+//  margin-top: 12px;
+//  border: 0.5px solid red;
+
+ .secondtablename{
+  width: 1060px;
+
   overflow-x: auto;
+ }
+
+
+
+}
+   .bodydata{
+    margin-top: 12px;
+   
+    position: relative;
+    // top: 12px;
+    border: 0.5px solid #d9d9d9;
+
+   }
   th {
     font-weight: normal;
+   
   }
   .headingonesection {
     display: flex;
     flex-direction: row;
     gap: 20px;
     position: relative;
+   
+ 
+
   
-    .dinein1 {
-      width: 135px;
+    .Dinein {
+      width: 134px;
       height: 30px;
       border-radius: 4px;
       border: 0.5px solid #d9d9d9;
-      margin-left: 20px;
+      // margin-left: 20px;
       display: flex;
       justify-content: left;
       align-items: center;
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
+      cursor: pointer;
 
       .dots {
         padding-right: 10px;
@@ -49,7 +382,7 @@
       .dollar {
         padding-right: 10px;
       }
-      .dineintext {
+      .Dineintext {
         position: relative;
         top: -3px;
         font-size: 16px;
@@ -65,42 +398,10 @@
         }
       }
     }
-    .dinein2 {
-      width: 135px;
-      height: 30px;
-      border-radius: 4px;
-      border: 0.5px solid #d9d9d9;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      padding-top: 7px;
-      padding-left: 10px;
-      padding-right: 10px;
-      .dots {
-        padding-right: 10px;
-      }
-      .dollar {
-        padding-right: 10px;
-      }
-      .dineintext {
-        position: relative;
-        top: -3px;
-        font-size: 16px;
-        font-weight: 500;
-      }
-      .removeicon {
-        position: relative;
-        top: -5px;
-        right: -5px;
-        img {
-          width: 10px;
-          height: 10px;
-        }
-      }
-    }
+    
 
-    .pickup1 {
-      width: 215px;
+    .Pickup {
+      width: 206px;
       height: 30px;
       border: 0.5px solid #d9d9d9;
       border-radius: 4px;
@@ -110,6 +411,7 @@
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
+      cursor: pointer;
       .dots {
         padding-right: 10px;
       }
@@ -125,75 +427,6 @@
       .removeicon {
         position: relative;
         top: -5px;
-        right: -85px;
-        img {
-          width: 10px;
-          height: 10px;
-        }
-      }
-    }
-    .pickup2 {
-      width: 215px;
-      height: 30px;
-      border: 0.5px solid #d9d9d9;
-      border-radius: 4px;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      padding-top: 7px;
-      padding-left: 10px;
-      padding-right: 10px;
-      .dots {
-        padding-right: 10px;
-      }
-      .dollar {
-        padding-right: 10px;
-      }
-      .pickuptext {
-        position: relative;
-        top: -3px;
-        font-size: 16px;
-        font-weight: 500;
-      }
-
-      .removeicon {
-        position: relative;
-        top: -5px;
-        right: -85px;
-        img {
-          width: 10px;
-          height: 10px;
-        }
-      }
-    }
-
-    .delivery1 {
-      width: 215px;
-      height: 30px;
-      border: 0.5px solid #d9d9d9;
-      border-radius: 4px;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      padding-top: 7px;
-      padding-left: 10px;
-      padding-right: 10px;
-      .dots {
-        padding-right: 10px;
-      }
-      .dollar {
-        padding-right: 10px;
-      }
-      .deliverytext {
-        position: relative;
-        top: -3px;
-        font-size: 16px;
-        font-weight: 500;
-      }
-
-      .removeicon {
-        position: relative;
-        top: -5px;
         right: -75px;
         img {
           width: 10px;
@@ -201,8 +434,9 @@
         }
       }
     }
-    .delivery2 {
-      width: 215px;
+   
+    .Delivery {
+      width: 206px;
       height: 30px;
       border: 0.5px solid #d9d9d9;
       border-radius: 4px;
@@ -212,6 +446,7 @@
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
+      cursor: pointer;
       .dots {
         padding-right: 10px;
       }
@@ -228,16 +463,17 @@
       .removeicon {
         position: relative;
         top: -5px;
-        right: -75px;
+        right: -65px;
         img {
           width: 10px;
           height: 10px;
         }
       }
     }
+    
 
-    .inventory {
-      width: 145px;
+    .Inventory {
+      width: 134px;
       height: 30px;
       border: 0.5px solid #d9d9d9;
       border-radius: 4px;
@@ -247,40 +483,7 @@
       padding-top: 7px;
       padding-left: 10px;
       padding-right: 10px;
-      .dots {
-        padding-right: 10px;
-      }
-      .dollar {
-        padding-right: 10px;
-      }
-      .deliverytext {
-        position: relative;
-        top: -3px;
-        font-size: 16px;
-        font-weight: 500;
-      }
-
-      .removeicon {
-        position: relative;
-        top: -5px;
-        right: -15px;
-        img {
-          width: 10px;
-          height: 10px;
-        }
-      }
-    }
-    .customization {
-      width: 145px;
-      height: 30px;
-      border: 0.5px solid #d9d9d9;
-      border-radius: 4px;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      padding-top: 7px;
-      padding-left: 10px;
-      padding-right: 10px;
+      cursor: pointer;
       .dots {
         padding-right: 10px;
       }
@@ -304,14 +507,317 @@
         }
       }
     }
+    .Customize {
+      width: 134px;
+      height: 30px;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 4px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-top: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
+      .dots {
+        padding-right: 10px;
+      }
+      .dollar {
+        padding-right: 10px;
+      }
+      .deliverytext {
+        position: relative;
+        top: -3px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .removeicon {
+        position: relative;
+        top: -5px;
+        right: 0px;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+
+
+
+    // .DineIn2 {
+    //   width: 135px;
+    //   height: 30px;
+    //   border-radius: 4px;
+    //   border: 0.5px solid #d9d9d9;
+    //   display: flex;
+    //   justify-content: left;
+    //   align-items: center;
+    //   padding-top: 7px;
+    //   padding-left: 10px;
+    //   padding-right: 10px;
+    //   .dots {
+    //     padding-right: 10px;
+    //   }
+    //   .dollar {
+    //     padding-right: 10px;
+    //   }
+    //   .dineintext {
+    //     position: relative;
+    //     top: -3px;
+    //     font-size: 16px;
+    //     font-weight: 500;
+    //   }
+    //   .removeicon {
+    //     position: relative;
+    //     top: -5px;
+    //     right: -5px;
+    //     img {
+    //       width: 10px;
+    //       height: 10px;
+    //     }
+    //   }
+    // }
+    // .Pickup2 {
+    //   width: 215px;
+    //   height: 30px;
+    //   border: 0.5px solid #d9d9d9;
+    //   border-radius: 4px;
+    //   display: flex;
+    //   justify-content: left;
+    //   align-items: center;
+    //   padding-top: 7px;
+    //   padding-left: 10px;
+    //   padding-right: 10px;
+    //   .dots {
+    //     padding-right: 10px;
+    //   }
+    //   .dollar {
+    //     padding-right: 10px;
+    //   }
+    //   .pickuptext {
+    //     position: relative;
+    //     top: -3px;
+    //     font-size: 16px;
+    //     font-weight: 500;
+    //   }
+
+    //   .removeicon {
+    //     position: relative;
+    //     top: -5px;
+    //     right: -85px;
+    //     img {
+    //       width: 10px;
+    //       height: 10px;
+    //     }
+    //   }
+    // }
+    // .Delivery2 {
+    //   width: 215px;
+    //   height: 30px;
+    //   border: 0.5px solid #d9d9d9;
+    //   border-radius: 4px;
+    //   display: flex;
+    //   justify-content: left;
+    //   align-items: center;
+    //   padding-top: 7px;
+    //   padding-left: 10px;
+    //   padding-right: 10px;
+    //   .dots {
+    //     padding-right: 10px;
+    //   }
+    //   .dollar {
+    //     padding-right: 10px;
+    //   }
+    //   .deliverytext {
+    //     position: relative;
+    //     top: -3px;
+    //     font-size: 16px;
+    //     font-weight: 500;
+    //   }
+
+    //   .removeicon {
+    //     position: relative;
+    //     top: -5px;
+    //     right: -75px;
+    //     img {
+    //       width: 10px;
+    //       height: 10px;
+    //     }
+    //   }
+    // }
+
+  }
+
+
+
+  .spanheadertext{
+    position: relative;
+    top: -3px;
+    font-size: 16px;
+    font-weight: 500;
+
   }
   .headingtwosection {
     display: flex;
     flex-direction: row;
     position: relative;
     top: 5px;
-    margin-left: 20px;
+    // margin-left: 20px;
     gap:20px;
+
+    .Dinein1-class {
+      width: 134px;
+height: 24px;
+gap: 12px;
+// border: 1px solid;
+//       background-color: #f0f8ff; /* Light blue */
+
+     
+    }
+    .Dinein2-class{
+      width: 134px;
+      height: 24px;
+      gap: 12px;
+
+    }
+    
+    .Pickup1-class {
+      width: 206px;
+      height: 24px;
+      display: flex;
+      gap: 20px;
+      
+      
+      // border: 1px solid;
+      
+
+    }
+    
+    .Delivery1-class {
+      width: 206px;
+      height: 24px;
+      gap: 20px;
+     
+      display: flex;
+      // border: 1px solid;
+   
+    }
+    .Pickup2-class {
+      width: 206px;
+      height: 24px;
+      display: flex;
+      gap: 20px;
+      
+      
+      // border: 1px solid;
+      
+
+    }
+    
+    .Delivery2-class {
+      width: 206px;
+      height: 24px;
+      gap: 20px;
+     
+      display: flex;
+      // border: 1px solid;
+   
+    }
+    
+    .Inventory1-class {
+      width: 134px;
+      height: 24px;
+      gap: 20px;
+      display: flex;
+      // border: 1px solid;
+     
+    }
+    
+    .Customize1-class {
+      width: 134px;
+      height: 24px;
+      gap: 22px;
+      opacity: 0px;
+      // border: 1px solid;
+      
+    }
+    .Ac{
+      width: 52px;
+      height: 20px;
+      // border: 1px solid red;
+      position: relative;
+      left: 5%;
+      
+
+
+
+    }
+    .Nonac{
+      width: 52px;
+      height: 20px;
+      // border: 1px solid red;
+      position: relative;
+      left: 10%;
+
+
+    }
+    .Inhouse{
+      width: 52px;
+      height: 20px;
+      // border: 1px solid red;
+      position: relative;
+      // left: 2%;
+      display: flex;
+
+    }
+    .Swiggy{
+      width: 52px;
+      height: 20px;
+      // border: 1px solid red;
+      position: relative;
+      // left: 4%;
+      display: flex;
+
+    }
+    .Zomato{
+      width: 52px;
+      height: 20px;
+      // border: 1px solid red;
+      position: relative;
+      // left: 6%;
+      display: flex;
+
+    }
+    .Total{
+      width: 52px;
+      height: 20px;
+      // border: 1px solid red;
+      position: relative;
+      // left: 2%;
+      display: flex;
+
+    }
+    .Threshold{
+      width: 52px;
+      height: 20px;
+      // border: 1px solid red;
+      position: relative;
+      // left: 2%;
+      display: flex;
+
+    }
+    
+    
+   
+
+    
+
+    
+
+  
+
+
     .dinein1div
     {
       width: 135px;
@@ -452,11 +958,38 @@
     
     
   }
+  .steamednonveg{
+    margin-top: 10px;
+   
+    .itemheading2{
+      height: 30px;
+      // border: 1px solid red;
+      position: relative;
+      display: flex;
+      justify-content: left;
+      left: 10px;
+      // top: 10px;
+      font-family: Poppins;
+   font-size: 20px;
+   font-weight: 600;
+   line-height: 30px;
+   text-align: left;
+   img{
+     margin-right: 10px;
+   }
+   
+     
+     }
+  }
 
   .tabletwobody
   {
    position: relative;
-   top: 8px;
+  //  top: 3px;
+  //  left: -2px;
+  margin-left: 0;
+ 
+  
   
    .tabletwobodyrow
    {
@@ -466,64 +999,212 @@
     flex-direction: row;
     width: 100%;
     height: 60px;
+    position: relative;
+    top: 3.5px;
   border-collapse: collapse;
     border: 1px solid #D9D9D9;
-    border-bottom: none;
+    // border: 1px solid red;
+    border-top: none;
+    border-left: none;
+    border-right: none ;
+
+   
+
     
   //  .availability{
   //  position: relative;
   //  left: 25px;
   //  }
+  .eachobject{
+    gap: 20px;
+    display: flex;
+  }
     
-    .dineindiv
+    .Dinein1
     {
-      width: 135px;
-      height: 60px;
-      // border: 1px solid black;
-      margin-left: 25px;
-     
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      .dineinnonac{
-        margin-left: 25px;
-      }
-
-    }
-    .pickupdiv{
-      width: 215px;
-      height: 60px;
-      // border: 1px solid black;
-      margin-left: 15px;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      .pickupswiggy{
-        margin-left: 25px;
-
-      }
-      .pickupzomato{
-        margin-left: 25px;
-
-      }
-
-    }
-    .deliverydiv{
-      width: 215px;
+      width: 134px;
       height: 60px;
       // border: 1px solid black; 
-        margin-left: 20px;
+        // margin-left: 20px;
         display: flex;
       justify-content: left;
       align-items: center;
-      .deliveryswiggy{
-        margin-left: 25px;
+      gap: 25px;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
 
       }
-      .deliveryzomato{
-        margin-left: 25px;
+      
+
+    }
+    .Pickup1{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 20px;
+      td{
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
 
       }
+      
+    }
+    .Delivery1{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        
+     
+      gap: 20px;
+      td{
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        // border: 1px solid red;
+
+      }
+      
+
+    }
+    .Dinein2
+    {
+      width: 134px;
+      height: 60px;
+      gap: 20px;
+      // border: 1px solid black; 
+      
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+
+
+
+    }
+    .Pickup2{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 20px;
+      td{
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+     
+
+    }
+    .Delivery2{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 20px;
+      td{
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+     
+
+    }
+    .Inventory1{
+      width: 134px;
+      height: 60px;
+      gap: 20px;
+      // border: 1px solid black; 
+       
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+
+    }
+    .Customize1{
+      width: 134px;
+      height: 60px;
+      // border: 1px solid black; 
+     
+       
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+      
 
     }
    
@@ -610,29 +1291,335 @@
    
    }
   }
+
+  .tabletwobody2
+  {
+   position: relative;
+  //  top: 3px;
+  //  left: -2px;
+  // margin-left: 10px;
+  
+  
+   .tabletwobodyrow2
+   {
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    height: 60px;
+    position: relative;
+    top: 5px;
+  border-collapse: collapse;
+    border: 1px solid #D9D9D9;
+    border-top: none;
+    border-left: none;
+    border-right: none ;
+
+    
+  //  .availability{
+  //  position: relative;
+  //  left: 25px;
+  //  }
+  .eachobject{
+    gap: 20px;
+    display: flex;
+  }
+    
+    .Dinein1
+    {
+      width: 134px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 25px;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+      
+
+    }
+    .Pickup1{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 20px;
+      td{
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+      
+    }
+    .Delivery1{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        
+     
+      gap: 20px;
+      td{
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        // border: 1px solid red;
+
+      }
+      
+
+    }
+    .Dinein2
+    {
+      width: 134px;
+      height: 60px;
+      gap: 20px;
+      // border: 1px solid black; 
+      
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+
+
+
+    }
+    .Pickup2{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 20px;
+      td{
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+     
+
+    }
+    .Delivery2{
+      width: 206px;
+      height: 60px;
+      // border: 1px solid black; 
+        // margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 20px;
+      td{
+        width: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+     
+
+    }
+    .Inventory1{
+      width: 134px;
+      height: 60px;
+      gap: 20px;
+      // border: 1px solid black; 
+       
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+
+    }
+    .Customize1{
+      width: 134px;
+      height: 60px;
+      // border: 1px solid black; 
+     
+       
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      td{
+        width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+        // border: 1px solid red;
+
+      }
+      
+
+    }
+   
+
+    .availabilitydineindiv
+    {
+      width: 135px;
+      height: 60px;
+      // border: 1px solid black;
+      margin-left: 20px;
+     
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      .dineinnonac{
+        margin-left: 25px;
+      }
+
+    }
+    .availabilitypickupdiv{
+      width: 215px;
+      height: 60px;
+      // border: 1px solid black;
+      margin-left: 20px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      .pickupswiggy{
+        margin-left: 25px;
+
+      }
+      .pickupzomato{
+        margin-left: 25px;
+
+      }
+
+    }
+    .availabilitydeliverydiv{
+      width: 215px;
+      height: 60px;
+      // border: 1px solid black; 
+        margin-left: 20px;
+        display: flex;
+      justify-content: left;
+      align-items: center;
+      .deliveryswiggy{
+        margin-left: 25px;
+
+      }
+      .deliveryzomato{
+        margin-left: 25px;
+
+      }
+
+    }
+   .inventorydivtion{
+    width: 215px;
+    height: 60px;
+    // border: 1px solid black; 
+      margin-left: 24px;
+      display: flex;
+    justify-content: left;
+    align-items: center;
+    .inventorythresholddata{
+      margin-left: 48px;
+    }
+
+   }
+   .customizediv
+   {
+    width: 215px;
+    height: 60px;
+    // border: 1px solid black; 
+      margin-left: 20px;
+      display: flex;
+    justify-content: left;
+    align-items: center;
+
+
+   }
+
+
+    
+   
+   }
+  }
+
+
+.indenttext{
+  position: relative;
+  top: -3px;
+  font-size: 16px;
+  font-weight: 500;
+
 }
-.tableone {
-  width: 340px;
+
+
+
+.itemdetails.selected {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+.table-body {
   height: 700px;
-  .itemheading {
-    height: 25px;
-  }
-  .itemimage {
-    width: 60px;
-    height: 25px;
-    padding: 5px;
-    border: 1px solid red;
-  }
-  .itemname {
-    width: 150px;
-    height: 25px;
-    padding: 5px;
-    border: 1px solid red;
-  }
-  .itemcode {
-    width: 60px;
-    height: 25px;
-    padding: 5px;
-    border: 1px solid red;
-  }
+  overflow-y: auto;
+  display: block;
+}
+
+.table {
+  margin-right: 20px; /* Optional: add space between tables */
 }

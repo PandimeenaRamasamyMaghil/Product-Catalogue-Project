@@ -14,6 +14,8 @@ import Sidenav from "./SideNav/Sidenav"
 import Header from './Item Customizations/MainLandingPage/Header/Header'
 import Slider from '../Components/Slider/Slider'
 
+import Menupage from './Menulisting/Menupage'
+
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
 
@@ -46,7 +48,7 @@ const Landingpage = () => {
           resize your window.
         </div>
       ) :
-     ( <Contextpage>
+     ( <>
 
 
 <Sidenav/>
@@ -54,10 +56,13 @@ const Landingpage = () => {
 <Header/>
 {/* <Pricingpage/> */}
      
-     {/* <Menulisting/> */}
+     <Menulisting/>
+
+
+     {/* <Menupage/> */}
    
-{/* 
-       <Routes>
+
+       {/* <Routes>
         <Route path="/" element={<Navigationpage />} />
         <Route path="/Reviewpage" element={<Reviewpage />} />
         <Route path="/Primary" element={<Primary />} />
@@ -74,8 +79,8 @@ const Landingpage = () => {
 
       </Routes> */}
      
-     
-         </Contextpage>
+      </>
+       
        )
       }
 </div>
@@ -83,4 +88,5 @@ const Landingpage = () => {
   )
 }
 export default Landingpage
+
 
