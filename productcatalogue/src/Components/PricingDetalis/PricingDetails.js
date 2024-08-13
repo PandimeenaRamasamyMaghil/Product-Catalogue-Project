@@ -200,7 +200,9 @@ const PricingDetails = () => {
       
       if (allFieldsValid && isValid) {
           dispatch(PricingDetailRequest({ mainForm }));
-          setActiveCategory("Step 3: Item customizations");
+          navigate(`/Navigationpage/Itemcustomizations`, {
+            state: { pagename: "Item customizations" },
+          });
       }
 
 

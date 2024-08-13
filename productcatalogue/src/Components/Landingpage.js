@@ -53,16 +53,16 @@ const Landingpage = () => {
 
 <Sidenav/>
 {/* <Slider/> */}
-<Header/>
+{/* <Header/> */}
 {/* <Pricingpage/> */}
      
-     <Menulisting/>
+     {/* <Menulisting/> */}
 
 
      {/* <Menupage/> */}
    
 
-       {/* <Routes>
+       <Routes>
         <Route path="/" element={<Navigationpage />} />
         <Route path="/Reviewpage" element={<Reviewpage />} />
         <Route path="/Primary" element={<Primary />} />
@@ -77,7 +77,7 @@ const Landingpage = () => {
         </Route>
 
 
-      </Routes> */}
+      </Routes>
      
       </>
        

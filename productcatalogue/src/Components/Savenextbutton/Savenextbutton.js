@@ -13,30 +13,30 @@ import { PricingDetailRequest } from "../../redux/Actions";
 
 const Savenextbutton = (probs) => {
   let navigate = useNavigate();
-  const {activeCategory, setActiveCategory,pages}=useContext(Contextpagejs);
+  const {setActiveCategory}=useContext(Contextpagejs);
 
   const primarydetailsdata=probs.formData;
 
 
-  const data=
-  {
-    locationId:"9c485244-afd4-11eb-b6c7-42010a010026",
-    itemCode:primarydetailsdata.itemCode,
-    altName:"alt name",
-    itemName:primarydetailsdata.itemName,
-    description:primarydetailsdata.description,
-    price:"12",
-    categoryId:primarydetailsdata.categoryId,
-    subCategoryId:"",
-    kitchenStations:["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],
-    taxFeeId:"",
-    ingredients:["03348389-4b2a-4fca-affa-6ad4291b0241"],
-    modifiers:[],
-    availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
-    category:primarydetailsdata.category,
-    subCategory:primarydetailsdata.subCategory,
-    itemId:null
-  }
+  // const data=
+  // {
+  //   locationId:"9c485244-afd4-11eb-b6c7-42010a010026",
+  //   itemCode:primarydetailsdata.itemCode,
+  //   altName:"alt name",
+  //   itemName:primarydetailsdata.itemName,
+  //   description:primarydetailsdata.description,
+  //   price:"12",
+  //   categoryId:primarydetailsdata.categoryId,
+  //   subCategoryId:"",
+  //   kitchenStations:["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],
+  //   taxFeeId:"",
+  //   ingredients:["03348389-4b2a-4fca-affa-6ad4291b0241"],
+  //   modifiers:[],
+  //   availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
+  //   category:primarydetailsdata.category,
+  //   subCategory:primarydetailsdata.subCategory,
+  //   itemId:null
+  // }
 
   
   const dispatch = useDispatch();
@@ -52,38 +52,24 @@ const Savenextbutton = (probs) => {
    
    
     if (probs.selectedpage === "primary" ) {
-      setActiveCategory("Step 2: Pricing and kitchen details")
-      
+      // setActiveCategory("Step 2: Pricing and kitchen details")  
+      navigate(`/Navigationpage/Pricingandkitchendetails`, {
+        state: { pagename: "Pricing and kitchen details" },
+      });
+
       dispatch(primarypost(probs.formData));
-    } 
-    // else if (probs.selectedpage === "PricingDetails" && probs.validation()) {
-    //   setActiveCategory("Step 3: Item customizations")
-    //   dispatch(PricingDetailRequest(probs.formData));
-    // } 
+
+
+    }  
     else if (probs.selectedpage === "ItemCustomization") {
       setnavigationpage("Reviewpage")
-      // navigate('./Reviewpage')
+      navigate('/Reviewpage'
+      );
+
       dispatch(itemCustomizationPost(probs.formData));
     } 
     
-    // if (!probs.validation()) {
-    //   // e.preventDefault();
    
-    //   toast.error("Please fill out the required fields(indicated as *) to move on to the next step.", {
-    //     style: {
-    //       backgroundColor: '', // Background color
-    //       color: 'red', // Text color
-    //       fontFamily: 'Arial, sans-serif', // Font family
-    //       fontSize: '14px', // Font size
-    //       padding: '12px', // Padding,
-    //       position: "top",
-          
-
-    //     },
-        
-        
-    //   });
-    // }
     scrollToTop();
    
 
@@ -107,11 +93,12 @@ const Savenextbutton = (probs) => {
         <button className="clearall" onClick={handleclear}>
           Clear All
         </button>
+        <button className="link saveall" onClick={handleclick}> Save & next</button>
         
        
-        <Link to={`/${navigationpage}`} className="link saveall" onClick={handleclick}>
+        {/* <Link to={`/${navigationpage}`} >
            Save & next
-        </Link>
+        </Link> */}
         {/* <button className="link saveall" onClick={handleclick}>
            Save & next
 
