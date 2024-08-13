@@ -9,6 +9,8 @@ const SearchBox = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
+  const [optionSelected, setOptionSelected] = useState(false);
+
 
 
 
@@ -25,6 +27,8 @@ const SearchBox = () => {
     const value=e.target.value
     setSearchTerm(value)
     filterOptions(value)
+    setOptionSelected(false); // Reset to false when the user types
+
 
   }
 
@@ -38,6 +42,8 @@ const SearchBox = () => {
   const handleOptionClick=(option)=>{
     setSearchTerm(option)
     setFilteredOptions([])
+    setOptionSelected(true); // Set to true when an option is selected
+
   }
 
   const handleKeyDown = (e) => {
@@ -108,7 +114,7 @@ const SearchBox = () => {
             >
               <div className='Search-Container-options-items' >{option}</div>
             </li>
-          ))):(
+          ))): !optionSelected && (
 
           <div className='Search-Container-options-none'>
             <div className='Search-Container-options-none-flex-direction'>
