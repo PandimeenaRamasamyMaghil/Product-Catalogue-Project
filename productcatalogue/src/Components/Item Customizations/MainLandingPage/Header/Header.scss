@@ -113,8 +113,26 @@ visibility: hidden;
   display: flex;
   flex-direction: column;
 }
+.ExcelHover{
+  visibility: hidden;
+    width: 60px;
+    height: 18px;
+    background-color: #67833E;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    
+    opacity: 0;
+    transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+    transform: translate(-25px,-17px);
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 2px 2px 2px 2px ;
+  }
+  
 
-.Excel-flex-col:hover .FilterHover {
+.Excel-flex-col:hover .ExcelHover {
   visibility: visible;
   opacity: 1;
 }
@@ -141,6 +159,16 @@ visibility: hidden;
   top: -16px;
   cursor: pointer;
 }
+.ArrowHoverHeaderExcel{
+  visibility: hidden;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  top: -17px;
+  left: -2px;
+
+
+}
 
 
 .ArrowHoverHeader{
@@ -158,7 +186,7 @@ visibility: hidden;
   visibility: visible;
   opacity: 1;
 }
-.Excel-flex-col:hover .ArrowHoverHeader {
+.Excel-flex-col:hover .ArrowHoverHeaderExcel {
   visibility: visible;
   opacity: 1;
 }
