@@ -12,6 +12,7 @@ import Pricingpage from './Pricingpage/Pricingpage'
 import { Menulisting } from './Menulisting/Menulisting'
 import Sidenav from "./SideNav/Sidenav"
 import Header from './Item Customizations/MainLandingPage/Header/Header'
+import Slider from '../Components/Slider/Slider'
 
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -49,7 +50,8 @@ const Landingpage = () => {
 
 
 <Sidenav/>
-<Header/>
+<Slider/>
+{/* <Header/> */}
 {/* <Pricingpage/> */}
      
      {/* <Menulisting/> */}

@@ -10,6 +10,7 @@ import AvailabitySlider from "./AvailabilitySlider"
 import TooltipSlider from "./TooltipSlider"
 import EyeModal from './EyeModal'
 import Trash from './Trash'
+import CustomizeSlider from './CustomizeSlider'
 
 const Slider = ({ onclose }) => {
   
@@ -71,6 +72,8 @@ const[outlet3,setOutlet3]=useState(false)
           <div className='Types-Line'></div>
           {active==="Pricing" && <PricingSlider pen={pen} />}
           {active==="Availability" && <AvailabitySlider pen={pen}/>}
+          {active==="Customize" && <CustomizeSlider pen={pen}/>}
+
         </div>
         <div className={pen?"BasicChangesContainer":"BasicChangesContainerPen"}>
         <div className='BasicChanges'>
