@@ -10,12 +10,14 @@ import AvailabitySlider from "./AvailabilitySlider"
 import TooltipSlider from "./TooltipSlider"
 import EyeModal from './EyeModal'
 import Trash from './Trash'
+
+import Inventory from './Inventory'
 import CustomizeSlider from './CustomizeSlider'
 
 const Slider = ({ onclose }) => {
   
   const types = ["Pricing", "Availability", "Inventory", "Customize"]
-  const[pen,setPen]=useState(false)
+  const[pen,setPen]=useState(true)
   const[eye,setEye]=useState(false)
   const[trash,setTrash]=useState(false)
   const [active, setActive] = useState("Pricing")
@@ -72,6 +74,8 @@ const[outlet3,setOutlet3]=useState(false)
           <div className='Types-Line'></div>
           {active==="Pricing" && <PricingSlider pen={pen} />}
           {active==="Availability" && <AvailabitySlider pen={pen}/>}
+          {active==="Inventory" && <Inventory/>}
+
           {active==="Customize" && <CustomizeSlider pen={pen}/>}
 
         </div>
