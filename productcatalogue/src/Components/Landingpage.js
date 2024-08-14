@@ -52,6 +52,7 @@ const Landingpage = () => {
 
 
 <Sidenav/>
+<Slider/>
 {/* <Slider/> */}
 <Header/>
 {/* <Pricingpage/> */}
