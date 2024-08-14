@@ -53,32 +53,32 @@ const Landingpage = () => {
 
 <Sidenav/>
 {/* <Slider/> */}
-{/* <Header/> */}
+<Header/>
 {/* <Pricingpage/> */}
      
-     {/* <Menulisting/> */}
+     <Menulisting/>
 
 
-     {/* <Menupage/> */}
+      {/* <Menupage/>  */}
    
 
-       <Routes>
-        <Route path="/" element={<Navigationpage />} />
-        <Route path="/Reviewpage" element={<Reviewpage />} />
-        <Route path="/Primary" element={<Primary />} />
-        <Route path="/ItemCustomization" element={<ItemCustomization />} />
-        <Route path="/PricingDetails" element={<PricingDetails />} />
+        {/* <Routes>
+          <Route path="/" element={<Navigationpage />} />
+          <Route path="/Reviewpage" element={<Reviewpage />} />
+          <Route path="/Primary" element={<Primary />} />
+          <Route path="/ItemCustomization" element={<ItemCustomization />} />
+          <Route path="/PricingDetails" element={<PricingDetails />} />
 
 
-        <Route  path="/Navigationpage" element={<Navigationpage />}>
-          <Route path="PrimaryDetails" element={<Primary />} />
-          <Route path="Pricingandkitchendetails" element={<PricingDetails />} />
-          <Route path="Itemcustomizations" element={<ItemCustomization />} />
-        </Route>
+          <Route  path="/Navigationpage" element={<Navigationpage />}>
+            <Route path="PrimaryDetails" element={<Primary />} />
+            <Route path="Pricingandkitchendetails" element={<PricingDetails />} />
+            <Route path="Itemcustomizations" element={<ItemCustomization />} />
+          </Route>
 
 
-      </Routes>
-     
+        </Routes>
+        */}
       </>
        
        )
