@@ -14,28 +14,34 @@
     width:416px;
     height: 908px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-     background-color: white;
+    background-color: white;
+    
    
-    overflow-y:scroll;
+    
   }
   .Slider-WindowBlur{
     width:416px;
     height: 908px;
     background: rgba(0, 0, 0, 0.1); 
      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow-y:scroll;
+    
     z-index: 1200;
     
   }
   
 
   .Slider-Mainform{
-    margin-top: 50px;
+  
+  
+margin-top: 30px;
     display: flex;
     flex-direction: column;
+    z-index: 1200;
+    top:0px
   }
   
   .Slider-First-Row{
+    
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -43,6 +49,7 @@
     
   }
   .Slider-Heading1{
+    
     font-size: 20px;
     font-weight: 600;
     font-family: "Poppins",sans-serif;
@@ -187,4 +194,11 @@
     background-color:#67833E;
     border: 1px solid #5F5F5F;
     margin-left: -30px;
+  }
+  .NavSlider-Component{
+    border:2px solid red;
+    width:416px;
+    height: 500px;
+    overflow: scroll;
+    
   }

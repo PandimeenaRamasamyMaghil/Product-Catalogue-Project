@@ -10,6 +10,7 @@ import AvailabitySlider from "./AvailabilitySlider"
 import TooltipSlider from "./TooltipSlider"
 import EyeModal from './EyeModal'
 import Trash from './Trash'
+import NavSlider from './NavSlider'
 
 import Inventory from './Inventory'
 import CustomizeSlider from './CustomizeSlider'
@@ -22,6 +23,8 @@ const Slider = ({ onclose }) => {
   const[trash,setTrash]=useState(false)
   const [active, setActive] = useState("Pricing")
   const modelref = useRef();
+  const scrollRef = useRef(null); // Create a ref for the scrollable container
+
   const closeModal = (e) => {
     if (modelref.current === e.target)
       onclose();
@@ -38,6 +41,14 @@ const[outlet3,setOutlet3]=useState(false)
   const handleBinClick=()=>{
     setTrash(true)
   }
+  const scrollToComponent = (componentName) => {
+    if (scrollRef.current) {
+      const element = document.querySelector(`.${componentName}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
   return (
     <div ref={modelref} className='Slider-Container' >
       <div className={pen?"Slider-Window":"Slider-WindowBlur"}>
@@ -60,25 +71,10 @@ const[outlet3,setOutlet3]=useState(false)
           </div>
            {eye?<EyeModal onEyeclose={()=>setEye(false)}/>:""}
            {trash?<Trash onTrashclose={()=>setTrash(false)}/>:""} 
-                    <div className='Types-Menu'>
-            {
-              types.map((elem, index) => {
-                return (
-                  <>
-                    <li className={`Types-List ${active === elem ? 'active' : ''}`} key={index} onClick={() => handleItemClick(elem)}>{elem}</li>
-                  </>
-                )
-              })
-            }
-          </div>
-          <div className='Types-Line'></div>
-          {active==="Pricing" && <PricingSlider pen={pen} />}
-          {active==="Availability" && <AvailabitySlider pen={pen}/>}
-          {active==="Inventory" && <Inventory/>}
-
-          {active==="Customize" && <CustomizeSlider pen={pen}/>}
-
-        </div>
+         </div>
+         <div className='NavSlider-Component'>    
+         <NavSlider/>
+         </div>     
         <div className={pen?"BasicChangesContainer":"BasicChangesContainerPen"}>
         <div className='BasicChanges'>
           <img src={Basic} className='BasicChangesImage'></img>
