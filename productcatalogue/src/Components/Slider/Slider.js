@@ -17,7 +17,7 @@ import CustomizeSlider from './CustomizeSlider'
 
 const Slider = ({ onclose }) => {
   
-  const types = ["Pricing", "Availability", "Inventory", "Customize"]
+
   const[pen,setPen]=useState(true)
   const[eye,setEye]=useState(false)
   const[trash,setTrash]=useState(false)
