@@ -4,7 +4,7 @@
     padding: 10px;
     top:0px;
     position: sticky;
-    z-index: 1200;
+    
 
   }
   .nav-menudark{
@@ -26,8 +26,8 @@
   }
   
   .nav-item {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 18px;
+    margin-right: 8px;
     color: black;
     cursor: pointer;
     font-size: 16px;
@@ -47,7 +47,7 @@
   }
   .type-div{
     width: 400px;
-    border: 2px solid rgba(217, 217, 217, 1);
+    border: 1px solid rgba(217, 217, 217, 1);
     transform: translateY(-2px);
     height: 2px;
     

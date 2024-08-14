@@ -36,8 +36,6 @@
 margin-top: 30px;
     display: flex;
     flex-direction: column;
-    z-index: 1200;
-    top:0px
   }
   
   .Slider-First-Row{
@@ -95,6 +93,50 @@ margin-top: 30px;
     background-color: white;
       
   }
+  .BinImageSection {
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.BinImage {
+    width: 20px;
+    height: 20px;
+    transform: translateY(3px);
+    
+}
+
+.DelTool {
+    position: absolute;
+    visibility: hidden;
+    top: 11px;
+    right: 0;
+    width: 59px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.DelTool-box {
+    width: 57px;
+    height: 33px;
+    border-radius: 8px;
+    padding: 4px;
+    background-color: rgba(103, 131, 62, 1);
+    color: white;
+}
+
+.ArrowHoverDel {
+    width: 10px;
+    height: 10px;
+}
+
+.BinImageSection:hover .DelTool {
+    visibility: visible;
+    opacity: 1;
+}
+
   .BasicChangesContainer{
     margin-top: 10px;
     background-color: white;

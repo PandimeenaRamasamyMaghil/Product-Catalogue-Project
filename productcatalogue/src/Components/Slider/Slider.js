@@ -11,6 +11,7 @@ import TooltipSlider from "./TooltipSlider"
 import EyeModal from './EyeModal'
 import Trash from './Trash'
 import NavSlider from './NavSlider'
+import ArrowHover from '../../assets/images/ArrowHover.svg'
 
 import Inventory from './Inventory'
 import CustomizeSlider from './CustomizeSlider'
@@ -65,16 +66,26 @@ const[outlet3,setOutlet3]=useState(false)
                 </TooltipSlider>
                  
               <img src={Eye} alt='hello' className='PenImage' onClick={handleEyeClick}/>
-              <img src={Bin} alt='hello' onClick={handleBinClick} className='PenImage'/>
+              <div className='BinImageSection'>
+              
+              <img src={Bin} alt='hello' onClick={handleBinClick} className='BinImage'/>
+              <div className='DelTool'>
+            <img src={ArrowHover} className='ArrowHoverDel' alt="hello"/>
+            <div className='DelTool-box'>Delete</div>
+          </div>
+              </div>
             </div>
             
           </div>
            {eye?<EyeModal onEyeclose={()=>setEye(false)}/>:""}
            {trash?<Trash onTrashclose={()=>setTrash(false)}/>:""} 
+           
          </div>
+         
          <div className='NavSlider-Component'>    
          <NavSlider pen={pen} eye={eye} trash={trash}/>
-         </div>     
+         </div>
+              
         <div className={pen?"BasicChangesContainer":"BasicChangesContainerPen"}>
         <div className='BasicChanges'>
           <img src={Basic} className='BasicChangesImage'></img>
