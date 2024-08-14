@@ -108,17 +108,15 @@
     position: relative;
     top: -18px;
     left: -30px;
-    transition: opacity  0.2s ease-in ,visibility 0.2s ease-in;
+    transition: opacity  0.2s ease-in ,visibility 0.1s ease-in;
 
 }
-.weig-hover-flexdirection:hover .weign-hover-container{
-    visibility: visible;
-    opacity: 1;
+.WeighImages:hover ~ .BigArrowImg,
+.WeighImages:hover ~ .weign-hover-container {
+  visibility: visible;
+  opacity: 1;
 }
-.weig-hover-flexdirection:hover .BigArrowImg{
-    visibility: visible;
-    opacity: 1;
-}
+
 .SectionB{
     margin-left: 27px;
     margin-top: 10px;
