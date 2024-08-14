@@ -1,0 +1,49 @@
+.nav-menu {
+    
+    background-color: #fff;
+    padding: 10px;
+    top:0px;
+    position: sticky;
+    z-index: 1200;
+
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-item:hover {
+    color: #ddd;
+  }
+  
+  .nav-item.active {
+    font-size: 16px;
+    font-weight: 500;
+    
+    color:rgba(103, 131, 62, 1);
+    border-bottom: 2px solid #fff;
+  }
+  .type-div{
+    width: 400px;
+    border: 2px solid rgba(217, 217, 217, 1);
+    transform: translateY(-2px);
+    height: 2px;
+    
+  }
+  .navmenu-container{
+    height:430px;
+    overflow-y: auto;
+    z-index: 22;
+  }
