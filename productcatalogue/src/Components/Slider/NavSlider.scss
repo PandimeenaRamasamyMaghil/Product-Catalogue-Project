@@ -1,6 +1,15 @@
 .nav-menu {
-    
+  margin-top: 20px;
     background-color: #fff;
+    padding: 10px;
+    top:0px;
+    position: sticky;
+    z-index: 1200;
+
+  }
+  .nav-menudark{
+    background-color: rgba(0, 0, 0, 0.1); 
+   opacity: 55%;
     padding: 10px;
     top:0px;
     position: sticky;
@@ -9,6 +18,7 @@
   }
   
   .nav-list {
+    
     list-style: none;
     display: flex;
     margin: 0;
@@ -16,7 +26,8 @@
   }
   
   .nav-item {
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     color: black;
     cursor: pointer;
     font-size: 16px;
@@ -33,7 +44,6 @@
     font-weight: 500;
     
     color:rgba(103, 131, 62, 1);
-    border-bottom: 2px solid #fff;
   }
   .type-div{
     width: 400px;
@@ -43,6 +53,7 @@
     
   }
   .navmenu-container{
+    overflow-x: hidden;
     height:430px;
     overflow-y: auto;
     z-index: 22;

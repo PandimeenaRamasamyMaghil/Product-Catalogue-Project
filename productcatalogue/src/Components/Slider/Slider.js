@@ -17,7 +17,7 @@ import CustomizeSlider from './CustomizeSlider'
 
 const Slider = ({ onclose }) => {
   
-  const types = ["Pricing", "Availability", "Inventory", "Customize"]
+
   const[pen,setPen]=useState(true)
   const[eye,setEye]=useState(false)
   const[trash,setTrash]=useState(false)
@@ -73,7 +73,7 @@ const[outlet3,setOutlet3]=useState(false)
            {trash?<Trash onTrashclose={()=>setTrash(false)}/>:""} 
          </div>
          <div className='NavSlider-Component'>    
-         <NavSlider/>
+         <NavSlider pen={pen} eye={eye} trash={trash}/>
          </div>     
         <div className={pen?"BasicChangesContainer":"BasicChangesContainerPen"}>
         <div className='BasicChanges'>
