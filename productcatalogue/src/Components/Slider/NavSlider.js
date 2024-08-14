@@ -3,9 +3,9 @@ import './NavSlider.scss'; // Import a CSS file for styling
 import PricingSlider from './PricingSlider';
 import AvailabilitySlider from './AvailabilitySlider';
 
-const NavMenu = () => {
+const NavMenu = ({pen,eye,trash}) => {
   const [active, setActive] = useState('Pricing');
-  const[pen,setPen]=useState(true)
+  
 
   // Create refs for each section
   const pricingRef = useRef(null);
@@ -59,7 +59,7 @@ const NavMenu = () => {
 
   return (
     <>
-      <nav className="nav-menu">
+      <nav className={`${!pen||eye||trash?"nav-menudark":"nav-menu"}`}>
         <ul className="nav-list">
           {menuItems.map((item, index) => (
             <li
