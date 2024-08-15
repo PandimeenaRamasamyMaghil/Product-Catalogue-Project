@@ -12,8 +12,7 @@ function App() {
    <div>
   
 
-<Landing/> 
-  
+<Landing/>  
     
 
 </div>

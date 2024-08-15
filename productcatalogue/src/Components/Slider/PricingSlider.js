@@ -1,6 +1,7 @@
 import React from 'react'
 import "./PricingSlider.scss"
 import Weigh from "../../assets/images/weigh.png"
+import BigArrow from '../../assets/images/BigArrow.svg'
 
 
 const PricingSlider = ({pen}) => {
@@ -8,11 +9,23 @@ const PricingSlider = ({pen}) => {
     <div className='PricingSlider-Container'>
      <h1 className='PricingSlider-Heading'>Pricing</h1>
      <div className='Onprem-Ofprem'>
+     
      <h1 className='Onprem-Heading'>On-prem</h1>
+     
+   
      <div className='SectionA'>
+  
       <h1 className='SectionA-Heading'>Section A: </h1>
       <input type='text' className={` ${!pen ? 'SectionA-InputDark' : 'SectionA-Input'}`}></input>
+       
+        
+     <div className='weig-hover-flexdirection'>
       <img src={Weigh} className='WeighImages'></img>
+      <img className='BigArrowImg' src={BigArrow} alt="" />
+      <div className='weign-hover-container'>Compare prices with the base price to see differences</div>
+
+      </div>  
+     
      </div>
      <div className='SectionB'>
       <h1 className='SectionB-Heading'>Section B: </h1>

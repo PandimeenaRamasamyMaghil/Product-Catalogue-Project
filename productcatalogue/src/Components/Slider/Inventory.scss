@@ -11,6 +11,7 @@
     flex-direction: column;
 }
 .InventorySlider{
+    margin-left: -23px;
     display: flex;
     justify-content: flex-start;
     gap: 40px;
@@ -24,9 +25,11 @@
 .InventForm{
     display: flex;
     justify-content: flex-start;
+    margin-left: -23px;
 }
 .InventSection{
     margin-top: 20px;
+    
 }
 .Invent-Heading{
    
@@ -66,10 +69,13 @@
 }
 .CheckboxSlider{
     margin-top: 20px;
+    border:2px solid red;
+    width:350px
 }
 .CheckboxSlider-Section1{
     display: flex;
     justify-content: flex-start;
+    
 }
 .CheckboxSlider-heading{
     font-size: 14px;
