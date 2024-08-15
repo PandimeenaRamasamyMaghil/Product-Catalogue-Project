@@ -14,7 +14,7 @@ import Sidenav from "./SideNav/Sidenav"
 import Header from './Item Customizations/MainLandingPage/Header/Header'
 import Slider from '../Components/Slider/Slider'
 
-import Menupage from './Menulisting/Menupage'
+import {Menupage} from './Menulisting/Menupage'
 
 const Landingpage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -40,7 +40,7 @@ const Landingpage = () => {
     }, []);
 
   return (
-    <div style={{display:'flex',flexDirection:'row'}}>
+    <div style={{display:'flex',flexDirection:'row',width:'92.5%'}}>
 
 {belowMinWidth ? (
         <div className="warning-message">
@@ -55,13 +55,13 @@ const Landingpage = () => {
 {/* <Slider/> */}
 {/* <Header/> */}
 {/* <Pricingpage/> */}
-     
-     {/* <Menulisting/> */}
+{/*      
+     <Menulisting/> */}
 
 
-     {/* <Menupage/> */}
+     <Menupage/>
    
-
+{/* 
        <Routes>
         <Route path="/" element={<Navigationpage />} />
         <Route path="/Reviewpage" element={<Reviewpage />} />
@@ -77,7 +77,7 @@ const Landingpage = () => {
         </Route>
 
 
-      </Routes>
+      </Routes> */}
      
       </>
        
