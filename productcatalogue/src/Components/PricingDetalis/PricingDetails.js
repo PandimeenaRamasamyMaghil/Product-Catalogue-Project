@@ -13,9 +13,11 @@ import info from "../../assets/images/info.png";
 import { useSelector } from 'react-redux';
 import { Value } from 'sass';
 import axios from 'axios';
+// import { Contextpagejs } from "../contextpage";
  
 
 const PricingDetails = () => {
+  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
   const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingData.mainForm);
   const [options, setOptions] = useState([]);
   const [options1, setOptions1] = useState(['Preparation Time', 'Option 2', 'Option 3', 'Option 5', 'Option 4']);
@@ -362,8 +364,8 @@ const PricingDetails = () => {
 
         {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState} /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />}
 
-        <div className="buttoncomponentpricing">
-          <div className="saveandnextPricing">
+        <div className= {isExpanded? "buttoncomponentpricing": "buttoncomponentpricing1"}  >
+          <div className= {isExpanded? "saveandnextPricing": "saveandnextPricing1"}       >
             <button className="clearallPricing">
               Clear All
             </button>

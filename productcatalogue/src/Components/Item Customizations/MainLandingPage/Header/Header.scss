@@ -3,11 +3,11 @@
 
 // {/* {**********************HeaderSection*****************************************************************} */}
 .Header-Container {
-  width: 75%;
-  position: fixed;
-  height: auto;
+  width: 80%;
+  position: relative;
+  height: 80px;
 
-  left: 108px;
+  left: -40px;
     // border: 2px solid red;
   padding: 10px;
   z-index: 600;
@@ -15,16 +15,16 @@
   display: flex;
   justify-content: space-between;
   transition: left 0.4s ease-in;
-background-color: #FFFFFF;
+// background-color: #FFFFFF;
 
 }
 
 .Header-Container1{
-  width: 75%;
+  width: 80%;
   position: fixed;
-  height: auto;
+  height: 80px;
 
-  left: 350px;
+  left: 300px;
     // border: 2px solid red;
   padding: 10px;
   z-index: 2000;
@@ -54,7 +54,7 @@ background-color: #FFFFFF;
     width: 34px;
     height: 34px;
     position: relative;
-    left: -3px;
+    left: -10px;
     top: 2px;
     cursor: pointer;
 
@@ -98,7 +98,7 @@ visibility: hidden;
     width: 65.53px;
     height: 44px;
     position: relative;
-    left: -28px;
+    left: -10px;
     top: -2px;
     cursor: pointer;
 }
@@ -106,7 +106,7 @@ visibility: hidden;
   width: 65.53px;
   height: 44px;
   position: relative;
-  left: -524px;
+  left: -520px;
   top: -2px;
   cursor: pointer;
 }
@@ -201,7 +201,7 @@ visibility: hidden;
 
 
 .Add-Item-Container{
-    width: 114px;
+    width: 234px;
     height: 44px;
     display: flex;
     justify-content: flex-start;
@@ -211,6 +211,11 @@ visibility: hidden;
     gap: 2px;
     cursor: pointer;
     transform: translateX(80px);
+  position: relative;
+  left: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 
 }

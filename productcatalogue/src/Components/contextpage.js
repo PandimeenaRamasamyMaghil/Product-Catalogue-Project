@@ -12,13 +12,15 @@ export const Contextpage = ({ children }) => {
     const [activeCategory, setActiveCategory] = useState('Step 1: Primary Details');
     const[isExpanded,setIsExpanded]=useState(false)
 
+    const [saveandnext,setsaveandnext]=useState(false);
+
 
  
 
 
   return (
     <Contextpagejs.Provider value={{ 
-        pages,activeCategory, setActiveCategory,isExpanded,setIsExpanded
+        pages,activeCategory, setActiveCategory,isExpanded,setIsExpanded,saveandnext,setsaveandnext
       }}>
       {children}
     </Contextpagejs.Provider>

@@ -539,7 +539,7 @@ export const Menupage = () => {
               <th className="itemname">Item name</th>
               <th className="itemcode">
                 <span>Code</span>
-                <button onClick={() => setshowheadinglist(true)}>+</button>
+                {/* <button onClick={() => setshowheadinglist(true)}>+</button> */}
               </th>
             </tr>
           </thead>
@@ -552,7 +552,10 @@ export const Menupage = () => {
                 Steamed-Veg(6)
               </th>
             </tr>
-            <tr>
+
+            <div className="bodywidthheigt">
+            <tr >
+              <div className="firsttablebody">
               {items.map((item, index) => (
                 <React.Fragment key={index}>
                   <tr
@@ -577,11 +580,55 @@ export const Menupage = () => {
                   </tr>
                 </React.Fragment>
               ))}
+              </div>
             </tr>
+            <tr>
+              <th className="itemheading" colSpan={3}>
+                <img src={dots} alt="" />
+                Steamed-Veg(6)
+              </th>
+            </tr>
+
+            <tr >
+              <div className="firsttablebody">
+              {items.map((item, index) => (
+                <React.Fragment key={index}>
+                  <tr
+                    className={`itemdetails ${
+                      selecteddragIndex === index ? "selected" : ""
+                    }`}
+                  >
+                    <td className="itemimage2">
+                      <img
+                        src={dots}
+                        alt=""
+                        draggable
+                        onDragStart={() => handleRowDragStart(index)}
+                        onDragOver={() => handleRowDragOver(index)}
+                        onDragEnd={handleRowDragEnd}
+                        className="draggableimg"
+                      />
+                      <img src={apple} alt="" />
+                    </td>
+                    <td className="itemname2">{item.name}</td>
+                    <td className="itemcode2">{item.code}</td>
+                  </tr>
+                </React.Fragment>
+              ))}
+              </div>
+            </tr>
+
+
+            </div>
           </tbody>
         </div>
         <div  className="tab2">
           <thead>
+            <div className="headaadbtnclass">
+              <div>
+                 <button onClick={() => setshowheadinglist(true)}>+</button>
+              </div>
+              <div>
             <tr className="headingonesection">
               {firstRowTable.map(
                 (header, index) =>
@@ -647,12 +694,64 @@ export const Menupage = () => {
                   )
               )}
             </tr>
+            </div>
+            </div>
+
+
+
           </thead>
           <tbody ref={secondTableBodyRef}
           className="table-body"
           onScroll={() => handleScroll('second')} >
+            
 
 
+
+
+            <tr className="tabletwobody">
+              {items.map((item, index) => (
+                <React.Fragment key={index}>
+                  <tr
+                    className={`tabletwobodyrow ${
+                      selecteddragIndex === index ? "selected" : ""
+                    }`}
+                  >
+                    <td className="eachobject">
+
+                      {Object.entries(item.pricingdetails || {}).map(
+                        ([key, cellData], cellIndex) => {
+                          const className = classNamesinner[cellIndex];
+                          const items = listingobject[className];
+
+                          if (items && Array.isArray(cellData)) {
+                            return (
+                              <div className={className} key={cellIndex}>
+                                {cellData.map((item, itemIndex) => (
+                                  <td
+                                    key={`${cellIndex}-${itemIndex}`}
+                                    className=""
+                                  >
+                                    {item}
+                                  </td>
+                                ))}
+                              </div>
+                            );
+                          }
+                          return null;
+                        }
+                      )}
+                    </td>
+                  </tr>
+
+                </React.Fragment>
+              ))}
+            </tr>
+            <tr>
+              <th className="itemheading" colSpan={3}>
+                {/* <img src={dots} alt="" /> */}
+                {/* Steamed-Veg(6) */}
+              </th>
+            </tr>
             <tr className="tabletwobody">
               {items.map((item, index) => (
                 <React.Fragment key={index}>
