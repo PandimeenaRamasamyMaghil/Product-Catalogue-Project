@@ -121,6 +121,7 @@ img{
       flex-direction: column;
       // border: 1px solid red;
       border: 1px solid #D9D9D9;
+    
       border-left: none ;
     
       .itemdetails
@@ -153,7 +154,7 @@ img{
      .itemheading2{
       // margin-left: -5px;
       margin-top: -2.5px;
-      height: 26px;
+      height: 30px;
       font-family: Poppins;
 font-size: 20px;
 font-weight: 600;
@@ -175,7 +176,7 @@ img{
     {
       width: 100%;
       position: relative;
-      height: 540px;
+      height: 539px;
       display: block;
       overflow-x: hidden;
       overflow-y: auto;
@@ -184,6 +185,7 @@ img{
       border-right: none;
       margin-left: -1.5px;
       margin-top: 7px;
+      border-bottom: none;
     }
     .headaadbtnclass
     {
@@ -538,6 +540,7 @@ img{
     width: 100%;
     // border: 1px solid red;
     // margin-top: -0.06%;
+    margin-top: -1px;
 
    
     
@@ -552,7 +555,7 @@ img{
       justify-content: left;
       align-items: center;
       // padding-left: 15px;
-      // margin-top: 10px;
+   
       
 
      
