@@ -3,7 +3,7 @@ import "./Menulisting.scss";
 import dots from "../../assets/images/dots.svg";
 import dollar from "../../assets/images/dollar.svg";
 import removeicon from "../../assets/images/removeicon.svg";
-import apple from "../../assets/images/ingredientimages/Chocolate.svg";
+import apple from "../../assets/images/ingredientimages/fish.svg";
 import Toggle from "../Toggle/Toggle";
 import Header from "../Item Customizations/MainLandingPage/Header/Header";
 import closeicon from "../../assets/images/closeicon.svg";
@@ -13,6 +13,7 @@ import togglebtns from "../../assets/images/togglebtn.svg";
 export const Menulisting = () => {
   const firstTableBodyRef = useRef(null);
   const secondTableBodyRef = useRef(null);
+  const [hovertext,sethovertext]=useState(null);
 
   const handleScroll = (source) => {
     const firstTableBody = firstTableBodyRef.current;
@@ -256,6 +257,102 @@ export const Menulisting = () => {
    
    
   ]);
+  const [itemsfood, setitemsfood] = useState([
+    {
+      id: 1,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+      pricingdetails: {
+        Dinein1: ["$900", "$100"],
+        Pickup1: ["$200", "$200", "$200"],
+        Delivery1: ["$300", "$300", "$300"],
+        Dinein2: ["Enabled", "Enabled"],
+        Pickup2: ["Enabled", "Enabled", "Enabled"],
+        Delivery2: ["Enabled", "Enabled", "Enabled"],
+        Inventory1: ["$100", "$10"],
+        Customize1: ["5"],
+      },
+    },
+   
+    {
+      id: 3,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+      pricingdetails: {
+        Dinein1: ["$400", "$600"],
+        Pickup1: ["$700", "$700", "$200"],
+        Delivery1: ["$300", "$300", "$300"],
+        Dinein2: ["Enabled", "Enabled"],
+        Pickup2: ["Enabled", "Enabled", "Enabled"],
+        Delivery2: ["Enabled", "Enabled", "Enabled"],
+        Inventory1: ["$1000", "$10"],
+        Customize1: ["5"],
+      },
+    },
+    {
+      id: 4,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+      pricingdetails: {
+        Dinein1: ["$400", "$600"],
+        Pickup1: ["$700", "$700", "$200"],
+        Delivery1: ["$300", "$300", "$300"],
+        Dinein2: ["Enabled", "Enabled"],
+        Pickup2: ["Enabled", "Enabled", "Enabled"],
+        Delivery2: ["Enabled", "Enabled", "Enabled"],
+        Inventory1: ["$1000", "$10"],
+        Customize1: ["5"],
+      },
+    },
+    {
+      id: 5,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+      pricingdetails: {
+        Dinein1: ["$400", "$600"],
+        Pickup1: ["$700", "$700", "$200"],
+        Delivery1: ["$300", "$300", "$300"],
+        Dinein2: ["Enabled", "Enabled"],
+        Pickup2: ["Enabled", "Enabled", "Enabled"],
+        Delivery2: ["Enabled", "Enabled", "Enabled"],
+        Inventory1: ["$1000", "$10"],
+        Customize1: ["5"],
+      },
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+      pricingdetails: {
+        Dinein1: ["$1500", "$900"],
+        Pickup1: ["$200", "$400", "$200"],
+        Delivery1: ["$300", "$300", "$300"],
+        Dinein2: ["Enabled", "Enabled"],
+        Pickup2: ["Enabled", "Enabled", "Enabled"],
+        Delivery2: ["Enabled", "Enabled", "Enabled"],
+        Inventory1: ["$1200", "$10"],
+        Customize1: ["5"],
+      },
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+      pricingdetails: {
+        Dinein1: ["$1500", "$900"],
+        Pickup1: ["$200", "$400", "$200"],
+        Delivery1: ["$300", "$300", "$300"],
+        Dinein2: ["Enabled", "Enabled"],
+        Pickup2: ["Enabled", "Enabled", "Enabled"],
+        Delivery2: ["Enabled", "Enabled", "Enabled"],
+        Inventory1: ["$1200", "$10"],
+        Customize1: ["5"],
+      },
+    },
+    
+   
+   
+  ]);
 
   const [nooftypes,setnooftypes]=useState([
     {
@@ -264,7 +361,7 @@ export const Menulisting = () => {
     }
     ,{
       id:2,
-      name:items
+      name:itemsfood
     }
   ])
 
@@ -843,8 +940,10 @@ const handleRowDragEnd = () => {
     
    
         
-{
-        object.id===1 &&  <div className="itemheading">
+
+    <div className= {`${index===0?"firsttablebody":"firsttablebody"}`}>
+    {
+        object.id===1 &&  <div   className= {`${index===0?"itemheadingtwo":"itemheading"}`}>
          <img src={dots} alt="" draggable
 
 onDragStart={(e) => handledragvegnonvegdragstart(e, index)}
@@ -854,9 +953,8 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)}
          Steamed-Veg(6)
       </div>
       }
-    <div className= {`${index===0?"firsttablebody":"firsttablebody"}`}>
       {
-        object.id===2 &&  <div className="itemheading">
+        object.id===2 &&  <div   className= {`${index===0?"itemheadingtwo":"itemheading"}`}>
          <img src={dots} alt="" draggable
 
 onDragStart={(e) => handledragvegnonvegdragstart(e, index)}
@@ -885,7 +983,7 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
               onDragEnd={handleRowDragEnd}
               className="draggableimg"
             />
-            <img src={apple} alt="" />
+            <img src={apple} alt="" className="foodimage"/>
           </td>
           <td className="itemname2">{item.name}</td>
           <td className="itemcode2">{item.code}</td>
@@ -1151,12 +1249,8 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
                                   {/* <img src={dollar} alt="" /> */}
                                 </span>
                               )}
-                            <span className="spanheadertext">
-                              {" "}
-                              {header.label.substring(
-                                0,
-                                header.label.length - 1
-                              )}{" "}
+                            <span className="spanheadertext"   >
+                                 {    header.label.substring(0, header.label.length - 1)}
                             </span>
                             <span className="removeicon">
                               <img
@@ -1182,10 +1276,11 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
                         ] && (
                           <tr key={index} className={classNames[index]}>
                             {subheaders.map((subheader, subIndex) => (
-                              <td key={subIndex} className={subheader}>
-                                <span>{subheader.substring(0, 5)}</span>{" "}
+                              <td key={subIndex} className={subheader}  >
+                                <span onMouseEnter={() => sethovertext(subheader)}
+                              onMouseLeave={()=>sethovertext(null)}>{ hovertext===subheader? subheader: subheader.substring(0, 5)}</span>
                                 <span>
-                                  {subheader.length > 5 && <span>...</span>}
+                                  { hovertext!==subheader &&subheader.length > 5 && <span >...</span>}
                                 </span>
                               </td>
                             ))}

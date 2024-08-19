@@ -13,7 +13,7 @@ import { Menulisting } from "./Menulisting/Menulisting";
 import Sidenav from "./SideNav/Sidenav";
 import Header from "./Item Customizations/MainLandingPage/Header/Header";
 import Slider from "../Components/Slider/Slider";
-
+import Dragging from "./Menulisting/Dragging"
 import { Menupage } from "./Menulisting/Menupage";
 
 const Landingpage = () => {
@@ -55,8 +55,9 @@ const Landingpage = () => {
           {/* <Menulisting /> */}
 
           {/* <Menupage/>  */}
+          
 
-          <Routes>
+          {/* <Routes>
           <Route path="/" element={<Menulisting />} />
           <Route path="/Reviewpage" element={<Reviewpage />} />
           <Route path="/Primary" element={<Primary />} />
@@ -72,7 +73,7 @@ const Landingpage = () => {
 
 
         </Routes>
-       
+        */}
         </>
       )}
     </div>

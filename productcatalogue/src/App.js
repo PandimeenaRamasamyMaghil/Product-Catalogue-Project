@@ -5,17 +5,18 @@ import  {BrowserRouter}  from 'react-router-dom';
 import Sidenav from "./Components/SideNav/Sidenav"
 import Header from "./Components/Item Customizations/MainLandingPage/Header/Header";
 import Slider from "./Components/Slider/Slider";
+import Dragging from "./Components/Menulisting/Dragging";
 function App() {
   return (
 
     <>
-   <div>
+  
   
 
-<Landing/>  
-    
+{/* <Landing/>   */}
+<Dragging/>
 
-</div>
+
 </>
   );
 }
