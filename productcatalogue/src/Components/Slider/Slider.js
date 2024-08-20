@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,useEffect } from 'react'
+import AOS from 'aos';
 import "./Slider.scss"
 import PricingSlider from './PricingSlider'
 import Pen from "../../assets/images/edit 1.png"
@@ -16,6 +17,7 @@ import CustomizeSlider from './CustomizeSlider'
 import BasicChanges from './BasicChanges'
 
 const Slider = ({ onclose }) => {
+
 
 
   const [eye, setEye] = useState(false)
@@ -46,9 +48,16 @@ const Slider = ({ onclose }) => {
       }
     }
   };
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Animation duration in milliseconds
+      easing: 'ease-in-out', // Easing function
+      once: true, // Whether animation should happen only once
+    });
+  }, []);
   return (
     <div ref={modelref} className='Slider-Container' onClick={closeModal} >
-      <div className={"Slider-Window"}>
+      <div className={"Slider-Window"} data-aos="fade-left">
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
             <h1 className='Slider-Heading1'>Veg Burger Pizza - 12345</h1>
