@@ -51,7 +51,7 @@ const[outlet3,setOutlet3]=useState(false)
     }
   };
   return (
-    <div ref={modelref} className='Slider-Container' >
+    <div ref={modelref} className='Slider-Container' onClick={closeModal}>
       <div className={pen?"Slider-Window":"Slider-WindowBlur"}>
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
