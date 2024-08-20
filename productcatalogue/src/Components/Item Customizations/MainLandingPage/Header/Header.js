@@ -29,7 +29,7 @@ const Header = () => {
   
 
   return (
-    <div className={isExpanded?'Header-Container1':"Header-Container"}>
+    <div className={isExpanded?'Header-Container':"Header-Container"}>
 
       {/* {**********************HeaderSection*****************************************************************} */}
 
@@ -62,7 +62,7 @@ const Header = () => {
 
   {/* {**********************Header Button*****************************************************************} */}
 
-      <div  className='Add-Item-Container'>
+      <div  className={isExpanded?"Add-Item-Container1":"Add-Item-Container"}>
         <h3 className='Add-Item-Heading-Plus'>+</h3>
         <h3 className='Add-Item-Heading' onClick={()=>navigate("/Navigationpage/PrimaryDetails")}>Add Item</h3>
         

@@ -57,7 +57,7 @@ const Landingpage = () => {
           {/* <Menupage/>  */}
           
 
-          <Routes>
+           <Routes>
           <Route path="/" element={<Menulisting />} />
           <Route path="/Reviewpage" element={<Reviewpage />} />
           <Route path="/Primary" element={<Primary />} />
@@ -72,7 +72,7 @@ const Landingpage = () => {
           </Route>
 
 
-        </Routes>
+        </Routes> 
        
         </>
       )}
