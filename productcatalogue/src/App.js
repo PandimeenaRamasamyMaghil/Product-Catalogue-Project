@@ -13,8 +13,8 @@ function App() {
   
   
 
-{/* <Landing/>   */}
-<Dragging/>
+<Landing/>  
+{/* <Dragging/> */}
 
 
 </>

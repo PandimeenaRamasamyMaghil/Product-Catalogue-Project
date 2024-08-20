@@ -4,8 +4,10 @@
   height: 100vh;
   //  border: 1px solid red;
   //  width: 90%;
+  background:none;
 
 }
+
 
 .headercomponent
 {
@@ -259,6 +261,10 @@ img{
 
     .dots {
       padding-right: 10px;
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+      }
     }
     .dollar {
       padding-right: 10px;
@@ -884,4 +890,41 @@ img{
       }
     }
   }
+}
+
+.table-body .itemdetails,
+.table-body .tabletwobodyrow {
+  transition: transform 0.1s ease, margin 0.1s ease;
+
+}
+
+/* Add space for dragging */
+ .placeholderplace {
+  width: 100px;
+  height: 50px; /* Adjust height as needed */
+  border: 1px solid red;
+  margin: 10px 0; /* Adjust margin as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+}
+.itemdetails.selected {
+  opacity: 0.9;
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid red;
+}
+.tabletwobodyrow.selected {
+  opacity: 0.9;
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.draggableimg
+{
+  cursor: grab;
+   &:active
+   {
+    cursor: grabbing;
+   }
+
 }

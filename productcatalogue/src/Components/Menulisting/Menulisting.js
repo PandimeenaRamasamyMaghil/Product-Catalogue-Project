@@ -13,7 +13,10 @@ import togglebtns from "../../assets/images/togglebtn.svg";
 export const Menulisting = () => {
   const firstTableBodyRef = useRef(null);
   const secondTableBodyRef = useRef(null);
-  const [hovertext,sethovertext]=useState(null);
+  const [hovertext, sethovertext] = useState({
+    index: null,
+    name: null,
+  });
 
   const handleScroll = (source) => {
     const firstTableBody = firstTableBodyRef.current;
@@ -28,11 +31,7 @@ export const Menulisting = () => {
 
   const [togglebtn, settogglebtn] = useState(false);
 
-  const [firstRowTable, setFirstRowTable] = useState(
-    
-    [
-
-
+  const [firstRowTable, setFirstRowTable] = useState([
     { label: "Dinein1" },
     { label: "Pickup1" },
     { label: "Delivery1" },
@@ -41,12 +40,7 @@ export const Menulisting = () => {
     { label: "Delivery2" },
     { label: "Inventory1" },
     { label: "Customize1" },
-
-
-  ]
-
-
-);
+  ]);
 
   const [secondRowTable, setSecondRowTable] = useState([
     ["Ac", "Nonac"], // Subheaders for Dinein
@@ -57,102 +51,6 @@ export const Menulisting = () => {
     ["Inhouse", "Swiggy", "Zomato"], // Subheaders for Delivery
     ["Total", "Threshold"], // Subheaders for Inventory
     [""], // Subheaders for Customize
-  ]);
-
-  const [bodyData, setBodyData] = useState([
-    {
-      Dinein1: ["$100", "$100"],
-      Pickup1: ["$200", "$200", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$100", "$10"],
-      Customize1: ["5"],
-    },
-    {
-      Dinein1: ["$1500", "$900"],
-      Pickup1: ["$200", "$400", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$640"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$730", "$628", "$334"],
-      Inventory1: ["$1200", "$10"],
-      Customize1: ["5"],
-    },
-    {
-      Dinein1: ["$400", "$600"],
-      Pickup1: ["$700", "$700", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$1000", "$10"],
-      Customize1: ["5"],
-    },
-    {
-      Dinein1: ["$400", "$600"],
-      Pickup1: ["$700", "$700", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$1000", "$10"],
-      Customize1: ["5"],
-    },
-    {
-      Dinein1: ["$400", "$600"],
-      Pickup1: ["$700", "$700", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$1000", "$10"],
-      Customize1: ["5"],
-    },
-    {
-      Dinein1: ["$400", "$600"],
-      Pickup1: ["$700", "$700", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$1000", "$10"],
-      Customize1: ["5"],
-    },
-    {
-      Dinein1: ["$400", "$600"],
-      Pickup1: ["$700", "$700", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$1000", "$10"],
-      Customize1: ["5"],
-    },
-
-    {
-      Dinein1: ["$400", "$600"],
-      Pickup1: ["$700", "$700", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$1000", "$10"],
-      Customize1: ["5"],
-    },
-    {
-      Dinein1: ["$400", "$600"],
-      Pickup1: ["$700", "$700", "$200"],
-      Delivery1: ["$300", "$300", "$300"],
-      Dinein2: ["$440", "$440"],
-      Pickup2: ["$345", "$280", "$123"],
-      Delivery2: ["$780", "$648", "$334"],
-      Inventory1: ["$1000", "$10"],
-      Customize1: ["5"],
-    },
-
-    // Add more data as needed
   ]);
 
   const [selecteddragIndex, setselecteddragIndex] = useState(null);
@@ -177,7 +75,7 @@ export const Menulisting = () => {
         Customize1: ["5"],
       },
     },
-   
+
     {
       id: 3,
       name: truncateString("Creamy Mushroo", 14),
@@ -253,9 +151,6 @@ export const Menulisting = () => {
         Customize1: ["5"],
       },
     },
-    
-   
-   
   ]);
   const [itemsfood, setitemsfood] = useState([
     {
@@ -273,7 +168,7 @@ export const Menulisting = () => {
         Customize1: ["5"],
       },
     },
-   
+
     {
       id: 3,
       name: truncateString("Creamy Mushroo", 14),
@@ -349,21 +244,18 @@ export const Menulisting = () => {
         Customize1: ["5"],
       },
     },
-    
-   
-   
   ]);
 
-  const [nooftypes,setnooftypes]=useState([
+  const [nooftypes, setnooftypes] = useState([
     {
-      id:1,
-      name:items
-    }
-    ,{
-      id:2,
-      name:itemsfood
-    }
-  ])
+      id: 1,
+      name: items,
+    },
+    {
+      id: 2,
+      name: itemsfood,
+    },
+  ]);
 
   const initialColumnsOrder = [
     "DineIn1",
@@ -388,109 +280,8 @@ export const Menulisting = () => {
 
   const [draggedIndex, setDraggedIndex] = useState(null);
 
-  const onDrag = (e, index) => {
-    console.log("Dragging:", index);
-    setDraggedIndex(index);
-    e.dataTransfer.effectAllowed = "move";
-  };
-
-  const onDragOver = (e) => {
-    e.preventDefault();
-  };
-
   const [draggedColumn, setDraggedColumn] = useState(null);
   const [draggedIndexsample, setDraggedIndexsample] = useState(null);
-  // const [draggedRowIndex, setDraggedRowIndex] = useState(null);
-
-  // const handleDragStart = (index) => {
-  //   setDraggedIndexsample(index);
-  // };
-
-
-//   const handleDragStart = (index) => {
-//     setDraggedIndexsample(index);
-// };
-
-// const handleDragOver = (index) => {
-//     if (draggedIndexsample !== index) {
-//         const updatedFirstRowTable = [...firstRowTable];
-//         const updatedSecondRowTable = [...secondRowTable];
-//         const updatedClassNames = [...classNames];
-//         const updatedClassInnerDataNames = [...classNamesinner];
-
-//         // Swap the dragged header and subheaders
-//         const draggedHeader = updatedFirstRowTable[draggedIndexsample];
-//         const draggedSubheader = updatedSecondRowTable[draggedIndexsample];
-//         const draggedClassName = updatedClassNames[draggedIndexsample];
-//         const draggedClassInnerData = updatedClassInnerDataNames[draggedIndexsample];
-
-//         updatedFirstRowTable.splice(draggedIndexsample, 1);
-//         updatedFirstRowTable.splice(index, 0, draggedHeader);
-
-//         updatedSecondRowTable.splice(draggedIndexsample, 1);
-//         updatedSecondRowTable.splice(index, 0, draggedSubheader);
-
-//         updatedClassNames.splice(draggedIndexsample, 1);
-//         updatedClassNames.splice(index, 0, draggedClassName);
-
-//         updatedClassInnerDataNames.splice(draggedIndexsample, 1);
-//         updatedClassInnerDataNames.splice(index, 0, draggedClassInnerData);
-
-//         // Reorder the body data
-//         // const updatedItems = items.map((item) => {
-//         //     const reorderedPricingDetails = { ...item.pricingdetails };
-//         //     const keys = Object.keys(reorderedPricingDetails);
-
-//         //     const draggedKey = keys.splice(draggedIndexsample, 1)[0];
-//         //     keys.splice(index, 0, draggedKey);
-
-//         //     const updatedPricingDetails = {};
-//         //     keys.forEach((key) => {
-//         //         updatedPricingDetails[key] = reorderedPricingDetails[key];
-//         //     });
-
-//         //     return {
-//         //         ...item,
-//         //         pricingdetails: updatedPricingDetails,
-//         //     };
-//         // });
-//         // const updatedNooftypes = [...nooftypes];
-//          const updatedNooftypes = nooftypes.map(noofType => {
-//           return {
-//             ...noofType,
-//             name: noofType.name.map(item => {
-//               const pricingDetails = Array.isArray(item.pricingdetails)
-//                 ? item.pricingdetails
-//                 : []; // Ensure pricingdetails is an array
-      
-//               const movedColumn = pricingDetails.splice(draggedIndexsample, 1)[0];
-//               pricingDetails.splice(index, 0, movedColumn);
-      
-//               return {
-//                 ...item,
-//                 pricingdetails: pricingDetails,
-//               };
-//             }),
-//           };
-//         });
-
-//         setFirstRowTable(updatedFirstRowTable);
-//         setSecondRowTable(updatedSecondRowTable);
-//         setclassNames(updatedClassNames);
-//         setclassNamesinner(updatedClassInnerDataNames);
-//         setnooftypes(updatedNooftypes);
-//         // setitems(updatedItems);
-//         //     setclassNames(updatedclassnames);
-//   //     setclassNamesinner(updatedclassinnerdatanames);
-//   //     setitems(updatedItems);
-
-//         setDraggedIndexsample(index);
-//     }
-// };
-
-// const handleDragEnd = () => {
-//     setDraggedIndexsample(null);
-// };
 
   const [classNames, setclassNames] = useState([
     "Dinein1-class",
@@ -513,118 +304,32 @@ export const Menulisting = () => {
     "Customize1",
   ]);
 
-
   // const handleDragStart = (index) => {
   //   setDraggedIndex(index); // Set the starting index of the drag
   // };
-    const handleDragStart = (index) => {
+  const handleDragStart = (index) => {
     setDraggedIndexsample(index);
-};
-const handledragvegnonvegdragstart = (e,index) => {
+  };
+  const handledragvegnonvegdragstart = (e, index) => {
+    setDraggedRowIndex(index);
+  };
+  const handledragvegnonvegdropover = (e) => {
+    e.preventDefault();
+  };
 
-  setDraggedRowIndex(index);
-    
-};
-const handledragvegnonvegdropover = (e) => {
+  const handledragvegnonvegdropend = (e, index) => {
+    e.preventDefault();
+    const updatedRows = [...nooftypes];
+    const draggedRow = updatedRows[draggedRowIndex];
 
+    // Remove the dragged item and insert it at the new position
+    updatedRows.splice(draggedRowIndex, 1);
+    updatedRows.splice(index, 0, draggedRow);
 
-  e.preventDefault();
- 
-};
-
-const handledragvegnonvegdropend = (e,index) => {
-  e.preventDefault();
-  const updatedRows = [...nooftypes];
-  const draggedRow = updatedRows[draggedRowIndex];
-  
-  // Remove the dragged item and insert it at the new position
-  updatedRows.splice(draggedRowIndex, 1);
-  updatedRows.splice(index, 0, draggedRow);
-
-  setnooftypes(updatedRows);
-  console.log("nooftypes",nooftypes)
-  setDraggedRowIndex(null); // Reset drag index
-};
-
-
-
-
-
-  
-  // const handleDragOver = (index) => {
-  //   if (draggedIndex !== index) {
-  //     const updatedItems = [...nooftypes];
-  
-      
-  //     const item1 = updatedItems[0].name;
-  //     const item2 = updatedItems[1].name;
-  
-  //     // Rearrange headers
-  //     const draggedHeader = item1[draggedIndex];
-  //     item1.splice(draggedIndex, 1);
-  //     item1.splice(index, 0, draggedHeader);
-  
-      
-  //     const updatednooftypes= item1.map((item) => {
-  //             const reorderedPricingDetails = { ...item.pricingdetails };
-  //             const reorderedKeys = Object.keys(reorderedPricingDetails);
-      
-  //             const draggedKey = reorderedKeys.splice(draggedIndexsample, 1)[0];
-  //             reorderedKeys.splice(index, 0, draggedKey);
-      
-  //             const updatedPricingDetails = {};
-  //             reorderedKeys.forEach((key) => {
-  //               updatedPricingDetails[key] = reorderedPricingDetails[key];
-  //             });
-      
-  //             return {
-  //               ...item,
-  //               pricingdetails: updatedPricingDetails,
-  //             };
-  //           });
-  //           const updatednooftypes1= item2.map((item) => {
-  //             const reorderedPricingDetails = { ...item.pricingdetails };
-  //             const reorderedKeys = Object.keys(reorderedPricingDetails);
-      
-  //             const draggedKey = reorderedKeys.splice(draggedIndexsample, 1)[0];
-  //             reorderedKeys.splice(index, 0, draggedKey);
-      
-  //             const updatedPricingDetails = {};
-  //             reorderedKeys.forEach((key) => {
-  //               updatedPricingDetails[key] = reorderedPricingDetails[key];
-  //             });
-      
-  //             return {
-  //               ...item,
-  //               pricingdetails: updatedPricingDetails,
-  //             };
-  //           });
-
-      
-  
-  //     // Set the updated state
-  //     setnooftypes(prevNooftypes => [
-  //       {
-  //         ...prevNooftypes[0],
-  //         name: updatednooftypes // Set the new items array to the 'name' key
-  //       },
-  //       {
-  //         ... prevNooftypes[1],
-  //         name:updatednooftypes1
-
-  //       }
-  //       // Keep the second object unchanged
-  //     ]);
-  //     setDraggedIndex(index);
-  //   }
-  // };
-  
-  // const handleDragEnd = () => {
-  //   setDraggedIndex(null); // Reset the dragged index
-  // };
-  
-
-  
+    setnooftypes(updatedRows);
+    console.log("nooftypes", nooftypes);
+    setDraggedRowIndex(null); // Reset drag index
+  };
 
   const handleDragOver = (index) => {
     if (draggedIndexsample !== index) {
@@ -634,66 +339,67 @@ const handledragvegnonvegdropend = (e,index) => {
       const updatedclassnames = [...classNames];
       const updatedclassinnerdatanames = [...classNamesinner];
       const updatedItems = [...nooftypes];
-  
+
       // Extract item arrays
       const item1 = updatedItems[0].name || []; // Default to empty array if undefined
       const item2 = updatedItems[1].name || []; // Default to empty array if undefined
-  
+
       // Reorder headers and subheaders
       const draggedItem = updatedFirstRowTable[draggedIndexsample];
       const draggedSubheader = updatedSecondRowTable[draggedIndexsample];
       const draggedclassname = updatedclassnames[draggedIndexsample];
-      const draggedclassinnerdata = updatedclassinnerdatanames[draggedIndexsample];
-  
+      const draggedclassinnerdata =
+        updatedclassinnerdatanames[draggedIndexsample];
+
       updatedFirstRowTable.splice(draggedIndexsample, 1);
       updatedFirstRowTable.splice(index, 0, draggedItem);
-  
+
       updatedSecondRowTable.splice(draggedIndexsample, 1);
       updatedSecondRowTable.splice(index, 0, draggedSubheader);
-  
+
       updatedclassnames.splice(draggedIndexsample, 1);
       updatedclassnames.splice(index, 0, draggedclassname);
-  
+
       updatedclassinnerdatanames.splice(draggedIndexsample, 1);
       updatedclassinnerdatanames.splice(index, 0, draggedclassinnerdata);
-  
+
       // Reorder item1 and item2 arrays
       const draggedHeader = item1[draggedIndexsample];
       const draggedHeader2 = item2[draggedIndexsample];
-  
+
       item1.splice(draggedIndexsample, 1);
       item1.splice(index, 0, draggedHeader);
-  
+
       item2.splice(draggedIndexsample, 1);
       item2.splice(index, 0, draggedHeader2);
-  
+
       // Update pricing details
       const updatePricingDetails = (itemsArray, index) => {
         return itemsArray.map((item) => {
           if (item && item.pricingdetails) {
-            const reorderedPricingDetails = {...item.pricingdetails };
+            const reorderedPricingDetails = { ...item.pricingdetails };
             const reorderedKeys = Object.keys(reorderedPricingDetails);
-  
+
             const draggedKey = reorderedKeys.splice(draggedIndexsample, 1)[0];
             reorderedKeys.splice(index, 0, draggedKey);
-  
+
             const updatedPricingDetails = {};
             reorderedKeys.forEach((key) => {
               updatedPricingDetails[key] = reorderedPricingDetails[key];
             });
-  
+
             return {
               ...item,
               pricingdetails: updatedPricingDetails,
             };
           }
-          return {...item}; // Return item unchanged if not valid
+          return { ...item }; // Return item unchanged if not valid
         });
       };
-  
+
       const updatednooftypes = updatePricingDetails(item1, index);
       const updatednooftypes1 = updatePricingDetails(item2, index);
-  
+
       // Update state
       setFirstRowTable(updatedFirstRowTable);
       setSecondRowTable(updatedSecondRowTable);
@@ -704,107 +410,60 @@ const handledragvegnonvegdropend = (e,index) => {
         { ...updatedItems[1], name: updatednooftypes1 },
       ]);
 
-  
       setDraggedIndexsample(index);
     }
-
-
-
   };
-  
+
   const handleDragEnd = () => {
     setDraggedIndexsample(null);
   };
 
- 
+  const [draggedRowIndex, setDraggedRowIndex] = useState({
+    objectId: null,
+    index: null,
+  });
+  const [draggingOverIndex, setDraggingOverIndex] = useState(null);
 
+  const handleRowDragStart = (objectId, index) => {
+    setDraggedRowIndex({ objectId, index });
+  };
 
-  // const handleRowDragStart = (objectId, index) => {
-  //   setDraggedRowIndex({ objectId, index });
-  // };
-  
-  // const handleRowDragOver = (objectId, index) => {
-  //   const draggedObjectId = draggedRowIndex.objectId;
-  //   const draggedIndex = draggedRowIndex.index;
-  
-  //   if (draggedObjectId === objectId && draggedIndex !== index) {
-  //     const updatedTypes = [...nooftypes];
-  //     const currentObject = updatedTypes.find(item => item.id === objectId);
-      
-  //     const updatedItems = [...currentObject.name];
-  //     const draggedItem = updatedItems[draggedIndex];
-  
-  //     // Remove dragged item and insert it at the new position
-  //     updatedItems.splice(draggedIndex, 1);
-  //     updatedItems.splice(index, 0, draggedItem);
-  
-  //     // Update the object in nooftypes
-  //     currentObject.name = updatedItems;
-  
-  //     // Update state
-  //     setnooftypes(updatedTypes);
-  //     setDraggedRowIndex({ objectId, index });
-  //   }
-  // };
-  
-  // const handleRowDragEnd = () => {
-  //   setDraggedRowIndex(null);
-  // };
-  
-  // Initialize draggedRowIndex state
-const [draggedRowIndex, setDraggedRowIndex] = useState({ objectId: null, index: null });
-
-// Handle row drag start
-const handleRowDragStart = (objectId, index) => {
-  setDraggedRowIndex({ objectId, index });
-};
-
-// Handle row drag over
-const handleRowDragOver = (objectId, index) => {
-  if (draggedRowIndex.objectId === null || draggedRowIndex.index === null) {
-    // Ensure draggedRowIndex is valid
-    return;
-  }
-
-  const draggedObjectId = draggedRowIndex.objectId;
-  const draggedIndex = draggedRowIndex.index;
-
-  if (draggedObjectId === objectId && draggedIndex !== index) {
-    const updatedTypes = [...nooftypes];
-    const currentObject = updatedTypes.find(item => item.id === objectId);
-
-    if (currentObject) {
-      const updatedItems = [...currentObject.name];
-      const draggedItem = updatedItems[draggedIndex];
-
-      // Remove dragged item and insert it at the new position
-      updatedItems.splice(draggedIndex, 1);
-      updatedItems.splice(index, 0, draggedItem);
-
-      // Update the object in nooftypes
-      currentObject.name = updatedItems;
-
-      // Update state
-      setnooftypes(updatedTypes);
-      setDraggedRowIndex({ objectId, index });
+  const handleRowDragOver = (objectId, index) => {
+    if (draggedRowIndex.objectId === null || draggedRowIndex.index === null) {
+      return;
     }
-  }
-};
 
-// Handle row drag end
-const handleRowDragEnd = () => {
-  setDraggedRowIndex({ objectId: null, index: null });
-};
+    const draggedObjectId = draggedRowIndex.objectId;
+    const draggedIndex = draggedRowIndex.index;
 
+    if (draggedObjectId === objectId && draggedIndex !== index) {
+      setDraggingOverIndex(index);
+      const updatedTypes = [...nooftypes];
+      const currentObject = updatedTypes.find((item) => item.id === objectId);
 
+      if (currentObject) {
+        const updatedItems = [...currentObject.name];
+        const draggedItem = updatedItems[draggedIndex];
 
+        // Remove dragged item and insert it at the new position
+        updatedItems.splice(draggedIndex, 1);
+        updatedItems.splice(index, 0, draggedItem);
 
+        // Update the object in nooftypes
+        currentObject.name = updatedItems;
 
+        // Update state
+        setnooftypes(updatedTypes);
+        setDraggedRowIndex({ objectId, index });
+      }
+    }
+  };
 
-
-
-
-
+  // Handle row drag end
+  const handleRowDragEnd = () => {
+    setDraggedRowIndex({ objectId: null, index: null });
+    setDraggingOverIndex(null);
+  };
   const [listingobject, setlistingobject] = useState({
     showPricing: true,
     Dinein1: true,
@@ -870,8 +529,6 @@ const handleRowDragEnd = () => {
     }
   }, [listingobject.Dinein2, listingobject.Pickup2, listingobject.Delivery2]);
 
-
-
   return (
     <div
       className="mainpagemenu"
@@ -896,8 +553,7 @@ const handleRowDragEnd = () => {
                       <button
                         style={{
                           width: "23px",
-                          height: "25px"
-                         
+                          height: "25px",
                         }}
                         onClick={() => setshowheadinglist(true)}
                         className=".span"
@@ -908,107 +564,111 @@ const handleRowDragEnd = () => {
                   </th>
                 </tr>
               </div>
-            </thead> 
+            </thead>
             <tbody>
               <div
                 ref={firstTableBodyRef}
                 className="table-body"
                 onScroll={() => handleScroll("first")}
-
-
               >
-
-                {
-
-                }
-
-
-
-
-               
+                {}
 
                 <tr>
-                 
+                  {nooftypes.map((object, index) => (
+                    <div key={object.id}>
+                      <div
+                        className={`${
+                          index === 0 ? "firsttablebody" : "firsttablebody"
+                        }`}
+                      >
+                        {object.id === 1 && (
+                          <div
+                            className={`${
+                              index === 0 ? "itemheadingtwo" : "itemheading"
+                            }`}
+                          >
+                            <img
+                              src={dots}
+                              alt=""
+                              draggable
+                              onDragStart={(e) =>
+                                handledragvegnonvegdragstart(e, index)
+                              }
+                              onDragOver={handledragvegnonvegdropover}
+                              onDrop={(e) =>
+                                handledragvegnonvegdropend(e, index)
+                              }
+                            />
+                            Steamed-Veg(6)
+                          </div>
+                        )}
+                        {object.id === 2 && (
+                          <div
+                            className={`${
+                              index === 0 ? "itemheadingtwo" : "itemheading"
+                            }`}
+                          >
+                            <img
+                              src={dots}
+                              alt=""
+                              draggable
+                              onDragStart={(e) =>
+                                handledragvegnonvegdragstart(e, index)
+                              }
+                              onDragOver={handledragvegnonvegdropover}
+                              onDrop={(e) =>
+                                handledragvegnonvegdropend(e, index)
+                              }
+                            />
+                            Steamed-NonVeg(6)
+                          </div>
+                        )}
 
-
-
-                  {nooftypes.map((object,index) => (
-  <div key={object.id}    >
-
-
- 
-    
-   
-        
-
-    <div className= {`${index===0?"firsttablebody":"firsttablebody"}`}>
-    {
-        object.id===1 &&  <div   className= {`${index===0?"itemheadingtwo":"itemheading"}`}>
-         <img src={dots} alt="" draggable
-
-onDragStart={(e) => handledragvegnonvegdragstart(e, index)}
-onDragOver={handledragvegnonvegdropover}
-onDrop={(e) => handledragvegnonvegdropend(e, index)}
-    />
-         Steamed-Veg(6)
-      </div>
-      }
-      {
-        object.id===2 &&  <div   className= {`${index===0?"itemheadingtwo":"itemheading"}`}>
-         <img src={dots} alt="" draggable
-
-onDragStart={(e) => handledragvegnonvegdragstart(e, index)}
-onDragOver={handledragvegnonvegdropover}
-onDrop={(e) => handledragvegnonvegdropend(e, index)} />
-         Steamed-NonVeg(6)
-      </div>
-      }
-
-
-
-    {object.name.map((item, index) => (
-      <React.Fragment key={index}>
-        <tr
-          className={`itemdetails ${
-            selecteddragIndex?.index === index && selecteddragIndex?.objectId === object.id ? "selected" : ""
-          }`}
-        >
-          <td className="itemimage2">
-            <img
-              src={dots}
-              alt=""
-              draggable
-              onDragStart={() => handleRowDragStart(object.id, index)}
-              onDragOver={() => handleRowDragOver(object.id, index)}
-              onDragEnd={handleRowDragEnd}
-              className="draggableimg"
-            />
-            <img src={apple} alt="" className="foodimage"/>
-          </td>
-          <td className="itemname2">{item.name}</td>
-          <td className="itemcode2">{item.code}</td>
-        </tr>
-      </React.Fragment>
-    ))}
-     </div>
-   
-      
-
-    
-   
-    
-   
-
-
-
-  </div>
-))}
-
-                 
-
-
-
-
+                        {object.name.map((item, index) => (
+                          <React.Fragment key={index}>
+                            {draggingOverIndex === index && (
+                              <tr className="placeholderplace"></tr>
+                            )}
+                            <tr
+                              draggable
+                              onDragStart={() =>
+                                handleRowDragStart(object.id, index)
+                              }
+                              onDragOver={() =>
+                                handleRowDragOver(object.id, index)
+                              }
+                              onDragEnd={handleRowDragEnd}
+                              className={`itemdetails ${
+                                selecteddragIndex?.index === index &&
+                                selecteddragIndex?.objectId === object.id
+                                  ? "selected"
+                                  : ""
+                              }`}
+                            >
+                              <td className="itemimage2">
+                                <img
+                                  src={dots}
+                                  alt=""
+                                  draggable
+                                  onDragStart={() =>
+                                    handleRowDragStart(object.id, index)
+                                  }
+                                  onDragOver={() =>
+                                    handleRowDragOver(object.id, index)
+                                  }
+                                  onDragEnd={handleRowDragEnd}
+                                  className="draggableimg"
+                                />
+                                <img src={apple} alt="" className="foodimage" />
+                              </td>
+                              <td className="itemname2">{item.name}</td>
+                              <td className="itemcode2">{item.code}</td>
+                            </tr>
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </tr>
               </div>
             </tbody>
@@ -1215,7 +875,7 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
                     </div>
                   </div>
                 )}
-                
+
                 <div style={{ marginLeft: "20px" }}>
                   <tr className="headingonesection">
                     {firstRowTable.map(
@@ -1223,7 +883,6 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
                         listingobject[header.label] && (
                           <th
                             key={index}
-                           
                             colSpan={secondRowTable[index].length}
                             className={header.label.substring(
                               0,
@@ -1231,10 +890,14 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
                             )}
                           >
                             <span className="dots">
-                              <img src={dots} alt=""  draggable
-                            onDragStart={() => handleDragStart(index)}
-                            onDragOver={() => handleDragOver(index)}
-                            onDragEnd={handleDragEnd}/>
+                              <img
+                                src={dots}
+                                alt=""
+                                draggable
+                                onDragStart={() => handleDragStart(index)}
+                                onDragOver={() => handleDragOver(index)}
+                                onDragEnd={handleDragEnd}
+                              />
                             </span>{" "}
                             {header.label !== "Inventory1" &&
                               header.label !== "Customize1" && (
@@ -1249,8 +912,11 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
                                   {/* <img src={dollar} alt="" /> */}
                                 </span>
                               )}
-                            <span className="spanheadertext"   >
-                                 {    header.label.substring(0, header.label.length - 1)}
+                            <span className="spanheadertext">
+                              {header.label.substring(
+                                0,
+                                header.label.length - 1
+                              )}
                             </span>
                             <span className="removeicon">
                               <img
@@ -1276,11 +942,27 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
                         ] && (
                           <tr key={index} className={classNames[index]}>
                             {subheaders.map((subheader, subIndex) => (
-                              <td key={subIndex} className={subheader}  >
-                                <span onMouseEnter={() => sethovertext(subheader)}
-                              onMouseLeave={()=>sethovertext(null)}>{ hovertext===subheader? subheader: subheader.substring(0, 5)}</span>
+                              <td key={subIndex} className={subheader}>
+                                <span
+                                  onMouseEnter={() =>
+                                    sethovertext({
+                                      index: index,
+                                      name: subheader,
+                                    })
+                                  }
+                                  onMouseLeave={() =>
+                                    sethovertext({ index: null, name: null })
+                                  }
+                                >
+                                  {hovertext.index === index &&
+                                  hovertext.name === subheader
+                                    ? subheader
+                                    : subheader.substring(0, 5)}
+                                </span>
                                 <span>
-                                  { hovertext!==subheader &&subheader.length > 5 && <span >...</span>}
+                                  {hovertext.index !== index &&
+                                    hovertext.name !== subheader &&
+                                    subheader.length > 5 && <span>...</span>}
                                 </span>
                               </td>
                             ))}
@@ -1298,72 +980,76 @@ onDrop={(e) => handledragvegnonvegdropend(e, index)} />
             >
               <tr>
                 <div className="tabletwobody">
+                  {nooftypes.map((item, index) => {
+                    return (
+                      <div>
+                        {index === 1 && (
+                          <div className="itemheading2">
+                            {/* <img src={dots} alt="" /> */}
+                            {/* Steamed-Veg(6) */}
+                          </div>
+                        )}
+                        
+                       
 
-                  {
-                    nooftypes.map((item,index)=>{
-                      return(
-                        <div>
-                          {
-                   index===1 &&  <div className="itemheading2">
-                    {/* <img src={dots} alt="" /> */}
-                    {/* Steamed-Veg(6) */}
-                  </div>
-                          }
-                          
-                            {item.name.map((item, index) => (
-                              <React.Fragment key={index}>
-                                <tr
-                                  className={`tabletwobodyrow ${
-                                    selecteddragIndex === index ? "selected" : ""
-                                  }`}
-                                >
-                                  <td className="eachobject">
-                                    {Object.entries(item.pricingdetails || {}).map(
-                                      ([key, cellData], cellIndex) => {
-                                        const className = classNamesinner[cellIndex];
-                                        const items = listingobject[className];
-          
-                                        if (items && Array.isArray(cellData)) {
-                                          return (
-                                            <div className={className} key={cellIndex}>
-                                              {cellData.map((item, itemIndex) => (
-                                                <td
-                                                  key={`${cellIndex}-${itemIndex}`}
-                                                  className=""
-                                                >
-                                                  {item === "Enabled" ||
-                                                  item === "Disabled" ? (
-                                                    <Toggle
-                                                      toggle={togglebtn}
-                                                      setToggle={settogglebtn}
-                                                    />
-                                                  ) : (
-                                                    <span>{item}</span>
-                                                  )}
-                                                </td>
-                                              ))}
-                                            </div>
-                                          );
-                                        }
-                                        return null;
-                                      }
-                                    )}
-                                  </td>
-                                </tr>
-                              </React.Fragment>
-                            ))
-                          }
-                        </div>
+                        {item.name.map((item, index) => (
+                          <React.Fragment key={index}>
+                             {draggingOverIndex === index && (
+                              <tr className="placeholderplace" style={{backgroundColor:'red'}}></tr>
+                            )}
+                             
+                            <tr
+                              className={`tabletwobodyrow ${
+                                selecteddragIndex === index ? "selected" : ""
+                              }`}
+                            >
+                              <td className="eachobject">
+                                {Object.entries(item.pricingdetails || {}).map(
+                                  ([key, cellData], cellIndex) => {
+                                    const className =
+                                      classNamesinner[cellIndex];
+                                    const items = listingobject[className];
 
-                      );
-                    })
-}            
+                                    if (items && Array.isArray(cellData)) {
+                                      return (
+                                        <div
+                                          className={className}
+                                          key={cellIndex}
+                                        >
+                                          {cellData.map((item, itemIndex) => (
+                                            <td
+                                              key={`${cellIndex}-${itemIndex}`}
+                                              className=""
+                                            >
+                                              {item === "Enabled" ||
+                                              item === "Disabled" ? (
+                                                <Toggle
+                                                  toggle={togglebtn}
+                                                  setToggle={settogglebtn}
+                                                />
+                                              ) : (
+                                                <span>{item}</span>
+                                              )}
+                                            </td>
+                                          ))}
+                                        </div>
+                                      );
+                                    }
+                                    return null;
+                                  }
+                                )}
+                              </td>
+                            </tr>
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    );
+                  })}
                 </div>
               </tr>
             </tbody>
           </table>
         </div>
-        
       </div>
     </div>
   );
