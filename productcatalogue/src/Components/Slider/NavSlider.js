@@ -72,7 +72,7 @@ const NavMenu = ({pen,eye,trash}) => {
 
   return (
     <>
-      <nav className={`${!pen||eye||trash?"nav-menudark":"nav-menu"}`}>
+      <nav className={`nav-menu`}>
         <ul className="nav-list">
           {menuItems.map((item, index) => (
             <li

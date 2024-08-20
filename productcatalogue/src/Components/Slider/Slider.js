@@ -19,7 +19,6 @@ import CustomizeSlider from './CustomizeSlider'
 const Slider = ({ onclose }) => {
   
 
-  const[pen,setPen]=useState(true)
   const[eye,setEye]=useState(false)
   const[trash,setTrash]=useState(false)
   const [active, setActive] = useState("Pricing")
@@ -52,18 +51,18 @@ const[outlet3,setOutlet3]=useState(false)
   };
   return (
     <div ref={modelref} className='Slider-Container' >
-      <div className={pen?"Slider-Window":"Slider-WindowBlur"}>
+      <div className={"Slider-Window"}>
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
             <h1 className='Slider-Heading1'>Veg Burger Pizza - 12345</h1>
             
             <div className='Slider-icons'>
             
-              <TooltipSlider className="toolSliderI" message="Tap the 'Edit' button to modify the additional details that are not shown in the slider for this item.">
+              
                   <div >
-                    <img src={Pen}  className={pen?"PenImage":"PenBlurImage"} onMouseOver={()=>setPen(false)} onMouseLeave={()=>setPen(true)} />
+                    <img src={Pen}  className={"PenImage"}   />
                   </div>
-                </TooltipSlider>
+                
                  
               <img src={Eye} alt='hello' className='PenImage' onClick={handleEyeClick}/>
               <div className='BinImageSection'>
@@ -83,10 +82,10 @@ const[outlet3,setOutlet3]=useState(false)
          </div>
          
          <div className='NavSlider-Component'>    
-         <NavSlider pen={pen} eye={eye} trash={trash}/>
+         <NavSlider  eye={eye} trash={trash}/>
          </div>
               
-        <div className={pen?"BasicChangesContainer":"BasicChangesContainerPen"}>
+        <div className={"BasicChangesContainer"}>
         <div className='BasicChanges'>
           <img src={Basic} className='BasicChangesImage'></img>
          <p className='BasicChangesText'>Make basic changes here.Click the edit icon for all options</p>
@@ -98,15 +97,15 @@ const[outlet3,setOutlet3]=useState(false)
         </div>
         <div className='ToggleBasicChanges'>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet1} setToggle={setOutlet1} pen={pen}/>
+          <ToggleSlider toggle={outlet1} setToggle={setOutlet1} />
           <h1 className='Toggle1Basic-Heading'>Outlet 1</h1>
          </div>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet2} setToggle={setOutlet2} pen={pen}/>
+          <ToggleSlider toggle={outlet2} setToggle={setOutlet2} />
           <h1 className='Toggle1Basic-Heading'>Outlet 2</h1>
          </div>
          <div className='Toggle1BasicChange'>
-          <ToggleSlider toggle={outlet3} setToggle={setOutlet3} pen={pen}/>
+          <ToggleSlider toggle={outlet3} setToggle={setOutlet3} />
           <h1 className='Toggle1Basic-Heading'>Outlet 3</h1>
          </div>
         </div>
