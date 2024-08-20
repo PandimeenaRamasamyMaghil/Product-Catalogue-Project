@@ -11,7 +11,6 @@ import EyeModal from './EyeModal'
 import Trash from './Trash'
 import NavSlider from './NavSlider'
 import ArrowHover from '../../assets/images/ArrowHover.svg'
-
 import Inventory from './Inventory'
 import CustomizeSlider from './CustomizeSlider'
 import BasicChanges from './BasicChanges'
@@ -48,8 +47,8 @@ const Slider = ({ onclose }) => {
     }
   };
   return (
-    <div ref={modelref} className='Slider-Container' onClick={closeModal}>
-      <div className={pen?"Slider-Window":"Slider-WindowBlur"}>
+    <div ref={modelref} className='Slider-Container' >
+      <div className={"Slider-Window"}>
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
             <h1 className='Slider-Heading1'>Veg Burger Pizza - 12345</h1>
