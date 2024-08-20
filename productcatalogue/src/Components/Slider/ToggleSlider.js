@@ -14,7 +14,7 @@ const Toggle = ({toggle,setToggle,pen}) => {
        
         
       >
-        <div className={`thumbSlider ${!pen ? 'thumbSliderDark' : ''}`}></div>
+        <div className={`thumbSlider` }></div>
       </button>
     </div>
   );
