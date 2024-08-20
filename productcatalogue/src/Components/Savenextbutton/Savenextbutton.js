@@ -13,7 +13,8 @@ import { PricingDetailRequest } from "../../redux/Actions";
 
 const Savenextbutton = (probs) => {
   let navigate = useNavigate();
-  const {setActiveCategory}=useContext(Contextpagejs);
+  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
+
 
   const primarydetailsdata=probs.formData;
 
@@ -89,7 +90,7 @@ const Savenextbutton = (probs) => {
 
   return (
     <div>
-      <div className="saveandnext">
+      <div className= {isExpanded?"saveandnext":"saveandnext1"}   >
         <button className="clearall" onClick={handleclear}>
           Clear All
         </button>

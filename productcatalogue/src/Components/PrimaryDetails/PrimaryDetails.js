@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect ,useContext} from "react";
 import "./PrimaryDetails.scss";
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,11 +13,13 @@ import deleteicon from "../../assets/images/delete.png";
 import Savenext from "../Savenextbutton/Savenextbutton";
 import Tooltip from "../Tooltip/Tooltip";
 import info from "../../assets/images/info.png";
+import { Contextpagejs } from "../contextpage";
 
 import edit from "../../assets/images/edit.svg"
 
 const PrimaryDetails = () => {
   const dispatch = useDispatch();
+  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
   const [selectedOption, setSelectedOption] = useState("");
   const [portionSizeSeleted, setportionSizeSeleted] = useState("");
   // const  testimg={
@@ -1138,13 +1140,11 @@ const PrimaryDetails = () => {
          const newupdatedarray= bestpairfoodarray.filter((item,index)=>index!==indexval);
           setbestpairfoodarray(newupdatedarray);
         }
-        
-        
-
   }
+
   return (
     <>
-      <div className="mainpage">
+      <div className= {isExpanded?"mainpage":"mainpage1"}>
         <div className="Primarymain">
           <div className="primecontainer">
             <div className="primarycontainer1">

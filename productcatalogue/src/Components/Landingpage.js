@@ -1,70 +1,64 @@
-import React,{useState,useEffect} from 'react'
-import Navigationpage from './Navigation/Navigation'
-import './Landingpage.scss'
-import Primary from './PrimaryDetails/PrimaryDetails'
-import ItemCustomization from './Item Customizations/ItemCustomizations'
-import Sidenavbar from './sidenavbar/SideNavbar'
-import Reviewpage from './Reviewpage/Reviewpage'
-import {BrowserRouter, Routes, Route } from 'react-router-dom';
-import PricingDetails from './PricingDetalis/PricingDetails'
-import { Contextpage } from './contextpage'
-import Pricingpage from './Pricingpage/Pricingpage'
-import { Menulisting } from './Menulisting/Menulisting'
-import Sidenav from "./SideNav/Sidenav"
-import Header from './Item Customizations/MainLandingPage/Header/Header'
-import Slider from '../Components/Slider/Slider'
-
-import Menupage from './Menulisting/Menupage'
+import React, { useState, useEffect } from "react";
+import Navigationpage from "./Navigation/Navigation";
+import "./Landingpage.scss";
+import Primary from "./PrimaryDetails/PrimaryDetails";
+import ItemCustomization from "./Item Customizations/ItemCustomizations";
+import Sidenavbar from "./sidenavbar/SideNavbar";
+import Reviewpage from "./Reviewpage/Reviewpage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PricingDetails from "./PricingDetalis/PricingDetails";
+import { Contextpage } from "./contextpage";
+import Pricingpage from "./Pricingpage/Pricingpage";
+import { Menulisting } from "./Menulisting/Menulisting";
+import Sidenav from "./SideNav/Sidenav";
+import Header from "./Item Customizations/MainLandingPage/Header/Header";
+import Slider from "../Components/Slider/Slider";
+import Dragging from "./Menulisting/Dragging"
+import { Menupage } from "./Menulisting/Menupage";
 
 const Landingpage = () => {
-    const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(1);
 
+  const MIN_WIDTH = 800;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [belowMinWidth, setBelowMinWidth] = useState(
+    window.innerWidth <= MIN_WIDTH
+  );
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setBelowMinWidth(window.innerWidth <= MIN_WIDTH);
+    };
 
-    const MIN_WIDTH = 800;
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [belowMinWidth, setBelowMinWidth] = useState(
-      window.innerWidth <= MIN_WIDTH
-    );
-    useEffect(() => {
-      const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-        setBelowMinWidth(window.innerWidth <= MIN_WIDTH);
-      };
-  
-      window.addEventListener("resize", handleResize);
-  
-      // Cleanup event listener on component unmount
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <div style={{display:'flex',flexDirection:'row'}}>
-
-{belowMinWidth ? (
+    <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+      {belowMinWidth ? (
         <div className="warning-message">
           Your screen width is below the minimum width of {MIN_WIDTH}px. Please
           resize your window.
         </div>
-      ) :
-     ( <>
+      ) : (
+        <>
+          <Sidenav />
+          {/* <Slider/> */}
+          {/* <Header/> */}
+          {/* <Pricingpage/> */}
 
+          {/* <Menulisting /> */}
 
-<Sidenav/>
-{/* <Slider/> */}
-{/* <Slider/> */}
-<Header/>
-{/* <Pricingpage/> */}
-     
-     <Menulisting/>
+          {/* <Menupage/>  */}
+          
 
-
-      {/* <Menupage/>  */}
-   
-
-        {/* <Routes>
-          <Route path="/" element={<Navigationpage />} />
+          <Routes>
+          <Route path="/" element={<Menulisting />} />
           <Route path="/Reviewpage" element={<Reviewpage />} />
           <Route path="/Primary" element={<Primary />} />
           <Route path="/ItemCustomization" element={<ItemCustomization />} />
@@ -79,15 +73,10 @@ const Landingpage = () => {
 
 
         </Routes>
-        */}
-      </>
        
-       )
-      }
-</div>
-
-  )
-}
-export default Landingpage
-
-
+        </>
+      )}
+    </div>
+  );
+};
+export default Landingpage;

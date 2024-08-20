@@ -13,6 +13,7 @@ import Filter from './Filter'
 import ArrowHover from '../../../../assets/images/ArrowHover.svg'
 
 
+
 const Header = () => {
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
 
@@ -63,7 +64,7 @@ const Header = () => {
 
       <div  className='Add-Item-Container'>
         <h3 className='Add-Item-Heading-Plus'>+</h3>
-        <h3 className='Add-Item-Heading'>Add Item</h3>
+        <h3 className='Add-Item-Heading' onClick={()=>navigate("/Navigationpage/PrimaryDetails")}>Add Item</h3>
         
 
       </div>

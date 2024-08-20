@@ -1,19 +1,28 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  // width: 100%;
+}
 .container-sidenav{
     display: flex;
     justify-content: start;
+    // position: fixed;
+   
+    // border: 1px solid red;
+    
    
 }
 .sidebar {
-    width: 90px;
-    height: 100vh;
+  
+    width: 97px;
+    height: 650px;
     padding: 20px;
     transition: width 0.6s ease;
     overflow: hidden; /* Ensure content doesn't overflow during transition */
   }
 
   .sidebar.expanded {
-    width: 350px; /* Expanded width */
+    width: 300px; /* Expanded width */
   }
 
 .flexSidenav{
@@ -69,7 +78,7 @@
 
  .vertical-line-navbar{
    width: 0.1px;
-    height: 100vh;
+    height: 740px;
     border: 0.5px solid #D9D9D9;
     position: relative;
    
@@ -117,7 +126,7 @@
 }
 
  .NavName{
-    font-size: 20px;
+    font-size: 16px;
     font-family: Poppins;
     font-weight: 400;
     transform: translateX(-20px,-5px);
@@ -129,6 +138,7 @@
   width: 250px;
   display: flex;
   justify-content: flex-start;
+ 
 }
 
 .flexcolhheading{
@@ -164,9 +174,9 @@
   text-align: center;
   transform: translateX(-15px);
   
-  opacity: 0;
+
   transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
-  font-family: Poppins;
+ 
   font-weight: 400;
   font-size: 12px;
   padding: 2px 2px 2px 2px ;

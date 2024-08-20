@@ -1,0 +1,969 @@
+// * {
+//   font-family: "Poppins", sans-serif;
+// }
+
+// .menumain {
+//   position: relative;
+//   top: 120px;
+//   left: -23px;
+//   width: 100%;
+//   height: 600px;
+//   border: 1px solid red;
+// }
+// table,
+// th,
+// td {
+//   border: 0;
+//   padding: 0;
+//   margin: 0;
+//   font-weight: normal;
+// }
+
+// .headingstextlist {
+//   position: absolute;
+//   top: 0px;
+//   left: 100px;
+//   z-index: 1;
+//   width: 217px;
+//   height: 357px;
+//   gap: 0px;
+//   border-radius: 4px;
+//   background-color: #ffffff;
+//   box-shadow: 0px 4px 14px 0px #00000040;
+//   ul,
+//   li {
+//     list-style: none;
+//   }
+//   .insertheading {
+//     width: 217px;
+//     height: 42px;
+//     border-bottom: 0.5px solid #d9d9d9;
+//     h3 {
+//       display: flex;
+//       position: relative;
+//       top: 10px;
+//       left: 10px;
+//       font-size: 16px;
+//       font-weight: 500;
+//       color: #67833e;
+//       img {
+//         position: absolute;
+//         right: 20px;
+//         cursor: pointer;
+//       }
+//     }
+//   }
+
+//   .inserbody {
+//     margin-top: 10px;
+//     margin-left: 37px;
+//     li {
+//       padding-top: 5px;
+//     }
+//     .headtext {
+//       display: flex;
+//       flex-direction: row;
+//       span {
+//         display: flex;
+//         padding-left: 10px;
+//       }
+
+//       .dollaricon {
+//         width: 27px;
+//         height: 27px;
+//         // margin-top: -12px;
+//         margin-left: 15px;
+//       }
+//       .toggleicon {
+//         position: relative;
+//         left: -22px;
+//       }
+//     }
+//     .pricingheadtext {
+//       span {
+//         margin-top: -5px;
+//       }
+//     }
+//     .availheadtext {
+//       span {
+//         margin-top: -5px;
+//       }
+//     }
+//     .inventoryheadtext {
+//       padding: 5px;
+//       span {
+//         margin-top: -5px;
+//       }
+//     }
+//     .customheadtext {
+//       padding: 5px;
+//       span {
+//         margin-top: -5px;
+//       }
+//     }
+//     input {
+//       width: 15px;
+//       height: 15px;
+//       accent-color: rgba(103, 131, 62, 1);
+//       border: 1px solid #000000;
+//     }
+//     .indenttexts {
+//       margin-left: 29px;
+//       span {
+//         padding-left: 10px;
+//       }
+//     }
+//   }
+// }
+
+
+
+// .steamednonveg {
+//   margin-top: 10px;
+
+//   .itemheading2 {
+//     height: 30px;
+//     // border: 1px solid red;
+//     position: relative;
+//     display: flex;
+//     justify-content: left;
+//     left: 10px;
+//     // top: 10px;
+//     font-family: Poppins;
+//     font-size: 20px;
+//     font-weight: 600;
+//     line-height: 30px;
+//     text-align: left;
+//     img {
+//       margin-right: 10px;
+//     }
+//   }
+// }
+
+
+
+// .indenttext {
+//   position: relative;
+//   top: -3px;
+//   font-size: 16px;
+//   font-weight: 500;
+// }
+
+// .itemdetails.selected {
+//   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+// }
+
+// .table {
+//   margin-right: 20px; /* Optional: add space between tables */
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //Table one design
+// .tab1 {
+//   width: 340px;
+//   height: 100%;
+//   // border: 1px solid black;
+//   margin: 0;
+
+//   .headerrow {
+//     display: flex;
+//     flex-direction: row;
+//     position: relative;
+//     top: -5px;
+//     left: 30px;
+//     width: 100%;
+//     height: 40px;
+//     gap: 47px;
+//     border: 1px solid blue;
+
+//     .itemimage {
+//       font-size: 16px;
+//       font-weight: 500;
+//     }
+//     .itemname {
+//       font-size: 16px;
+//       font-weight: 500;
+//     }
+//     .itemcode {
+//       font-size: 16px;
+//       font-weight: 500;
+//       // width: 84px;
+//       // height: 25px;
+//       // border: 1px solid blue;
+
+//       display: flex;
+//       flex-direction: row;
+      
+//       // border: 1px solid red;
+//     }
+//   }
+
+//   .table-body {
+//     width: 100%;
+//     height: 560px;
+//     overflow-y: auto;
+//     display: block;
+//     // border: 1px solid blue;
+
+//     .itemheading {
+//       margin: 0;
+//       padding: 0;
+//       width: 100%;
+//       position: relative;
+//       height: 30px;
+//       display: flex;
+//       justify-content: left;
+//       border: 1px solid black;
+
+//       font-size: 20px;
+//       font-weight: 600;
+//       line-height: 30px;
+//       text-align: left;
+
+//       img {
+//         padding-left: 5px;
+//         padding-right: 10px;
+//       }
+//     }
+//     .bodywidthheigt
+//     {
+//       width: 100%;
+     
+//       border: 1px solid #d9d9d9;
+
+
+//     }
+
+//     .firsttablebody {
+//       .itemdetails {
+//         // width: 100%;
+//         // transition: box-shadow 0.3s ease;
+//         // height: 60px;
+//         // position: relative;
+//         // top: 10px;
+//         // left: -7%;
+//         // display: flex;
+//         // flex-direction: row;
+//         // // width:340px;
+//         // border: 1px solid #d9d9d9;
+//         // border-top: none;
+//         // border-left: none;
+//         // border-right: none;
+//         // // border-right: none;
+//         // width: 100%;
+//         // display: flex;
+//         // justify-content: center;
+//         // gap: 10px;
+//         //  padding: 5px;
+
+//         display: flex;
+//         height: 60px;
+//         border: 1px solid #d9d9d9;
+//         border-top: none;
+//         border-left: none;
+//         border-right: none;
+//         width: 102%;
+//       padding-bottom: 5px;
+//         padding-left: 10px;
+        
+
+//         .itemimage2 {
+//           width: 70px;
+//           height: 25px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           margin-top: 20px;
+//           // padding-left: 12px;
+//           gap: 5px;
+//           .draggableimg {
+//             cursor: pointer;
+//           }
+//           // border: 1px solid red;
+//         }
+//         .itemname2 {
+//           width: 164px;
+//           height: 25px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           margin-top: 18px;
+//           // padding-left: -12px;
+//           // border: 1px solid red;
+//         }
+//         .itemcode2 {
+//           width: 84px;
+//           height: 25px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           margin-top: 20px;
+//           // padding-left: -30px;
+//           // position: relative;
+//           // left: -10px;
+//           // border: 1px solid red;
+//         }
+//       }
+//     }
+//   }
+// }
+// //table one design end
+
+
+
+
+
+
+
+
+
+
+
+// //table two design
+
+// .tab2 {
+//   width: 75%;
+//   height: 100%;
+//   margin: 0;
+//   margin-left: -3px;
+ 
+//   overflow-x: auto;
+//   .headaadbtnclass
+//   {
+//     display: flex;
+//     flex-direction: row;
+//     // padding-right: 10px;
+//     button {
+//       // margin-top: 5px;
+//       // margin-left: 10px;
+//       margin-right: 10px;
+//       width: 23px;
+//       height: 27px;
+//       border-radius: 4px;
+//       padding: 8px;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       background: none;
+//       border: 0.5px solid #5f5f5f;
+//       cursor: pointer;
+//     }
+//   }
+
+//   .headingonesection {
+//     display: flex;
+//     height: 30px;
+//     border: 1px solid blue;
+//     flex-direction: row;
+//     gap: 20px;
+//     position: relative;
+//     .dots {
+//       padding-right: 10px;
+//     }
+//     .dollar {
+//       padding-right: 10px;
+//     }
+//     .spanheadertext {
+//       position: relative;
+//       top: -3px;
+//       font-size: 16px;
+//       font-weight: 500;
+//     }
+//     .Dinein {
+//       width: 134px;
+//       height: 30px;
+//       border-radius: 4px;
+//       border: 0.5px solid #d9d9d9;
+//       display: flex;
+//       justify-content: left;
+//       align-items: center;
+//       padding-left: 10px;
+//       padding-right: 10px;
+//       cursor: pointer;
+//       .removeicon {
+//         position: relative;
+//         top: -5px;
+//         right: -5px;
+//         img {
+//           width: 10px;
+//           height: 10px;
+//         }
+//       }
+//     }
+//     .Pickup {
+//       width: 206px;
+//       height: 30px;
+//       border: 0.5px solid #d9d9d9;
+//       border-radius: 4px;
+//       display: flex;
+//       justify-content: left;
+//       align-items: center;
+//       padding-left: 10px;
+//       padding-right: 10px;
+//       cursor: pointer;
+//       .removeicon {
+//         position: relative;
+//         top: -5px;
+//         right: -75px;
+//         img {
+//           width: 10px;
+//           height: 10px;
+//         }
+//       }
+//     }
+//     .Delivery {
+//       width: 206px;
+//       height: 30px;
+//       border: 0.5px solid #d9d9d9;
+//       border-radius: 4px;
+//       display: flex;
+//       justify-content: left;
+//       align-items: center;
+//       padding-left: 10px;
+//       padding-right: 10px;
+//       cursor: pointer;
+//       .removeicon {
+//         position: relative;
+//         top: -5px;
+//         right: -65px;
+//         img {
+//           width: 10px;
+//           height: 10px;
+//         }
+//       }
+//     }
+//     .Inventory {
+//       width: 134px;
+//       height: 30px;
+//       border: 0.5px solid #d9d9d9;
+//       border-radius: 4px;
+//       display: flex;
+//       justify-content: left;
+//       align-items: center;
+//       padding-left: 10px;
+//       padding-right: 10px;
+//       cursor: pointer;
+//       .removeicon {
+//         position: relative;
+//         top: -5px;
+//         right: -5px;
+//         img {
+//           width: 10px;
+//           height: 10px;
+//         }
+//       }
+//     }
+//     .Customize {
+//       width: 134px;
+//       height: 30px;
+//       border: 0.5px solid #d9d9d9;
+//       border-radius: 4px;
+//       display: flex;
+//       justify-content: left;
+//       align-items: center;
+//       padding-left: 10px;
+//       padding-right: 10px;
+//       cursor: pointer;
+//       .removeicon {
+//         position: relative;
+//         top: -5px;
+//         right: 0px;
+//         img {
+//           width: 10px;
+//           height: 10px;
+//         }
+//       }
+//     }
+//   }
+//   .headingtwosection {
+//     display: flex;
+//     flex-direction: row;
+//     position: relative;
+//     top: 1px;
+//     gap: 20px;
+//     height: 31px;
+//     border: 1px solid black;
+
+  
+//     .Dinein1-class {
+//       width: 134px;
+//       height: 24px;
+//       gap: 12px;
+//     }
+//     .Dinein2-class {
+//       width: 134px;
+//       height: 24px;
+//       gap: 12px;
+//     }
+  
+//     .Pickup1-class {
+//       width: 206px;
+//       height: 24px;
+//       display: flex;
+//       gap: 20px;
+//     }
+  
+//     .Delivery1-class {
+//       width: 206px;
+//       height: 24px;
+//       gap: 20px;
+//       display: flex;
+//     }
+//     .Pickup2-class {
+//       width: 206px;
+//       height: 24px;
+//       display: flex;
+//       gap: 20px;
+//     }
+  
+//     .Delivery2-class {
+//       width: 206px;
+//       height: 24px;
+//       gap: 20px;
+//       display: flex;
+//     }
+  
+//     .Inventory1-class {
+//       width: 134px;
+//       height: 24px;
+//       gap: 20px;
+//       display: flex;
+//     }
+  
+//     .Customize1-class {
+//       width: 134px;
+//       height: 24px;
+//       gap: 22px;
+//       opacity: 0px;
+//     }
+//     .Ac {
+//       width: 52px;
+//       height: 20px;
+//       // border: 1px solid red;
+//       position: relative;
+//       left: 5%;
+//     }
+//     .Nonac {
+//       width: 52px;
+//       height: 20px;
+//       // border: 1px solid red;
+//       position: relative;
+//       left: 10%;
+//     }
+//     .Inhouse {
+//       width: 52px;
+//       height: 20px;
+//       // border: 1px solid red;
+//       position: relative;
+//       // left: 2%;
+//       display: flex;
+//     }
+//     .Swiggy {
+//       width: 52px;
+//       height: 20px;
+//       // border: 1px solid red;
+//       position: relative;
+//       // left: 4%;
+//       display: flex;
+//     }
+//     .Zomato {
+//       width: 52px;
+//       height: 20px;
+//       // border: 1px solid red;
+//       position: relative;
+//       // left: 6%;
+//       display: flex;
+//     }
+//     .Total {
+//       width: 52px;
+//       height: 20px;
+//       // border: 1px solid red;
+//       position: relative;
+//       // left: 2%;
+//       display: flex;
+//     }
+//     .Threshold {
+//       width: 52px;
+//       height: 20px;
+//       // border: 1px solid red;
+//       position: relative;
+//       // left: 2%;
+//       display: flex;
+//     }
+  
+//     .dinein1div {
+//       width: 135px;
+//       height: 30px;
+//       // border: 1px solid black;
+//       .dinein1ac {
+//         position: relative;
+//         left: 5px;
+//       }
+  
+//       .dinein1nonac {
+//         position: relative;
+//         left: 25px;
+//       }
+//     }
+//     .pickup1div {
+//       width: 215px;
+//       height: 30px;
+  
+//       // border: 1px solid black;
+  
+//       .pickup1swiggy {
+//         position: relative;
+//         left: 22px;
+//       }
+//       .pickup1zomato {
+//         position: relative;
+//         left: 45px;
+//       }
+//     }
+//     .delivery1div {
+//       width: 215px;
+//       height: 30px;
+//       // border: 1px solid black;
+//       .delivery1swiggy {
+//         position: relative;
+//         left: 22px;
+//       }
+//       .delivery1zomato {
+//         position: relative;
+//         left: 45px;
+//       }
+//     }
+  
+//     .dinein2div {
+//       width: 135px;
+//       height: 30px;
+  
+//       // border: 1px solid black;
+//       .dinein2nonac {
+//         position: relative;
+//         left: 25px;
+//       }
+//     }
+//     .pickup2div {
+//       width: 215px;
+//       height: 30px;
+//       // border: 1px solid black;
+//       .pickup2swiggy {
+//         position: relative;
+//         left: 22px;
+//       }
+//       .pickup2zomato {
+//         position: relative;
+//         left: 45px;
+//       }
+//     }
+//     .delivery2div {
+//       width: 215px;
+//       height: 30px;
+//       // border: 1px solid black;
+//       .delivery2swiggy {
+//         position: relative;
+//         left: 22px;
+//       }
+//       .delivery2zomato {
+//         position: relative;
+//         left: 45px;
+//       }
+//     }
+//     .inventorydiv {
+//       width: 165px;
+//       height: 30px;
+//       // border: 1px solid black;
+//       margin-left: 0px;
+//       .inventorythreshold {
+//         position: relative;
+//         left: 25px;
+//       }
+//     }
+  
+//     .secondhead {
+//       font-size: 14px;
+//       font-weight: 400;
+//       line-height: 21px;
+//       text-align: left;
+//       // padding-left: 20px;
+//     }
+//     th {
+//       width: 52px;
+//       height: 24px;
+//       // border: 1px solid red;
+//     }
+//   }
+
+//   .table-body {
+//     width: 141.5%;
+//     position: relative;
+   
+//     height: 530px;
+//     left: -10px;
+//     overflow-y: auto;
+//     overflow-x: hidden;
+//     display: block;
+//     z-index: 999;
+//     position: relative;
+//     // top:-2px;
+//     // margin-top: -2px;
+  
+// //  padding-left: 30px;
+//     // border: 1px solid #d9d9d9 ;
+//    border-left: none;
+//     border-right: none;
+//     border-bottom: none;
+
+    
+
+
+//     tr {
+//       height: 60px;
+//       border-collapse: collapse;
+//       border: 1px solid #d9d9d9;
+
+
+//     };
+
+//     .itemheading {
+//       width: 100%;
+//       position: relative;
+//       height: 30px;
+//       display: flex;
+//       justify-content: left;
+//       // border: 1px solid black;
+
+//       font-size: 20px;
+//       font-weight: 600;
+//       line-height: 30px;
+//       text-align: left;
+
+//       img {
+//         padding-left: 5px;
+//         padding-right: 10px;
+//       }
+//     }
+//   }
+//   .tabletwobody {
+   
+  
+//     .tabletwobodyrow {
+     
+
+
+//       // font-size: 14px;
+//       // font-weight: 400;
+//       // display: flex;
+//       // flex-direction: row;
+//       width: 100%;
+//       // height: 60px;
+//       // position: relative;
+//       // top: 3.5px;
+     
+//       // // border: 1px solid red;
+//       // border-top: none;
+//       // border-left: none;
+//       // border-right: none;
+  
+//       //  .availability{
+//       //  position: relative;
+//       //  left: 25px;
+//       //  }
+
+
+//       padding-left: 20px;
+
+//       td{
+//         padding-left: 20px;
+//       }
+//       .eachobject {
+//         gap: 20px;
+//         display: flex;
+//       }
+  
+//       .Dinein1 {
+//         width: 134px;
+//         height: 60px;
+//         // border: 1px solid black;
+//         // margin-left: 20px;
+//         display: flex;
+//         justify-content: left;
+//         align-items: center;
+//         gap: 25px;
+//         td {
+//           width: 50px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           // border: 1px solid red;
+//         }
+//       }
+//       .Pickup1 {
+//         width: 206px;
+//         height: 60px;
+//         // border: 1px solid black;
+//         // margin-left: 20px;
+//         display: flex;
+//         justify-content: left;
+//         align-items: center;
+//         gap: 20px;
+//         td {
+//           width: 70px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           // border: 1px solid red;
+//         }
+//       }
+//       .Delivery1 {
+//         width: 206px;
+//         height: 60px;
+//         // border: 1px solid black;
+//         // margin-left: 20px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+  
+//         gap: 20px;
+//         td {
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           width: 70px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           // border: 1px solid red;
+//         }
+//       }
+//       .Dinein2 {
+//         width: 134px;
+//         height: 60px;
+//         gap: 20px;
+//         // border: 1px solid black;
+  
+//         display: flex;
+//         justify-content: left;
+//         align-items: center;
+//         td {
+//           width: 50px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           // border: 1px solid red;
+//         }
+//       }
+//       .Pickup2 {
+//         width: 206px;
+//         height: 60px;
+//         // border: 1px solid black;
+//         // margin-left: 20px;
+//         display: flex;
+//         justify-content: left;
+//         align-items: center;
+//         gap: 20px;
+//         td {
+//           width: 70px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           // border: 1px solid red;
+//         }
+//       }
+//       .Delivery2 {
+//         width: 206px;
+//         height: 60px;
+//         // border: 1px solid black;
+//         // margin-left: 20px;
+//         display: flex;
+//         justify-content: left;
+//         align-items: center;
+//         gap: 20px;
+//         td {
+//           width: 70px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           // border: 1px solid red;
+//         }
+//       }
+//       .Inventory1 {
+//         width: 134px;
+//         height: 60px;
+//         gap: 20px;
+//         // border: 1px solid black;
+  
+//         display: flex;
+//         justify-content: left;
+//         align-items: center;
+//         td {
+//           width: 50px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           // border: 1px solid red;
+//         }
+//       }
+//       .Customize1 {
+//         width: 134px;
+//         height: 60px;
+//         // border: 1px solid black;
+  
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         td {
+//           width: 50px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           height: 60px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           // border: 1px solid red;
+//         }
+//       }
+  
+     
+     
+//     }
+//   }
+
+ 
+// }
+// .tables {
+//   display: flex;
+//   flex-direction: row;
+// }
