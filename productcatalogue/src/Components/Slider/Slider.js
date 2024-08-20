@@ -47,7 +47,7 @@ const Slider = ({ onclose }) => {
     }
   };
   return (
-    <div ref={modelref} className='Slider-Container' >
+    <div ref={modelref} className='Slider-Container' onClick={closeModal} >
       <div className={"Slider-Window"}>
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
