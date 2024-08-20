@@ -48,8 +48,8 @@ const Slider = ({ onclose }) => {
     }
   };
   return (
-    <div ref={modelref} className='Slider-Container' >
-      <div className={"Slider-Window"}>
+    <div ref={modelref} className='Slider-Container' onClick={closeModal}>
+      <div className={pen?"Slider-Window":"Slider-WindowBlur"}>
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
             <h1 className='Slider-Heading1'>Veg Burger Pizza - 12345</h1>

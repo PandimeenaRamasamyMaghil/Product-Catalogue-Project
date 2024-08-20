@@ -10,6 +10,7 @@ import closeicon from "../../assets/images/closeicon.svg";
 import toggleround from "../../assets/images/toggleround.svg";
 import dollaricon from "../../assets/images/dollaricon.svg";
 import togglebtns from "../../assets/images/togglebtn.svg";
+import Slider from "../Slider/Slider"
 export const Menulisting = () => {
   const firstTableBodyRef = useRef(null);
   const secondTableBodyRef = useRef(null);
@@ -529,6 +530,21 @@ export const Menulisting = () => {
     }
   }, [listingobject.Dinein2, listingobject.Pickup2, listingobject.Delivery2]);
 
+const [modal,setmodal]=useState(false);
+  const handlemodal=()=>
+  {
+      setmodal(true);
+  }
+
+
+
+
+
+
+
+
+
+
   return (
     <div
       className="mainpagemenu"
@@ -661,7 +677,7 @@ export const Menulisting = () => {
                                 />
                                 <img src={apple} alt="" className="foodimage" />
                               </td>
-                              <td className="itemname2">{item.name}</td>
+                              <td className="itemname2" onClick={handlemodal}>{item.name}</td>
                               <td className="itemcode2">{item.code}</td>
                             </tr>
                           </React.Fragment>
@@ -1049,6 +1065,10 @@ export const Menulisting = () => {
               </tr>
             </tbody>
           </table>
+
+          {
+            modal && <Slider onclose={()=>setmodal(false)}/>
+          }
         </div>
       </div>
     </div>
