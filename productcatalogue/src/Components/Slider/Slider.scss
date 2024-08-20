@@ -86,14 +86,41 @@ margin-top: 30px;
     height: 20px;
     transform: translateY(3px);
   }
-  .PenBlurImage{
-    width:29px;
-    height: 29px;
-    padding: 4px;
-   border-radius: 19px;
-    background-color: white;
-      
+  .PenImage-Section{
+    position: relative;
+    cursor: pointer;
   }
+  .PenTool{
+    position: absolute;
+    visibility: hidden;
+    top: 11px;
+    right: 0px;
+    width: 59px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+  }
+  .PenTool-box{
+    width: 57px;
+    height: 33px;
+    border-radius: 8px;
+    padding: 4px;
+    background-color: rgba(103, 131, 62, 1);
+    color: white;
+
+  }
+  .PenImage-Section:hover .PenTool {
+    visibility: visible;
+    opacity: 1;
+}
+.ArrowHoverPen{
+
+  width: 10px;
+  height: 10px;
+  transform: translateY(4px);
+}
   .BinImageSection {
     position: relative;
     cursor: pointer;
@@ -129,6 +156,7 @@ margin-top: 30px;
 }
 
 .ArrowHoverDel {
+
     width: 10px;
     height: 10px;
 }

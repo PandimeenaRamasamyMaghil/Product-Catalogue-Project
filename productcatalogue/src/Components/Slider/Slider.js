@@ -17,10 +17,10 @@ import CustomizeSlider from './CustomizeSlider'
 import BasicChanges from './BasicChanges'
 
 const Slider = ({ onclose }) => {
-  
 
-  const[eye,setEye]=useState(false)
-  const[trash,setTrash]=useState(false)
+
+  const [eye, setEye] = useState(false)
+  const [trash, setTrash] = useState(false)
   const [active, setActive] = useState("Pricing")
   const modelref = useRef();
   const scrollRef = useRef(null); // Create a ref for the scrollable container
@@ -28,15 +28,15 @@ const Slider = ({ onclose }) => {
   const closeModal = (e) => {
     if (modelref.current === e.target)
       onclose();
-    }
+  }
 
   const handleItemClick = (item) => {
     setActive(item);
   };
-  const handleEyeClick=()=>{
+  const handleEyeClick = () => {
     setEye(true)
   }
-  const handleBinClick=()=>{
+  const handleBinClick = () => {
     setTrash(true)
   }
   const scrollToComponent = (componentName) => {
@@ -53,39 +53,43 @@ const Slider = ({ onclose }) => {
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
             <h1 className='Slider-Heading1'>Veg Burger Pizza - 12345</h1>
-            
+
             <div className='Slider-icons'>
-            
-              
-                  <div >
-                    <img src={Pen}  className={"PenImage"}   />
-                  </div>
-                
-                 
-              <img src={Eye} alt='hello' className='PenImage' onClick={handleEyeClick}/>
+
+
+              <div className='PenImage-Section'>
+                <img src={Pen} className={"PenImage"} />
+                <div className='PenTool'>
+                  <img src={ArrowHover} className='ArrowHoverPen' alt="hello" />
+                  <div className='PenTool-box'>Edit</div>
+                </div>
+              </div>
+
+
+              <img src={Eye} alt='hello' className='PenImage' onClick={handleEyeClick} />
               <div className='BinImageSection'>
-              
-              <img src={Bin} alt='hello' onClick={handleBinClick} className='BinImage'/>
-              <div className='DelTool'>
-            <img src={ArrowHover} className='ArrowHoverDel' alt="hello"/>
-            <div className='DelTool-box'>Delete</div>
-          </div>
+
+                <img src={Bin} alt='hello' onClick={handleBinClick} className='BinImage' />
+                <div className='DelTool'>
+                  <img src={ArrowHover} className='ArrowHoverDel' alt="hello" />
+                  <div className='DelTool-box'>Delete</div>
+                </div>
               </div>
             </div>
-            
+
           </div>
-           {eye?<EyeModal onEyeclose={()=>setEye(false)}/>:""}
-           {trash?<Trash onTrashclose={()=>setTrash(false)}/>:""} 
-           
-         </div>
-         
-         <div className='NavSlider-Component'>    
-         <NavSlider  eye={eye} trash={trash}/>
-         </div>
-        <div className='Basic-Component'>
-          <BasicChanges/>
+          {eye ? <EyeModal onEyeclose={() => setEye(false)} /> : ""}
+          {trash ? <Trash onTrashclose={() => setTrash(false)} /> : ""}
+
         </div>
-        
+
+        <div className='NavSlider-Component'>
+          <NavSlider eye={eye} trash={trash} />
+        </div>
+        <div className='Basic-Component'>
+          <BasicChanges />
+        </div>
+
       </div>
     </div>
   )
