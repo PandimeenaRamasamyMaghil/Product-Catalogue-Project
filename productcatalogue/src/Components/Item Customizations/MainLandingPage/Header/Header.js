@@ -64,7 +64,7 @@ const Header = () => {
 
       <div  onClick={()=>navigate("/Navigationpage/PrimaryDetails")} className={isExpanded?"Add-Item-Container1":"Add-Item-Container"}>
         <h3 className='Add-Item-Heading-Plus'>+</h3>
-        <h3 className='Add-Item-Heading' >Add Item</h3>
+        <h3 className='Add-Item-Heading' >Add Ite</h3>
         
 
       </div>
