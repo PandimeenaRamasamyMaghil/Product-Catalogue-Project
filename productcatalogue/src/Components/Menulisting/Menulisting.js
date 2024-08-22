@@ -940,10 +940,10 @@ const [showheadinglist, setshowheadinglist] = useState(false);
             >
               <tr>
                 <div className="tabletwobody">
-                  {nooftypes.map((itemobject, index) => {
+                  {nooftypes.map((itemobject, indexvalue) => {
                     return (
                       <div>
-                        {index === 1 && (
+                        {indexvalue === 1 && (
                           <div className="itemheading2">
                             {/* <img src={dots} alt="" /> */}
                             {/* Steamed-Veg(6) */}
@@ -959,9 +959,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
                             )} */}
                              
                             <tr
-                              className={`tabletwobodyrow   ${index===0?"borderforrow1":"borderforrow2"} ${
+                              className={`tabletwobodyrow   ${itemobject.id===1  && indexvalue===0 && index===0?"borderforrow1":"borderforrow2"} ${
                                 draggingOverIndex === index ? "selected" : ""
-                              }   ${itemobject.id===2 && index==0 && "secondpartborder" }`}
+                              }   ${itemobject.id===2 && indexvalue===0 && index==0 ? "secondpartborder":'secondpartborder1' }  ${itemobject.id===1 && index==1 ? "firstpartborder":'firstpartborder1' }`}
                             >
                               <td className="eachobject">
                                 {Object.entries(item.pricingdetails || {}).map(
