@@ -364,17 +364,20 @@ const PricingDetails = () => {
 
         {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState} /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />}
 
-        <div className= {isExpanded? "buttoncomponentpricing": "buttoncomponentpricing1"}  >
-          <div className= {isExpanded? "saveandnextPricing": "saveandnextPricing1"}       >
+        
+      </div>
+      <div className= {isExpanded? "buttoncomponentpricing": "buttoncomponentpricing1"}  >
+          <div className= {isExpanded? "saveandnextPricing": "saveandnextPricing1"}>
+            <div className={isExpanded? "Button-SaveExtended": "Button-Save"}>
             <button className="clearallPricing">
               Clear All
             </button>
             <button className="link saveall" onClick={dispatchEvent}>
               Save & next
             </button>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

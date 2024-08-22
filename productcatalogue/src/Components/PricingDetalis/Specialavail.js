@@ -379,7 +379,7 @@ const [dinein, setDineIn] = useState(true);
                 <div className='PickupSection'>
                 {pickup ?
                  <div>
-                   <p className='LabelPrice'> Price*</p>
+                   <p className='LabelPriceSpecial'> Price*</p>
                    <div className='PickupInput11'>
                     <input type="text" className='DineInInput1' value={form.Pickupprice}  onChange={(e) => setForm({ ...form,"Pickupprice":e.target.value })} ></input>
                    <div className='PickDrop5'>
