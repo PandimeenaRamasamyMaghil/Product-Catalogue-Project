@@ -6,6 +6,7 @@ import NotFound from '../../../../assets/images/NotFound.svg'
 import { Contextpagejs } from '../../../contextpage'
 
 const SearchBox = () => {
+
  
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -92,9 +93,10 @@ const SearchBox = () => {
   }
 
 
+
   return (
     
-    <div className='Search-Container'>
+    <div className={"Search-Container"}>
       <div>
     
     <input className=  {`${isExpanded? "Header-Search1":"Header-Search"}`}  value={searchTerm} placeholder='Search' onChange={handleSearch}  onKeyDown={handleKeyDown} type="text" />
