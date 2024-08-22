@@ -36,3 +36,63 @@
     transform: rotate(360deg);
   }
 } */
+/* .columns-container {
+  display: flex;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.column {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.items-container {
+  padding: 10px;
+}
+
+.item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.eachobject
+      {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      } */
+
+
+      /* App.css */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+tr {
+  cursor: move;
+}
+
+.dragging {
+  border: 2px solid red;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9; /* Optional: Highlight the background of the dragged row */
+}
