@@ -103,7 +103,7 @@ const SearchBox = () => {
     <img  className=  {`${isExpanded?"SerchIcon-Header1":"SerchIcon-Header"}`}  src={searchIcon} alt="" />
     </div>
 
-    <div className='Search-Container-options'>
+    <div className={ isExpanded?"Search-Container-options1":'Search-Container-options'}>
 
     {searchTerm && (
         <ul>
@@ -116,11 +116,11 @@ const SearchBox = () => {
 
             
             >
-              <div className='Search-Container-options-items' >{option}</div>
+              <div className={isExpanded?'Search-Container-options1-items':"Search-Container-options-items"} >{option}</div>
             </li>
           ))): !optionSelected && (
 
-          <div className='Search-Container-options-none'>
+          <div className={isExpanded?'Search-Container-options1-none':'Search-Container-options-none'}>
             <div className='Search-Container-options-none-flex-direction'>
             <img className="NotFoundImage"src={NotFound} alt="" />
             <h3 className='heading-none'>No Results Found</h3>
