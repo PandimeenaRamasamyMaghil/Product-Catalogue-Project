@@ -21,7 +21,7 @@ import Step3Review from "./Step3Review";
 const Reviewpage = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
   const primarydata = useSelector((state) => state.primarypage.data);
   const fetchedprimarydata = primarydata;
   console.log("fetchedprimarydata",fetchedprimarydata);
@@ -419,7 +419,7 @@ KitchenStationId?.KitchenStationId||[],
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center" ,marginLeft:'20px'}}>
           <Step2 />
           <div className="verticalLine" />
           <Step3Review />
@@ -428,7 +428,7 @@ KitchenStationId?.KitchenStationId||[],
       </div>
       <div className="buttoncomponentreview">
       <div className="saveandnextreview">
-        <button className="clearall" >
+        <button    className={`${isExpanded?"clearall1":"clearall"}`}  >
           Cancel
         </button>
         <button className="saveall" onClick={()=> dispatch(ApiPost(data))} >
