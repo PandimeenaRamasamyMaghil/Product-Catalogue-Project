@@ -73,12 +73,32 @@
 
   
 }
+.Search-Container-options1{
+  width: 500.57px;//  transform: translateY(-30px);
+  // border: 2px solid red;
+  background-color: #FFFFFF;
+  // border: 1px solid #00000040;
+  // box-shadow: 0px 10px 15px -6px #00000040;
+  height: auto;
+  padding-left: 20px;
+  box-shadow: 0px 10px 15px -6px #00000040;
+  transform: translateY(1px);
+
+
+
+
+}
 
 .Search-Container-options ul{
     list-style: none;
     cursor: pointer;
     
     }
+    .Search-Container-options1 ul{
+      list-style: none;
+      cursor: pointer;
+      
+      }
 
 .Search-Container-options-items{
     width: 506.57px;
@@ -98,6 +118,24 @@
 
 }
 
+.Search-Container-options1-items{
+  width: 450px;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 54px;
+  color: #000000;
+ 
+  margin-left: 25 px;
+  margin-top: 20px;
+  height: 54px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  padding-bottom: 30px;
+  transform: translateY(-4px);
+
+}
+
 .Search-Container-options ul li:hover{
     width: 550px;
     background-image: linear-gradient(to left, #D9D9D9 99%, #67833E 2%);
@@ -109,8 +147,20 @@
   
 
 }
-.highlighted{
-    width: 550px;
+
+.Search-Container-options1 ul li:hover{
+  width: 450px;
+  background-image: linear-gradient(to left, #D9D9D9 99%, #67833E 2%);
+  border-top-right-radius: 25px; 
+ border-bottom-right-radius: 25px;
+ border-top-left-radius: 0;  /* Keeps the top-left corner square */
+border-bottom-left-radius: 0; 
+height: 54px;
+
+
+}
+.Search-Container-options1 .highlighted{
+    width: 449px;
     background-image: linear-gradient(to left, #D9D9D9 99%, #67833E 2%);
     border-top-right-radius: 25px; 
    border-bottom-right-radius: 25px;
@@ -120,6 +170,20 @@
   
 
 }
+
+
+.highlighted{
+  width: 550px;
+  background-image: linear-gradient(to left, #D9D9D9 99%, #67833E 2%);
+  border-top-right-radius: 25px; 
+ border-bottom-right-radius: 25px;
+ border-top-left-radius: 0;  /* Keeps the top-left corner square */
+border-bottom-left-radius: 0; 
+height: 45px;
+
+
+}
+
 
 
 // {******************************Search Container None*******************************************}
@@ -140,7 +204,22 @@
 
 
 }
+.Search-Container-options1-none{
+  width: 500.57px;
+  height: 407px;
+   border: 2px solid red;
+   background-color: #FFFFFF;
+   border: 1px solid #00000040;
+   box-shadow: 0px 10px 15px -6px #00000040;
+   transform: translate(-20px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: -10px;
+   
 
+
+}
 .Search-Container-options-none-flex-direction{
   display: flex;
   flex-direction: column;
