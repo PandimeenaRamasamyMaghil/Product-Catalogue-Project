@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef ,useContext} from "react";
 import "./Menulisting.scss";
 import dots from "../../assets/images/dots.svg";
 import dollar from "../../assets/images/dollar.svg";
@@ -11,6 +11,7 @@ import toggleround from "../../assets/images/toggleround.svg";
 import dollaricon from "../../assets/images/dollaricon.svg";
 import togglebtns from "../../assets/images/togglebtn.svg";
 import Slider from "../Slider/Slider"
+import { Contextpagejs } from '../contextpage'
 
 
 export const Menulisting = () => {
@@ -20,7 +21,7 @@ export const Menulisting = () => {
 
 
 
-
+  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
   const [togglebtn, settogglebtn] = useState(false);
   const [draggedIndexsample, setDraggedIndexsample] = useState(null);
   const containerReff = useRef(null);
@@ -519,7 +520,8 @@ const [showheadinglist, setshowheadinglist] = useState(false);
 
 
   return (
-    <div className="mainpagemenu" >
+    <div           className={`${isExpanded?"mainpagemenu1":"mainpagemenu"}`}  >
+  
       <div className="headercomponent">
         <Header />
       </div>
@@ -639,7 +641,7 @@ const [showheadinglist, setshowheadinglist] = useState(false);
             </tbody>
           </table>
         </div>
-        <div className="secondtable">
+        <div          className={`${isExpanded?"secondtable1":"secondtable"}`}>
           <table>
             <thead>
               <div className="headaadbtnclass">

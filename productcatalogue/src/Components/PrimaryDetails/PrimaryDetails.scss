@@ -26,7 +26,7 @@ margin-top: 170px;
 position: fixed;
 left: 300px;
 
-// border: 1px solid red;
+border: 1px solid red;
 //  margin-left:-335px ;
   flex-direction: column;
   height: 35.125rem;
@@ -46,11 +46,11 @@ margin-top: 170px;
 
 // left: 300px;
 position: relative;
-// border: 1px solid red;
+border: 1px solid red;
  margin-left:-335px ;
   flex-direction: column;
   height: 35.125rem;
-  width: 100%;
+  width: 98%;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;

@@ -39,7 +39,7 @@ const Landingpage = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "row", width: "90%" }}>
+    <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
       {belowMinWidth ? (
         <div className="warning-message">
           Your screen width is below the minimum width of {MIN_WIDTH}px. Please
@@ -52,14 +52,14 @@ const Landingpage = () => {
           {/* <Header/> */}
           {/* <Pricingpage/> */}
 
-          <Menulisting />
+          {/* <Menulisting /> */}
 {/* 
          */}
    {/* <Menupage/>  */}
 
           {/* <Dragging/> */}
 
-           {/* <Routes>
+           <Routes>
           <Route path="/" element={<Menulisting />} />
           <Route path="/Reviewpage" element={<Reviewpage />} />
           <Route path="/Primary" element={<Primary />} />
@@ -75,7 +75,7 @@ const Landingpage = () => {
 
 
         </Routes> 
-        */}
+       
         </>
       )}
     </div>
