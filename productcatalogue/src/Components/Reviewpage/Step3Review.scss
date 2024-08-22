@@ -3,7 +3,7 @@
 .step3-Review-Container{
     position: absolute;
     top:720px;
-    left: 550px;
+    left: 600px;
     width: 600px;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
     // border: 2px solid green;
     display: flex;
     justify-content: flex-start;
-    gap: 260px;
+    gap: 200px;
 
     
    
@@ -37,7 +37,7 @@
 .step3-Review-img-edit-Container{
     display: flex;
     justify-content: flex-start;
-    gap: 2px;
+    gap: 0px;
    text-decoration: none;
 }
 
@@ -153,7 +153,8 @@
     line-height: 21px;
     position: relative;
  
-    margin-left: 0px;
+    margin-left: -12px;
+    margin-top: -2px;
     
 
 }
