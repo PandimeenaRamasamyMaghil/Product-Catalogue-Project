@@ -9,6 +9,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 2%;
 
 }
 
@@ -23,7 +24,7 @@
 
 .mainlistpage
 {
-  width: 90%;
+  width: 93%;
   height: 600px;
   // border: 1px solid red;
 //  margin-top:120px ;
@@ -32,7 +33,7 @@ position: relative;
   display: flex;
   flex-direction: row;
   margin-left: -25px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .mainlistpage1
 {
@@ -45,7 +46,7 @@ position: relative;
   display: flex;
   flex-direction: row;
   margin-left: -25px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
  
   .firsttable
@@ -226,14 +227,14 @@ position: relative;
     height: 102%;
     overflow-x: auto;
     // overflow-y: hidden;
-    border:1px solid blue;
+    // border:1px solid blue;
     margin-left: -5px;
      margin-top: 0.1%;
   }
   .secondtable1
   {
 
-    width: 880px;
+    width: 950px;
     height: 102%;
     overflow-x: auto;
     // overflow-y: hidden;
