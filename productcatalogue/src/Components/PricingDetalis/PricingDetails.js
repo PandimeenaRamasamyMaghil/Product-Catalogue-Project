@@ -232,7 +232,7 @@ const PricingDetails = () => {
 
   
   return (
-    <div className="pricingdetails-container">
+    <div className={isExpanded?"pricingdetails-container":"pricingdetails-containerExpanded"}>
       <div className='pricing-form'>
         <div className='Tool'>
           <p className='KitchenRelatedHeading'>Kitchen Related</p>

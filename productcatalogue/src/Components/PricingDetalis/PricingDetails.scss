@@ -4,14 +4,30 @@
 }
 .pricingdetails-container{
    
-    position: relative;
+    position: absolute;
     top: 150px;
-    margin-left:-325px ;
+    margin-left:300px ;
     overflow-x: hidden;
     height: 570px;
-    width: 100%;
+    width: 1200px;
     // border: 1px solid red;
     overflow-y: auto;
+    
+   
+
+   
+}
+.pricingdetails-containerExpanded{
+   
+    position: absolute;
+    top: 150px;
+    margin-left:100px ;
+    overflow-x: hidden;
+    height: 570px;
+    width: 1400px;
+    // border: 1px solid red;
+    overflow-y: auto;
+    
    
 
    
@@ -476,5 +492,8 @@ font-weight: 500;
     text-decoration: none;
 }
  .Button-Save{
-    margin-left: 180px;
+    margin-left: 380px;
+ }
+ .Button-SaveExtended{
+    margin-left: 100px;
  }
