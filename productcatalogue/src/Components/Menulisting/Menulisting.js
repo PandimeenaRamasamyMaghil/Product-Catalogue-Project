@@ -11,26 +11,88 @@ import toggleround from "../../assets/images/toggleround.svg";
 import dollaricon from "../../assets/images/dollaricon.svg";
 import togglebtns from "../../assets/images/togglebtn.svg";
 import Slider from "../Slider/Slider"
+
+
 export const Menulisting = () => {
+
+
+
+
+
+
+
+  const [togglebtn, settogglebtn] = useState(false);
+  const [draggedIndexsample, setDraggedIndexsample] = useState(null);
+  const containerReff = useRef(null);
   const firstTableBodyRef = useRef(null);
   const secondTableBodyRef = useRef(null);
   const [hovertext, sethovertext] = useState({
     index: null,
     name: null,
   });
+  const [draggedRowIndex, setDraggedRowIndex] = useState({
+    objectId: null,
+    index: null,
+  });
+  const [draggingOverIndex, setDraggingOverIndex] = useState(null);
+  const [modal,setmodal]=useState(false);
+const containerRef = useRef(null);
 
-  const handleScroll = (source) => {
-    const firstTableBody = firstTableBodyRef.current;
-    const secondTableBody = secondTableBodyRef.current;
+const [showheadinglist, setshowheadinglist] = useState(false);
+  const [classNames, setclassNames] = useState([
+    "Dinein1-class",
+    "Pickup1-class",
+    "Delivery1-class",
+    "Dinein2-class",
+    "Pickup2-class",
+    "Delivery2-class",
+    "Inventory1-class",
+    "Customize1-class",
+  ]);
+  const [classNamesinner, setclassNamesinner] = useState([
+    "Dinein1",
+    "Pickup1",
+    "Delivery1",
+    "Dinein2",
+    "Pickup2",
+    "Delivery2",
+    "Inventory1",
+    "Customize1",
+  ]);
+  const [listingobject, setlistingobject] = useState({
+    showPricing: true,
+    Dinein1: true,
+    Pickup1: true,
+    Delivery1: true,
+    showavail: true,
+    Dinein2: true,
+    Pickup2: true,
+    Delivery2: true,
+    Inventory1: true,
+    Customize1: true,
+  });
 
-    if (source === "first") {
-      secondTableBody.scrollTop = firstTableBody.scrollTop;
-    } else if (source === "second") {
-      firstTableBody.scrollTop = secondTableBody.scrollTop;
-    }
+  const insertlists = {
+    Pricing: {
+      show: "Pricing",
+      dinein: "Dine-in",
+      pickup: "Pickup",
+      Delivery: "Delivery",
+    },
+    Available: {
+      show: "Available",
+      dinein: "Dine-in",
+      pickup: "Pickup",
+      Delivery: "Delivery",
+    },
+    Inventory: "Inventory",
+    Customization: "Customization",
   };
 
-  const [togglebtn, settogglebtn] = useState(false);
+
+
+
+
 
   const [firstRowTable, setFirstRowTable] = useState([
     { label: "Dinein1" },
@@ -44,26 +106,27 @@ export const Menulisting = () => {
   ]);
 
   const [secondRowTable, setSecondRowTable] = useState([
-    ["Ac", "Nonac"], // Subheaders for Dinein
-    ["Inhouse", "Swiggy", "Zomato"], // Subheaders for Pickup
-    ["Inhouse", "Swiggy", "Zomato"], // Subheaders for Delivery
-    ["Ac", "Nonac"], // Subheaders for another Dinein
-    ["Inhouse", "Swiggy", "Zomato"], // Subheaders for Pickup
-    ["Inhouse", "Swiggy", "Zomato"], // Subheaders for Delivery
-    ["Total", "Threshold"], // Subheaders for Inventory
-    [""], // Subheaders for Customize
+    ["Ac", "Nonac"],
+    ["Inhouse", "Swiggy", "Zomato"], 
+    ["Inhouse", "Swiggy", "Zomato"], 
+    ["Ac", "Nonac"], 
+    ["Inhouse", "Swiggy", "Zomato"], 
+    ["Inhouse", "Swiggy", "Zomato"], 
+    ["Total", "Threshold"], 
+    [""],
   ]);
 
-  const [selecteddragIndex, setselecteddragIndex] = useState(null);
+
 
   const truncateString = (str, length) => {
     return str.length > length ? str.substring(0, length) : str;
   };
 
+
   const [items, setitems] = useState([
     {
       id: 1,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString("dosa", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$100", "$100"],
@@ -79,7 +142,7 @@ export const Menulisting = () => {
 
     {
       id: 3,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString(" Mushroo", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$400", "$600"],
@@ -94,7 +157,7 @@ export const Menulisting = () => {
     },
     {
       id: 4,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString("Creamy", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$400", "$600"],
@@ -109,7 +172,7 @@ export const Menulisting = () => {
     },
     {
       id: 5,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString("idly Mushroo", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$400", "$600"],
@@ -155,7 +218,7 @@ export const Menulisting = () => {
   ]);
   const [itemsfood, setitemsfood] = useState([
     {
-      id: 1,
+      id: 11,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -171,7 +234,7 @@ export const Menulisting = () => {
     },
 
     {
-      id: 3,
+      id: 31,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -186,7 +249,7 @@ export const Menulisting = () => {
       },
     },
     {
-      id: 4,
+      id: 41,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -201,7 +264,7 @@ export const Menulisting = () => {
       },
     },
     {
-      id: 5,
+      id: 51,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -216,7 +279,7 @@ export const Menulisting = () => {
       },
     },
     {
-      id: 2,
+      id: 21,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -231,7 +294,7 @@ export const Menulisting = () => {
       },
     },
     {
-      id: 2,
+      id: 21,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -246,6 +309,7 @@ export const Menulisting = () => {
       },
     },
   ]);
+
 
   const [nooftypes, setnooftypes] = useState([
     {
@@ -258,59 +322,25 @@ export const Menulisting = () => {
     },
   ]);
 
-  const initialColumnsOrder = [
-    "DineIn1",
-    "Pickup1",
-    "Delivery1",
-    "DineIn2",
-    "Pickup2",
-    "Delivery2",
-    "Inventory",
-    "Customize",
-  ];
-  const [initialselect, setinitialselect] = useState({
-    DineIn1: true,
-    Pickup1: true,
-    Delivery1: true,
-    DineIn2: true,
-    Pickup2: true,
-    Delivery2: true,
-    Inventory: true,
-    Customize: true,
-  });
 
-  const [draggedIndex, setDraggedIndex] = useState(null);
 
-  const [draggedColumn, setDraggedColumn] = useState(null);
-  const [draggedIndexsample, setDraggedIndexsample] = useState(null);
 
-  const [classNames, setclassNames] = useState([
-    "Dinein1-class",
-    "Pickup1-class",
-    "Delivery1-class",
-    "Dinein2-class",
-    "Pickup2-class",
-    "Delivery2-class",
-    "Inventory1-class",
-    "Customize1-class",
-  ]);
-  const [classNamesinner, setclassNamesinner] = useState([
-    "Dinein1",
-    "Pickup1",
-    "Delivery1",
-    "Dinein2",
-    "Pickup2",
-    "Delivery2",
-    "Inventory1",
-    "Customize1",
-  ]);
 
-  // const handleDragStart = (index) => {
-  //   setDraggedIndex(index); // Set the starting index of the drag
-  // };
-  const handleDragStart = (index) => {
-    setDraggedIndexsample(index);
+
+  
+
+  const handleScroll = (source) => {
+    const firstTableBody = firstTableBodyRef.current;
+    const secondTableBody = secondTableBodyRef.current;
+
+    if (source === "first") {
+      secondTableBody.scrollTop = firstTableBody.scrollTop;
+    } else if (source === "second") {
+      firstTableBody.scrollTop = secondTableBody.scrollTop;
+    }
   };
+
+
   const handledragvegnonvegdragstart = (e, index) => {
     setDraggedRowIndex(index);
   };
@@ -322,59 +352,39 @@ export const Menulisting = () => {
     e.preventDefault();
     const updatedRows = [...nooftypes];
     const draggedRow = updatedRows[draggedRowIndex];
-
-    // Remove the dragged item and insert it at the new position
     updatedRows.splice(draggedRowIndex, 1);
     updatedRows.splice(index, 0, draggedRow);
-
     setnooftypes(updatedRows);
     console.log("nooftypes", nooftypes);
-    setDraggedRowIndex(null); // Reset drag index
+    setDraggedRowIndex(null); 
   };
+ 
 
-  const handleDragOver = (index) => {
+  const handleColumnwiseDragStart = (index) => {
+    setDraggedIndexsample(index);
+  };
+  const handleColumnwiseDragOver = (index) => {
     if (draggedIndexsample !== index) {
-      // Update header arrays
       const updatedFirstRowTable = [...firstRowTable];
       const updatedSecondRowTable = [...secondRowTable];
       const updatedclassnames = [...classNames];
       const updatedclassinnerdatanames = [...classNamesinner];
       const updatedItems = [...nooftypes];
-
-      // Extract item arrays
-      const item1 = updatedItems[0].name || []; // Default to empty array if undefined
-      const item2 = updatedItems[1].name || []; // Default to empty array if undefined
-
-      // Reorder headers and subheaders
+      const item1 = updatedItems[0].name || []; 
+      const item2 = updatedItems[1].name || []; 
       const draggedItem = updatedFirstRowTable[draggedIndexsample];
       const draggedSubheader = updatedSecondRowTable[draggedIndexsample];
       const draggedclassname = updatedclassnames[draggedIndexsample];
       const draggedclassinnerdata =
-        updatedclassinnerdatanames[draggedIndexsample];
-
+      updatedclassinnerdatanames[draggedIndexsample];
       updatedFirstRowTable.splice(draggedIndexsample, 1);
       updatedFirstRowTable.splice(index, 0, draggedItem);
-
       updatedSecondRowTable.splice(draggedIndexsample, 1);
       updatedSecondRowTable.splice(index, 0, draggedSubheader);
-
       updatedclassnames.splice(draggedIndexsample, 1);
       updatedclassnames.splice(index, 0, draggedclassname);
-
       updatedclassinnerdatanames.splice(draggedIndexsample, 1);
       updatedclassinnerdatanames.splice(index, 0, draggedclassinnerdata);
-
-      // Reorder item1 and item2 arrays
-      const draggedHeader = item1[draggedIndexsample];
-      const draggedHeader2 = item2[draggedIndexsample];
-
-      item1.splice(draggedIndexsample, 1);
-      item1.splice(index, 0, draggedHeader);
-
-      item2.splice(draggedIndexsample, 1);
-      item2.splice(index, 0, draggedHeader2);
-
-      // Update pricing details
       const updatePricingDetails = (itemsArray, index) => {
         return itemsArray.map((item) => {
           if (item && item.pricingdetails) {
@@ -394,14 +404,11 @@ export const Menulisting = () => {
               pricingdetails: updatedPricingDetails,
             };
           }
-          return { ...item }; // Return item unchanged if not valid
+          return { ...item }; 
         });
       };
-
       const updatednooftypes = updatePricingDetails(item1, index);
       const updatednooftypes1 = updatePricingDetails(item2, index);
-
-      // Update state
       setFirstRowTable(updatedFirstRowTable);
       setSecondRowTable(updatedSecondRowTable);
       setclassNames(updatedclassnames);
@@ -410,91 +417,62 @@ export const Menulisting = () => {
         { ...updatedItems[0], name: updatednooftypes },
         { ...updatedItems[1], name: updatednooftypes1 },
       ]);
-
       setDraggedIndexsample(index);
     }
   };
-
-  const handleDragEnd = () => {
+  const handleColumnwiseDragEnd = () => {
     setDraggedIndexsample(null);
   };
 
-  const [draggedRowIndex, setDraggedRowIndex] = useState({
-    objectId: null,
-    index: null,
-  });
-  const [draggingOverIndex, setDraggingOverIndex] = useState(null);
+
 
   const handleRowDragStart = (objectId, index) => {
-    setDraggedRowIndex({ objectId, index });
+    setDraggedRowIndex({ objectId, index }); 
   };
-
+ 
+ 
   const handleRowDragOver = (objectId, index) => {
-    if (draggedRowIndex.objectId === null || draggedRowIndex.index === null) {
+    if (draggedRowIndex.objectId === null || draggedRowIndex.index === null) { 
       return;
     }
-
     const draggedObjectId = draggedRowIndex.objectId;
     const draggedIndex = draggedRowIndex.index;
-
     if (draggedObjectId === objectId && draggedIndex !== index) {
       setDraggingOverIndex(index);
       const updatedTypes = [...nooftypes];
       const currentObject = updatedTypes.find((item) => item.id === objectId);
-
+      const indexofvalue = nooftypes.findIndex(item => item.id === objectId);
       if (currentObject) {
-        const updatedItems = [...currentObject.name];
-        const draggedItem = updatedItems[draggedIndex];
+        // const updatedItems = [...currentObject.name];
+        // const draggedItem = updatedItems[draggedIndex];
+        // console.log(currentObject)
 
-        // Remove dragged item and insert it at the new position
-        updatedItems.splice(draggedIndex, 1);
-        updatedItems.splice(index, 0, draggedItem);
+        // // Remove dragged item and insert it at the new position
+        // updatedItems.splice(draggedIndex, 1);
+        // updatedItems.splice(index, 0, draggedItem);
 
-        // Update the object in nooftypes
-        currentObject.name = updatedItems;
+        // // Update the object in nooftypes
+        // currentObject.name = updatedItems;
 
-        // Update state
+        // // Update state
+        const updatednooftypes=[...nooftypes[indexofvalue].name]
+        const draggingitme=updatednooftypes[draggedIndex];
+        updatednooftypes.splice(draggedIndex,1);
+        updatednooftypes.splice(index,0,draggingitme)
+        console.log("indexofvalue",updatednooftypes)
+        updatedTypes[indexofvalue].name=updatednooftypes;
         setnooftypes(updatedTypes);
         setDraggedRowIndex({ objectId, index });
       }
     }
   };
-
-  // Handle row drag end
   const handleRowDragEnd = () => {
     setDraggedRowIndex({ objectId: null, index: null });
     setDraggingOverIndex(null);
   };
-  const [listingobject, setlistingobject] = useState({
-    showPricing: true,
-    Dinein1: true,
-    Pickup1: true,
-    Delivery1: true,
-    showavail: true,
-    Dinein2: true,
-    Pickup2: true,
-    Delivery2: true,
-    Inventory1: true,
-    Customize1: true,
-  });
-
-  const insertlists = {
-    Pricing: {
-      show: "Pricing",
-      dinein: "Dine-in",
-      pickup: "Pickup",
-      Delivery: "Delivery",
-    },
-    Available: {
-      show: "Available",
-      dinein: "Dine-in",
-      pickup: "Pickup",
-      Delivery: "Delivery",
-    },
-    Inventory: "Inventory",
-    Customization: "Customization",
-  };
-  const [showheadinglist, setshowheadinglist] = useState(false);
+ 
+  
+ 
 
   useEffect(() => {
     if (
@@ -530,31 +508,21 @@ export const Menulisting = () => {
     }
   }, [listingobject.Dinein2, listingobject.Pickup2, listingobject.Delivery2]);
 
-const [modal,setmodal]=useState(false);
+
   const handlemodal=()=>
   {
       setmodal(true);
   }
 
-
-
-
-
-
-
-
+  
+  
 
 
   return (
-    <div
-      className="mainpagemenu"
-      style={{ display: "flex", flexDirection: "column" }}
-    >
+    <div className="mainpagemenu" >
       <div className="headercomponent">
-        {" "}
         <Header />
       </div>
-
       <div className="mainlistpage">
         <div className="firsttable">
           <table>
@@ -564,16 +532,10 @@ const [modal,setmodal]=useState(false);
                   <th className="itemimage">Image</th>
                   <th className="itemname">Item name</th>
                   <th className="itemcode">
-                    <p>
-                      Code
+                    <p>Code   
                       <button
-                        style={{
-                          width: "23px",
-                          height: "25px",
-                        }}
                         onClick={() => setshowheadinglist(true)}
-                        className=".span"
-                      >
+                        className="span">
                         <span> +</span>
                       </button>
                     </p>
@@ -581,39 +543,26 @@ const [modal,setmodal]=useState(false);
                 </tr>
               </div>
             </thead>
-            <tbody>
+            <tbody  >
               <div
                 ref={firstTableBodyRef}
                 className="table-body"
-                onScroll={() => handleScroll("first")}
-              >
-                {}
-
+                onScroll={() => handleScroll("first")}>
                 <tr>
                   {nooftypes.map((object, index) => (
                     <div key={object.id}>
-                      <div
-                        className={`${
-                          index === 0 ? "firsttablebody" : "firsttablebody"
-                        }`}
-                      >
+                      <div className="firsttablebody" >
                         {object.id === 1 && (
-                          <div
-                            className={`${
-                              index === 0 ? "itemheadingtwo" : "itemheading"
-                            }`}
-                          >
+                          <div className={`${  index === 0 ? "itemheading" : "itemheadingtwo"   }`} >
                             <img
                               src={dots}
                               alt=""
                               draggable
-                              onDragStart={(e) =>
-                                handledragvegnonvegdragstart(e, index)
-                              }
+                              onDragStart={(e) => handledragvegnonvegdragstart(e, index)} 
                               onDragOver={handledragvegnonvegdropover}
-                              onDrop={(e) =>
-                                handledragvegnonvegdropend(e, index)
-                              }
+                              onDrop={(e) =>  handledragvegnonvegdropend(e, index)}
+                               
+                              
                             />
                             Steamed-Veg(6)
                           </div>
@@ -621,7 +570,7 @@ const [modal,setmodal]=useState(false);
                         {object.id === 2 && (
                           <div
                             className={`${
-                              index === 0 ? "itemheadingtwo" : "itemheading"
+                              index === 1 ? "itemheadingtwo":" itemheading " 
                             }`}
                           >
                             <img
@@ -641,7 +590,7 @@ const [modal,setmodal]=useState(false);
                         )}
 
                         {object.name.map((item, index) => (
-                          <React.Fragment key={index}>
+                          <React.Fragment key={index} ref={containerRef}>
                             {draggingOverIndex === index && (
                               <tr className="placeholderplace"></tr>
                             )}
@@ -655,8 +604,8 @@ const [modal,setmodal]=useState(false);
                               }
                               onDragEnd={handleRowDragEnd}
                               className={`itemdetails ${
-                                selecteddragIndex?.index === index &&
-                                selecteddragIndex?.objectId === object.id
+                                draggedRowIndex?.index === index
+                               
                                   ? "selected"
                                   : ""
                               }`}
@@ -665,14 +614,14 @@ const [modal,setmodal]=useState(false);
                                 <img
                                   src={dots}
                                   alt=""
-                                  draggable
-                                  onDragStart={() =>
-                                    handleRowDragStart(object.id, index)
-                                  }
-                                  onDragOver={() =>
-                                    handleRowDragOver(object.id, index)
-                                  }
-                                  onDragEnd={handleRowDragEnd}
+                                  // draggable
+                                  // onDragStart={() =>
+                                  //   handleRowDragStart(object.id, index)
+                                  // }
+                                  // onDragOver={() =>
+                                  //   handleRowDragOver(object.id, index)
+                                  // }
+                                  // onDragEnd={handleRowDragEnd}
                                   className="draggableimg"
                                 />
                                 <img src={apple} alt="" className="foodimage" />
@@ -721,12 +670,12 @@ const [modal,setmodal]=useState(false);
                               }
                             />
                             <span>
-                              {insertlists.Pricing.show}{" "}
+                              {insertlists.Pricing.show}
                               <img
                                 src={dollaricon}
                                 alt=""
                                 className="dollaricon"
-                              />{" "}
+                              />
                             </span>
                           </div>
                           <ul className="indenttexts">
@@ -826,10 +775,7 @@ const [modal,setmodal]=useState(false);
                                       ...listingobject,
                                       Pickup2: !listingobject.Pickup2,
                                     });
-                                    setinitialselect({
-                                      ...initialselect,
-                                      Pickup2: !initialselect.Pickup2,
-                                    });
+                                    
                                   }}
                                 />
                                 <span>{insertlists.Available.pickup}</span>{" "}
@@ -845,10 +791,7 @@ const [modal,setmodal]=useState(false);
                                       ...listingobject,
                                       Delivery2: !listingobject.Delivery2,
                                     });
-                                    setinitialselect({
-                                      ...initialselect,
-                                      Delivery2: !initialselect.Delivery2,
-                                    });
+                                    
                                   }}
                                 />
                                 <span>{insertlists.Available.Delivery}</span>{" "}
@@ -910,9 +853,9 @@ const [modal,setmodal]=useState(false);
                                 src={dots}
                                 alt=""
                                 draggable
-                                onDragStart={() => handleDragStart(index)}
-                                onDragOver={() => handleDragOver(index)}
-                                onDragEnd={handleDragEnd}
+                                onDragStart={() => handleColumnwiseDragStart(index)}
+                                onDragOver={() => handleColumnwiseDragOver(index)}
+                                onDragEnd={handleColumnwiseDragEnd}
                               />
                             </span>{" "}
                             {header.label !== "Inventory1" &&
@@ -925,7 +868,6 @@ const [modal,setmodal]=useState(false);
                                   ) : (
                                     <img src={dollar} alt="" />
                                   )}
-                                  {/* <img src={dollar} alt="" /> */}
                                 </span>
                               )}
                             <span className="spanheadertext">
@@ -996,7 +938,7 @@ const [modal,setmodal]=useState(false);
             >
               <tr>
                 <div className="tabletwobody">
-                  {nooftypes.map((item, index) => {
+                  {nooftypes.map((itemobject, index) => {
                     return (
                       <div>
                         {index === 1 && (
@@ -1008,16 +950,16 @@ const [modal,setmodal]=useState(false);
                         
                        
 
-                        {item.name.map((item, index) => (
+                        {itemobject.name.map((item, index) => (
                           <React.Fragment key={index}>
-                             {draggingOverIndex === index && (
+                             {/* {draggingOverIndex === index && (
                               <tr className="placeholderplace" style={{backgroundColor:'red'}}></tr>
-                            )}
+                            )} */}
                              
                             <tr
-                              className={`tabletwobodyrow ${
-                                selecteddragIndex === index ? "selected" : ""
-                              }`}
+                              className={`tabletwobodyrow   ${index===0?"borderforrow1":"borderforrow2"} ${
+                                draggingOverIndex === index ? "selected" : ""
+                              }   ${itemobject.id===2 && index==0 && "secondpartborder" }`}
                             >
                               <td className="eachobject">
                                 {Object.entries(item.pricingdetails || {}).map(
@@ -1073,4 +1015,4 @@ const [modal,setmodal]=useState(false);
       </div>
     </div>
   );
-};
+}

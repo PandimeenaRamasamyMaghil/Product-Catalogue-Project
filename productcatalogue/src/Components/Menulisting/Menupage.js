@@ -1,15 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./Menupage.scss";
+import "./Menulisting.scss";
 import dots from "../../assets/images/dots.svg";
 import dollar from "../../assets/images/dollar.svg";
 import removeicon from "../../assets/images/removeicon.svg";
 import apple from "../../assets/images/ingredientimages/fish.svg";
+
+
+
+
 import Toggle from "../Toggle/Toggle";
 import Header from "../Item Customizations/MainLandingPage/Header/Header";
 import closeicon from "../../assets/images/closeicon.svg";
 import toggleround from "../../assets/images/toggleround.svg";
 import dollaricon from "../../assets/images/dollaricon.svg";
 import togglebtns from "../../assets/images/togglebtn.svg";
+import Slider from "../Slider/Slider"
 export const Menupage = () => {
   const firstTableBodyRef = useRef(null);
   const secondTableBodyRef = useRef(null);
@@ -62,7 +67,7 @@ export const Menupage = () => {
   const [items, setitems] = useState([
     {
       id: 1,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString("dosa", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$100", "$100"],
@@ -78,7 +83,7 @@ export const Menupage = () => {
 
     {
       id: 3,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString(" Mushroo", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$400", "$600"],
@@ -93,7 +98,7 @@ export const Menupage = () => {
     },
     {
       id: 4,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString("Creamy", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$400", "$600"],
@@ -108,7 +113,7 @@ export const Menupage = () => {
     },
     {
       id: 5,
-      name: truncateString("Creamy Mushroo", 14),
+      name: truncateString("idly Mushroo", 14),
       code: "12345",
       pricingdetails: {
         Dinein1: ["$400", "$600"],
@@ -154,7 +159,7 @@ export const Menupage = () => {
   ]);
   const [itemsfood, setitemsfood] = useState([
     {
-      id: 1,
+      id: 11,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -170,7 +175,7 @@ export const Menupage = () => {
     },
 
     {
-      id: 3,
+      id: 31,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -185,7 +190,7 @@ export const Menupage = () => {
       },
     },
     {
-      id: 4,
+      id: 41,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -200,7 +205,7 @@ export const Menupage = () => {
       },
     },
     {
-      id: 5,
+      id: 51,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -215,7 +220,7 @@ export const Menupage = () => {
       },
     },
     {
-      id: 2,
+      id: 21,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -230,7 +235,7 @@ export const Menupage = () => {
       },
     },
     {
-      id: 2,
+      id: 21,
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
@@ -424,29 +429,91 @@ export const Menupage = () => {
   });
   const [draggingOverIndex, setDraggingOverIndex] = useState(null);
 
-  const handleRowDragStart = (e, objectId, index) => {
-   
+  const handleRowDragStart = (objectId, index) => {
     setDraggedRowIndex({ objectId, index });
- 
-    e.target.classList.add('dragging');
-  };
+    document.addEventListener('mousemove', handleScroll);
+    console.log("objectid",objectId)
 
+  };
+  // const [nooftypes, setnooftypes] = useState([
+  //   {
+  //     id: 1,
+  //     name: items,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: itemsfood,
+  //   },
+  // ]);
   const handleRowDragOver = (objectId, index) => {
     if (draggedRowIndex.objectId === null || draggedRowIndex.index === null) {
+     
       return;
     }
 
     const draggedObjectId = draggedRowIndex.objectId;
     const draggedIndex = draggedRowIndex.index;
+ 
+
+    // if (draggedObjectId === objectId && draggedIndex !== index) {
+
+    //   if(objectId===1)
+    //     {
+    //       const updatedTypes = [...nooftypes[0].name];
+    //       console.log(updatedTypes)
+
+    //       const currentObject = updatedTypes.find((item) => item.id === index);
+    //       if (currentObject) {
+    //         const updatedItems = [...currentObject.name];
+    //         const draggedItem = updatedItems[draggedIndex];
+    
+    //         // Remove dragged item and insert it at the new position
+    //         updatedItems.splice(draggedIndex, 1);
+    //         updatedItems.splice(index, 0, draggedItem);
+    
+    //         // Update the object in nooftypes
+    //         currentObject.name = updatedItems;
+    
+    //         // Update state
+    //         setnooftypes({...nooftypes,name:updatedTypes});
+    //         setDraggedRowIndex({ objectId, index });
+    //       }    
+    //     }
+    //     if(objectId===2)
+    //       {
+    //         const updatedTypes = [...nooftypes[1].name];
+    //         console.log(updatedTypes)
+  
+    //         const currentObject = updatedTypes.find((item) => item.id === index);
+    //         if (currentObject) {
+    //           const updatedItems = [...currentObject.name];
+    //           const draggedItem = updatedItems[draggedIndex];
+    //           updatedItems.splice(draggedIndex, 1);
+    //           updatedItems.splice(index, 0, draggedItem);
+    //           currentObject.name = updatedItems;
+    //           setnooftypes(updatedTypes);
+    //           setDraggedRowIndex({ objectId, index });
+    //         }    
+    //       }
+    // }
+   
+ 
+
 
     if (draggedObjectId === objectId && draggedIndex !== index) {
+   
+
+
       setDraggingOverIndex(index);
       const updatedTypes = [...nooftypes];
       const currentObject = updatedTypes.find((item) => item.id === objectId);
+      console.log("currentObject",currentObject)
 
       if (currentObject) {
         const updatedItems = [...currentObject.name];
+        console.log("updatedItems",updatedItems)
         const draggedItem = updatedItems[draggedIndex];
+   
 
         // Remove dragged item and insert it at the new position
         updatedItems.splice(draggedIndex, 1);
@@ -463,11 +530,10 @@ export const Menupage = () => {
   };
 
   // Handle row drag end
-  const handleRowDragEnd = (e) => {
+  const handleRowDragEnd = () => {
     setDraggedRowIndex({ objectId: null, index: null });
     setDraggingOverIndex(null);
-    e.preventDefault();
-    e.target.classList.remove('dragging');
+    document.removeEventListener('mousemove', handleScroll);
   };
   const [listingobject, setlistingobject] = useState({
     showPricing: true,
@@ -533,6 +599,32 @@ export const Menupage = () => {
       setlistingobject({ ...listingobject, showavail: true });
     }
   }, [listingobject.Dinein2, listingobject.Pickup2, listingobject.Delivery2]);
+
+const [modal,setmodal]=useState(false);
+  const handlemodal=()=>
+  {
+      setmodal(true);
+  }
+  const containerRef = useRef(null);
+
+
+  const handleScroll2 = (e) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const scrollAmount = 10; // Amount to scroll per tick
+
+    if (e.clientY < rect.top + 20) {
+      containerRef.current.scrollBy(0, -scrollAmount);
+    } else if (e.clientY > rect.bottom - 20) {
+      containerRef.current.scrollBy(0, scrollAmount);
+    }
+  };
+
+
+
+
+
+
 
   return (
     <div
@@ -630,44 +722,44 @@ export const Menupage = () => {
                         )}
 
                         {object.name.map((item, index) => (
-                          <React.Fragment key={index}>
+                          <React.Fragment key={index} ref={containerRef}>
                             {draggingOverIndex === index && (
                               <tr className="placeholderplace"></tr>
                             )}
-                            <tr draggable
-                              onDragStart={(e) =>
-                                handleRowDragStart(e, object.id, index)
+                            <tr
+                              draggable
+                              onDragStart={() => handleRowDragStart(object.id, index)
+                               
                               }
                               onDragOver={() =>
                                 handleRowDragOver(object.id, index)
+                               
                               }
-                              onDragEnd={(e)=>handleRowDragEnd(e)}
-                              
+                              onDragEnd={handleRowDragEnd}
                               className={`itemdetails ${
-                                selecteddragIndex?.index === index &&
-                                selecteddragIndex?.objectId === object.id
+                                draggedRowIndex?.index === index 
+                               
                                   ? "selected"
                                   : ""
                               }`}
                             >
-                              {/* <td className="bodydata" > */}
                               <td className="itemimage2">
                                 <img
                                   src={dots}
                                   alt=""
-                                  draggable
-                                  onDragStart={(e) =>
-                                    handleRowDragStart(e, object.id, index)
-                                  }
-                                  onDragOver={() =>
-                                    handleRowDragOver(object.id, index)
-                                  }
-                                  onDragEnd={(e)=>handleRowDragEnd(e)}
+                                  // draggable
+                                  // onDragStart={() =>
+                                  //   handleRowDragStart(object.id, index)
+                                  // }
+                                  // onDragOver={() =>
+                                  //   handleRowDragOver(object.id, index)
+                                  // }
+                                  // onDragEnd={handleRowDragEnd}
                                   className="draggableimg"
                                 />
                                 <img src={apple} alt="" className="foodimage" />
                               </td>
-                              <td className="itemname2">{item.name}</td>
+                              <td className="itemname2" onClick={handlemodal}>{item.name}</td>
                               <td className="itemcode2">{item.code}</td>
                             </tr>
                           </React.Fragment>
@@ -1000,10 +1092,13 @@ export const Menupage = () => {
 
                         {item.name.map((item, index) => (
                           <React.Fragment key={index}>
-                           
+                             {/* {draggingOverIndex === index && (
+                              <tr className="placeholderplace" style={{backgroundColor:'red'}}></tr>
+                            )} */}
+                             
                             <tr
                               className={`tabletwobodyrow ${
-                                selecteddragIndex === index ? "selected" : ""
+                                draggingOverIndex === index ? "selected" : ""
                               }`}
                             >
                               <td className="eachobject">
@@ -1052,8 +1147,12 @@ export const Menupage = () => {
               </tr>
             </tbody>
           </table>
+
+          {
+            modal && <Slider onclose={()=>setmodal(false)}/>
+          }
         </div>
       </div>
     </div>
   );
-};
+}

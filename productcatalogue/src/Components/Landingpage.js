@@ -14,7 +14,7 @@ import Sidenav from "./SideNav/Sidenav";
 import Header from "./Item Customizations/MainLandingPage/Header/Header";
 import Slider from "../Components/Slider/Slider";
 import Dragging from "./Menulisting/Dragging"
-import { Menupage } from "./Menulisting/Menupage";
+import  {Menupage}  from "./Menulisting/Menupage";
 
 const Landingpage = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -52,12 +52,14 @@ const Landingpage = () => {
           {/* <Header/> */}
           {/* <Pricingpage/> */}
 
-          {/* <Menulisting /> */}
+          <Menulisting />
+{/* 
+         */}
+   {/* <Menupage/>  */}
 
-          {/* <Menupage/>  */}
-          
+          {/* <Dragging/> */}
 
-           <Routes>
+           {/* <Routes>
           <Route path="/" element={<Menulisting />} />
           <Route path="/Reviewpage" element={<Reviewpage />} />
           <Route path="/Primary" element={<Primary />} />
@@ -73,7 +75,7 @@ const Landingpage = () => {
 
 
         </Routes> 
-       
+        */}
         </>
       )}
     </div>

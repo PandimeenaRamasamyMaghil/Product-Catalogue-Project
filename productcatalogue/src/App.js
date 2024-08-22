@@ -10,24 +10,23 @@ function App() {
   return (
 
     <>
-  
-  
 
-<Landing/>  
+<Landing/>
 {/* <Dragging/> */}
-
 
 </>
   );
 }
 
-
 export default App;
 
-
-
-
-
-
-
-
+// const [secondRowTable, setSecondRowTable] = useState([
+//   ["Ac", "Nonac"],
+//   ["Inhouse", "Swiggy", "Zomato"], 
+//   ["Inhouse", "Swiggy", "Zomato"], 
+//   ["Ac", "Nonac"], 
+//   ["Inhouse", "Swiggy", "Zomato"], 
+//   ["Inhouse", "Swiggy", "Zomato"], 
+//   ["Total", "Threshold"], 
+//   [""],
+// ]);
