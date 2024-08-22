@@ -1,8 +1,9 @@
 import React from 'react'
 import './SearchBox.scss'
-import { useState } from 'react'
+import { useState ,useContext} from 'react'
 import searchIcon from '../../../../assets/images/searchicon.png'
 import NotFound from '../../../../assets/images/NotFound.svg'
+import { Contextpagejs } from '../../../contextpage'
 
 const SearchBox = () => {
  
@@ -10,6 +11,7 @@ const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [optionSelected, setOptionSelected] = useState(false);
+  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
 
 
 
@@ -95,8 +97,8 @@ const SearchBox = () => {
     <div className='Search-Container'>
       <div>
     
-    <input className='Header-Search' value={searchTerm} placeholder='Search' onChange={handleSearch}  onKeyDown={handleKeyDown} type="text" />
-    <img  className="SerchIcon-Header" src={searchIcon} alt="" />
+    <input className=  {`${isExpanded? "Header-Search1":"Header-Search"}`}  value={searchTerm} placeholder='Search' onChange={handleSearch}  onKeyDown={handleKeyDown} type="text" />
+    <img  className=  {`${isExpanded?"SerchIcon-Header1":"SerchIcon-Header"}`}  src={searchIcon} alt="" />
     </div>
 
     <div className='Search-Container-options'>

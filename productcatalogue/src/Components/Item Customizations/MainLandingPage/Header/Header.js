@@ -29,7 +29,7 @@ const Header = () => {
   
 
   return (
-    <div className={isExpanded?'Header-Container':"Header-Container"}>
+    <div className={isExpanded?'Header-Container1':"Header-Container"}>
 
       {/* {**********************HeaderSection*****************************************************************} */}
 

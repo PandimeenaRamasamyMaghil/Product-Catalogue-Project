@@ -3,7 +3,7 @@
 
 // {/* {**********************HeaderSection*****************************************************************} */}
 .Header-Container {
-  width: 80%;
+  width: 100%;
   position: relative;
   height: 80px;
 
@@ -19,22 +19,21 @@
 
 }
 
-// .Header-Container1{
-//   width: 80%;
-//   position: fixed;
-//   height: 80px;
+.Header-Container1{
+  width: 100%;
+  position: relative;
+  height: 80px;
 
-//   left: 450px;
-//     // border: 2px solid red;
-//   padding: 10px;
-//   z-index: 2000;
-//   top: 25px;
-//   display: flex;
-//   justify-content: space-between;
-//   transition: left 0.4s linear;
+  left: -20px;
+    // border: 2px solid red;
+  padding: 10px;
+  z-index: 600;
+  top: 25px;
+  display: flex;
+  justify-content: space-between;
+  transition: left 0.4s ease-in;
 
-
-// }
+}
 
 .Header-Heading-Search-Filter-Container {
   display: flex;
@@ -42,7 +41,7 @@
   height: 44px;
 //   border: 2px solid powderblue;
   justify-content: start;
-  padding-left: 30px;
+  padding-left: -10px;
   gap: 20px;
 }
 
@@ -212,7 +211,7 @@ visibility: hidden;
     cursor: pointer;
     transform: translateX(80px);
   position: relative;
-  left: 10px;
+  left: -100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -231,7 +230,7 @@ visibility: hidden;
   cursor: pointer;
   transform: translateX(80px);
 position: relative;
-left: 10px;
+left: -250px;
 display: flex;
 justify-content: center;
 align-items: center;
