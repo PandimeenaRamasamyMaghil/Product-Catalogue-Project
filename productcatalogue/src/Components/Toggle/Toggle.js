@@ -1,7 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Toggle.css";
 
-const Toggle = ({toggle,setToggle}) => {
+const Toggle = ({toggle,setToggle,togglevalue}) => {
+
+  useEffect(()=>{
+    if(togglevalue===1)
+    {
+      setToggle(true)
+    }
+    else{
+setToggle(false);
+    }
+
+  },[,setToggle])
 
 
   

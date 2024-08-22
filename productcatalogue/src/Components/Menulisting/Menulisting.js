@@ -134,8 +134,8 @@ const [showheadinglist, setshowheadinglist] = useState(false);
         Pickup1: ["$200", "$200", "$200"],
         Delivery1: ["$300", "$300", "$300"],
         Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
+        Pickup2: ["Enabled", "Disabled", "Disabled"],
+        Delivery2: ["Enabled", "Enabled", "Disabled"],
         Inventory1: ["$100", "$10"],
         Customize1: ["5"],
       },
@@ -515,9 +515,7 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       setmodal(true);
   }
 
-  
-  
-
+ 
 
   return (
     <div           className={`${isExpanded?"mainpagemenu1":"mainpagemenu"}`}  >
@@ -976,8 +974,11 @@ const [showheadinglist, setshowheadinglist] = useState(false);
                                           className={className}
                                           key={cellIndex}
                                         >
-                                          {cellData.map((item, itemIndex) => (
-                                            <td
+                                          {cellData.map((item, itemIndex) =>
+                                          {
+                                            
+
+                                            return(<td
                                               key={`${cellIndex}-${itemIndex}`}
                                               className=""
                                             >
@@ -986,12 +987,16 @@ const [showheadinglist, setshowheadinglist] = useState(false);
                                                 <Toggle
                                                   toggle={togglebtn}
                                                   setToggle={settogglebtn}
+                                                  togglevalue={item==="Enabled"?1:0}
                                                 />
                                               ) : (
                                                 <span>{item}</span>
                                               )}
-                                            </td>
-                                          ))}
+                                            </td>);
+                                          }
+                                          
+                                          
+                                        )}
                                         </div>
                                       );
                                     }
