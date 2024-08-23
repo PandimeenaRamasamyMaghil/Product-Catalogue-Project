@@ -1,12 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect ,useContext} from 'react';
 import './NavSlider.scss'; // Import a CSS file for styling
 import PricingSlider from './PricingSlider';
 import AvailabilitySlider from './AvailabilitySlider';
 import Inventory from './Inventory';
 import CustomizeSlider from './CustomizeSlider';
+import { Contextpagejs } from '../contextpage'
 
 const NavMenu = ({pen,eye,trash}) => {
-  const [active, setActive] = useState('Pricing');
+  // const [active, setActive] = useState('Pricing');
+
+  const{menuItems,active, setActive}=useContext(Contextpagejs)
   
 
   // Create refs for each section
@@ -16,6 +19,7 @@ const NavMenu = ({pen,eye,trash}) => {
   const customizeRef = useRef(null);
   const handleItemClick = (item) => {
     setActive(item);
+    
     scrollToComponent(item);
   };
 
@@ -39,7 +43,7 @@ const NavMenu = ({pen,eye,trash}) => {
     }
   };
 
-  const menuItems = ['Pricing', 'Availability','Inventory','Customize'];
+  // const menuItems = ['Pricing', 'Availability','Inventory','Customize'];
 
   // IntersectionObserver callback function
   const handleIntersection = (entries) => {

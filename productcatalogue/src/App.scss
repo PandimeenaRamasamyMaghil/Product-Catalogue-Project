@@ -57,7 +57,7 @@ position: relative;
     // border: 1px solid black;
     .table-body
     {
-      height: 35.75rem;
+    //   height: 35.75rem;
       display: block;
       overflow-x: hidden;
       overflow-y: auto;
@@ -124,14 +124,20 @@ position: relative;
     }
     .firsttablebody
     {
-      // width: 353px;
-      // height: 100%;
-      // display: block;
-      // // margin-top: -0.2px;
-      // overflow-y: auto;
+    //   width: 353px;
+    //   height: 100%;
+    //   display: block;
+    //   // margin-top: -0.2px;
+    //   overflow-y: auto;
      
-      // flex-direction: column;
+    //   flex-direction: column;
+    //   // border: 1px solid red;
+    //   border: 1px solid #D9D9D9;
     
+    //   border-left: none ;
+    //   border-top: none;
+    //   border-right: none;
+    //   border-bottom: none;
       .itemheading{
      
         border: 1px solid #D9D9D9;
@@ -262,23 +268,23 @@ img{
     }
     
 
-    .table-body
-    {
-      width: 100%;
-      position: relative;
-      height:545px;
-      display: block;
-      overflow-x: hidden;
-      overflow-y: auto;
-      // border: 1px solid #D9D9D9;
-      border-left: none;
-      border-right: none;
-      margin-left: -1.5px;
+    // .table-body
+    // {
+    //   width: 100%;
+    //   position: relative;
+    //   height:545px;
+    //   display: block;
+    //   overflow-x: hidden;
+    //   overflow-y: auto;
+    //   // border: 1px solid #D9D9D9;
+    //   border-left: none;
+    //   border-right: none;
+    //   margin-left: -1.5px;
      
-      margin-top: 6px;
-      border-top: none;
+    //   margin-top: 6px;
+    //   border-top: none;
 
-    }
+    // }
     .headaadbtnclass
     {
       width: 100%;

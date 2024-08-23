@@ -8,11 +8,13 @@ export const Contextpagejs = createContext();
 export const Contextpage = ({ children }) => {
     const pages=['Step 1: Primary Details','Step 2: Pricing and kitchen details','Step 3: Item customizations']
     
-    
+    const menuItems = ['Pricing', 'Availability','Inventory','Customize'];
     const [activeCategory, setActiveCategory] = useState('Step 1: Primary Details');
     const[isExpanded,setIsExpanded]=useState(false)
 
     const [saveandnext,setsaveandnext]=useState(false);
+
+    const [active, setActive] = useState('');
 
 
  
@@ -20,7 +22,7 @@ export const Contextpage = ({ children }) => {
 
   return (
     <Contextpagejs.Provider value={{ 
-        pages,activeCategory, setActiveCategory,isExpanded,setIsExpanded,saveandnext,setsaveandnext
+        pages,activeCategory, setActiveCategory,isExpanded,setIsExpanded,saveandnext,setsaveandnext,menuItems,active,setActive
       }}>
       {children}
     </Contextpagejs.Provider>
