@@ -67,10 +67,9 @@ const Sidenav = () => {
                 </div>
 
                 </div>
-            {sidebarData.map((item,index)=>{
-                return(
-                    <>
-                <div className='flexSidenav'>
+            {sidebarData.map((item,index)=>(
+                   
+                <div className='flexSidenav' key={index}>
 
                   
 
@@ -92,9 +91,9 @@ const Sidenav = () => {
            { isExpanded &&  <h1 className='NavName'>{item.name}</h1> }    
                 </div>
                     
-                    </>
+                
                 )
-            })}
+            )}
              
             
             </ul>

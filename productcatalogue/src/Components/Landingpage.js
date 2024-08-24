@@ -39,7 +39,7 @@ const Landingpage = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+    <div style={{ display: "flex", flexDirection: "row", width: "100%" }} className="landingpage">
       {belowMinWidth ? (
         <div className="warning-message">
           Your screen width is below the minimum width of {MIN_WIDTH}px. Please

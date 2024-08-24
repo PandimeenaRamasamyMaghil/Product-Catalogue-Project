@@ -806,10 +806,20 @@ const PrimaryDetails = () => {
   };
 
   const handleImageClick2 = (image) => {
+
+    if(!seletedingredients.some((item)=>item.id===image.id))
+    {
+      
     setseletedingredients([
       ...seletedingredients,
       { name: image.name, image: image.imageId, id: image.id,imageType:image.imageType },
     ]);
+    console.log("seletedingredients",seletedingredients);
+
+    }
+
+
+   
 
     setPrimarydetailsform({
       ...Primarydetailsform,
@@ -818,6 +828,7 @@ const PrimaryDetails = () => {
       ingredients: [...Primarydetailsform.ingredients, image.id],
 
     });
+  
   };
   const allergenRefs = useRef([]);
 
