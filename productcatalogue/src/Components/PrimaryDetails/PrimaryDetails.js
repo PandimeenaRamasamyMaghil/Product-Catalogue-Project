@@ -14,7 +14,7 @@ import Savenext from "../Savenextbutton/Savenextbutton";
 import Tooltip from "../Tooltip/Tooltip";
 import info from "../../assets/images/info.png";
 import { Contextpagejs } from "../contextpage";
-
+import tooltiparrow from '../../assets/images/ArrowHover.svg'
 import edit from "../../assets/images/edit.svg"
 
 const PrimaryDetails = () => {
@@ -106,6 +106,115 @@ const PrimaryDetails = () => {
   // }, []);
 
 
+const tooltipstyles={
+  itemcodetooltipcode:{
+    border: '1px solid #67833E',  // Adding a red border
+    padding: '10px',
+    width: '187px',
+    height: '38.8px',
+    position:'relative',
+    top:"10px",
+    left:"-30px",
+    backgroundColor:"#67833E",
+    
+    
+  },
+  itemcodearraowstyle:{
+    position: "relative",
+    top: "-27.5px",
+    left: "30px",
+
+  },
+  allergenstooltipcode:{
+    border: '1px solid #67833E',  // Adding a red border
+    padding: '10px',
+    width: '187px',
+    height: '38.8px',
+    position:'relative',
+    top:"15px",
+    left:"-30px",
+    backgroundColor:"#67833E",
+    
+    
+  },
+  allergensarraowstyle:{
+    position: "relative",
+    top: "-28px",
+    left: "30px",
+
+  },
+  bestpairtooltipcode:{
+    border: '1px solid #67833E',  // Adding a red border
+ 
+    width: '187px',
+    height: '38.8px',
+  marginTop:'80px',
+  marginLeft:"-200px",
+    backgroundColor:"#67833E",
+    
+    
+  },
+  bestpairarraowstyle:{
+    position: "relative",
+    top: "-23px",
+    left: "30px",
+
+  },
+  portiontooltipcode:{
+    border: '1px solid #67833E',  // Adding a red border
+ 
+    width: '187px',
+    height: '38.8px',
+  marginTop:'75px',
+  marginLeft:"-190px",
+    backgroundColor:"#67833E",
+    
+    
+  },
+  portionarraowstyle:{
+    position: "relative",
+    top: "-23px",
+    left: "30px",
+
+  },
+  taxtooltipcode:{
+    border: '1px solid #67833E',  // Adding a red border
+ 
+    width: '187px',
+    height: '38.8px',
+  marginTop:'75px',
+  marginLeft:"-190px",
+    backgroundColor:"#67833E",
+    
+    
+  },
+  taxarraowstyle:{
+    position: "relative",
+    top: "-23px",
+    left: "30px",
+
+  },
+  mastertooltipcode:{
+    border: '1px solid #67833E',  // Adding a red border
+ 
+    width: '187px',
+    height: '38.8px',
+  marginTop:'75px',
+  marginLeft:"-190px",
+    backgroundColor:"#67833E",
+    
+    
+  },
+  masterarraowstyle:{
+    position: "relative",
+    top: "-23px",
+    left: "30px",
+
+  }
+
+
+
+}
 
   useEffect(() => {
     if (fetchedprimarydata) {
@@ -1987,7 +2096,7 @@ const PrimaryDetails = () => {
                     />
                   </div>
                   <div className="bestpairtooltip">
-                    <Tooltip message="message">
+                    <Tooltip message="message" style={tooltipstyles.bestpairtooltipcode} tooltipstyle={tooltipstyles.bestpairarraowstyle}>
                       <div className="icon-background">
                         <img src={info} alt="" width={20} height={20} />
                       </div>
@@ -2294,9 +2403,12 @@ const PrimaryDetails = () => {
                     />
                   </div>
                 </div>
-                <div className="itemcodetooltip">
-                  <Tooltip message="message">
+                <div className="itemcodetooltip" >
+                  <Tooltip message="message" style={tooltipstyles.itemcodetooltipcode} tooltipstyle={tooltipstyles.itemcodearraowstyle}>
+                   
                     <div className="icon-background">
+               
+                    
                       <img src={info} alt="" width={20} height={20} />
                     </div>
                   </Tooltip>
@@ -2905,7 +3017,7 @@ const PrimaryDetails = () => {
                     </div>
                   </div>
                   <div style={{ marginTop: "75%" }}>
-                    <Tooltip message="message">
+                    <Tooltip message="message" style={tooltipstyles.allergenstooltipcode} tooltipstyle={tooltipstyles.allergensarraowstyle}>
                       <div className="icon-background">
                         <img src={info} alt="" width={20} height={20} />
                         {/* <FaExclamation color="black" size={5} /> */}
@@ -3085,7 +3197,7 @@ const PrimaryDetails = () => {
                     />
                     <span id="portionsizetext2">grams/ml</span>
                     <div className="portionsizetooltip">
-                      <Tooltip message="message">
+                      <Tooltip message="message" style={tooltipstyles.portiontooltipcode} tooltipstyle={tooltipstyles.portionarraowstyle}>
                         <div className="icon-background">
                           <img src={info} alt="" width={20} height={20} />
                           {/* <FaExclamation color="black" size={5} /> */}
@@ -3120,7 +3232,7 @@ const PrimaryDetails = () => {
                     </p>
                   </div>
                   <div style={{ marginTop: "25px" }}>
-                    <Tooltip message="message">
+                    <Tooltip message="message" style={tooltipstyles.taxtooltipcode} tooltipstyle={tooltipstyles.taxarraowstyle}>
                       <div className="icon-background">
                         <img src={info} alt="" width={20} height={20} />
                         {/* <FaExclamation color="black" size={5} /> */}
@@ -3201,7 +3313,7 @@ const PrimaryDetails = () => {
                       onKeyUp={(event) => handleInput(event, 3)}
                     />
 
-                    <Tooltip message="message">
+                    <Tooltip message="message" style={tooltipstyles.mastertooltipcode} tooltipstyle={tooltipstyles.masterarraowstyle}>
                       <div className="icon-background">
                         <img src={info} alt="" width={20} height={20} />
                         {/* <FaExclamation color="black" size={5} /> */}
