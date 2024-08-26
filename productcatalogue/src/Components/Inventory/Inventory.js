@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ToggleSliderInventory from "./ToggleSliderInventory"
+import ToggleSliderInventory from "../ToggleSliderInventory/ToggleSliderInventory"
 import "./Inventory.scss"
 const Inventory = () => {
   const [invent, setInvent] = useState(true)

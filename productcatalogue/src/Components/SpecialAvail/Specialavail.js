@@ -2,15 +2,15 @@ import {React,useEffect,useRef,useState} from 'react'
 import DatePicker from 'react-datepicker';
 import Toggle from '../Toggle/Toggle'
 import "./Specialvail.scss"
-import DaysCheck from './DaysCheck';
+import DaysCheck from '../DayCheck/DaysCheck';
 import 'react-datepicker/dist/react-datepicker.css';
-import calender from "./calendar 1.png"
-import DropDown3 from "./DropDown3"
+import calender from "../../assets/images/calendar 1.png"
+import DropDown3 from "../DropDown3/DropDown3"
 import { format } from 'date-fns';
 import { useSelector } from 'react-redux';
 
 
-import DropDown2 from './DropDown2';
+import DropDown2 from '../DropDown2/DropDown2';
 const Specialavail = ({getSpecialForm,validateDropdown,validationState}) => {
 const [dinein, setDineIn] = useState(true);
   const [online, setOnline] = useState(false)

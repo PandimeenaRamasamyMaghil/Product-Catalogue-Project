@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./AvailabilitySlider.scss"
 import Weigh from "../../assets/images/weigh.png"
-import ToggleSliderAvail from "./ToggleSliderAvail"
+import ToggleSliderAvail from "../ToggleSliderAvail/ToggleSliderAvail"
 
 
 const PricingSlider = ({pen}) => {

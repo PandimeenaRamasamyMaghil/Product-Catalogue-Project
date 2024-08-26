@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import AOS from 'aos';
 import './ImageSlider.scss';
-import EyeModal from './EyeModal';
+import EyeModal from '../EyeModal/EyeModal';
 import Trash from './Trash';
 import apple from '../../assets/images/Rectangle 942.png';
 import AddImage from '../../assets/images/AddImage.svg';
