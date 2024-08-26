@@ -1,62 +1,68 @@
-import React, { useRef, useState,useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react';
 import AOS from 'aos';
-import "./ImageSlider.scss"
-import PricingSlider from './PricingSlider'
+import './ImageSlider.scss';
+import EyeModal from './EyeModal';
+import Trash from './Trash';
+import apple from '../../assets/images/Rectangle 942.png';
+import AddImage from '../../assets/images/AddImage.svg';
 import Pen from "../../assets/images/edit 1.png"
 import Eye from "../../assets/images/eye-off.png"
 import Bin from "../../assets/images/Frame 3466811.png"
-import ToggleSlider from "./ToggleSlider"
-import AvailabitySlider from "./AvailabilitySlider"
-import TooltipSlider from "./TooltipSlider"
-import EyeModal from './EyeModal'
-import Trash from './Trash'
-import NavSlider from './NavSlider'
 import ArrowHover from '../../assets/images/ArrowHover.svg'
-import Inventory from './Inventory'
-import CustomizeSlider from './CustomizeSlider'
 import BasicChanges from './BasicChanges'
 
-const Slider = ({ onclose }) => {
 
 
-
-  const [eye, setEye] = useState(false)
-  const [trash, setTrash] = useState(false)
-  const [active, setActive] = useState("Pricing")
+const ImageSlider = ({ onclose }) => {
+  const fileInputRefs = useRef([]); 
+  const [files, setFiles] = useState([null, null, null, null]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [eye, setEye] = useState(false);
+  const [trash, setTrash] = useState(false);
   const modelref = useRef();
-  const scrollRef = useRef(null); // Create a ref for the scrollable container
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const closeModal = (e) => {
-    if (modelref.current === e.target)
-      onclose();
-  }
-
-  const handleItemClick = (item) => {
-    setActive(item);
+    if (modelref.current === e.target) onclose();
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  }, []);
   const handleEyeClick = () => {
     setEye(true)
   }
   const handleBinClick = () => {
     setTrash(true)
   }
-  const scrollToComponent = (componentName) => {
-    if (scrollRef.current) {
-      const element = document.querySelector(`.${componentName}`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+
+  const handleImageClick = (index) => {
+    if (files[index]) {
+      setSelectedImage(URL.createObjectURL(files[index]));
+    } else {
+      fileInputRefs.current[index].click();
+    }
+  };
+
+  const handleFileChange = (index, event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const updatedFiles = [...files];
+      updatedFiles[index] = file;
+      setFiles(updatedFiles);
+
+      if (index < files.length - 1) {
+        setCurrentIndex(index + 1);
       }
     }
   };
-  useEffect(() => {
-    AOS.init({
-      duration: 800, // Animation duration in milliseconds
-      easing: 'ease-in-out', // Easing function
-      once: true, // Whether animation should happen only once
-    });
-  }, []);
+
   return (
-    <div ref={modelref} className='Slider-Container'  >
+    <div ref={modelref} className='Slider-Container'>
       <div className={"Slider-Window"} data-aos="fade-left">
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
@@ -86,17 +92,61 @@ const Slider = ({ onclose }) => {
             </div>
 
           </div>
-          {eye ? <EyeModal onEyeclose={() => setEye(false)} /> : ""}
-          {trash ? <Trash onTrashclose={() => setTrash(false)} /> : ""}
-
+          {eye && <EyeModal onEyeclose={() => setEye(false)} />}
+          {trash && <Trash onTrashclose={() => setTrash(false)} />}
         </div>
-       <div className='ImageSliderContainer'>
-       <h3>Item Image</h3>
-      </div> 
-
+        <div className='ImageSliderContainer'>
+          <h3 className='ImageSliderContainerHeading'>Item Image</h3>
+        </div>
+        <div className='TypeImageDiv'></div>
+        <div className='ImageSliderMain'>
+          {selectedImage?<div><img src={selectedImage} width={260} height={230} className='SliderImageMain' alt="Main Item" /></div>:
+          <div><img src={apple} width={260} height={230} className='SliderImageMain' alt="Main Item" /></div>}
+        
+        
+        {/* Container for the filediv elements */}
+        <div className='FileDivContainer'>
+          {files.map((file, index) => (
+            <div key={index}>
+              {index <= currentIndex && (
+                <>
+                  <input
+                    type='file'
+                    accept='image/*'
+                    onChange={(event) => handleFileChange(index, event)}
+                    style={{ display: 'none' }}
+                    ref={(ref) => (fileInputRefs.current[index] = ref)}
+                  />
+                  <div
+                    onClick={() => handleImageClick(index)}
+                    style={{ cursor: 'pointer' }}
+                    className='filediv'
+                  >
+                    {file ? (
+                      <img
+                        src={URL.createObjectURL(file)}
+                        alt={`Preview of ${file.name}`}
+                        style={{ width: '100px', height: '100px', objectFit: 'cover',marginTop:"20px",marginLeft:"20px", borderRadius:"99px" }}
+                      />
+                    ) : (
+                      <img
+                        src={AddImage}
+                        alt='Placeholder'
+                        style={{ width: '93px', height: '93px', objectFit: 'cover',marginTop:"20px",marginLeft:"20px" }}
+                      />
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
+          </div>
+        </div>
+        <BasicChanges/>
       </div>
+      
     </div>
-  )
-}
+  );
+};
 
-export default Slider
+export default ImageSlider;
