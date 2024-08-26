@@ -130,7 +130,7 @@
     font-size: 12px;
     line-height: 21px;
     margin-top: -1px;
-    margin-left: -1px;
+    margin-left: 27px;
     
     
 
@@ -143,11 +143,13 @@
 }
 
 .dine-in-items-label{
+    transform: translateX(4px);
     font-family: Poppins;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
     margin-top: -10px;
+    margin-left: 23px;
 }
 
 
