@@ -1,6 +1,6 @@
 import React, { useRef, useState,useEffect } from 'react'
 import AOS from 'aos';
-import "./Slider.scss"
+import "./ImageSlider.scss"
 import PricingSlider from './PricingSlider'
 import Pen from "../../assets/images/edit 1.png"
 import Eye from "../../assets/images/eye-off.png"
@@ -16,7 +16,7 @@ import Inventory from './Inventory'
 import CustomizeSlider from './CustomizeSlider'
 import BasicChanges from './BasicChanges'
 
-const Slider = ({ onclose,sidebartext }) => {
+const Slider = ({ onclose }) => {
 
 
 
@@ -56,7 +56,7 @@ const Slider = ({ onclose,sidebartext }) => {
     });
   }, []);
   return (
-    <div ref={modelref} className='Slider-Container' onClick={closeModal} >
+    <div ref={modelref} className='Slider-Container'  >
       <div className={"Slider-Window"} data-aos="fade-left">
         <div className='Slider-Mainform'>
           <div className='Slider-First-Row'>
@@ -90,13 +90,9 @@ const Slider = ({ onclose,sidebartext }) => {
           {trash ? <Trash onTrashclose={() => setTrash(false)} /> : ""}
 
         </div>
-
-        <div className='NavSlider-Component'>
-          <NavSlider eye={eye} trash={trash} sidebartext={sidebartext} />
-        </div>
-        <div className='Basic-Component'>
-          <BasicChanges />
-        </div>
+       <div className='ImageSliderContainer'>
+       <h3>Item Image</h3>
+      </div> 
 
       </div>
     </div>

@@ -6,7 +6,7 @@ import Inventory from './Inventory';
 import CustomizeSlider from './CustomizeSlider';
 import { Contextpagejs } from '../contextpage'
 
-const NavMenu = ({pen,eye,trash}) => {
+const NavMenu = ({pen,sidebartext}) => {
   // const [active, setActive] = useState('Pricing');
 
   const{menuItems,active, setActive}=useContext(Contextpagejs)
@@ -22,6 +22,13 @@ const NavMenu = ({pen,eye,trash}) => {
     
     scrollToComponent(item);
   };
+  useEffect(()=>{
+    if(sidebartext!=null){
+      setActive(sidebartext);
+    
+    scrollToComponent(sidebartext);
+    }
+  })
 
   // Function to scroll to respective section based on the item clicked
   const scrollToComponent = (item) => {
