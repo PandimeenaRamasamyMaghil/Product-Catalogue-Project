@@ -14,18 +14,210 @@ const SearchBox = () => {
   const [optionSelected, setOptionSelected] = useState(false);
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
 
+  const truncateString = (str, length) => {
+    return str.length > length ? str.substring(0, length) : str;
+  };
+
+
+  const [items, setitems] = useState([
+    {
+      id: 1,
+      name: truncateString("dosa", 14),
+      code: "12345",
+    
+    },
+
+    {
+      id: 3,
+      name: truncateString(" Mushroo", 14),
+      code: "12345",
+    
+    },
+    {
+      id: 4,
+      name: truncateString("Creamy", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 5,
+      name: truncateString("idly Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+     
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+    
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+  
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+   
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 1,
+      name: truncateString("dosa", 14),
+      code: "12345",
+   
+    },
+
+    {
+      id: 3,
+      name: truncateString(" Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 4,
+      name: truncateString("Creamy", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 5,
+      name: truncateString("idly Mushroo", 14),
+      code: "12345",
+    
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+    
+    },
+    {
+      id: 1,
+      name: truncateString("dosa", 14),
+      code: "12345",
+
+    },
+
+    {
+      id: 3,
+      name: truncateString(" Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 4,
+      name: truncateString("Creamy", 14),
+      code: "12345",
+ 
+    },
+    {
+      id: 5,
+      name: truncateString("idly Mushroo", 14),
+      code: "12345",
+ 
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 2,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    
+    
+  ]);
+  const [itemsfood, setitemsfood] = useState([
+    {
+      id: 11,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+    
+    },
+
+    {
+      id: 31,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 41,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+  
+    },
+    {
+      id: 51,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+   
+    },
+    {
+      id: 21,
+      name: truncateString("Creamy Mushroo", 14),
+      code: "12345",
+    
+    },
+    {
+      id: 21,
+      name: truncateString("Creamy Mushroo", 14),
+ 
+    },
+  ]);
 
 
 
-  const options = [
-    "Veggie Pasta Primavera - 123",
-    "Veggie Pasta Primavera - 1",
-    "Veggie Pasta Primavera - 12",
-    "Veggie Pasta Primavera - 12345 ",
-    "Veggie Pasta Primavera - 123",
 
-  ];
-  const [filteredOptions, setFilteredOptions] = useState(options);
+  const [filteredOptions, setFilteredOptions] = useState(items);
   const handleSearch=(e)=>{
     const value=e.target.value
     setSearchTerm(value)
@@ -36,61 +228,51 @@ const SearchBox = () => {
   }
 
   const filterOptions = (input) => {
-    const filtered = options.filter(option =>
-      option.toLowerCase().includes(input.toLowerCase())
+    const filtered = items.filter(option =>
+      option.name.toLowerCase().includes(input.toLowerCase())
     );
     setFilteredOptions(filtered);
-  }
-
-  const handleOptionClick=(option)=>{
-    setSearchTerm(option)
-    setFilteredOptions([])
+  };
+  
+  const handleOptionClick = (option) => {
+    setSearchTerm(option.name);
+    setFilteredOptions([]);
     setOptionSelected(true); // Set to true when an option is selected
-
-  }
-
+  };
+  
   const handleKeyDown = (e) => {
     if (e.key === 'ArrowDown') {
       setHighlightedIndex((prevIndex) => {
         const newIndex = Math.min(filteredOptions.length - 1, prevIndex + 1);
         // Update the search term to the newly highlighted option
-        setSearchTerm(filteredOptions[newIndex]);
+        setSearchTerm(filteredOptions[newIndex]?.name || "");
         return newIndex;
       });
-
-
-
-  }
-     
-    if (e.key === 'ArrowUp') {
-      setHighlightedIndex((prevIndex) =>{
-       const newIndex  =Math.min(filteredOptions.length - 1, prevIndex-1)
-       setSearchTerm(filteredOptions[newIndex]);
-       return newIndex;
-
-
-
-      }
-   
-      ); 
     }
-
-    else if (e.key === 'Enter') {
+    
+    if (e.key === 'ArrowUp') {
+      setHighlightedIndex((prevIndex) => {
+        const newIndex = Math.max(0, prevIndex - 1);
+        setSearchTerm(filteredOptions[newIndex]?.name || "");
+        return newIndex;
+      });
+    }
+  
+    if (e.key === 'Enter') {
       if (highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
         handleOptionClick(filteredOptions[highlightedIndex]);
-        setHighlightedIndex(-1)
-        
+        setHighlightedIndex(-1);
       }
     }
-    else if (e.key === 'Backspace') {
-
-        setHighlightedIndex(-1)
-        setSearchTerm("")
-      
+  
+    if (e.key === 'Backspace') {
+      setHighlightedIndex(-1);
+      const newValue = searchTerm.slice(0, -1);
+      setSearchTerm(newValue);
+      filterOptions(newValue);
     }
+  };
 
-
-  }
 
 
 
@@ -116,7 +298,7 @@ const SearchBox = () => {
 
             
             >
-              <div className={isExpanded?'Search-Container-options1-items':"Search-Container-options-items"} >{option}</div>
+              <div className={isExpanded?'Search-Container-options1-items':"Search-Container-options-items"} >{option.name}</div>
             </li>
           ))): !optionSelected && (
 
