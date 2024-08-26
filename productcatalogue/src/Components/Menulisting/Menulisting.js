@@ -609,15 +609,31 @@ const [showheadinglist, setshowheadinglist] = useState(false);
     {
         setmodal(true);
     }
-  
+const[sidebartext,setSideBarText]=useState(null)
  const showsidebar=(key)=>{
 
   if(key==="Dinein1"||key==="Pickup1"||key==="Delivery1")
   {
     handlemodal();
-    setActive("Availability");
+    setSideBarText("Pricing");
   }
+else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
+  {
+    handlemodal();
+    setSideBarText("Availability");
 
+  }
+  else if(key==="Inventory1")
+    {
+      handlemodal();
+      setSideBarText("Inventory");
+  
+    }
+    else if(key==="Customize1")
+      {
+        handlemodal();
+        setSideBarText("Customize");
+      }
  }
   
  
@@ -1199,7 +1215,7 @@ const [showheadinglist, setshowheadinglist] = useState(false);
           </table>
 
           {
-            modal && <Slider onclose={()=>setmodal(false)} />
+            modal && <Slider onclose={()=>setmodal(false)} sidebartext={sidebartext}/>
           }
         </div>
 
