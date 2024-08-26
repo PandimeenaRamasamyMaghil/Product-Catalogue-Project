@@ -28,7 +28,7 @@ const NavMenu = ({pen,sidebartext}) => {
     
     scrollToComponent(sidebartext);
     }
-  })
+  },[])
 
   // Function to scroll to respective section based on the item clicked
   const scrollToComponent = (item) => {
@@ -100,6 +100,7 @@ const NavMenu = ({pen,sidebartext}) => {
       <div className='navmenu-container'>
         {/* Each component has its own reference */}
         <div ref={pricingRef} className="section" data-section="Pricing">
+          
           <PricingSlider pen={pen}/>
         </div>
         <div ref={availabilityRef} className="section" data-section="Availability">

@@ -1184,11 +1184,12 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
                                             >
                                               {item === "Enabled" ||
                                               item === "Disabled" ? (
-                                                <Toggle
-                                                  toggle={item==="Enabled"?true:false}
-                                                  setToggle={settogglebtn}
-                                                  togglevalue={item==="Enabled"?1:0}
-                                                />
+                                                <div  onClick={()=>showsidebar(key)}> <Toggle
+                                                toggle={item==="Enabled"?true:false}
+                                                setToggle={settogglebtn}
+                                                togglevalue={item==="Enabled"?1:0}
+                                              /></div>
+                                               
                                               ) : (
                                                 <span  className="price" onClick={()=>showsidebar(key)}>{item}</span>
                                               )}

@@ -12,8 +12,8 @@
    opacity: 55%;
     padding: 10px;
     top:0px;
-    position: sticky;
-    z-index: 1200;
+    position: fixed;
+  
 
   }
   
@@ -23,6 +23,8 @@
     display: flex;
     margin: 0;
     padding: 0;
+    // height: 600px;
+    border: 1px solid red;
   }
   
   .nav-item {
@@ -54,7 +56,11 @@
   }
   .navmenu-container{
     overflow-x: hidden;
-    height:400px;
+    height:350px;
     overflow-y: auto;
-    z-index: 22;
+    z-index: 0;
+    border: 1px solid red;
+  
+    
+   
   }
