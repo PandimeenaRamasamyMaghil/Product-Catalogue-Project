@@ -33,6 +33,7 @@ export const Menulisting = () => {
     index: null,
   });
   const [draggingOverIndex, setDraggingOverIndex] = useState(null);
+  const [columndraggingindex,setcolumndraggingindex]=useState(null);
   const [modal,setmodal]=useState(false);
 
 
@@ -127,9 +128,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("dosa", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$100", "$100"],
-        Pickup1: ["$200", "$200", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$100.00", "$100.00"],
+        Pickup1: ["$200.00", "$200.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Disabled", "Enabled"],
         Pickup2: ["Enabled", "Disabled", "Disabled"],
         Delivery2: ["Enabled", "Enabled", "Disabled"],
@@ -143,9 +144,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString(" Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$400.00", "$600.00"],
+        Pickup1: ["$700.00", "$700.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -158,9 +159,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$400..00", "$600.00"],
+        Pickup1: ["$700.00", "$700.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -173,9 +174,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("idly Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$400.00", "$600.00"],
+        Pickup1: ["$700.00", "$700.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -188,9 +189,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -203,9 +204,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -218,9 +219,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -233,9 +234,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -248,9 +249,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -263,9 +264,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -278,9 +279,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -293,206 +294,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       name: truncateString("Creamy Mushroo", 14),
       code: "12345",
       pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 1,
-      name: truncateString("dosa", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$100", "$100"],
-        Pickup1: ["$200", "$200", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Disabled", "Disabled"],
-        Delivery2: ["Enabled", "Enabled", "Disabled"],
-        Inventory1: ["$100", "$10"],
-        Customize1: ["5"],
-      },
-    },
-
-    {
-      id: 3,
-      name: truncateString(" Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 4,
-      name: truncateString("Creamy", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 5,
-      name: truncateString("idly Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 1,
-      name: truncateString("dosa", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$100", "$100"],
-        Pickup1: ["$200", "$200", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Disabled", "Disabled"],
-        Delivery2: ["Enabled", "Enabled", "Disabled"],
-        Inventory1: ["$100", "$10"],
-        Customize1: ["5"],
-      },
-    },
-
-    {
-      id: 3,
-      name: truncateString(" Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 4,
-      name: truncateString("Creamy", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 5,
-      name: truncateString("idly Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
+        Dinein1: ["$1500.00", "$900.00"],
+        Pickup1: ["$200.00", "$400.00", "$200.00"],
+        Delivery1: ["$300.00", "$300.00", "$300.00"],
         Dinein2: ["Enabled", "Enabled"],
         Pickup2: ["Enabled", "Enabled", "Enabled"],
         Delivery2: ["Enabled", "Enabled", "Enabled"],
@@ -687,7 +491,9 @@ const [showheadinglist, setshowheadinglist] = useState(false);
     setDraggedIndexsample(index);
   };
   const handleColumnwiseDragOver = (index) => {
+
     if (draggedIndexsample !== index) {
+      setcolumndraggingindex(index);
       const updatedFirstRowTable = [...firstRowTable];
       const updatedSecondRowTable = [...secondRowTable];
       const updatedclassnames = [...classNames];
@@ -744,6 +550,7 @@ const [showheadinglist, setshowheadinglist] = useState(false);
     }
   };
   const handleColumnwiseDragEnd = () => {
+    setcolumndraggingindex(null)
     setDraggedIndexsample(null);
   };
 
@@ -1236,6 +1043,8 @@ const [showheadinglist, setshowheadinglist] = useState(false);
                     {firstRowTable.map(
                       (header, index) =>
                         listingobject[header.label] && (
+                          <> 
+                         
                           <th
                             key={index}
                             colSpan={secondRowTable[index].length}
@@ -1286,6 +1095,10 @@ const [showheadinglist, setshowheadinglist] = useState(false);
                               />
                             </span>
                           </th>
+                          {/* {columndraggingindex ===index &&
+                           <th className="columnspace" style={{width:'100px',height:"60px"}}></th>
+                          } */}
+                          </>
                         )
                     )}
                   </tr>
@@ -1386,7 +1199,7 @@ const [showheadinglist, setshowheadinglist] = useState(false);
           </table>
 
           {
-            modal && <Slider onclose={()=>setmodal(false)}/>
+            modal && <Slider onclose={()=>setmodal(false)} />
           }
         </div>
 

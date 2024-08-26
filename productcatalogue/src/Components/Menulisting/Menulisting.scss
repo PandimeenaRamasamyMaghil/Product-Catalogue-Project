@@ -273,7 +273,7 @@ img{
     {
       width: 100%;
       position: relative;
-      height:32rem;
+      height:32.6rem;
       display: block;
       overflow-x: hidden;
       overflow-y: auto;
@@ -456,6 +456,9 @@ img{
     flex-direction: row;
     position: relative;
     gap: 20px;
+    // border:1px solid red ;
+    justify-content: center;
+    align-items: center;
 
 
 
@@ -475,13 +478,13 @@ img{
       width: 206px;
       height: 24px;
       display: flex;
-      gap: 18px;
+      gap: 20px;
     }
   
     .Delivery1-class {
       width: 206px;
       height: 24px;
-      gap: 18px;
+      gap: 20px;
       display: flex;
     }
     .Pickup2-class {
@@ -731,6 +734,10 @@ img{
           cursor: pointer;
           font-size: 14px;
           font-weight: 400;
+          display: flex;
+          justify-items: left;
+          align-items: center;
+          // border: 1px solid red;
         }
       }
 
@@ -743,7 +750,7 @@ img{
         display: flex;
         justify-content: left;
         align-items: center;
-        gap: 25px;
+        gap: 27px;
         padding-left: 20px;
         td {
           width: 50px;
@@ -764,8 +771,8 @@ img{
         display: flex;
         justify-content: left;
         align-items: center;
-        gap: 17px;
-        padding-left: 10px;
+        gap: 20px;
+        padding-left: 18px;
         td {
           width: 70px;
           display: flex;
@@ -786,8 +793,8 @@ img{
         justify-content: center;
         align-items: center;
   
-        gap: 18px;
-        padding-left: 10px;
+        gap: 19px;
+        padding-left: 35px;
         td {
           display: flex;
           justify-content: center;
