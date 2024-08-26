@@ -145,11 +145,39 @@ margin-top: 30px;
     opacity: 1;
 }
 .ImageSliderContainer{
-  margin-top: 30px;
+  margin-top: 15px;
   display: flex;
-  justify-content: center;
-  border:2px solid red;
+  flex-direction: column;
 }
+.ImageSliderContainerHeading{
+  text-align: center;
+  font-size: 24px;
+  color: rgba(103, 131, 62, 1);
+  font-weight: 500;
+}
+.ImageType{
+  margin-top: 10px;
+  width:420.01px;
+  height:1px;
+  border:1px solid rgba(217, 217, 217, 1)
+}
+.ImageSliderMain{
+  height: 400px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 
-  
-  
+}
+.SliderImageMain{
+  margin-left: 65px;
+}
+.FileDivContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Add space between items */
+}
+.TypeImageDiv{
+  border:1px solid rgba(217, 217, 217, 1);
+  width: 420.01px;
+}
