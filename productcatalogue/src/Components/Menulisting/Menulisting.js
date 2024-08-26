@@ -714,6 +714,18 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
       table2.scrollTop += offset;
     }
   };
+  const Outsideref=useRef(null);
+  const Outsideclicking = (event) => {
+    if (Outsideref.current && !Outsideref.current.contains(event.target)) {
+      setshowheadinglist(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", Outsideclicking, true);
+    return () => {
+      document.removeEventListener("click", Outsideclicking, true);
+    };
+  }, [showheadinglist]);
 
 
  
@@ -855,12 +867,12 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
         <div          className={`${isExpanded?"secondtable1":"secondtable"}`}>
           <table>
             <thead>
-              <div className="headaadbtnclass">
+              <div className="headaadbtnclass" ref={Outsideref}>
                 {showheadinglist && (
-                  <div className="headingstextlist">
+                  <div className="headingstextlist" >
                     <div className="insertheading">
                       <h3>
-                        <span>Insert Column</span>{" "}
+                        <span>Insert Column</span>
                         <img
                           src={closeicon}
                           alt=""
