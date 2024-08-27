@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Filter.scss";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Reset from '../../../assets/svg/Reset.svg'
+import Reset from '../../assets/svg/Reset.svg'
 
 
 const Filter = () => {

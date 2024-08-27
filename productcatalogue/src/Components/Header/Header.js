@@ -1,17 +1,17 @@
 import React, { useContext, useState } from 'react'
 import '../Header/Header.scss'
 
-import SearchBox from './SearchBox1'
-import searchIcon from '../../../assets/png/searchicon.png'
+import SearchBox from '../SearchBox/SearchBox1'
+import searchIcon from '../../assets/png/searchicon.png'
 
-import filterIcon from '../../../assets/svg/filter.svg'
-import Excel from '../../../assets/svg/Excel.svg'
-import DownloadExcel from '../../../assets/png/ExcelDownload.png'
-import { Contextpagejs } from '../../../Pages/contextpage'
+import filterIcon from '../../assets/svg/filter.svg'
+import Excel from '../../assets/svg/DownloadExcel.svg'
+import DownloadExcel from '../../assets/svg/DownloadExcel.svg'
+import { Contextpagejs } from '../../Pages/contextpage'
 import { useNavigate } from 'react-router-dom'
-import Menu120 from './Menu120'
-import Filter from './Filter'
-import ArrowHover from '../../../assets/svg/ArrowHover.svg'
+import Menu120 from '../Menu120/Menu120'
+import Filter from '../../assets/svg/filter.svg'
+import ArrowHover from '../../assets/svg/ArrowHover.svg'
 
 
 

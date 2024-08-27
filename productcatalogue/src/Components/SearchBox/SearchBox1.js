@@ -1,10 +1,10 @@
 import React from 'react'
 import './SearchBox.scss'
 import { useState ,useContext} from 'react'
-import searchIcon from '../../../assets/png/searchicon.png'
+import searchIcon from '../../assets/png/searchicon.png'
 
-import NotFound from '../../../assets/svg/NotFound.svg'
-import { Contextpagejs } from '../../../Pages/contextpage'
+import NotFound from '../../assets/svg/NotFound.svg'
+import { Contextpagejs } from '../../Pages/contextpage'
 
 const SearchBox = () => {
 
