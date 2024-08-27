@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navigationpage from "./Navigation/Navigation";
 import "./Landingpage.scss";
-import Primary from "./PrimaryDetails/PrimaryDetails";
+import Primary from "../Pages/PrimaryDetails/PrimaryDetails";
 import ItemCustomization from "./Item Customizations/ItemCustomizations";
 
 import Reviewpage from "./Reviewpage/Reviewpage";

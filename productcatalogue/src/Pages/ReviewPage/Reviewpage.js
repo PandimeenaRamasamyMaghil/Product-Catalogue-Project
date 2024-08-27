@@ -6,13 +6,19 @@ import emptyfoodimg from "../../assets/png/emptyfoodimg.png";
 import edit from "../../assets/png/edit.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD:productcatalogue/src/Components/Reviewpage/Reviewpage.js
 import imageslist from "../imageslist/imageslist";
+=======
+import imageslist from "../../Components/imageslist/imageslist";
+
+import { primarypost } from "../../redux/Actions";
+>>>>>>> 99f990ce7345f00f1b61aea7702fce5947d02950:productcatalogue/src/Pages/ReviewPage/Reviewpage.js
 import { ApiPost} from "../../redux/Actions";
 
-import Step2 from "./Step2";
-import { Contextpagejs } from "../contextpage";
+import Step2 from "../../Components/Step2/Step2";
+import { Contextpagejs } from "../../Components/contextpage";
 
-import Step3Review from "./Step3Review";
+import Step3Review from "../../Components/Step3Review/Step3Review";
 
 const Reviewpage = () => {
   let navigate = useNavigate();

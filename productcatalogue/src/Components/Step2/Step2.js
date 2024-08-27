@@ -1,12 +1,12 @@
 import React,{useContext} from 'react'
 import "./Step2.scss"
-import NormalStep2 from './NormalStep2'
+import NormalStep2 from '../NormalStep2/NormalStep2'
 import { useNavigate, Link } from "react-router-dom";
 
 import edit from '../../assets/png/edit.png'
 import { Contextpagejs } from "../contextpage";
 import { useSelector } from 'react-redux';
-import SpecialReview from './SpecialReview'
+import SpecialReview from '../SpecialReview/SpecialReview'
 
 const Step2 = () => {
   const prizingDetail=useSelector((state)=>state.PricingDetailReducer.prizingData?.mainForm)
