@@ -8,7 +8,7 @@ import Tooltip from '../../Components/Tooltip/Tooltip';
 import { PricingDetailRequest } from '../../redux/Actions';
 import Dropdown from '../../Components/DropDown/Dropdown';
 import { useNavigate } from 'react-router-dom';
-import { Contextpagejs } from '../../Components/contextpage';
+import { Contextpagejs } from '../contextpage';
 import info from "../../assets/png/info.png";
 import { useSelector } from 'react-redux';
 

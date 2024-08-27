@@ -4,7 +4,7 @@ import PricingSlider from '../PricingSlider/PricingSlider';
 import AvailabilitySlider from '../AvailibilitySlider/AvailabilitySlider';
 import Inventory from '../Inventory/Inventory';
 import CustomizeSlider from '../CustomizeSlider/CustomizeSlider';
-import { Contextpagejs } from '../contextpage'
+import { Contextpagejs } from '../../Pages/contextpage'
 
 const NavMenu = ({pen,sidebartext}) => {
   // const [active, setActive] = useState('Pricing');

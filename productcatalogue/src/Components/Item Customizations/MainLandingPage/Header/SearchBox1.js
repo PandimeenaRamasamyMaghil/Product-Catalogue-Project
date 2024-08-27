@@ -4,7 +4,7 @@ import { useState ,useContext} from 'react'
 import searchIcon from '../../../../assets/png/searchicon.png'
 
 import NotFound from '../../../../assets/svg/NotFound.svg'
-import { Contextpagejs } from '../../../contextpage'
+import { Contextpagejs } from '../../../../Pages/contextpage'
 
 const SearchBox = () => {
 

@@ -6,7 +6,7 @@ import { useNavigate,Link} from "react-router-dom";
 import { itemCustomizationPost, primarypost } from "../../redux/Actions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Contextpagejs } from "../contextpage";
+import { Contextpagejs } from "../../Pages/contextpage";
 import { PricingDetailRequest } from "../../redux/Actions";
 // import { itemCustomizationPost } from "../../redux/Actions";
 

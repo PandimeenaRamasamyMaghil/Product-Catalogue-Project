@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store'
-import  {Contextpage} from './Components/contextpage';
+import  {Contextpage} from './Pages/contextpage';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -11,7 +11,7 @@ import toggleround from "../../assets/svg/toggleround.svg";
 import dollaricon from "../../assets/svg/dollaricon.svg";
 import togglebtns from "../../assets/svg/togglebtn.svg";
 import Slider from "../../Components/Slider/Slider"
-import { Contextpagejs } from '../../Components/contextpage'
+import { Contextpagejs } from '../../Pages/contextpage'
 
 import StringDisplay from "../../Components/StringDisplay/StringDisplay";
 

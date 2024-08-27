@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import React from "react";
 import "./Navigation.scss";
-import { Contextpagejs } from '../contextpage';
+import { Contextpagejs } from '../../Pages/contextpage';
 import {
   useNavigate,
   useLocation,

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Navigationpage from "./Navigation/Navigation";
+import Navigationpage from "../Components/Navigation/Navigation";
 import "./Landingpage.scss";
 import Primary from "../Pages/PrimaryDetails/PrimaryDetails";
-import ItemCustomization from "./Item Customizations/ItemCustomizations";
+import ItemCustomization from "../Components/Item Customizations/ItemCustomizations";
 
-import Reviewpage from "./Reviewpage/Reviewpage";
+import Reviewpage from "../Pages/ReviewPage/Reviewpage";
 import {Routes, Route } from "react-router-dom";
 import PricingDetails from "../Pages/PricingDetalis/PricingDetails";
 
 
 import { Menulisting } from "../Pages/Menulisting/Menulisting";
-import Sidenav from "./SideNav/Sidenav";
+import Sidenav from "../Components/SideNav/Sidenav";
 
 
 const Landingpage = () => {

@@ -12,7 +12,7 @@ import ArrowHover from '../../assets/svg/ArrowHover.svg'
 import btnnav from '../../assets/svg/btnnav.svg'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { Contextpagejs } from '../contextpage'
+import { Contextpagejs } from '../../Pages/contextpage'
 
 
 
