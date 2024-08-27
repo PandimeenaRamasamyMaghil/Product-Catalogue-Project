@@ -1,7 +1,7 @@
   import React, { useState } from "react";
   import "./ItemCustomizations.scss";
   import dotted from "../../assets/png/dotted.png";
-  import Toggle from "../Toggle/Toggle";
+  import Toggle from "../../Components/Toggle/Toggle"
   import Polygon1 from "../../assets/png/Polygon 1.png";
   import Polygon2 from "../../assets/png/Polygon 2.png";
   import { useDispatch } from "react-redux";
@@ -10,9 +10,9 @@
   import { useNavigate } from "react-router-dom";
   import { useEffect } from "react";
 
-  import Savenextbutton from "../Savenextbutton/Savenextbutton";
+  import Savenextbutton from "../../Components//Savenextbutton/Savenextbutton"
   import Serachicon from '../../assets/png/searchicon.png'
-  import DropDownItem from "../DropDownItem/DropDownItem";
+  import DropDownItem from "../../Components/DropDownItem/DropDownItem";
   import { isValid } from "date-fns";
   import { tr } from "date-fns/locale";
 

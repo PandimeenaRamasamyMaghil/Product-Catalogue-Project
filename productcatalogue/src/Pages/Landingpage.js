@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navigationpage from "../Components/Navigation/Navigation";
 import "./Landingpage.scss";
 import Primary from "../Pages/PrimaryDetails/PrimaryDetails";
-import ItemCustomization from "../Components/Item Customizations/ItemCustomizations";
+import ItemCustomization from "../Pages/itemCustomization/ItemCustomizations";
 
 import Reviewpage from "../Pages/ReviewPage/Reviewpage";
 import {Routes, Route } from "react-router-dom";
