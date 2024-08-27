@@ -85,6 +85,10 @@ height: 4px;
 height: 4px;
   padding-bottom: 0.313rem;
   list-style: none;
+  transition: border-color 0.3s;
+  border-radius: 0.625rem;
+  background-color: #979797;
+  cursor: pointer;
 
 
   // border-bottom: 10px solid  #979797;

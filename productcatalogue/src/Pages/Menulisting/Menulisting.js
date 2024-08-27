@@ -577,18 +577,6 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       const currentObject = updatedTypes.find((item) => item.id === objectId);
       const indexofvalue = nooftypes.findIndex(item => item.id === objectId);
       if (currentObject) {
-        // const updatedItems = [...currentObject.name];
-        // const draggedItem = updatedItems[draggedIndex];
-        // console.log(currentObject)
-
-        // // Remove dragged item and insert it at the new position
-        // updatedItems.splice(draggedIndex, 1);
-        // updatedItems.splice(index, 0, draggedItem);
-
-        // // Update the object in nooftypes
-        // currentObject.name = updatedItems;
-
-        // // Update state
         const updatednooftypes=[...nooftypes[indexofvalue].name]
         const draggingitme=updatednooftypes[draggedIndex];
         updatednooftypes.splice(draggedIndex,1);
