@@ -1,9 +1,9 @@
   import React, { useState } from "react";
   import "./ItemCustomizations.scss";
-  import dotted from "./dotted.png";
+  import dotted from "../../assets/png/dotted.png";
   import Toggle from "../Toggle/Toggle";
-  import Polygon1 from "./Polygon 1.png";
-  import Polygon2 from "./Polygon 2.png";
+  import Polygon1 from "../../assets/png/Polygon 1.png";
+  import Polygon2 from "../../assets/png/Polygon 2.png";
   import { useDispatch } from "react-redux";
   import { itemCustomizationPost } from "../../redux/Actions";
   import { useSelector } from "react-redux";
@@ -12,7 +12,7 @@
 
   import Savenextbutton from "../Savenextbutton/Savenextbutton";
   import Serachicon from '../../assets/png/searchicon.png'
-  import Dropdown from "./DropDown";
+  import DropDownItem from "../DropDownItem/DropDownItem";
   import { isValid } from "date-fns";
   import { tr } from "date-fns/locale";
 
@@ -536,7 +536,7 @@
                     </div>
                   </div>
                   <div className="dropDown-item" >
-                  <Dropdown
+                  <DropDownItem
                   selectedValues={modifier.selectedValue}
 
 
