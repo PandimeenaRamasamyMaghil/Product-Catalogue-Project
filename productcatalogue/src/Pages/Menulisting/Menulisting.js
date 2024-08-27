@@ -864,7 +864,7 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
 
 
 
-        <div          className={`${isExpanded?"secondtable1":"secondtable"}`}>
+        <div  className={`${isExpanded?"secondtable1":"secondtable"}`}>
           <table>
             <thead>
               <div className="headaadbtnclass" ref={Outsideref}>
