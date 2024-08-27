@@ -5,7 +5,7 @@ import dollar from "../../assets/svg/dollar.svg";
 import removeicon from "../../assets/svg/removeicon.svg";
 import apple from "../../assets/svg/fish.svg";
 import Toggle from "../../Components/Toggle/Toggle";
-import Header from "../../Components/Item Customizations/MainLandingPage/Header/Header";
+import Header from "../../Components/MainLandingPage/Header/Header";
 import closeicon from "../../assets/svg/closeicon.svg";
 import toggleround from "../../assets/svg/toggleround.svg";
 import dollaricon from "../../assets/svg/dollaricon.svg";
