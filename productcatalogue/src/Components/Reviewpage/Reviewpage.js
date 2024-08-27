@@ -2,15 +2,11 @@ import React, { useContext, useState,useEffect } from "react";
 import "./Reviewpage.scss";
 import axios from 'axios';
 
-import emptyfoodimg from "../../assets/images/emptyfoodimg.png";
-import edit from "../../assets/images/edit.png";
+import emptyfoodimg from "../../assets/png/emptyfoodimg.png";
+import edit from "../../assets/png/edit.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import imageslist from "../imageslist/imageslist";
-import ingredientimagelist from "../imageslist/ingredientimagelist";
-
-import Savenext from "../Savenextbutton/Savenextbutton";
-import { primarypost } from "../../redux/Actions";
 import { ApiPost} from "../../redux/Actions";
 
 import Step2 from "./Step2";

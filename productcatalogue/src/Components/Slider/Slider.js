@@ -2,13 +2,13 @@ import React, { useRef, useState,useEffect } from 'react'
 import AOS from 'aos';
 import "./Slider.scss"
 
-import Pen from "../../assets/images/edit 1.png"
-import Eye from "../../assets/images/eye-off.png"
-import Bin from "../../assets/images/Frame 3466811.png"
+import Pen from "../../assets/png/edit 1.png"
+import Eye from "../../assets/png/eye-off.png"
+import Bin from "../../assets/png/Frame 3466811.png"
 import EyeModal from '../EyeModal/EyeModal'
 import Trash from '../Trash/Trash'
 import NavSlider from '../NavSlider/NavSlider'
-import ArrowHover from '../../assets/images/ArrowHover.svg'
+import ArrowHover from '../../assets/svg/ArrowHover.svg'
 import BasicChanges from '../BasicChanges/BasicChanges'
 
 const Slider = ({ onclose,sidebartext }) => {

@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef ,useContext} from "react";
 import "./Menulisting.scss";
-import dots from "../../assets/images/dots.svg";
-import dollar from "../../assets/images/dollar.svg";
-import removeicon from "../../assets/images/removeicon.svg";
-import apple from "../../assets/images/ingredientimages/fish.svg";
+import dots from "../../assets/svg/dots.svg";
+import dollar from "../../assets/svg/dollar.svg";
+import removeicon from "../../assets/svg/removeicon.svg";
+import apple from "../../assets/svg/fish.svg";
 import Toggle from "../../Components/Toggle/Toggle";
 import Header from "../../Components/Item Customizations/MainLandingPage/Header/Header";
-import closeicon from "../../assets/images/closeicon.svg";
-import toggleround from "../../assets/images/toggleround.svg";
-import dollaricon from "../../assets/images/dollaricon.svg";
-import togglebtns from "../../assets/images/togglebtn.svg";
+import closeicon from "../../assets/svg/closeicon.svg";
+import toggleround from "../../assets/svg/toggleround.svg";
+import dollaricon from "../../assets/svg/dollaricon.svg";
+import togglebtns from "../../assets/svg/togglebtn.svg";
 import Slider from "../../Components/Slider/Slider"
 import { Contextpagejs } from '../../Components/contextpage'
 

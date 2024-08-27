@@ -4,7 +4,7 @@ import Toggle from '../Toggle/Toggle'
 import "./Specialvail.scss"
 import DaysCheck from '../DayCheck/DaysCheck';
 import 'react-datepicker/dist/react-datepicker.css';
-import calender from "../../assets/images/calendar 1.png"
+import calender from "../../assets/png/calendar 1.png"
 import DropDown3 from "../DropDown3/DropDown3"
 import { format } from 'date-fns';
 import { useSelector } from 'react-redux';

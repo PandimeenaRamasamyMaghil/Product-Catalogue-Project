@@ -12,7 +12,7 @@
   import { useEffect } from "react";
 
   import Savenextbutton from "../Savenextbutton/Savenextbutton";
-  import Serachicon from '../../assets/images/searchicon.png'
+  import Serachicon from '../../assets/png/searchicon.png'
   import Dropdown from "./DropDown";
   import { isValid } from "date-fns";
   import { tr } from "date-fns/locale";

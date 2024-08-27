@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./AvailabilitySlider.scss"
-import Weigh from "../../assets/images/weigh.png"
+import Weigh from "../../assets/png/weigh.png"
 import ToggleSliderAvail from "../ToggleSliderAvail/ToggleSliderAvail"
 
 

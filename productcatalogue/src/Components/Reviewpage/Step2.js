@@ -3,7 +3,7 @@ import "./Step2.scss"
 import NormalStep2 from './NormalStep2'
 import { useNavigate, Link } from "react-router-dom";
 
-import edit from '../../assets/images/edit.png'
+import edit from '../../assets/png/edit.png'
 import { Contextpagejs } from "../contextpage";
 import { useSelector } from 'react-redux';
 import SpecialReview from './SpecialReview'

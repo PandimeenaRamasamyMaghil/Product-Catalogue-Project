@@ -2,20 +2,21 @@ import React, { useState, useRef, useEffect ,useContext} from "react";
 import "./PrimaryDetails.scss";
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
-import addimage from "../../assets/images/addimage.png";
-import dropdown from "../../assets/images/dropdown.png";
+
+import addimage from "../../assets/png/addimage.png";
+import dropdown from "../../assets/png/dropdown.png";
 // import uparrow from "../../assets/images/uparrow.png";
 import initialimage from "../imageslist/imageslist";
-import ingredientimageinitial from "../imageslist/ingredientimagelist";
+
 import axios from 'axios';
-import searchicon from "../../assets/images/searchicon.png";
-import deleteicon from "../../assets/images/delete.png";
+import searchicon from "../../assets/png/searchicon.png";
+import deleteicon from "../../assets/png/delete.png";
 import Savenext from "../Savenextbutton/Savenextbutton";
 import Tooltip from "../Tooltip/Tooltip";
-import info from "../../assets/images/info.png";
+import info from "../../assets/png/info.png";
 import { Contextpagejs } from "../contextpage";
-import tooltiparrow from '../../assets/images/ArrowHover.svg'
-import edit from "../../assets/images/edit.svg"
+import tooltiparrow from '../../assets/svg/ArrowHover.svg'
+import edit from "../../assets/svg/edit.svg"
 
 const PrimaryDetails = () => {
   const dispatch = useDispatch();
@@ -359,9 +360,7 @@ const tooltipstyles={
   ]);
   const [imagelisting, setimagelisting] = useState(initialimage);
 
-  const [ingredientimagelist, setingredientimagelist] = useState(
-    ingredientimageinitial
-  );
+ 
 
   const [dropdownStates, setDropdownStates] = useState({
     dietarydropdown: false,

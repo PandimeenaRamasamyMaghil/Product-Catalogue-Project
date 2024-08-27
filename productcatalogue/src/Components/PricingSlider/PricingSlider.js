@@ -1,7 +1,8 @@
 import React from 'react'
 import "./PricingSlider.scss"
-import Weigh from "../../assets/images/weigh.png"
-import BigArrow from '../../assets/images/BigArrow.svg'
+
+import BigArrow from '../../assets/svg/BigArrow.svg'
+import Weigh from '../../assets/png/weigh.png'
 
 
 const PricingSlider = ({pen}) => {

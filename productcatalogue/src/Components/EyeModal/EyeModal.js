@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import "./EyeModal.scss"
-import Eye  from "../../assets/images/eye.png"
+import Eye  from "../../assets/png/eye.png"
 
 const EyeModal = ({onEyeclose}) => {
     const eyemodalRef=useRef()

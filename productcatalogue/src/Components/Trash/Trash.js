@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import "./Trash.scss"
-import Trash  from "../../assets/images/trash-2.png"
+import Trash  from "../../assets/png/trash-2.png"
 
 const EyeModal = ({onTrashclose}) => {
     const trashmodalRef=useRef()

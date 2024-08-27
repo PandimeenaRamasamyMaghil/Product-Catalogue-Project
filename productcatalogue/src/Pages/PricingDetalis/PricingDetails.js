@@ -9,11 +9,11 @@ import { PricingDetailRequest } from '../../redux/Actions';
 import Dropdown from '../../Components/DropDown/Dropdown';
 import { useNavigate } from 'react-router-dom';
 import { Contextpagejs } from '../../Components/contextpage';
-import info from "../../assets/images/info.png";
+import info from "../../assets/png/info.png";
 import { useSelector } from 'react-redux';
-import { Value } from 'sass';
+
 import axios from 'axios';
-// import { Contextpagejs } from "../contextpage";
+
  
 
 const PricingDetails = () => {

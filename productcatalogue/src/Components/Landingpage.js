@@ -3,16 +3,15 @@ import Navigationpage from "./Navigation/Navigation";
 import "./Landingpage.scss";
 import Primary from "./PrimaryDetails/PrimaryDetails";
 import ItemCustomization from "./Item Customizations/ItemCustomizations";
-import Sidenavbar from "./sidenavbar/SideNavbar";
+
 import Reviewpage from "./Reviewpage/Reviewpage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import PricingDetails from "../Pages/PricingDetalis/PricingDetails";
-import { Contextpage } from "./contextpage";
-import Pricingpage from "./Pricingpage/Pricingpage";
+
+
 import { Menulisting } from "../Pages/Menulisting/Menulisting";
 import Sidenav from "./SideNav/Sidenav";
-import Header from "./Item Customizations/MainLandingPage/Header/Header";
-import Slider from "../Components/Slider/Slider";
+
 
 const Landingpage = () => {
   const [currentStep, setCurrentStep] = useState(1);

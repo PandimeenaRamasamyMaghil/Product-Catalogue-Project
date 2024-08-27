@@ -1,21 +1,21 @@
-import gluten from "../../assets/images/icon/gluten.png";
-import gluten2 from "../../assets/images/icon/gluten2.png";
-import gluten3 from "../../assets/images/icon/gluten3.png";
-import gluten4 from "../../assets/images/icon/gluten4.png";
-import gluten5 from "../../assets/images/icon/gluten5.png";
-import gluten6 from "../../assets/images/icon/gluten6.png";
+import gluten from "../../assets/png/gluten.png";
+import gluten2 from "../../assets/png/gluten2.png";
+import gluten3 from "../../assets/png/gluten3.png";
+import gluten4 from "../../assets/png/gluten4.png";
+import gluten5 from "../../assets/png/gluten5.png";
+import gluten6 from "../../assets/png/gluten6.png";
 
-import Coconut from "../../assets/images/icon/Coconut.png";
+import Coconut from "../../assets/png/Coconut.png";
 
-import Lactose from "../../assets/images/icon/Lactose.png";
-import Soy from "../../assets/images/icon/Soy.png";
-import Egg from "../../assets/images/icon/egg.png";
-import Egg2 from "../../assets/images/icon/egg2.png";
-import Dairy from "../../assets/images/icon/Dairy.png";
-import Shellfish from "../../assets/images/icon/Shellfish.png";
-import Fish from "../../assets/images/icon/Fish.png";
-import nuts from "../../assets/images/icon/nuts.png";
-import Legumes from "../../assets/images/icon/Legumes.png";
+import Lactose from "../../assets/png/Lactose.png";
+import Soy from "../../assets/png/Soy.png";
+import Egg from "../../assets/png/egg.png";
+import Egg2 from "../../assets/png/egg2.png";
+import Dairy from "../../assets/png/Dairy.png";
+import Shellfish from "../../assets/png/Shellfish.png";
+import Fish from "../../assets/png/Fish.png";
+import nuts from "../../assets/png/nuts.png";
+import Legumes from "../../assets/png/Legumes.png";
 
 const imageslist = [
   {

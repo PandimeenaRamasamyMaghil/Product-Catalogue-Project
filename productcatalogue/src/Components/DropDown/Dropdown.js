@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Dropdown.scss';
-import UpArrow from "../../assets/images/dropdown.png";
+import UpArrow from "../../assets/png/dropdown.png";
 
 const Dropdown = ({ selectedValues = [], onSelect, options = [], addOption, label, validation, onBlur }) => {
   const [isOpen, setIsOpen] = useState(false);
