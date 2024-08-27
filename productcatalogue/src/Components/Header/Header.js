@@ -5,8 +5,8 @@ import SearchBox from '../SearchBox/SearchBox1'
 import searchIcon from '../../assets/png/searchicon.png'
 
 import filterIcon from '../../assets/svg/filter.svg'
-import Excel from '../../assets/svg/DownloadExcel.svg'
-import DownloadExcel from '../../assets/svg/DownloadExcel.svg'
+import Excel from '../../assets/svg/Excel.svg'
+import DownloadExcel from '../../assets/png/ExcelDownload.png'
 import { Contextpagejs } from '../../Pages/contextpage'
 import { useNavigate } from 'react-router-dom'
 import Menu120 from '../Menu120/Menu120'
@@ -25,7 +25,7 @@ const Header = () => {
     setFilterSelected(!filterSelected)
 
   }
-
+console.log(filterSelected)
 
   
 
