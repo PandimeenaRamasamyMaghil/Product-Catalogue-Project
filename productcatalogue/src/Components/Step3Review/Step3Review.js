@@ -1,5 +1,5 @@
 import React ,{useContext}from "react";
-import "../Reviewpage/Step3Review.scss";
+import "../../Components/Step3Review/Step3Review.scss";
 import Edit from '../../assets/images/edit.png';
 import { useSelector } from "react-redux";
 import { Contextpagejs } from "../contextpage";

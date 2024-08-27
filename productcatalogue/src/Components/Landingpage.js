@@ -4,7 +4,7 @@ import "./Landingpage.scss";
 import Primary from "../Pages/PrimaryDetails/PrimaryDetails";
 import ItemCustomization from "./Item Customizations/ItemCustomizations";
 import Sidenavbar from "./sidenavbar/SideNavbar";
-import Reviewpage from "./Reviewpage/Reviewpage";
+import Reviewpage from "../Pages/ReviewPage/Reviewpage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PricingDetails from "../Pages/PricingDetalis/PricingDetails";
 import { Contextpage } from "./contextpage";

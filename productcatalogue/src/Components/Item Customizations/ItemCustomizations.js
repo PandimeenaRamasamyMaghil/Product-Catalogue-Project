@@ -8,7 +8,6 @@
   import { itemCustomizationPost } from "../../redux/Actions";
   import { useSelector } from "react-redux";
   import { useNavigate } from "react-router-dom";
-  import Step3 from '../Reviewpage/Step3Review'
   import { useEffect } from "react";
 
   import Savenextbutton from "../Savenextbutton/Savenextbutton";
