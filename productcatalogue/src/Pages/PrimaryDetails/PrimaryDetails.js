@@ -2,12 +2,10 @@ import React, { useState, useRef, useEffect ,useContext} from "react";
 import "./PrimaryDetails.scss";
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
-
 import addimage from "../../assets/png/addimage.png";
 import dropdown from "../../assets/png/dropdown.png";
 // import uparrow from "../../assets/images/uparrow.png";
 import initialimage from "../../Components/imageslist/imageslist";
-
 import axios from 'axios';
 import searchicon from "../../assets/png/searchicon.png";
 import deleteicon from "../../assets/png/delete.png";
