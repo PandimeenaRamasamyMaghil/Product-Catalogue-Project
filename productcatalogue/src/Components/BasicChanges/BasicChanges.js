@@ -1,6 +1,6 @@
 import React from 'react'
 import "./BasicChanges.scss"
-import ToggleSlider from "./ToggleSlider"
+import ToggleSlider from "../ToggleSlider/ToggleSlider"
 import Basic from "../../assets/images/Basic.png"
 import { useState } from 'react'
 

@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect ,useContext} from 'react';
 import './NavSlider.scss'; // Import a CSS file for styling
-import PricingSlider from './PricingSlider';
-import AvailabilitySlider from './AvailabilitySlider';
-import Inventory from './Inventory';
-import CustomizeSlider from './CustomizeSlider';
+import PricingSlider from '../PricingSlider/PricingSlider';
+import AvailabilitySlider from '../AvailibilitySlider/AvailabilitySlider';
+import Inventory from '../Inventory/Inventory';
+import CustomizeSlider from '../CustomizeSlider/CustomizeSlider';
 import { Contextpagejs } from '../contextpage'
 
 const NavMenu = ({pen,sidebartext}) => {

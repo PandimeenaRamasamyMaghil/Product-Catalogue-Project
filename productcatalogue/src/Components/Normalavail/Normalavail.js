@@ -1,10 +1,10 @@
 import {React,useState,useEffect} from 'react'
 import Toggle from '../Toggle/Toggle'
 import './Normalavail.scss'
-import DaysCheck from './DaysCheck'
-import Dropdown2 from './DropDown2'
-import DropDown3 from './DropDown3'
-import DaysCheckDin from "./DaysCheckDinein"
+import DaysCheck from '../DayCheck/DaysCheck'
+import Dropdown2 from '../DropDown2/DropDown2'
+import DropDown3 from '../DropDown3/DropDown3'
+import DaysCheckDin from "../DayCheckDinein/DaysCheckDinein"
 import { useSelector } from 'react-redux'
  
 const Specialavail = ({getNormalForm,validateDropdown,validationState,dinein,setDineIn}) => {

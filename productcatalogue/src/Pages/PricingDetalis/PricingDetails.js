@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import "./PricingDetails.scss";
-import Toggle from "../Toggle/Toggle";
-import Specialavail from './Specialavail';
-import Normalavail from "./Normalavail";
+import Toggle from "../../Components/Toggle/Toggle"
+import Specialavail from '../../Components/SpecialAvail/Specialavail';
+import Normalavail from '../../Components/Normalavail/Normalavail';
 import { useDispatch } from 'react-redux';
-import Tooltip from '../Tooltip/Tooltip';
+import Tooltip from '../../Components/Tooltip/Tooltip';
 import { PricingDetailRequest } from '../../redux/Actions';
-import Dropdown from './Dropdown';
+import Dropdown from '../../Components/DropDown/Dropdown';
 import { useNavigate } from 'react-router-dom';
-import { Contextpagejs } from '../contextpage';
+import { Contextpagejs } from '../../Components/contextpage';
 import info from "../../assets/images/info.png";
 import { useSelector } from 'react-redux';
 import { Value } from 'sass';

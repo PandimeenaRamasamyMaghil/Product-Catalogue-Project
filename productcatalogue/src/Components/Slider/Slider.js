@@ -1,20 +1,15 @@
 import React, { useRef, useState,useEffect } from 'react'
 import AOS from 'aos';
 import "./Slider.scss"
-import PricingSlider from './PricingSlider'
+
 import Pen from "../../assets/images/edit 1.png"
 import Eye from "../../assets/images/eye-off.png"
 import Bin from "../../assets/images/Frame 3466811.png"
-import ToggleSlider from "./ToggleSlider"
-import AvailabitySlider from "./AvailabilitySlider"
-import TooltipSlider from "./TooltipSlider"
-import EyeModal from './EyeModal'
-import Trash from './Trash'
-import NavSlider from './NavSlider'
+import EyeModal from '../EyeModal/EyeModal'
+import Trash from '../Trash/Trash'
+import NavSlider from '../NavSlider/NavSlider'
 import ArrowHover from '../../assets/images/ArrowHover.svg'
-import Inventory from './Inventory'
-import CustomizeSlider from './CustomizeSlider'
-import BasicChanges from './BasicChanges'
+import BasicChanges from '../BasicChanges/BasicChanges'
 
 const Slider = ({ onclose,sidebartext }) => {
 

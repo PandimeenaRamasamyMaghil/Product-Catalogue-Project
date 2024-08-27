@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './CustomizeSlider.scss';
-import ToggleSliderAvail from './ToggleSliderAvail';
+import ToggleSliderAvail from '../ToggleSliderAvail/ToggleSliderAvail';
 
 const CustomizeSlider = () => {
   const data = [

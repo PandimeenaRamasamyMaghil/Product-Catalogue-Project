@@ -4,16 +4,16 @@ import dots from "../../assets/images/dots.svg";
 import dollar from "../../assets/images/dollar.svg";
 import removeicon from "../../assets/images/removeicon.svg";
 import apple from "../../assets/images/ingredientimages/fish.svg";
-import Toggle from "../Toggle/Toggle";
-import Header from "../Item Customizations/MainLandingPage/Header/Header";
+import Toggle from "../../Components/Toggle/Toggle";
+import Header from "../../Components/Item Customizations/MainLandingPage/Header/Header";
 import closeicon from "../../assets/images/closeicon.svg";
 import toggleround from "../../assets/images/toggleround.svg";
 import dollaricon from "../../assets/images/dollaricon.svg";
 import togglebtns from "../../assets/images/togglebtn.svg";
-import Slider from "../Slider/Slider"
-import { Contextpagejs } from '../contextpage'
+import Slider from "../../Components/Slider/Slider"
+import { Contextpagejs } from '../../Components/contextpage'
 
-import StringDisplay from "./StringDisplay";
+import StringDisplay from "../../Components/StringDisplay/StringDisplay";
 
 
 export const Menulisting = () => {
