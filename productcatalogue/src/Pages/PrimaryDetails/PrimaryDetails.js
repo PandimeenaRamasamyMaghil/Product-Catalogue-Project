@@ -5,15 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import addimage from "../../assets/images/addimage.png";
 import dropdown from "../../assets/images/dropdown.png";
 // import uparrow from "../../assets/images/uparrow.png";
-import initialimage from "../imageslist/imageslist";
-import ingredientimageinitial from "../imageslist/ingredientimagelist";
+import initialimage from "../../Components/imageslist/imageslist";
+import ingredientimageinitial from "../../Components/imageslist/ingredientimagelist"
 import axios from 'axios';
 import searchicon from "../../assets/images/searchicon.png";
 import deleteicon from "../../assets/images/delete.png";
-import Savenext from "../Savenextbutton/Savenextbutton";
-import Tooltip from "../Tooltip/Tooltip";
+import Savenext from "../../Components/Savenextbutton/Savenextbutton";
+import Tooltip from "../../Components/Tooltip/Tooltip";
 import info from "../../assets/images/info.png";
-import { Contextpagejs } from "../contextpage";
+import { Contextpagejs } from "../../Components/contextpage";
 import tooltiparrow from '../../assets/images/ArrowHover.svg'
 import edit from "../../assets/images/edit.svg"
 
