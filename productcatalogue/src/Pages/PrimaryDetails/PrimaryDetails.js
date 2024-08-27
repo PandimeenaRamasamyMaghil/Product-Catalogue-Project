@@ -10,7 +10,7 @@ import axios from 'axios';
 import searchicon from "../../assets/png/searchicon.png";
 import deleteicon from "../../assets/png/delete.png";
 import Savenext from "../../Components/Savenextbutton/Savenextbutton";
-import Tooltip from "../../Components/Toggle/Toggle";
+import Tooltip from "../../Components/Tooltip/Tooltip";
 import info from "../../assets/png/info.png";
 import { Contextpagejs } from "../../Pages/contextpage";
 import tooltiparrow from '../../assets/svg/ArrowHover.svg'
@@ -21,14 +21,7 @@ const PrimaryDetails = () => {
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
   const [selectedOption, setSelectedOption] = useState("");
   const [portionSizeSeleted, setportionSizeSeleted] = useState("");
-  // const  testimg={
-  //   "id": "03348389-4b2a-4fca-affa-6ad4291b0241",
-  //   "name": "Sauces",
-  //   "imageId": "03348389-4b2a-4fca-affa-6ad4291b0241",
-  //   "imageType": "img/png"
-  //  }
-
-  //  console.log(testimg.imageId ,"  ",testimg.imageType.split('/')[1]);
+ 
 
   const [dropdownoptionlist, setdropdownoptionlist] = useState({
     dietary: false,
@@ -89,25 +82,12 @@ const PrimaryDetails = () => {
   }, []);
 
 
-  // useEffect(() => {
-   
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=INGR');
-  //       setimagefromapi(response.data && response.data);
-  //       console.log("imagefromapi",imagefromapi);
-  //     } catch (error) {
-  //       return error;
-  //     } 
-  //   };
-   
-  //   fetchData();
-  // }, []);
+ 
 
 
 const tooltipstyles={
   itemcodetooltipcode:{
-    border: '1px solid #67833E',  // Adding a red border
+    border: '1px solid #67833E',  
     padding: '10px',
     width: '187px',
     height: '38.8px',
@@ -125,7 +105,7 @@ const tooltipstyles={
 
   },
   allergenstooltipcode:{
-    border: '1px solid #67833E',  // Adding a red border
+    border: '1px solid #67833E',  
     padding: '10px',
     width: '187px',
     height: '38.8px',
@@ -143,7 +123,7 @@ const tooltipstyles={
 
   },
   bestpairtooltipcode:{
-    border: '1px solid #67833E',  // Adding a red border
+    border: '1px solid #67833E',  
  
     width: '187px',
     height: '38.8px',
@@ -160,7 +140,7 @@ const tooltipstyles={
 
   },
   portiontooltipcode:{
-    border: '1px solid #67833E',  // Adding a red border
+    border: '1px solid #67833E',  
  
     width: '187px',
     height: '38.8px',
@@ -177,7 +157,7 @@ const tooltipstyles={
 
   },
   taxtooltipcode:{
-    border: '1px solid #67833E',  // Adding a red border
+    border: '1px solid #67833E',  
  
     width: '187px',
     height: '38.8px',
@@ -194,7 +174,7 @@ const tooltipstyles={
 
   },
   mastertooltipcode:{
-    border: '1px solid #67833E',  // Adding a red border
+    border: '1px solid #67833E',  
  
     width: '187px',
     height: '38.8px',
