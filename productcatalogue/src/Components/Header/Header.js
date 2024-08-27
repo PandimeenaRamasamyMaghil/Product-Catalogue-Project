@@ -10,7 +10,7 @@ import DownloadExcel from '../../assets/png/ExcelDownload.png'
 import { Contextpagejs } from '../../Pages/contextpage'
 import { useNavigate } from 'react-router-dom'
 import Menu120 from '../Menu120/Menu120'
-import Filter from '../../assets/svg/filter.svg'
+import Filter from '../../Components/Filter/Filter'
 import ArrowHover from '../../assets/svg/ArrowHover.svg'
 
 
