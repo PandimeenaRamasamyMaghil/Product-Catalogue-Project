@@ -141,7 +141,7 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
             const WeekDays = prizingDetail?.normalForm?.WeekDays;
             if (Array.isArray(WeekDays) && WeekDays.every(Array.isArray)) {
               setDineInDates1(WeekDays);
-              console.log(WeekDays)
+              
             }
        
            
@@ -239,7 +239,6 @@ if (prizingDetail?.normalForm) {
           const newarrary=[...dineInDates1]
           newarrary.splice(index,1)
           setDineInDates1(newarrary)
-          console.log(newarrary)
       };
      
    
@@ -291,7 +290,6 @@ if (prizingDetail?.normalForm) {
       const addDayThirdfalse=()=>{
         setShowDayThird(false)
       }
-      console.log(mainForm)
       getNormalForm(mainForm)
  
       const handleSelect2 = (values, index) => {
@@ -370,7 +368,7 @@ const handleMealSelect2 = (index, value) => {
  
   };
  
-  console.log(mainForm)
+  
  
  
   return (
