@@ -126,7 +126,7 @@ const ItemCustomizations: React.FC = () => {
     const newModifications = [...modifications];
     const property = name.split("-")[0];
 
-newModifications[index][property] = value as Modification[typeof property];
+// newModifications[index][property] = value as Modification[typeof property];
     setModifications(newModifications);
   };
 
@@ -162,9 +162,9 @@ newModifications[index][property] = value as Modification[typeof property];
       }
 
       if (optIndex !== undefined) {
-        if (!newErrors[modIndex].options[optIndex]) {
-          newErrors[modIndex].options[optIndex] = {};
-        }
+        // if (!newErrors[modIndex].options[optIndex]) {
+        //   newErrors[modIndex].options[optIndex] = {};
+        // }
         (newErrors[modIndex].options as Record<string, any>)[optIndex][name] = error;
       } else {
         newErrors[modIndex][name] = error;
@@ -182,13 +182,13 @@ newModifications[index][property] = value as Modification[typeof property];
 
   const incrementSpinner = (index: number, field: keyof Modification) => {
     const newModifier = [...modifications];
-    newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier].toString(), 10) || 0) + 1;
+    // newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier].toString(), 10) || 0) + 1;
     setModifications(newModifier);
   };
 
   const decrementSpinner = (index: number, field: keyof Modification) => {
     const newModifier = [...modifications];
-    newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier].toString(), 10) || 0) - 1;
+    // newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier].toString(), 10) || 0) - 1;
     setModifications(newModifier);
   };
 
@@ -320,10 +320,7 @@ newModifications[index][property] = value as Modification[typeof property];
             
             
           </div>
-      {modificationError[modIndex] && modificationError[modIndex].modifierName && (
-<div className="error-message">{modificationError[modIndex].modifierName}</div>
-)}
-          
+
           <div className="flexofradio">
             <div className="radiobtnMargin">
               <input
@@ -364,16 +361,16 @@ newModifications[index][property] = value as Modification[typeof property];
                 
                   <input
                     placeholder="Option (Item)*"
-                    className={!modificationError[modIndex]?.options[optIndex]?.item?"input2ItemCustomizations":"input2ItemCustomizationserror"}
+                    // className={!modificationError[modIndex]?.options[optIndex]?.item?"input2ItemCustomizations":"input2ItemCustomizationserror"}
                     name="item"
                     type="text"
                     value={modifier.options[optIndex].item}
                     onChange={(e) => addOptionChange(modIndex, optIndex, e)}
                     onBlur={(e)=>handleBlur(e,modIndex,optIndex)}
                   />
-                  {modificationError[modIndex] && modificationError[modIndex].options[optIndex] && modificationError[modIndex].options[optIndex].item && (
+                  {/* {modificationError[modIndex] && modificationError[modIndex].options[optIndex] && modificationError[modIndex].options[optIndex].item && (
 <div className="error-message1  ">{modificationError[modIndex].options[optIndex].item}</div>
-)}
+)} */}
                   </div>
 
                   <div>
@@ -382,7 +379,7 @@ newModifications[index][property] = value as Modification[typeof property];
                 
                   <input
                     placeholder="Price*"
-                    className={!modificationError[modIndex]?.options[optIndex]?.price?"input2ItemCustomizations":"input2ItemCustomizationserror"}
+                    // className={!modificationError[modIndex]?.options[optIndex]?.price?"input2ItemCustomizations":"input2ItemCustomizationserror"}
                     name="price"
                     type="number"
                     value={modifier.options[optIndex].price}
@@ -390,9 +387,7 @@ newModifications[index][property] = value as Modification[typeof property];
                     onBlur={(e)=>handleBlur(e,modIndex,optIndex)}
                     
                   />
-                    {modificationError[modIndex] && modificationError[modIndex].options[optIndex] && modificationError[modIndex].options[optIndex].price && (
-<div className="error-message1">{modificationError[modIndex].options[optIndex].price}</div>
-)}
+
 
                   </div>
                 
@@ -510,17 +505,17 @@ newModifications[index][property] = value as Modification[typeof property];
               </div>
             </div>
             <div className="dropDown-item" >
-            <DropDownItem
-            selectedValues={modifier.selectedValue}
+            {/* <DropDownItem
+            // selectedValues={modifier.selectedValue}
 
 
             onSelect={(value) => handleSelect(modIndex, value)}
       options={options}
       addOption={addOption1}
-      placeholder="Available Service Stream* "
-      onChange={(e)=>handleSelectedValueChange(modIndex,e.target.value)}
+      // placeholder="Available Service Stream* "
+      // onChange={(e)=>handleSelectedValueChange(modIndex,e.target.value)}
       label="Meal Type*"
-    />
+    /> */}
     </div>
           </div>
         </div>
