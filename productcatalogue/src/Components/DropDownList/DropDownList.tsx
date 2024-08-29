@@ -144,7 +144,6 @@ interface DropdownProps {
 const DropDownList: React.FC<DropdownProps> = ({
   name,
   options: initialOptions,
- 
   type = 'text',
   register,
   setValue,
