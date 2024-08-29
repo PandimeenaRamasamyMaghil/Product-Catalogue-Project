@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import "./ItemCustomizations.scss";
-import dotted from "../../assets/png/dotted.png";
+
+import dotted from '../../assets/png/dotted.png'
 import Toggle from "../../Components/Toggle/Toggle";
 import Polygon1 from "../../assets/png/Polygon 1.png";
 import Polygon2 from "../../assets/png/Polygon 2.png";
@@ -11,10 +12,16 @@ import Savenextbutton from "../../Components/Savenextbutton/Savenextbutton";
 import Serachicon from '../../assets/png/searchicon.png';
 import DropDownItem from "../../Components/DropDownItem/DropDownItem";
 
+
 // Define types
 interface Option {
   item: string;
   price: string;
+}
+interface Modifier {
+  field1: number;
+  field2: number;
+  // Other fields...
 }
 
 interface Modification {
@@ -118,7 +125,6 @@ const ItemCustomizations: React.FC = () => {
     const { name, value } = e.target;
     const newModifications = [...modifications];
     const property = name.split("-")[0];
-    
 
 newModifications[index][property] = value as Modification[typeof property];
     setModifications(newModifications);
