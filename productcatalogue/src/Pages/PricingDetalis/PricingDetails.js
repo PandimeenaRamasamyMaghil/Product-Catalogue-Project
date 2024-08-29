@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import "./PricingDetails.scss";
 import Toggle from "../../Components/Toggle/Toggle"
 import Specialavail from '../../Components/SpecialAvail/Specialavail';
@@ -17,6 +18,8 @@ import axios from 'axios';
  
 
 const PricingDetails = () => {
+  const { control, handleSubmit, formState: { errors } } = useForm();
+
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
   const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingData.mainForm);
   const [options, setOptions] = useState([]);
@@ -230,9 +233,12 @@ const PricingDetails = () => {
   }
 
 
-  
+  const onSubmit = (data) => {
+    console.log('Form Data:', data);
+  };
   return (
     <div className={isExpanded?"pricingdetails-container":"pricingdetails-containerExpanded"}>
+      <form onSubmit={handleSubmit(onSubmit)}>
       <div className='pricing-form'>
         <div className='Tool'>
           <p className='KitchenRelatedHeading'>Kitchen Related</p>
@@ -244,29 +250,53 @@ const PricingDetails = () => {
         </div>
 
         <div className='KitchenRelated'>
-          <div className='D1kitchen'>
+        <div className='D1kitchen'>
+        <Controller
+          name="kitchen"
+          control={control}
+          defaultValue={[]}
+          rules={{ required: 'Please select at least one option' }}
+          render={({ field }) => (
             <Dropdown 
-              selectedValues={selectedValues} 
-              onSelect={handleSelect} 
-              options={options.map((elem)=>elem.tagName)  } 
-              addOption={addOption}
+              selectedValues={field.value}
+              onSelect={(values) => {
+                field.onChange(values);
+                validateDropdown(values, 'kitchen');
+              }}
+              options={['Option 1', 'Option 2', 'Option 3']} // Example options, adjust as needed
+              
               label="Kitchen Station1*"
               onBlur={() => validateDropdown(selectedValues, 'kitchen')}
               validation={validationState.kitchen}
             />
-          </div>
-
-          <div className='D2kitchen'>
-            <Dropdown
-              selectedValues={selectedValue1}
-              onSelect={handleSelect1}
-              options={options1}
-              addOption={addOption1}
-              label="Preparation Time*"
-              onBlur={() => validateDropdown(selectedValue1, 'preparationTime')}
+          )}
+        />
+        
+      </div>
+      <div className='D1kitchen'>
+        <Controller
+          name="Preparation"
+          control={control}
+          defaultValue={[]}
+          rules={{ required: 'Please select at least one option' }}
+          render={({ field }) => (
+            <Dropdown 
+              selectedValues={field.value}
+              onSelect={(values) => {
+              field.onChange(values);
+              validateDropdown(values, 'preparationTime');
+                
+              }}
+              options={['Option 1', 'Option 2', 'Option 3']} // Example options, adjust as needed
+              
+              label="Preparation*"
+              onBlur={() => validateDropdown(selectedValues, 'preparationTime')}
               validation={validationState.preparationTime}
             />
-          </div>
+          )}
+        />
+        
+      </div>
         </div>
 
         <div className='Kitchen-checkbox'>
@@ -287,17 +317,31 @@ const PricingDetails = () => {
                 <p className='threshold'>Threshold*</p>
               </div>
               <div className='InventoryInput'>
-                <input
-                  className="I1"
-                  type="text"
-                  name='Inventory1'
-                  value={form.Inventory1}
-                  onChange={(e) => setForm({ ...form, "Inventory1": e.target.value })}
-                  onBlur={handleBlur}
-                  style={{
-                    borderColor:formerrors.Inventory1 ? 'red' : 'rgba(0, 0, 0, 0.3)'
-                }}
-                />
+      <Controller
+        name='Inventory1'
+        control={control}
+        defaultValue={form.Inventory1}
+        render={({ field }) => (
+          <input
+            className="I1"
+            type="text"
+            {...field}
+            onChange={(e) => {
+              field.onChange(e); // To update Controller's value
+               
+            }}
+            onBlur={(e) => {
+              field.onBlur(); // To handle onBlur in Controller
+              handleBlur(e); // Your custom onBlur handler
+            }}
+            style={{
+              borderColor: formerrors.Inventory1 ? 'red' : 'rgba(0, 0, 0, 0.3)'
+            }}
+          />
+        )}
+        rules={{ required: 'This field is required' }} // Validation rule
+      />
+    
                 
                 <Tooltip message="Max no Serving per day">
                   <div className="ToolInventory">
@@ -305,17 +349,31 @@ const PricingDetails = () => {
                   </div>
                 </Tooltip>
                 
-                <input
-                  className='I1'
-                  type="text"
-                  name='Inventory2'
-                  value={form.Inventory2}
-                  onBlur={handleBlur}
-                  onChange={(e) => setForm({ ...form, "Inventory2": e.target.value })}
-                  style={{
-                    borderColor:formerrors.Inventory2 ? 'red' : 'rgba(0, 0, 0, 0.3)'
-                }}
-                />
+                <Controller
+        name='Inventory2'
+        control={control}
+        defaultValue={form.Inventory2}
+        render={({ field }) => (
+          <input
+            className="I1"
+            type="text"
+            {...field}
+            onChange={(e) => {
+              field.onChange(e); // To update Controller's value
+               
+            }}
+            onBlur={(e) => {
+              field.onBlur(); // To handle onBlur in Controller
+              handleBlur(e); // Your custom onBlur handler
+            }}
+            style={{
+              borderColor: formerrors.Inventory2 ? 'red' : 'rgba(0, 0, 0, 0.3)'
+            }}
+          />
+        )}
+        
+      />
+   
                 <Tooltip message="Threshold">
                   <div className="ToolInventory1">
                     <img src={info} alt="" width={20} height={20} />
@@ -362,7 +420,7 @@ const PricingDetails = () => {
           </div>
         </div>
 
-        {isOptionTrue ? <Normalavail getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState} /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />}
+        {isOptionTrue ? <Normalavail   getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState}  /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />}
 
         
       </div>
@@ -377,7 +435,10 @@ const PricingDetails = () => {
             </button>
             </div>
           </div>
+
+      <button type="submit">Submit</button>
         </div>
+        </form>
     </div>
   );
 };
