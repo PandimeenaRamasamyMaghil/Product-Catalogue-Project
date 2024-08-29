@@ -715,14 +715,8 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
     };
   }, [showheadinglist]);
 
-
- 
-
-
- 
-
   return (
-    <div           className={`${isExpanded?"mainpagemenu1":"mainpagemenu"}`}  >
+    <div className={`${isExpanded?"mainpagemenu1":"mainpagemenu"}`}  >
   
       <div className="headercomponent">
         <Header />

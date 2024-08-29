@@ -1261,6 +1261,7 @@ const tooltipstyles={
                   autoComplete="off"
                   onBlur={errorvaliadtionitemname}
                 />
+
                 <p className="errormsgforinputfield">
                   {Primarydetailsformerrors.itemNameerror && (
                     <span> {Primarydetailsformerrors.itemNameerror}</span>
@@ -2286,16 +2287,7 @@ const tooltipstyles={
                     (Math.round(description.length) / maxLength) * 100
                   )}
 
-
-
-                  /{maxLength}
-
-                  
-                    {/* {(Math.round(
-                      (Math.round(description.length) / maxLength) * 100
-                    ))==100 && handledescriptiontextcolor
-                    }  */}
-                  
+                  /{maxLength}             
                 </div>
               </div>
 
@@ -2339,6 +2331,7 @@ const tooltipstyles={
                   />
                 </div>
               </div>
+
               <div className="primaryinputfield alcohol">
                 <h3>Contains Alcohol ?</h3>
                 <div style={{ display: "flex", flexDirection: "row" }}>

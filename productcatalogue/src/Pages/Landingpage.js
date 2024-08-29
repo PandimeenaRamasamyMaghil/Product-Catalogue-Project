@@ -3,7 +3,7 @@ import Navigationpage from "../Components/Navigation/Navigation";
 import "./Landingpage.scss";
 import Primary from "../Pages/PrimaryDetails/PrimaryDetails";
 import ItemCustomization from "../Pages/itemCustomization/ItemCustomizations";
-
+import Primarypage from "../Pages/PrimaryPage/PrimaryPage.tsx"
 import Reviewpage from "../Pages/ReviewPage/Reviewpage";
 import {Routes, Route } from "react-router-dom";
 import PricingDetails from "../Pages/PricingDetalis/PricingDetails";
@@ -45,18 +45,13 @@ const Landingpage = () => {
       ) : (
         <>
           <Sidenav />
-           {/* <Slider/> */}
-          {/* <Header/> */}
-          {/* <Pricingpage/> */}
+        
 
-          {/* <Menulisting /> */}
-{/* 
-         */}
-   {/* <Menupage/>  */}
+   <Primarypage/>
 
-          {/* <Dragging/> */}
+        
 
-           <Routes>
+           {/* <Routes>
           <Route path="/" element={<Menulisting />} />
           <Route path="/Reviewpage" element={<Reviewpage />} />
           <Route path="/Primary" element={<Primary />} />
@@ -71,7 +66,7 @@ const Landingpage = () => {
           </Route>
 
 
-        </Routes> 
+        </Routes>  */}
        
         </>
       )}

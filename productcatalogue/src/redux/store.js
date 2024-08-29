@@ -1,6 +1,6 @@
 // src/store/configureStore.js
 
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./rootsaga";
 import { rootReducer } from "./rootReducer";

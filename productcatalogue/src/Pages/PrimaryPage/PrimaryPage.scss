@@ -1,0 +1,154 @@
+*{
+    font-family: "Poppins", sans-serif;
+  }
+  
+.Primary-page
+{
+    position: relative;
+    top:10vh;
+   
+   
+   
+    width: 85%;
+    height: 40rem;
+    // border: 1px solid red;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+       }
+  
+
+
+    .Primary-page-container-one
+    {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        left: 10%;
+        height: 120vh;
+      
+
+        .Primary-page-container-pairone
+        {
+        width: 30vw;
+        height: 100vh;
+        // border: 1px solid red;
+        }
+
+        .Primary-page-InputFields
+        {
+           height: 6rem;
+        //    border: 1px solid red;
+        
+        }
+        .radiobutton
+        {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .Primary-Page-description-field
+        {
+         
+            .description
+            {
+                width: 19.3rem;
+            height: 10rem;
+            resize: none;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 0.313rem;
+            }
+        }
+
+        .PopularItem
+        {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            position: relative;
+            top: -1%;
+            
+        }
+        .Primary-Page-categories-field
+        {
+            display: flex;
+            flex-direction: row;
+        }
+        .Primary-page-Allergens-selection
+        {
+            width: 45vw;
+            height: 40vh;
+            border-radius: 0.313rem;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .Primary-page-container-pairtwo
+        {
+            width: 45vw;
+            height: 90vh;
+            // border: 1px solid red;
+        }
+
+
+    }
+    .Primary-page-container-two
+    {
+        position: relative;
+        left: 10%;
+        height: 70vh;
+        
+
+        .Primary-page-ingredients-selection
+        {
+            width: 45vw;
+            height: 40vh;
+            border-radius: 0.313rem;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+           
+        }
+        .Primary-Page-Other-Details
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .Primary-Page-Other-Details-heading
+            {
+              
+                font-size: 14px;
+                font-weight: 300;
+                color:#000000;
+               
+               
+                
+            }
+
+
+            .Primary-Page-Other-Detail
+        {
+            display: flex;
+            flex-direction: row;
+            height: 3rem;
+            // border: 1px solid red;
+            align-items: center;
+            gap: 30px;
+            .Primary-page-Other-Detail-mastercode
+            {
+                display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 0.6%;
+            }
+        }
+
+        }
+        
+
+
+    }
+  
+
+}
+
+

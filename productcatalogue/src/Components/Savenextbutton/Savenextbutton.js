@@ -53,7 +53,7 @@ const Savenextbutton = (probs) => {
    
    
     if (probs.selectedpage === "primary" ) {
-      // setActiveCategory("Step 2: Pricing and kitchen details")  
+   
       navigate(`/Navigationpage/Pricingandkitchendetails`, {
         state: { pagename: "Pricing and kitchen details" },
       });

@@ -22,26 +22,24 @@ const primarypagedata = {
 export const primarypagereducer = (state = primarypagedata, action) => {
   switch (action.type) {
     case Primary_Post_Data_Send:
-      return {  ...state,data:action.payload }; // Merge payload into existing state
-    // ...other cases
+      return {  ...state,data:action.payload }; 
     default:
       return state;
   }
   };
   
 const initialState = {
-  // Your state structure here
+
   itemData: [],
   isLoading: false,
   error: null,
-  // ...other properties
+ 
 };
 
 export const itemCustomizationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case Item_Customizations_Data_Request:
-      return {  ...state,itemData:action.payload }; // Merge payload into existing state
-    // ...other cases
+      return {  ...state,itemData:action.payload }; 
     default:
       return state;
   }
