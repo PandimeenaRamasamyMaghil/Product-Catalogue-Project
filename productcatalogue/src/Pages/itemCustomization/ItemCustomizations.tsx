@@ -18,11 +18,22 @@ interface Option {
   item: string;
   price: string;
 }
+
 interface Modifier {
   field1: number;
   field2: number;
   // Other fields...
 }
+interface ModificationError {
+  options?: Option[];
+  modifierName?:number
+}
+const index = 0;
+
+const modificationError: ModificationError[] = [];
+
+const modIndex = 0;  // Example index, ensure these are within array bounds
+const optIndex = 0;
 
 interface Modification {
   modifierName: string;
@@ -34,6 +45,9 @@ interface Modification {
   endDate?: string;
   startDate?: string;
   selectionType?: string;
+  field1?: number;
+  field2?: number;
+  [key: string]: any; // Define specific types if known, e.g., number | string
 }
 
 interface State {
@@ -76,7 +90,6 @@ const ItemCustomizations: React.FC = () => {
 
   const [filteredModifications, setFilteredModifications] = useState<Modification[]>([]);
 
-  const [modificationError, setModificationError] = useState<Record<number, Record<string, string | Record<string, string>>>>({});
 
   useEffect(() => {
     if (showModifiers === false) {
@@ -126,7 +139,7 @@ const ItemCustomizations: React.FC = () => {
     const newModifications = [...modifications];
     const property = name.split("-")[0];
 
-// newModifications[index][property] = value as Modification[typeof property];
+newModifications[index][property] = value as Modification[typeof property];
     setModifications(newModifications);
   };
 
@@ -154,24 +167,24 @@ const ItemCustomizations: React.FC = () => {
       setIsValid(true);
     }
 
-    setModificationError((prevErrors) => {
-      const newErrors = { ...prevErrors };
+    // setModificationError((prevErrors) => {
+    //   const newErrors = { ...prevErrors };
 
-      if (!newErrors[modIndex]) {
-        newErrors[modIndex] = { options: {} };
-      }
+    //   if (!newErrors[modIndex]) {
+    //     newErrors[modIndex] = { options: {} };
+    //   }
 
-      if (optIndex !== undefined) {
-        // if (!newErrors[modIndex].options[optIndex]) {
-        //   newErrors[modIndex].options[optIndex] = {};
-        // }
-        (newErrors[modIndex].options as Record<string, any>)[optIndex][name] = error;
-      } else {
-        newErrors[modIndex][name] = error;
-      }
+    //   if (optIndex !== undefined) {
+    //     // if (!newErrors[modIndex].options[optIndex]) {
+    //     //   newErrors[modIndex].options[optIndex] = {};
+    //     // }
+    //     (newErrors[modIndex].options as Record<string, any>)[optIndex][name] = error;
+    //   } else {
+    //     newErrors[modIndex][name] = error;
+    //   }
 
-      return newErrors;
-    });
+    //   return newErrors;
+    // });
   };
 
   const addOptionChange = (modIndex: number, optIndex: number, e: ChangeEvent<HTMLInputElement>) => {
@@ -182,14 +195,16 @@ const ItemCustomizations: React.FC = () => {
 
   const incrementSpinner = (index: number, field: keyof Modification) => {
     const newModifier = [...modifications];
-    // newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier].toString(), 10) || 0) + 1;
-    setModifications(newModifier);
+    if (newModifier[index]) {
+      newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier]?.toString() || '0', 10) || 0) + 1;
+    }    setModifications(newModifier);
   };
 
   const decrementSpinner = (index: number, field: keyof Modification) => {
     const newModifier = [...modifications];
-    // newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier].toString(), 10) || 0) - 1;
-    setModifications(newModifier);
+    if (newModifier[index]) {
+      newModifier[index][field as keyof Modifier] = (parseInt(newModifier[index][field as keyof Modifier]?.toString() || '0', 10) || 0) - 1;
+    }     setModifications(newModifier);
   };
 
   const deleteOption = (modIndex: number, optIndex: number) => {
@@ -361,16 +376,18 @@ const ItemCustomizations: React.FC = () => {
                 
                   <input
                     placeholder="Option (Item)*"
-                    // className={!modificationError[modIndex]?.options[optIndex]?.item?"input2ItemCustomizations":"input2ItemCustomizationserror"}
+                    className="input2ItemCustomizations"
                     name="item"
                     type="text"
                     value={modifier.options[optIndex].item}
                     onChange={(e) => addOptionChange(modIndex, optIndex, e)}
                     onBlur={(e)=>handleBlur(e,modIndex,optIndex)}
                   />
-                  {/* {modificationError[modIndex] && modificationError[modIndex].options[optIndex] && modificationError[modIndex].options[optIndex].item && (
-<div className="error-message1  ">{modificationError[modIndex].options[optIndex].item}</div>
-)} */}
+           {modificationError[modIndex]?.options?.[optIndex]?.item && (
+  <div className="error-message1">
+    {modificationError[modIndex]?.options?.[optIndex]?.item}
+  </div>
+)}
                   </div>
 
                   <div>
@@ -379,7 +396,7 @@ const ItemCustomizations: React.FC = () => {
                 
                   <input
                     placeholder="Price*"
-                    // className={!modificationError[modIndex]?.options[optIndex]?.price?"input2ItemCustomizations":"input2ItemCustomizationserror"}
+                    className="input2ItemCustomizations"
                     name="price"
                     type="number"
                     value={modifier.options[optIndex].price}
