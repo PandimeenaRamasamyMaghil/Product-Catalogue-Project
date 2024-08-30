@@ -15,13 +15,43 @@ import { useSelector } from 'react-redux';
 
 import axios from 'axios';
 
+interface ValidationState {
+  isValid: boolean;
+  errorMessage: string;
+}
+interface DropdownValidationState {
+  kitchen: ValidationState;
+  preparationTime: ValidationState;
+  DineinMeal: ValidationState;
+  Pickup: ValidationState;
+  Delivery: ValidationState;
+  ThirdDelivery1: ValidationState;
+  ThirdDelivery2: ValidationState;
+  Pickupspecial: ValidationState;
+  Deliveryspecial: ValidationState;
+  Deliveryspecial1: ValidationState;
+  Deliveryspecial2: ValidationState;
+}
+interface FormState {
+  Inventory1: string;
+  Inventory2: string;
+}
+
+interface MainForm {
+  form: FormState;
+  kitchenstation: string[];
+  Preparationtime: string[];
+  KitchenStationId: string[];
+}
+
+interface PricingDetailsProps {}
  
 
-const PricingDetails = () => {
+const PricingDetails: React.FC<PricingDetailsProps> = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
-  const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingData.mainForm);
+  const prizingDetail = useSelector((state: any) => state.PricingDetailReducer.prizingData.mainForm);
   const [options, setOptions] = useState([]);
   const [options1, setOptions1] = useState(['Preparation Time', 'Option 2', 'Option 3', 'Option 5', 'Option 4']);
   const navigate = useNavigate();
@@ -58,40 +88,16 @@ const PricingDetails = () => {
 
   });
 
-  const handleSelect = (values) => {
-      
-    setSelectedValues(values);
-    console.log(values)
-    const matchingIds = values.map(value => {
-      const foundOption = options.find(option => option.tagName === value);
-      return foundOption ? foundOption.id : null;
-    }).filter(id => id !== null);
-
-    if (matchingIds.length > 0) {
-      setId(  matchingIds)
-
-
-    }
+  
      
      
    
-    validateDropdown(values, 'kitchen');
-  };
+    
 
-  const addOption = (newOption) => {
-    setOptions((prevOptions) => [...prevOptions, newOption]);
-  };
+  
 
-  const handleSelect1 = (values) => {
-    setSelectedValue1(values);
-    validateDropdown(values, 'preparationTime');
-  };
-
-  const addOption1 = (newOption) => {
-    setOptions1((prevOptions) => [...prevOptions, newOption]);
-  };
-
-  const validateDropdown = (value, field) => {
+  
+  const validateDropdown = (value: string[], field: keyof DropdownValidationState) => {
     let isValid = true;
     let errorMessage = '';
 
@@ -106,27 +112,25 @@ const PricingDetails = () => {
     }));
   };
 
-  const validateForm = () => {
+  const validateForm = (): boolean => {
     validateDropdown(selectedValues, 'kitchen');
     validateDropdown(selectedValue1, 'preparationTime');
-    validateDropdown(selectedValue1, 'DineinMeal');
-    validateDropdown(selectedValue1, 'DineinService');
-    return validationState.kitchen.isValid && validationState.preparationTime.isValid && validationState.Pickup.isValid && validationState.Delivery.isValid&& validationState.ThirdDelivery1.isValid&& validationState.ThirdDelivery2.isValid&& validationState.Pickupspecial.isValid&& validationState.Deliveryspecial.isValid&& validationState.Deliveryspecial1.isValid&& validationState.Deliveryspecial2.isValid;
+    return validationState.kitchen.isValid && validationState.preparationTime.isValid;
   };
 
-  const getNormalForm = (normalForm) => {
-    mainForm = { ...mainForm, normalForm };
-  };
+  // const getNormalForm = (normalForm) => {
+  //   mainForm = { ...mainForm, normalForm };
+  // };
 
-  const getSpecialForm = (specialForm) => {
-    mainForm = { ...mainForm, specialForm };
-  };
+  // const getSpecialForm = (specialForm) => {
+  //   mainForm = { ...mainForm, specialForm };
+  // };
 
-  let mainForm = {
+  let mainForm: MainForm = {
     form,
     kitchenstation: selectedValues,
     Preparationtime: selectedValue1,
-    KitchenStationId:id
+    KitchenStationId: id,
   };
 
   
@@ -165,38 +169,14 @@ const PricingDetails = () => {
 
 
 
-
   },[])
-  const validateField = (name, value) => {
-    let flag=true
-    let errors = { ...formerrors };
-    if (name === 'Inventory1') {
-        if (!value && inventory) {
-            errors.Inventory1 = "Please Fill this Field";
-            flag=false
-        } else {
-            delete errors.Inventory1;
-        }
-    } else if (name === 'Inventory2') {
-        if (!value && inventory) {
-            errors.Inventory2 = "Please Fill this Field";
-            flag=false
-        } else {
-            delete errors.Inventory2;
-        }
-    }
-    setFormErrors(errors);
-    return flag
-};
-    const handleBlur=(e)=>{
-      const {name,value}=e.target
-      validateField(name,value)
-    }
+
+    
 
     const dispatchEvent = () => {
       // Validate each field individually before dispatching
       const allFieldsValid = Object.keys(form).every(field => {
-          const isValid = validateField(field, form[field]);
+          
           return isValid;
       });
   
@@ -210,10 +190,8 @@ const PricingDetails = () => {
           });
       }
 
-
     
   };
-
 
   useEffect(()=>{
     getApi();
@@ -232,21 +210,20 @@ const PricingDetails = () => {
      }
   }
 
-
-  const onSubmit = (data) => {
-    console.log('Form Data:', data);
-  };
+  // const onSubmit = (data) => {
+  //   console.log('Form Data:', data);
+  // };
   return (
     <div className={isExpanded?"pricingdetails-container":"pricingdetails-containerExpanded"}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
       <div className='pricing-form'>
         <div className='Tool'>
           <p className='KitchenRelatedHeading'>Kitchen Related</p>
-          <Tooltip message="Kitchen Related">
+          {/* <Tooltip message="Kitchen Related">
             <div className="ToolKitchen">
               <img src={info} alt="" width={20} height={20} />
             </div>
-          </Tooltip>
+          </Tooltip> */}
         </div>
 
         <div className='KitchenRelated'>
@@ -330,10 +307,7 @@ const PricingDetails = () => {
               field.onChange(e); // To update Controller's value
                
             }}
-            onBlur={(e) => {
-              field.onBlur(); // To handle onBlur in Controller
-              handleBlur(e); // Your custom onBlur handler
-            }}
+            
             style={{
               borderColor: formerrors.Inventory1 ? 'red' : 'rgba(0, 0, 0, 0.3)'
             }}
@@ -343,11 +317,11 @@ const PricingDetails = () => {
       />
     
                 
-                <Tooltip message="Max no Serving per day">
+                {/* <Tooltip message="Max no Serving per day">
                   <div className="ToolInventory">
                     <img src={info} alt="" width={20} height={20} />
                   </div>
-                </Tooltip>
+                </Tooltip> */}
                 
                 <Controller
         name='Inventory2'
@@ -362,10 +336,7 @@ const PricingDetails = () => {
               field.onChange(e); // To update Controller's value
                
             }}
-            onBlur={(e) => {
-              field.onBlur(); // To handle onBlur in Controller
-              handleBlur(e); // Your custom onBlur handler
-            }}
+            
             style={{
               borderColor: formerrors.Inventory2 ? 'red' : 'rgba(0, 0, 0, 0.3)'
             }}
@@ -374,11 +345,11 @@ const PricingDetails = () => {
         
       />
    
-                <Tooltip message="Threshold">
+                {/* <Tooltip message="Threshold">
                   <div className="ToolInventory1">
                     <img src={info} alt="" width={20} height={20} />
                   </div>
-                </Tooltip>
+                </Tooltip> */}
               </div>
               {formerrors.Inventory1 && <p className='ErrorsForm' >{formerrors.Inventory1}</p>}
               {formerrors.Inventory2 && <p className='ErrorsFormi2' >{formerrors.Inventory2}</p>}
@@ -420,7 +391,7 @@ const PricingDetails = () => {
           </div>
         </div>
 
-        {isOptionTrue ? <Normalavail   getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState} setValidationState={setValidationState}  /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />}
+        {/* {isOptionTrue ? <Normalavail   getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState}   /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />} */}
 
         
       </div>
@@ -444,3 +415,5 @@ const PricingDetails = () => {
 };
 
 export default PricingDetails;
+
+
