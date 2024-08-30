@@ -73,8 +73,8 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
     Zomato: '',
     Zomatomealtype: '',
   });
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const [selectedDate1, setSelectedDate1] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedDate1, setSelectedDate1] = useState<Date | null>(null);
 
   const fromDate = selectedDate?.toString();
   const toDate = selectedDate1?.toString();
@@ -91,21 +91,16 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
     newEntries[index][e.target.name as keyof DineInField] = e.target.value;
     setDineInFields(newEntries);
   };
+  
       
-
   const handleDateChange = (date: Date | null) => {
-    if (date) {
-      const formattedDate = format(date, 'yyyy-MM-dd');
-      setSelectedDate(formattedDate);
-    }
+    setSelectedDate(date); // Keep date as Date object
   };
+      
   const handleDateChange1 = (date: Date | null) => {
-    if (date) {
-      const formattedDate = format(date, 'yyyy-MM-dd');
-      setSelectedDate1(formattedDate);
-    }
+    setSelectedDate1(date); // Keep date as Date object
   };
-
+  
   const payLoad = {
     form,
     dineinfields,
@@ -201,17 +196,16 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
 
 
 
-const handleSelectMealtype = (index: number, value: string) => {
+  const handleSelectMealtype = (index: number, e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
     const newSelectedValues = [...selectedValuesMealType];
     newSelectedValues[index] = value;
     setSelectedValuesMealType(newSelectedValues);
 
-    const newarrary = [...dineinfields];
-    newarrary[index].DineInMealType = value; // Assign a single string value
-    setDineInFields(newarrary);
-};
-
-
+    const newArray = [...dineinfields];
+    newArray[index].DineInMealType = value; // Assign a single string value
+    setDineInFields(newArray);
+}
 
 
   
@@ -311,7 +305,7 @@ const handleSelectMealtype = (index: number, value: string) => {
         placeholderText="7/1/2034" // Placeholder text for the date picker
         dateFormat="MM/dd/yyyy"
         selected={selectedDate}
-        value={selectedDate}
+        // value={selectedDate}
       
         onChange={handleDateChange} // Date format for display
         ref={datePickerRef}
@@ -352,7 +346,7 @@ const handleSelectMealtype = (index: number, value: string) => {
             {dineinfields && dineinfields.map((item,index) => (
              
  
-<div className='DineInInput11Special'  style={{ zIndex: dineinfields.length - index }}> 
+{/* <div className='DineInInput11Special'  style={{ zIndex: dineinfields.length - index }}> 
            <p className='LabelSpecialPrice'>Price*</p>
           <input
             type="text"
@@ -374,7 +368,7 @@ const handleSelectMealtype = (index: number, value: string) => {
             onBlur={() => validateDropdown(selectedValuesMealType[index] || [], index)}
                     validation={validationState[index] || { isValid: true, errorMessage: '' }}
             onChange={(e)=>handleSelectMealtype(index,e.target.value)}
-          />
+          />7
           </div>
           <div className='SpecialDropDown'>
           <DropDown2
@@ -388,7 +382,7 @@ const handleSelectMealtype = (index: number, value: string) => {
           />
           </div>
           <h1 onClick={() => handleDelete(index)} className='Delete'>- Delete</h1>
-        </div>
+        </div> */}
       ))}
 
 
@@ -419,7 +413,7 @@ const handleSelectMealtype = (index: number, value: string) => {
                    <div className='PickupInput11'>
                     <input type="text" className='DineInInput1' value={form.Pickupprice}  onChange={(e) => setForm({ ...form,"Pickupprice":e.target.value })} ></input>
                    <div className='PickDrop5'>
-                    <DropDown3
+                    {/* <DropDown3
           selectedValues={selectedValuespickup}
           onSelect={handleSelectpick}
           options={optionspick}
@@ -427,7 +421,7 @@ const handleSelectMealtype = (index: number, value: string) => {
           label="Meal Type*"
           onBlur={() => validateDropdown(selectedValuespickup, 'Pickupspecial')}
               validation={validationState.Pickupspecial}
-        />
+        /> */}
         </div>
                     </div>
                     </div>
@@ -445,7 +439,7 @@ const handleSelectMealtype = (index: number, value: string) => {
                    <div className='Delivery11'>
                     <input type="text" className='DineInInput1' value={form.Deliveryprice}  onChange={(e) => setForm({ ...form,"Deliveryprice":e.target.value })} ></input>
                     <div className='DelDrop'>
-                    <DropDown3
+                    {/* <DropDown3
           selectedValues={selectedValuesdelivery}
           onSelect={handleSelectdelivery}
           options={optionsdelivery}
@@ -453,7 +447,7 @@ const handleSelectMealtype = (index: number, value: string) => {
           label="Meal Type*"
           onBlur={() => validateDropdown(selectedValuespickup, 'Deliveryspecial')}
           validation={validationState.Deliveryspecial}
-        />
+        /> */}
         </div>
                     </div>
                     </div>
@@ -469,7 +463,7 @@ const handleSelectMealtype = (index: number, value: string) => {
                    <div className='Delivery11  thirdparty '>
                     <input type="text" className='DineInInput1' value={form.Swiggy}  onChange={(e)=>setForm({ ...form,"Swiggy":e.target.value })} ></input>
                   <div className='Third1Special'>
-                    <DropDown3
+                    {/* <DropDown3
           selectedValues={selectedValuesthird1}
           onSelect={handleSelectThird1}
           options={optionsthird1}
@@ -477,14 +471,14 @@ const handleSelectMealtype = (index: number, value: string) => {
           placeholder="Meal Type*"
           onBlur={() => validateDropdown(selectedValuesthird1, 'Deliveryspecial1')}
           validation={validationState.Deliveryspecial1}
-        />
+        /> */}
         </div>
                     </div>
                     <p className='LabelPriceSwiggy'> Zomato*</p>
                     <div className='Delivery11 thirdparty'>
                     <input type="text" className='DineInInput1' value={form.Zomato} onChange={(e)=>setForm({ ...form,"Zomato":e.target.value })} ></input>
                     <div className='Third2'>
-                    <DropDown3
+                    {/* <DropDown3
           selectedValues={selectedValuesthird2}
           onSelect={handleSelectThird2}
           options={optionsthird2}
@@ -493,7 +487,7 @@ const handleSelectMealtype = (index: number, value: string) => {
           onBlur={() => validateDropdown(selectedValuesthird2, 'Deliveryspecial2')}
           validation={validationState.Deliveryspecial2}
 
-        />
+        /> */}
         </div>
                     </div>
                     </div>
