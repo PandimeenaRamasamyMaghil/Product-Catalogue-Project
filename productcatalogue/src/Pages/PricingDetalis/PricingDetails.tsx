@@ -42,7 +42,11 @@ interface MainForm {
   kitchenstation: string[];
   Preparationtime: string[];
   KitchenStationId: string[];
+  normalForm?: any;
+  specialForm?: any;
+
 }
+
 
 interface PricingDetailsProps {}
  
@@ -97,35 +101,39 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
   
 
   
-  const validateDropdown = (value: string[], field: keyof DropdownValidationState) => {
+  const validateDropdown = (value: string[], field: string | number) => {
     let isValid = true;
     let errorMessage = '';
-
+  
     if (value.length === 0) {
       isValid = false;
       errorMessage = 'This field is required';
     }
-
-    setValidationState((prevState) => ({
-      ...prevState,
-      [field]: { isValid, errorMessage },
-    }));
+  
+    if (typeof field === 'string') {
+      setValidationState((prevState) => ({
+        ...prevState,
+        [field]: { isValid, errorMessage },
+      }));
+    } else {
+      console.error('Field type is not a string, cannot update validation state');
+    }
   };
-
   const validateForm = (): boolean => {
     validateDropdown(selectedValues, 'kitchen');
     validateDropdown(selectedValue1, 'preparationTime');
     return validationState.kitchen.isValid && validationState.preparationTime.isValid;
   };
 
-  // const getNormalForm = (normalForm) => {
-  //   mainForm = { ...mainForm, normalForm };
-  // };
 
-  // const getSpecialForm = (specialForm) => {
-  //   mainForm = { ...mainForm, specialForm };
-  // };
+  const getNormalForm = (normalForm: any) => {
+    mainForm = { ...mainForm, normalForm };
+  };
 
+  const getSpecialForm = (specialForm: any) => {
+    mainForm = { ...mainForm, specialForm };
+  };
+  
   let mainForm: MainForm = {
     form,
     kitchenstation: selectedValues,
@@ -391,7 +399,7 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
           </div>
         </div>
 
-        {/* {isOptionTrue ? <Normalavail   getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState}   /> : <Specialavail getSpecialForm={getSpecialForm} validateDropdown={validateDropdown} validationState={validationState} />} */}
+        {isOptionTrue ? <Normalavail   getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState}   /> : "" }
 
         
       </div>

@@ -24,13 +24,18 @@ interface DineInField {
   showDay: boolean;
   dayButtonText: string;
 }
+type DropdownValidationState = {
+  [key: string]: { isValid: boolean; errorMessage: string }; // Adjust this as necessary
+};
 
 interface NormalavailProps {
   getNormalForm: (form: any) => void;
-  validateDropdown: (value: string | string[], key: string | number) => void;
+  validateDropdown: (value: string[], key: keyof DropdownValidationState) => void;
+
   validationState: { [key: string]: { isValid: boolean; errorMessage: string } };
   dinein: boolean;
   setDineIn: React.Dispatch<React.SetStateAction<boolean>>;
+  
 }
 
 type MealType1 = string; 
@@ -138,7 +143,7 @@ const prizingDetail = useSelector((state: any) => state.PricingDetailReducer.pri
         }
         useEffect(() => {
           if (prizingDetail?.normalForm?.formNormal) {
-            setNormalForm:({
+            setformNormal({
               PickuppriceNormal: prizingDetail.normalForm.formNormal.PickuppriceNormal || "",
               PickupmealtypeNormal: prizingDetail.normalForm.formNormal.PickupmealtypeNormal || "",
               DeliverypriceNormal: prizingDetail.normalForm.formNormal.DeliverypriceNormal || "",
