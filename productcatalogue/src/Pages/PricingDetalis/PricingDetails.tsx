@@ -218,12 +218,13 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
      }
   }
 
-  // const onSubmit = (data) => {
-  //   console.log('Form Data:', data);
-  // };
+  const onSubmit = (e: React.FormEvent, data: any) => {
+    e.preventDefault();
+    console.log('Form Data:', data);
+  };
   return (
     <div className={isExpanded?"pricingdetails-container":"pricingdetails-containerExpanded"}>
-      <form>
+      <form onSubmit={(e)=>onSubmit}>
       <div className='pricing-form'>
         <div className='Tool'>
           <p className='KitchenRelatedHeading'>Kitchen Related</p>
