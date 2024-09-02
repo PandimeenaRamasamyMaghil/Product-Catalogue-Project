@@ -22,18 +22,19 @@ interface FormState {
   Zomato: string;
   Zomatomealtype: string;
 }
-
+type MealType = string[];
+type SelectedValuesMealTypeState = MealType[]
 interface SpecialAvailProps {
   getSpecialForm: (form: any) => void;
   validateDropdown: (value: string[], key: string | number) => void; // Expecting only string[] for value
   validationState: Record<string | number, { isValid: boolean; errorMessage: string }>;
 }
 
-interface DineInField {
-  DineInPrice: string|string[];
-  DineInMealType: string|string[];
-  DineInServiceArea: string|string[];
-}
+type DineInField = {
+  DineInPrice: string | string[];
+  DineInMealType: string | string[];
+  DineInServiceArea: string | string[];
+};
 interface SelectedValuesState {
   [key: number]: any; // Replace `any` with the actual type of `values`
 }
@@ -46,7 +47,7 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
   const [specialcheck, setSpecialcheck] = useState<number[]>([]);
   const [dateValue, setDateValue] = useState('7/1/24');
   const [showPlaceholder, setShowPlaceholder] = useState(true);
-  const [selectedValues1, setSelectedValues1] = useState<string[]>([]);
+  const [selectedValues1, setSelectedValues1] =useState<SelectedValuesMealTypeState>([]);;
   const [options3, setOptions3] = useState<string[]>(['Breakfast', 'Lunch', 'Dinner']);
   const [selectedValuespickup, setSelectedValuesPickup] = useState<string[]>([]);
   const [optionspick, setOptionsPick3] = useState<string[]>(['Breakfast', 'Lunch', 'Dinner']);
@@ -56,7 +57,7 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
   const [optionsthird1, setOptionsThird1] = useState<string[]>(['Breakfast', 'Lunch', 'Dinner']);
   const [selectedValuesthird2, setSelectedValuesThird2] = useState<string[]>([]);
   const [optionsthird2, setOptionsThird2] = useState<string[]>(['Breakfast', 'Lunch', 'Dinner']);
-  const [selectedValuesMealType, setSelectedValuesMealType] = useState<SelectedValuesState[]>([]);
+  const [selectedValuesMealType, setSelectedValuesMealType] = useState<SelectedValuesMealTypeState>([]);
   const [optionsmealtype, setOptionsMealType] = useState<string[]>(['Breakfast', 'Lunch', 'Dinner']);
 
   const datePickerRef = useRef<DatePicker | null>(null);
@@ -131,15 +132,26 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
     }
   };
 
-  // const handleSelect3 = (value: string, index: number) => {
-  //   const newSelectedValues = [...selectedValuesMealType];
-  //   newSelectedValues[index] = value;
-  //   setSelectedValues1(newSelectedValues);
+  const handleSelect3 = (value: MealType, index: number) => {
+    // Ensure new selected values are an array of MealType arrays
+    const newSelectedValues: SelectedValuesMealTypeState = [...selectedValuesMealType];
+    newSelectedValues[index] = value;
+    setSelectedValuesMealType(newSelectedValues);
 
-  //   const newDineInFields = [...dineinfields];
-  //   newDineInFields[index].DineInServiceArea = value;
-  //   setDineInFields(newDineInFields);
-  // };
+    // Update the dine-in fields with the selected value
+    const newDineInFields = [...dineinfields];
+    newDineInFields[index] = {
+      ...newDineInFields[index],
+      DineInServiceArea: value,
+    };
+    setDineInFields(newDineInFields);
+
+    // Validate the dropdown immediately after selection
+    validateDropdown(newSelectedValues[index], index);
+  };
+
+
+
 
 
   const addOption3 = (newOption: string) => {
@@ -199,11 +211,10 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
 
 
 
-  const handleSelectMealtype = (index: number, e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    const newSelectedValues = [...selectedValuesMealType];
+  const handleSelectMealtype = ( value:MealType,index: number, ) => {
+    const newSelectedValues = [...selectedValues1];
     newSelectedValues[index] = value;
-    setSelectedValuesMealType(newSelectedValues);
+    setSelectedValues1(newSelectedValues);
 
     const newArray = [...dineinfields];
     newArray[index].DineInMealType = value; // Assign a single string value
@@ -212,7 +223,7 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
 
 
   
-  const handleSelectService = (index: number, value: string) => {
+  const handleSelectService = (index: number, value: MealType) => {
     const newSelectedValues = [...selectedValues1];
     newSelectedValues[index] = value;
     setSelectedValues1(newSelectedValues);
@@ -361,30 +372,30 @@ const Specialavail: React.FC<SpecialAvailProps> = ({ getSpecialForm, validateDro
             onChange={(e) => handleChange(index, e)}
           />
            <div className='DropD4'>  
-            {/* <DropDown3
-            key={index}
-            selectedValues={selectedValuesMealType[index] || ''}
-            onSelect={(value) => handleSelect3(value, index)}
-            options={options3}
-            addOption={addOption3}
-            label="Meal Type*"
-            onBlur={() => validateDropdown(selectedValuesMealType[index] || [], index)}
-                    validation={validationState[index] || { isValid: true, errorMessage: '' }}
-            onChange={(e)=>handleSelectMealtype(index,e.target.value)}
-          />7 */}
+           <DropDown3
+          key={index}
+          selectedValues={selectedValuesMealType[index] || []}
+          onSelect={(value) => handleSelect3(value, index)}
+          options={options3}
+          addOption={addOption3}
+          label="Meal Type*"
+          onBlur={() => validateDropdown(selectedValuesMealType[index] || [], index)}
+          validation={validationState[index] || { isValid: true, errorMessage: '' }}
+          placeholder='MealType'
+        />
           </div>
           <div className='SpecialDropDown'>
-          {/* <DropDown2
+          <DropDown2
             key={index}
             selectedValues={selectedValues1[index] || ''}
-            onSelect={(value) => handleSelect3(value, index)}
+            onSelect={(value) => handleSelectMealtype(value, index)}
             options={options3}
-            addOption={addOption3}
+          
             label="Service Area*"
-            onChange={(e)=>handleSelectService(index,e.target.value)}
-          /> */}
+           
+          />
           </div>
-          <h1 onClick={() => handleDelete(index)} className='Delete'>- Delete</h1>
+          <h1 onClick={() => handleDelete(index)} className='DeleteSpecial'>- Delete</h1>
         </div> 
       ))}
 

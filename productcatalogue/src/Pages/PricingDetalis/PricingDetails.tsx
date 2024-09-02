@@ -443,7 +443,7 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
             </div>
           </div>
 
-      <button type="submit">Submit</button>
+     
         </div>
         </form>
     </div>
