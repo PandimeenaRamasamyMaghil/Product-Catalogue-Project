@@ -1,31 +1,38 @@
-import React, { useEffect, useState, useRef ,useContext} from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import "./Menulisting.scss";
 import dots from "../../assets/svg/dots.svg";
 import dollar from "../../assets/svg/dollar.svg";
 import removeicon from "../../assets/svg/removeicon.svg";
 import apple from "../../assets/svg/fish.svg";
 import Toggle from "../../Components/Toggle/Toggle";
-import Header from "../../Components/Header/Header"
+import Header from "../../Components/Header/Header";
 import closeicon from "../../assets/svg/closeicon.svg";
 import toggleround from "../../assets/svg/toggleround.svg";
 import dollaricon from "../../assets/svg/dollaricon.svg";
 import togglebtns from "../../assets/svg/togglebtn.svg";
-import Slider from "../../Components/Slider/Slider"
-import { Contextpagejs } from '../../Pages/contextpage'
+import Slider from "../../Components/Slider/Slider";
+import { Contextpagejs } from "../../Pages/contextpage";
+import Menulistingtableone from "../../Components/Menulistingtableone/Menulistingtableone";
+
+import { itemsdata,itemsfooddata } from "../../assets/Mock_data/Moca_data";
 
 import StringDisplay from "../../Components/StringDisplay/StringDisplay";
-
+import InsertColumnList from "../../Components/InsertColumnList/InsertColumnList";
+import TableFirstHeader from "../../Components/TableFirstHeader/TableFirstHeader";
+import TableSecondHeader from "../../Components/TableSecondHeader/TableSecondHeader";
+import TableTwoBody from "../../Components/TableTwoBody/TableTwoBody";
+import TableOneBody from "../../Components/TableOneBody/TableOneBody";
+import RowHeading from "../../Components/RowHeading/RowHeading";
 
 export const Menulisting = () => {
+  const { setActive } = useContext(Contextpagejs);
+  const [itemsState, setItemsState] = useState(itemsdata);
+  const [itemsFoodState, setItemsFoodState] = useState(itemsfooddata);
 
-
-    const{ setActive}=useContext(Contextpagejs)
-
-
-  const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
-  const [togglebtn, settogglebtn] = useState(false);
+  const { isExpanded, setIsExpanded } = useContext(Contextpagejs);
+  const [toggleState, settogglebtn] = useState(false);
   const [draggedIndexsample, setDraggedIndexsample] = useState(null);
- 
+
   const firstTableBodyRef = useRef(null);
   const secondTableBodyRef = useRef(null);
   const [draggedRowIndex, setDraggedRowIndex] = useState({
@@ -33,11 +40,10 @@ export const Menulisting = () => {
     index: null,
   });
   const [draggingOverIndex, setDraggingOverIndex] = useState(null);
-  const [columndraggingindex,setcolumndraggingindex]=useState(null);
-  const [modal,setmodal]=useState(false);
+  const [columndraggingindex, setcolumndraggingindex] = useState(null);
+  const [modal, setmodal] = useState(false);
 
-
-const [showheadinglist, setshowheadinglist] = useState(false);
+  const [showheadinglist, setshowheadinglist] = useState(false);
   const [classNames, setclassNames] = useState([
     "Dinein1-class",
     "Pickup1-class",
@@ -74,24 +80,19 @@ const [showheadinglist, setshowheadinglist] = useState(false);
   const insertlists = {
     Pricing: {
       show: "Pricing",
-      dinein: "Dine-in",
-      pickup: "Pickup",
+      Dinein: "Dine-in",
+      Pickup: "Pickup",
       Delivery: "Delivery",
     },
     Available: {
       show: "Available",
-      dinein: "Dine-in",
-      pickup: "Pickup",
+      Dinein: "Dine-in",
+      Pickup: "Pickup",
       Delivery: "Delivery",
     },
     Inventory: "Inventory",
     Customization: "Customization",
   };
-
-
-
-
-
 
   const [firstRowTable, setFirstRowTable] = useState([
     { label: "Dinein1" },
@@ -106,317 +107,28 @@ const [showheadinglist, setshowheadinglist] = useState(false);
 
   const [secondRowTable, setSecondRowTable] = useState([
     ["Ac", "Nonac"],
-    ["Inhouse", "Swiggy", "Zomato"], 
-    ["Inhouse", "Swiggy", "Zomato"], 
-    ["Ac", "Nonac"], 
-    ["Inhouse", "Swiggy", "Zomato"], 
-    ["Inhouse", "Swiggy", "Zomato"], 
-    ["Total", "Threshold"], 
+    ["Inhouse", "Swiggy", "Zomato"],
+    ["Inhouse", "Swiggy", "Zomato"],
+    ["Ac", "Nonac"],
+    ["Inhouse", "Swiggy", "Zomato"],
+    ["Inhouse", "Swiggy", "Zomato"],
+    ["Total", "Threshold"],
     [""],
   ]);
 
-
-
-  const truncateString = (str, length) => {
-    return str.length > length ? str.substring(0, length) : str;
-  };
-
-
-  const [items, setitems] = useState([
-    {
-      id: 1,
-      name: truncateString("dosa", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$100.00", "$100.00"],
-        Pickup1: ["$200.00", "$200.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Disabled", "Enabled"],
-        Pickup2: ["Enabled", "Disabled", "Disabled"],
-        Delivery2: ["Enabled", "Enabled", "Disabled"],
-        Inventory1: ["$100", "$10"],
-        Customize1: ["5"],
-      },
-    },
-
-    {
-      id: 3,
-      name: truncateString(" Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400.00", "$600.00"],
-        Pickup1: ["$700.00", "$700.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 4,
-      name: truncateString("Creamy", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400..00", "$600.00"],
-        Pickup1: ["$700.00", "$700.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 5,
-      name: truncateString("idly Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400.00", "$600.00"],
-        Pickup1: ["$700.00", "$700.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 2,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500.00", "$900.00"],
-        Pickup1: ["$200.00", "$400.00", "$200.00"],
-        Delivery1: ["$300.00", "$300.00", "$300.00"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    
-    
-  ]);
-  const [itemsfood, setitemsfood] = useState([
-    {
-      id: 11,
-      name: truncateString("Chicken", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$900", "$100"],
-        Pickup1: ["$200", "$200", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$100", "$10"],
-        Customize1: ["5"],
-      },
-    },
-
-    {
-      id: 31,
-      name: truncateString("Fish", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 41,
-      name: truncateString("Mutton", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 51,
-      name: truncateString("Chicken 65", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$400", "$600"],
-        Pickup1: ["$700", "$700", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1000", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 21,
-      name: truncateString("Chicken roll", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-    {
-      id: 21,
-      name: truncateString("Creamy Mushroo", 14),
-      code: "12345",
-      pricingdetails: {
-        Dinein1: ["$1500", "$900"],
-        Pickup1: ["$200", "$400", "$200"],
-        Delivery1: ["$300", "$300", "$300"],
-        Dinein2: ["Enabled", "Enabled"],
-        Pickup2: ["Enabled", "Enabled", "Enabled"],
-        Delivery2: ["Enabled", "Enabled", "Enabled"],
-        Inventory1: ["$1200", "$10"],
-        Customize1: ["5"],
-      },
-    },
-  ]);
+ 
 
 
   const [nooftypes, setnooftypes] = useState([
     {
       id: 1,
-      name: items,
+      name: itemsState,
     },
     {
       id: 2,
-      name: itemsfood,
+      name: itemsFoodState,
     },
   ]);
-
-
-
-
-
 
   const [isDragging, setIsDragging] = useState(false);
   const tableBodyRef = useRef(null);
@@ -427,7 +139,7 @@ const [showheadinglist, setshowheadinglist] = useState(false);
     const containerRect = container.getBoundingClientRect();
 
     const mouseY = e.clientY;
-    const scrollSpeed = 10; 
+    const scrollSpeed = 10;
 
     if (mouseY < containerRect.top + 50) {
       container.scrollTop -= scrollSpeed;
@@ -446,13 +158,13 @@ const [showheadinglist, setshowheadinglist] = useState(false);
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener('mousemove', handleScrollWhileDragging);
+      window.addEventListener("mousemove", handleScrollWhileDragging);
     } else {
-      window.removeEventListener('mousemove', handleScrollWhileDragging);
+      window.removeEventListener("mousemove", handleScrollWhileDragging);
     }
 
     return () => {
-      window.removeEventListener('mousemove', handleScrollWhileDragging);
+      window.removeEventListener("mousemove", handleScrollWhileDragging);
     };
   }, [isDragging]);
 
@@ -467,31 +179,10 @@ const [showheadinglist, setshowheadinglist] = useState(false);
     }
   };
 
-
-  const handledragvegnonvegdragstart = (e, index) => {
-    setDraggedRowIndex(index);
-  };
-  const handledragvegnonvegdropover = (e) => {
-    e.preventDefault();
-  };
-
-  const handledragvegnonvegdropend = (e, index) => {
-    e.preventDefault();
-    const updatedRows = [...nooftypes];
-    const draggedRow = updatedRows[draggedRowIndex];
-    updatedRows.splice(draggedRowIndex, 1);
-    updatedRows.splice(index, 0, draggedRow);
-    setnooftypes(updatedRows);
-    console.log("nooftypes", nooftypes);
-    setDraggedRowIndex(null); 
-  };
- 
-
   const handleColumnwiseDragStart = (index) => {
     setDraggedIndexsample(index);
   };
   const handleColumnwiseDragOver = (index) => {
-
     if (draggedIndexsample !== index) {
       setcolumndraggingindex(index);
       const updatedFirstRowTable = [...firstRowTable];
@@ -499,13 +190,13 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       const updatedclassnames = [...classNames];
       const updatedclassinnerdatanames = [...classNamesinner];
       const updatedItems = [...nooftypes];
-      const item1 = updatedItems[0].name || []; 
-      const item2 = updatedItems[1].name || []; 
+      const item1 = updatedItems[0].name || [];
+      const item2 = updatedItems[1].name || [];
       const draggedItem = updatedFirstRowTable[draggedIndexsample];
       const draggedSubheader = updatedSecondRowTable[draggedIndexsample];
       const draggedclassname = updatedclassnames[draggedIndexsample];
       const draggedclassinnerdata =
-      updatedclassinnerdatanames[draggedIndexsample];
+        updatedclassinnerdatanames[draggedIndexsample];
       updatedFirstRowTable.splice(draggedIndexsample, 1);
       updatedFirstRowTable.splice(index, 0, draggedItem);
       updatedSecondRowTable.splice(draggedIndexsample, 1);
@@ -533,7 +224,7 @@ const [showheadinglist, setshowheadinglist] = useState(false);
               pricingdetails: updatedPricingDetails,
             };
           }
-          return { ...item }; 
+          return { ...item };
         });
       };
       const updatednooftypes = updatePricingDetails(item1, index);
@@ -550,23 +241,34 @@ const [showheadinglist, setshowheadinglist] = useState(false);
     }
   };
   const handleColumnwiseDragEnd = () => {
-    setcolumndraggingindex(null)
+    setcolumndraggingindex(null);
     setDraggedIndexsample(null);
   };
 
+  const handledragvegnonvegdragstart = (e, index) => {
+    setDraggedRowIndex(index);
+  };
+  const handledragvegnonvegdropover = (e) => {
+    e.preventDefault();
+  };
 
+  const handledragvegnonvegdropend = (e, index) => {
+    e.preventDefault();
+    const updatedRows = [...nooftypes];
+    const draggedRow = updatedRows[draggedRowIndex];
+    updatedRows.splice(draggedRowIndex, 1);
+    updatedRows.splice(index, 0, draggedRow);
+    setnooftypes(updatedRows);
+    console.log("nooftypes", nooftypes);
+    setDraggedRowIndex(null);
+  };
 
   const handleRowDragStart = (objectId, index) => {
     setDraggedRowIndex({ objectId, index });
-   
-
   };
- 
- 
+
   const handleRowDragOver = (objectId, index) => {
-    
-   
-    if (draggedRowIndex.objectId === null || draggedRowIndex.index === null) { 
+    if (draggedRowIndex.objectId === null || draggedRowIndex.index === null) {
       return;
     }
     const draggedObjectId = draggedRowIndex.objectId;
@@ -575,14 +277,14 @@ const [showheadinglist, setshowheadinglist] = useState(false);
       setDraggingOverIndex(index);
       const updatedTypes = [...nooftypes];
       const currentObject = updatedTypes.find((item) => item.id === objectId);
-      const indexofvalue = nooftypes.findIndex(item => item.id === objectId);
+      const indexofvalue = nooftypes.findIndex((item) => item.id === objectId);
       if (currentObject) {
-        const updatednooftypes=[...nooftypes[indexofvalue].name]
-        const draggingitme=updatednooftypes[draggedIndex];
-        updatednooftypes.splice(draggedIndex,1);
-        updatednooftypes.splice(index,0,draggingitme)
-        console.log("indexofvalue",updatednooftypes)
-        updatedTypes[indexofvalue].name=updatednooftypes;
+        const updatednooftypes = [...nooftypes[indexofvalue].name];
+        const draggingitme = updatednooftypes[draggedIndex];
+        updatednooftypes.splice(draggedIndex, 1);
+        updatednooftypes.splice(index, 0, draggingitme);
+        console.log("indexofvalue", updatednooftypes);
+        updatedTypes[indexofvalue].name = updatednooftypes;
         setnooftypes(updatedTypes);
         setDraggedRowIndex({ objectId, index });
       }
@@ -592,117 +294,67 @@ const [showheadinglist, setshowheadinglist] = useState(false);
     setDraggedRowIndex({ objectId: null, index: null });
     setDraggingOverIndex(null);
   };
-  
-  const handlemodal=()=>
-    {
-        setmodal(true);
-    }
-const[sidebartext,setSideBarText]=useState(null)
- const showsidebar=(key)=>{
 
-  if(key==="Dinein1"||key==="Pickup1"||key==="Delivery1")
-  {
-    handlemodal();
-    setSideBarText("Pricing");
-  }
-else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
-  {
-    handlemodal();
-    setSideBarText("Availability");
-
-  }
-  else if(key==="Inventory1")
-    {
+  const handlemodal = () => {
+    setmodal(true);
+  };
+  const [sidebartext, setSideBarText] = useState(null);
+  const showsidebar = (key) => {
+    if (key === "Dinein1" || key === "Pickup1" || key === "Delivery1") {
+      handlemodal();
+      setSideBarText("Pricing");
+    } else if (key === "Dinein2" || key === "Pickup2" || key === "Delivery2") {
+      handlemodal();
+      setSideBarText("Availability");
+    } else if (key === "Inventory1") {
       handlemodal();
       setSideBarText("Inventory");
-  
+    } else if (key === "Customize1") {
+      handlemodal();
+      setSideBarText("Customize");
     }
-    else if(key==="Customize1")
-      {
-        handlemodal();
-        setSideBarText("Customize");
-      }
- }
-  
- 
-
-  useEffect(() => {
-    if (
-      !listingobject.Dinein1 &&
-      !listingobject.Pickup1 &&
-      !listingobject.Delivery1
-    ) {
-      setlistingobject({ ...listingobject, showPricing: false });
-    }
-    if (
-      listingobject.Dinein1 ||
-      listingobject.Pickup1 ||
-      listingobject.Delivery1
-    ) {
-      setlistingobject({ ...listingobject, showPricing: true });
-    }
-  }, [listingobject.Dinein1, listingobject.Pickup1, listingobject.Delivery1]);
-
-  useEffect(() => {
-    if (
-      !listingobject.Dinein2 &&
-      !listingobject.Pickup2 &&
-      !listingobject.Delivery2
-    ) {
-      setlistingobject({ ...listingobject, showavail: false });
-    }
-    if (
-      listingobject.Dinein2 ||
-      listingobject.Pickup2 ||
-      listingobject.Delivery2
-    ) {
-      setlistingobject({ ...listingobject, showavail: true });
-    }
-  }, [listingobject.Dinein2, listingobject.Pickup2, listingobject.Delivery2]);
+  };
 
   const tableBodyRef1 = useRef(null);
   const tableBodyRef2 = useRef(null);
- 
- 
 
- 
   useEffect(() => {
     const syncScroll = (sourceTable, targetTable) => {
       targetTable.scrollTop = sourceTable.scrollTop;
     };
-  
+
     const table1 = tableBodyRef1.current;
     const table2 = tableBodyRef2.current;
-  
+
     const handleTable1Scroll = () => syncScroll(table1, table2);
     const handleTable2Scroll = () => syncScroll(table2, table1);
-  
-    table1.addEventListener('scroll', handleTable1Scroll);
-    table2.addEventListener('scroll', handleTable2Scroll);
-  
+
+    table1.addEventListener("scroll", handleTable1Scroll);
+    table2.addEventListener("scroll", handleTable2Scroll);
+
     return () => {
-      table1.removeEventListener('scroll', handleTable1Scroll);
-      table2.removeEventListener('scroll', handleTable2Scroll);
+      table1.removeEventListener("scroll", handleTable1Scroll);
+      table2.removeEventListener("scroll", handleTable2Scroll);
     };
   }, []);
-  
+
   const handleDragScroll = (e, tableRef1, tableRef2) => {
     const table1 = tableRef1.current;
     const table2 = tableRef2.current;
-  
-    const offset = 80; // Amount to scroll
 
-    if (e.clientY < 100) { // Near the top of the screen
+    const offset = 80;
+
+    if (e.clientY < 100) {
       table1.scrollTop -= offset;
       table2.scrollTop -= offset;
     }
-  
-    if (e.clientY > window.innerHeight - 105) { // Near the bottom of the screen
+
+    if (e.clientY > window.innerHeight - 105) {
       table1.scrollTop += offset;
       table2.scrollTop += offset;
     }
   };
-  const Outsideref=useRef(null);
+  const Outsideref = useRef(null);
   const Outsideclicking = (event) => {
     if (Outsideref.current && !Outsideref.current.contains(event.target)) {
       setshowheadinglist(false);
@@ -716,8 +368,7 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
   }, [showheadinglist]);
 
   return (
-    <div className={`${isExpanded?"mainpagemenu1":"mainpagemenu"}`}  >
-  
+    <div className={`${isExpanded ? "mainpagemenu1" : "mainpagemenu"}`}>
       <div className="headercomponent">
         <Header />
       </div>
@@ -730,10 +381,12 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
                   <th className="itemimage">Image</th>
                   <th className="itemname">Item name</th>
                   <th className="itemcode">
-                    <p>Code   
+                    <p>
+                      Code
                       <button
                         onClick={() => setshowheadinglist(true)}
-                        className="span">
+                        className="span"
+                      >
                         <span> +</span>
                       </button>
                     </p>
@@ -741,466 +394,113 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
                 </tr>
               </div>
             </thead>
-            <tbody  >
-              <div
-                ref={tableBodyRef1}
-                className="table-body"
-               >
+            <tbody>
+              <div ref={tableBodyRef1} className="table-body">
                 <tr>
                   {nooftypes.map((object, index) => (
                     <div key={index}>
-                      <div className="firsttablebody" >
-                        {object.id === 1 && (
-                          <div className={`${  index === 0 ? "itemheading" : "itemheadingtwo"   }`} >
-                            <img
-                              src={dots}
-                              alt=""
-                              draggable
-                              onDragStart={(e) => handledragvegnonvegdragstart(e, index)} 
-                              onDragOver={handledragvegnonvegdropover}
-                              onDrop={(e) =>  handledragvegnonvegdropend(e, index)}
-                              className="headingdrag"
-                               
-                              
-                            />
-                            Steamed-Veg(6)
-                          </div>
-                        )}
-                        {object.id === 2 && (
-                          <div
-                            className={`${
-                              index === 1 ? "itemheadingtwo":" itemheading " 
-                            }`}
-                          >
-                            <img
-                              src={dots}
-                              alt=""
-                               className="headingdrag"
-                              draggable
-                              onDragStart={(e) =>
-                                handledragvegnonvegdragstart(e, index)
-                              }
-                              onDragOver={handledragvegnonvegdropover}
-                              onDrop={(e) =>
-                                handledragvegnonvegdropend(e, index)
-                              }
-                            />
-                            Steamed-NonVeg(6)
-                          </div>
-                        )}
+                      <div className="firsttablebody">
+                        <RowHeading
+                          objectId={object.id}
+                          index={index}
+                          onDragStart={handledragvegnonvegdragstart}
+                          onDragOver={handledragvegnonvegdropover}
+                          onDrop={handledragvegnonvegdropend}
+                        />
 
-                        {object.name.map((item, index) => (
-                          <React.Fragment >
-                            <div key={index}>
-                            {draggingOverIndex === index && (
-                              <tr className="placeholderplace"></tr>
-                            )}
-                            <tr
-                              draggable
-                              onDragStart={(e) =>{
-                                handleRowDragStart(object.id, index)
-                                handleDragScroll(e,tableBodyRef1,tableBodyRef2)
-                              }
-                              }
-                              onDragOver={(e) =>{
-                                handleRowDragOver(object.id, index)
-                                handleDragScroll(e,tableBodyRef1,tableBodyRef2)
-                              }
-                              }
-                              onDragEnd={handleRowDragEnd}
-                              className={`itemdetails ${
-                                draggedRowIndex?.index === index
-                               
-                                  ? "selected"
-                                  : ""
-                              }`}
-                            >
-                              <td className="itemimage2">
-                                <img
-                                  src={dots}
-                                  alt=""
-                                  className="draggableimg"
-                                />
-                                <img src={apple} alt="" className="foodimage" />
-                              </td>
-                              <td className="itemname2" onClick={handlemodal}>{item.name}</td>
-                              <td className="itemcode2">{item.code}</td>
-                            </tr>
-                            </div>
-                          </React.Fragment>
-                        ))}
+                        <TableOneBody
+                          object={object}
+                          draggingOverIndex={draggingOverIndex}
+                          draggedRowIndex={draggedRowIndex}
+                          handleRowDragStart={handleRowDragStart}
+                          handleRowDragOver={handleRowDragOver}
+                          handleRowDragEnd={handleRowDragEnd}
+                          handleDragScroll={handleDragScroll}
+                          handlemodal={handlemodal}
+                          tableBodyRef1={tableBodyRef1}
+                          tableBodyRef2={tableBodyRef2}
+                        />
                       </div>
                     </div>
                   ))}
                 </tr>
+                {/* <Menulistingtableone   ref={{ tableBodyRef1, tableBodyRef2 }}/> */}
               </div>
             </tbody>
           </table>
         </div>
 
-
-
-
-
-
-
-
-
-        <div  className={`${isExpanded?"secondtable1":"secondtable"}`}>
+        <div className={`${isExpanded ? "secondtable1" : "secondtable"}`}>
           <table>
             <thead>
               <div className="headaadbtnclass" ref={Outsideref}>
-                {showheadinglist && (
-                  <div className="headingstextlist" >
-                    <div className="insertheading">
-                      <h3>
-                        <span>Insert Column</span>
-                        <img
-                          src={closeicon}
-                          alt=""
-                          onClick={() => setshowheadinglist(false)}
-                        />
-                      </h3>
-                    </div>
-                    <div className="inserbody">
-                      <ul>
-                        <li>
-                          <div className="headtext pricingheadtext">
-                            <input
-                              type="checkbox"
-                              checked={listingobject.showPricing}
-                              onClick={() =>
-                                setlistingobject({
-                                  ...listingobject,
-                                  showPricing: !listingobject.showPricing,
-                                  Dinein1:!listingobject.showPricing,
-                                  Delivery1:!listingobject.showPricing,
-                                  Pickup1:!listingobject.showPricing
-                                })
-                              }
-                            />
-                            <span>
-                              {insertlists.Pricing.show}
-                              <img
-                                src={dollaricon}
-                                alt=""
-                                className="dollaricon"
-                              />
-                            </span>
-                          </div>
-                          <ul className="indenttexts">
-                            <li>
-                              <div>
-                                <input
-                                  type="checkbox"
-                                  checked={listingobject.Dinein1}
-                                  onClick={() => {
-                                    setlistingobject({
-                                      ...listingobject,
-                                      Dinein1: !listingobject.Dinein1,
-                                    });
-                                  }}
-                                />
-                                <span>{insertlists.Pricing.dinein}</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <input
-                                  type="checkbox"
-                                  checked={listingobject.Pickup1}
-                                  onClick={() => {
-                                    setlistingobject({
-                                      ...listingobject,
-                                      Pickup1: !listingobject.Pickup1,
-                                    });
-                                  }}
-                                />
-                                <span>{insertlists.Pricing.pickup}</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <input
-                                  type="checkbox"
-                                  checked={listingobject.Delivery1}
-                                  onClick={() => {
-                                    setlistingobject({
-                                      ...listingobject,
-                                      Delivery1: !listingobject.Delivery1,
-                                    });
-                                  }}
-                                />
-                                <span>{insertlists.Pricing.Delivery}</span>
-                              </div>
-                            </li>
-                          </ul>
-                        </li>
-
-                        <li>
-                          <div className="headtext availheadtext">
-                            <input
-                              type="checkbox"
-                              checked={listingobject.showavail}
-                              onClick={() =>
-                                setlistingobject({
-                                  ...listingobject,
-                                  showavail: !listingobject.showavail,
-                                  Dinein2:!listingobject.showavail,
-                                  Delivery2:!listingobject.showavail,
-                                  Pickup2:!listingobject.showavail
-                                })
-                              }
-                            />
-                            <span>
-                              {insertlists.Available.show}
-                              <img src={toggleround} alt="" />{" "}
-                              <img
-                                src={togglebtns}
-                                alt=""
-                                className="toggleicon"
-                              />
-                            </span>
-                          </div>
-                          <ul className="indenttexts">
-                            <li>
-                              <div>
-                                <input
-                                  type="checkbox"
-                                  checked={listingobject.Dinein2}
-                                  onClick={() => {
-                                    setlistingobject({
-                                      ...listingobject,
-                                      Dinein2: !listingobject.Dinein2,
-                                    });
-                                  }}
-                                />
-                                <span>{insertlists.Available.dinein}</span>{" "}
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <input
-                                  type="checkbox"
-                                  checked={listingobject.Pickup2}
-                                  onClick={() => {
-                                    setlistingobject({
-                                      ...listingobject,
-                                      Pickup2: !listingobject.Pickup2,
-                                    });
-                                    
-                                  }}
-                                />
-                                <span>{insertlists.Available.pickup}</span>{" "}
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <input
-                                  type="checkbox"
-                                  checked={listingobject.Delivery2}
-                                  onClick={() => {
-                                    setlistingobject({
-                                      ...listingobject,
-                                      Delivery2: !listingobject.Delivery2,
-                                    });
-                                    
-                                  }}
-                                />
-                                <span>{insertlists.Available.Delivery}</span>{" "}
-                              </div>
-                            </li>
-                          </ul>{" "}
-                        </li>
-                        <li>
-                          {" "}
-                          <div className="headtext inventoryheadtext">
-                            <input
-                              type="checkbox"
-                              checked={listingobject.Inventory1}
-                              onClick={() => {
-                                setlistingobject({
-                                  ...listingobject,
-                                  Inventory1: !listingobject.Inventory1,
-                                });
-                              }}
-                            />
-                            <span>{insertlists.Inventory}</span>
-                          </div>{" "}
-                        </li>
-                        <li>
-                          <div className="headtext customheadtext">
-                            <input
-                              type="checkbox"
-                              checked={listingobject.Customize1}
-                              onClick={() => {
-                                setlistingobject({
-                                  ...listingobject,
-                                  Customize1: !listingobject.Customize1,
-                                });
-                              }}
-                            />
-                            <span>{insertlists.Customization}</span>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                )}
+                <InsertColumnList
+                  listingobject={listingobject}
+                  setlistingobject={setlistingobject}
+                  insertlists={insertlists}
+                  showheadinglist={showheadinglist}
+                  setshowheadinglist={setshowheadinglist}
+                  closeicon={closeicon}
+                  dollaricon={dollaricon}
+                  toggleround={toggleround}
+                  togglebtns={togglebtns}
+                  Outsideref={Outsideref}
+                />
 
                 <div style={{ marginLeft: "20px" }}>
                   <tr className="headingonesection">
-                    {firstRowTable.map(
-                      (header, index) =>
-                        listingobject[header.label] && (
-                          <> 
-                         
-                          <th
-                            key={index}
-                            colSpan={secondRowTable[index].length}
-                            className={header.label.substring(
-                              0,
-                              header.label.length - 1
-                            )}
-                            draggable
-                            onDragStart={() => handleColumnwiseDragStart(index)}
-                            onDragOver={() => handleColumnwiseDragOver(index)}
-                            onDragEnd={handleColumnwiseDragEnd}
-                          >
-                            <span className="dots">
-                              <img
-                                src={dots}
-                                alt=""
-                              
-                              />
-                            </span>{" "}
-                            {header.label !== "Inventory1" &&
-                              header.label !== "Customize1" && (
-                                <span className="dollar">
-                                  {header.label.charAt(
-                                    header.label.length - 1
-                                  ) === "2" ? (
-                                    <img src={togglebtns} alt="" />
-                                  ) : (
-                                    <img src={dollar} alt="" />
-                                  )}
-                                </span>
-                              )}
-                            <span className="spanheadertext">
-                              {header.label.substring(
-                                0,
-                                header.label.length - 1
-                              )}
-                            </span>
-                            <span className="removeicon">
-                              <img
-                                src={removeicon}
-                                alt=""
-                                onClick={() =>
-                                  setlistingobject({
-                                    ...listingobject,
-                                    [header.label]: false,
-                                  })
-                                }
-                              />
-                            </span>
-                          </th>
-                          {/* {columndraggingindex ===index &&
-                           <th className="columnspace" style={{width:'100px',height:"60px"}}></th>
-                          } */}
-                          </>
-                        )
-                    )}
+                    {firstRowTable.map((header, index) => (
+                      <TableFirstHeader
+                        key={index}
+                        header={header}
+                        index={index}
+                        secondRowLength={secondRowTable[index].length}
+                        listingobject={listingobject}
+                        setlistingobject={setlistingobject}
+                        handleColumnwiseDragStart={handleColumnwiseDragStart}
+                        handleColumnwiseDragOver={handleColumnwiseDragOver}
+                        handleColumnwiseDragEnd={handleColumnwiseDragEnd}
+                        dots={dots}
+                        dollar={dollar}
+                        togglebtns={togglebtns}
+                        removeicon={removeicon}
+                      />
+                    ))}
                   </tr>
                   <tr className="headingtwosection">
-                    {secondRowTable.map(
-                      (subheaders, index) =>
-                        listingobject[
-                          classNames[index].replace(/-class/g, "")
-                        ] && (
-                          <tr key={index} className={classNames[index]}>
-                            {subheaders.map((subheader, subIndex) => (
-                              <td key={subIndex} className={subheader}  >
-                                <StringDisplay text={subheader}/>
-                              </td>
-                            ))}
-                          </tr>
-                        )
-                    )}
+                    {secondRowTable.map((subheaders, index) => (
+                      <TableSecondHeader
+                        key={index}
+                        subheaders={subheaders}
+                        index={index}
+                        className={classNames[index]}
+                        listingobject={listingobject}
+                        classNames={classNames}
+                      />
+                    ))}
                   </tr>
                 </div>
               </div>
             </thead>
-            <tbody
-              ref={tableBodyRef2}
-              className="table-body"
-             
-            >
+            <tbody ref={tableBodyRef2} className="table-body">
               <tr>
                 <div className="tabletwobody">
                   {nooftypes.map((itemobject, indexvalue) => {
                     return (
                       <div key={indexvalue}>
                         {indexvalue === 1 && (
-                          <div className="itemheading2">
-                           
-                          </div>
+                          <div className="itemheading2"></div>
                         )}
-                        
-                       
 
-                        {itemobject.name.map((item, index) => (
-                          <React.Fragment >
-                            
-                             
-                            <tr key={index}
-                              className={`tabletwobodyrow   ${itemobject.id===1  && indexvalue===0 && index===0?"borderforrow1":"borderforrow2"} ${
-                                draggingOverIndex === index ? "selected" : ""
-                              }   ${itemobject.id===2 && indexvalue===0 && index==0 ? "secondpartborder":'secondpartborder1' }  ${itemobject.id===1 && index==1 ? "firstpartborder":'firstpartborder1' }`}
-                            >
-                              <td className="eachobject">
-                                {Object.entries(item.pricingdetails || {}).map(
-                                  ([key, cellData], cellIndex) => {
-                                    const className =
-                                      classNamesinner[cellIndex];
-                                    const items = listingobject[className];
-                                    if (items && Array.isArray(cellData)) {
-                                      return (
-                                        <div
-                                          className={className}
-                                          key={cellIndex}
-                                        >
-                                          {cellData.map((item, itemIndex) =>
-                                          {
-                                            return(<td
-                                              key={`${cellIndex}-${itemIndex}`}
-                                              className=""
-                                            >
-                                              {item === "Enabled" ||
-                                              item === "Disabled" ? (
-                                                <div  onClick={()=>showsidebar(key)}> <Toggle
-                                                toggle={item==="Enabled"?true:false}
-                                                setToggle={settogglebtn}
-                                                togglevalue={item==="Enabled"?1:0}
-                                              /></div>
-                                               
-                                              ) : (
-                                                <span  className="price" onClick={()=>showsidebar(key)}>{item}</span>
-                                              )}
-                                            </td>);
-                                          }   
-                                          
-                                        )}
-                                        </div>
-                                      );
-                                    }
-                                    return null;
-                                  }
-                                )}
-                              </td>
-                            </tr>
-                          </React.Fragment>
-                        ))}
+                        <TableTwoBody
+                          itemobject={itemobject}
+                          indexvalue={indexvalue}
+                          classNamesinner={classNamesinner}
+                          draggingOverIndex={draggingOverIndex}
+                          listingobject={listingobject}
+                          settogglebtn={settogglebtn}
+                          showsidebar={showsidebar}
+                        />
                       </div>
                     );
                   })}
@@ -1209,21 +509,11 @@ else if(key==="Dinein2"||key==="Pickup2"||key==="Delivery2")
             </tbody>
           </table>
 
-          {
-            modal && <Slider onclose={()=>setmodal(false)} sidebartext={sidebartext}/>
-          }
+          {modal && (
+            <Slider onclose={() => setmodal(false)} sidebartext={sidebartext} />
+          )}
         </div>
-
-
-
-
-
-
-
-
-
-        
       </div>
     </div>
   );
-}
+};

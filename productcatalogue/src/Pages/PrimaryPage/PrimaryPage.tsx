@@ -9,20 +9,29 @@ import { ImCross } from "react-icons/im";
 import ImgaeUploading from "../../assets/png/addimage.png";
 import axios from "axios";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { useDispatch } from 'react-redux';
-import {ApiPost} from '../../redux/Actions'
+import { useDispatch } from "react-redux";
+import { ApiPost } from "../../redux/Actions";
 import Imagepillsselection from "../../Components/ImagePillsSelection/ImagePillsSelection";
 import SaveAndNext from "../../Components/Savenextbutton/SaveAndNext";
+import {
+  imageslist,
+  dietarytype,
+  cuisine,
+  mealType,
+  bestPair,
+  subcategory,
+  alcoholradio,
+  calorieponitradio,
+  portionsizeradio,
+} from "../../assets/Mock_data/Moca_data";
 
-interface Ingredients
-{
-  id:string,
-  name:string
+interface Ingredients {
+  id: string;
+  name: string;
 }
-interface Allergens
-{
-  id:string,
-  name:string
+interface Allergens {
+  id: string;
+  name: string;
 }
 
 interface FormData {
@@ -32,15 +41,15 @@ interface FormData {
   mealType: string;
   bestPair: string;
   description: string;
-  imageUrls:Base64Image[]
+  imageUrls: Base64Image[];
   alcohol: string;
   itemCode: string;
   barCode: string;
   category: string;
-  categoryId:string;
+  categoryId: string;
   subCategory: string;
-  Ingredients:Ingredients[];
-  allergens:Allergens[]
+  Ingredients: Ingredients[];
+  allergens: Allergens[];
   coloriePoint: string;
   selectedcolorie: string;
   portionSize: string;
@@ -58,11 +67,21 @@ interface Base64Image {
 }
 
 const PrimaryPage = () => {
- 
- 
+  const [dataImages, setDataImages] = useState(imageslist);
+  const [dataDietaryType, setDataDietaryType] = useState(dietarytype);
+  const [dataCuisine, setDataCuisine] = useState(cuisine);
+  const [dataMealType, setDataMealType] = useState(mealType);
+  const [dataBestPair, setDataBestPair] = useState(bestPair);
+  const [dataSubcategory, setDataSubcategory] = useState(subcategory);
+  const [dataAlcoholRadio, setDataAlcoholRadio] = useState(alcoholradio);
+  const [dataCaloriePointRadio, setDataCaloriePointRadio] =
+    useState(calorieponitradio);
+  const [dataPortionSizeRadio, setDataPortionSizeRadio] =
+    useState(portionsizeradio);
+
   const [imagefromapi, setimagefromapi] = useState([]);
   const [charCount, setCharCount] = useState(0);
-  const maxLength=100;
+  const maxLength = 100;
   const handledescriptioninputchange = (value: string) => {
     const length = value.length;
     if (length <= maxLength) {
@@ -73,18 +92,21 @@ const PrimaryPage = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const handleDropdownToggle = (name: string) => {
-    setOpenDropdown(prev => (prev === name ? null : name));
+    setOpenDropdown((prev) => (prev === name ? null : name));
   };
 
   const [categories, setCategories] = useState<Category[]>([]);
   const categoryUrl = process.env.React_App_Category || "";
-  const IngredientsURL= process.env.React_App_INGR || ""
+  const IngredientsURL = process.env.React_App_INGR || "";
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const categorylist = await axios.get("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Category");
+        const categorylist = await axios.get(
+          "https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Category"
+        );
 
-        const imagesapi = await axios.get("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=INGR"
+        const imagesapi = await axios.get(
+          "https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=INGR"
         );
         setimagefromapi(imagesapi.data && imagesapi.data);
 
@@ -100,115 +122,7 @@ const PrimaryPage = () => {
     fetchData();
   }, []);
 
-  const imageslist = [
-    {
-      name: "gluten",
-      id: "1234",
-    },
-    {
-      name: "Coconut",
-      id: "2762",
-    },
-    {
-      name: "gluten",
-
-      id: "9857",
-    },
-    {
-      name: "Soy",
-
-      id: "4199",
-    },
-    {
-      name: "gluten",
-
-      id: "1618",
-    },
-    {
-      name: "Egg",
-
-      id: "5521",
-    },
-    {
-      name: "Egg",
-
-      id: "2588",
-    },
-    {
-      name: "Shellfish",
-
-      id: "8760",
-    },
-    {
-      name: "Dairy",
-
-      id: "9276",
-    },
-    {
-      name: "gluten",
-
-      id: "2751",
-    },
-    ,
-    {
-      name: "Fish",
-
-      id: "2625",
-    },
-    {
-      name: "Legumes",
-
-      id: "8307",
-    },
-    ,
-    {
-      name: "gluten",
-
-      id: "5940",
-    },
-    {
-      name: "nuts",
-
-      id: "3915",
-    },
-    {
-      name: "gluten",
-
-      id: "9163",
-    },
-  ];
-
-  const dietarytype = [
-    { id: "1", name: "Vegan" },
-    { id: "2", name: "vegetarian" },
-    { id: "3", name: "Indian" },
-    { id: "4", name: "Chinese" },
-    { id: "5", name: "American" },
-  ];
-
-  const cuisine = [
-    { id: "1", name: "French" },
-    { id: "2", name: "Mexican" },
-    { id: "3", name: "Indian" },
-    { id: "4", name: "Chinese" },
-    { id: "5", name: "American" },
-  ];
-  const mealType = [
-    { id: "1", name: "Breakfast" },
-    { id: "2", name: "Lunch" },
-    { id: "3", name: "Dinner" },
-  ];
-  const bestPair = [
-    { id: "1", name: "Chilly chutney" },
-    { id: "2", name: "Idli Podi" },
-    { id: "3", name: "Chicken gravy" },
-  ];
-  const subcategory = [
-    { id: "1", name: "Soup" },
-    { id: "2", name: "Salad" },
-    { id: "3", name: "Sandwich" },
-  ];
-
+  
   const [masterCode, setMasterCode] = useState<string>("");
   const [selectedValues, setSelectedValues] = useState({
     alcohol: "",
@@ -216,26 +130,11 @@ const PrimaryPage = () => {
     selectedPortion: "",
   });
   const [selectedOption, setSelectedOption] = useState<string>("apple");
-  const [image, setimage] = useState(imageslist);
 
-  const handleMasterCodeChange = (code: string) => {
-    setMasterCode(code);
-  };
-  const validImages = imageslist.filter(
+  const validImages = dataImages.filter(
     (img): img is { name: string; id: string } => img !== undefined
   );
-  const alcoholradio = [
-    { value: "yes", label: "yes" },
-    { value: "no", label: "no" },
-  ];
-  const calorieponitradio = [
-    { value: "per100grams", label: "per 100 grams " },
-    { value: "perserving", label: "per serving" },
-  ];
-  const portionsizeradio = [
-    { value: "Portion(count)", label: "Portion(count)" },
-    { value: "grams/ml", label: "grams/ml" },
-  ];
+
   const handleRadioChange = (radioname: keyof FormData, value: string) => {
     setSelectedValues((prevState) => ({
       ...prevState,
@@ -294,27 +193,24 @@ const PrimaryPage = () => {
       .then((base64Images) => {
         console.log("basestr", base64Images);
         setImages([...images, ...base64Images]);
-       
-        setValue('imageUrls',base64Images);
-        const imagess=getValues('imageUrls');
-        console.log("selecd Images from browser",imagess);
-       
+
+        setValue("imageUrls", base64Images);
+        const imagess = getValues("imageUrls");
+        console.log("selecd Images from browser", imagess);
       })
       .catch((error) => {
         console.error("Error converting files to Base64", error);
       });
-      
   };
 
   const handleImageDeletion = (index: number) => {
     const updatedImages = images.filter((_, i) => i !== index);
     setImages(updatedImages);
   };
-  const handleOnblur =(value:string)=>{
+  const handleOnblur = (value: string) => {
     return value;
+  };
 
-  }
-  
   const {
     register,
     handleSubmit,
@@ -323,7 +219,7 @@ const PrimaryPage = () => {
     control,
     formState: { errors },
     trigger,
-    reset
+    reset,
   } = useForm<FormData>({
     defaultValues: {
       itemName: "",
@@ -332,37 +228,31 @@ const PrimaryPage = () => {
       mealType: "",
       bestPair: "",
       description: "",
-      imageUrls:[],
+      imageUrls: [],
       alcohol: "",
       itemCode: "",
       barCode: "",
       category: "",
-      categoryId:"",
+      categoryId: "",
       subCategory: "",
-      Ingredients:[],
-      allergens:[],
+      Ingredients: [],
+      allergens: [],
       coloriePoint: "",
       selectedcolorie: "per100grams",
       portionSize: "",
       selectedPortion: "Portion(count)",
       tax: "",
       masterCode: "",
-
     },
   });
   const dispatch = useDispatch();
 
-
-  
-
-
-  
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log("formData", data);
     // const dataToDispatch = extractFields(data);
     // dispatch(ApiPost(dataToDispatch));
   };
-  
+
   return (
     <div className="Primary-page">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -381,7 +271,6 @@ const PrimaryPage = () => {
                     trigger={trigger}
                     // validation={{ required: "Item name is required" }}
                     error={errors.itemName}
-                   
                   />
                 )}
               />
@@ -393,7 +282,7 @@ const PrimaryPage = () => {
                 control={control}
                 render={({ field }) => (
                   <Dropdown
-                    options={dietarytype}
+                    options={dataDietaryType}
                     placeholder="search for option"
                     register={register}
                     trigger={trigger}
@@ -402,8 +291,8 @@ const PrimaryPage = () => {
                     // validation={{ required: "dietaryType is required" }}
                     error={errors.dietaryType}
                     {...field}
-                    isOpen={openDropdown === 'dietaryType'}
-                    onToggle={() => handleDropdownToggle('dietaryType')}
+                    isOpen={openDropdown === "dietaryType"}
+                    onToggle={() => handleDropdownToggle("dietaryType")}
                   />
                 )}
               />
@@ -416,7 +305,7 @@ const PrimaryPage = () => {
                 control={control}
                 render={({ field }) => (
                   <Dropdown
-                    options={cuisine}
+                    options={dataCuisine}
                     placeholder="search for option"
                     register={register}
                     trigger={trigger}
@@ -425,8 +314,8 @@ const PrimaryPage = () => {
                     error={errors.cuisine}
                     {...field}
                     getValues={getValues}
-                    isOpen={openDropdown === 'cuisine'}
-        onToggle={() => handleDropdownToggle('cuisine')}
+                    isOpen={openDropdown === "cuisine"}
+                    onToggle={() => handleDropdownToggle("cuisine")}
                   />
                 )}
               />
@@ -439,7 +328,7 @@ const PrimaryPage = () => {
                 control={control}
                 render={({ field }) => (
                   <Dropdown
-                    options={mealType}
+                    options={dataMealType}
                     placeholder="search for option"
                     {...field}
                     register={register}
@@ -448,8 +337,8 @@ const PrimaryPage = () => {
                     getValues={getValues}
                     // validation={{ required: "Mealtype is required" }}
                     error={errors.mealType}
-                    isOpen={openDropdown === 'mealType'}
-        onToggle={() => handleDropdownToggle('mealType')}
+                    isOpen={openDropdown === "mealType"}
+                    onToggle={() => handleDropdownToggle("mealType")}
                   />
                 )}
               />
@@ -462,16 +351,15 @@ const PrimaryPage = () => {
                 control={control}
                 render={({ field }) => (
                   <Dropdown
-                    options={bestPair}
+                    options={dataBestPair}
                     placeholder="search for option"
                     {...field}
                     register={register}
                     trigger={trigger}
                     setValue={setValue}
                     getValues={getValues}
-                    isOpen={openDropdown === 'bestPair'}
-        onToggle={() => handleDropdownToggle('bestPair')}
-
+                    isOpen={openDropdown === "bestPair"}
+                    onToggle={() => handleDropdownToggle("bestPair")}
                   />
                 )}
               />
@@ -484,21 +372,27 @@ const PrimaryPage = () => {
                   control={control}
                   render={({ field }) => (
                     <>
-                    <textarea
-                      className="description"
-                      autoComplete="off"
-                      value={field.value || ""}
-              onChange={(e) => {
-                handledescriptioninputchange(e.target.value);
-                field.onChange(e);
-              }}
-              maxLength={maxLength}
-              style={{ borderColor: charCount === maxLength ? 'red' : '#979797' }}
- 
-                    />
-                    <p  style={{ color: charCount === maxLength ? 'red' : '#979797' }} className="Primary-page-description-charcount">{`${charCount}/100`}</p>
+                      <textarea
+                        className="description"
+                        autoComplete="off"
+                        value={field.value || ""}
+                        onChange={(e) => {
+                          handledescriptioninputchange(e.target.value);
+                          field.onChange(e);
+                        }}
+                        maxLength={maxLength}
+                        style={{
+                          borderColor:
+                            charCount === maxLength ? "red" : "#979797",
+                        }}
+                      />
+                      <p
+                        style={{
+                          color: charCount === maxLength ? "red" : "#979797",
+                        }}
+                        className="Primary-page-description-charcount"
+                      >{`${charCount}/100`}</p>
                     </>
-                    
                   )}
                 />{" "}
               </div>
@@ -541,9 +435,9 @@ const PrimaryPage = () => {
               </div>
             </div>
             <div className="Primary-page-InputFields alcoholradiobutton">
-            <h3>Contains Alcohol ?</h3>
+              <h3>Contains Alcohol ?</h3>
               <RadioButtonGroup
-                options={alcoholradio}
+                options={dataAlcoholRadio}
                 name="alcohol"
                 selectedValue={selectedValues.alcohol}
                 onChange={(value) => handleRadioChange("alcohol", value)}
@@ -581,8 +475,6 @@ const PrimaryPage = () => {
                     {...field}
                     register={register}
                     trigger={trigger}
-                   
-                  
                   />
                 )}
               />
@@ -610,8 +502,8 @@ const PrimaryPage = () => {
                       getValues={getValues}
                       // validation={{ required: "category is required" }}
                       error={errors.category}
-                      isOpen={openDropdown === 'category'}
-        onToggle={() => handleDropdownToggle('category')}
+                      isOpen={openDropdown === "category"}
+                      onToggle={() => handleDropdownToggle("category")}
                     />
                   )}
                 />
@@ -623,22 +515,27 @@ const PrimaryPage = () => {
                   control={control}
                   render={({ field }) => (
                     <Dropdown
-                      options={subcategory}
+                      options={dataSubcategory}
                       placeholder="search for option"
                       {...field}
                       register={register}
                       trigger={trigger}
                       setValue={setValue}
                       getValues={getValues}
-                      isOpen={openDropdown === 'subCategory'}
-        onToggle={() => handleDropdownToggle('subCategory')}
+                      isOpen={openDropdown === "subCategory"}
+                      onToggle={() => handleDropdownToggle("subCategory")}
                     />
                   )}
                 />
               </div>
             </div>
             <div className="Primary-page-Allergens-selection">
-              <Imagepillsselection heading="Allergens*" options={validImages}  setValue={setValue} name="Allergens"/>
+              <Imagepillsselection
+                heading="Allergens*"
+                options={validImages}
+                setValue={setValue}
+                name="Allergens"
+              />
             </div>
           </div>
         </div>
@@ -672,7 +569,7 @@ const PrimaryPage = () => {
               </div>
               <div>
                 <RadioButtonGroup
-                  options={calorieponitradio}
+                  options={dataCaloriePointRadio}
                   name="selectedcolorie"
                   selectedValue={selectedValues.selectedcolorie}
                   onChange={(value) =>
@@ -694,14 +591,14 @@ const PrimaryPage = () => {
                       {...field}
                       trigger={trigger}
                       register={register}
-                      placeholder={getValues('selectedPortion')}
+                      placeholder={getValues("selectedPortion")}
                     />
                   )}
                 />
               </div>
               <div>
                 <RadioButtonGroup
-                  options={portionsizeradio}
+                  options={dataPortionSizeRadio}
                   name="selectedPortion"
                   selectedValue={selectedValues.selectedPortion}
                   onChange={(value) =>
@@ -749,24 +646,12 @@ const PrimaryPage = () => {
           </div>
         </div>
         {/* <button type="submit" className="Primary-Page-Formsubmitbutton">Submit</button> */}
-        <SaveAndNext getFormData={getValues} seletedpage="Primary" reset={reset}/>
+        <SaveAndNext
+          getFormData={getValues}
+          seletedpage="Primary"
+          reset={reset}
+        />
 
-        {/* <LableComponent lable="Itemname"/>
-        <InputFieldComponent name="ItemName" value="Dosa" onChange={handleInputChange} blurfunction={handleblur}/>
-        <Dropdown options={options} placeholder="search for option" onSelect={handleSelect} />
-        <Dropdown options={options1} placeholder="search for option" onSelect={handleSelect} />
-        <Dropdown options={options2} placeholder="search for option" onSelect={handleSelect} />
-        <span>Master Item Code</span>
-      <DigitInput inputCount={4} onComplete={handleMasterCodeChange} />
-      <p>Master Code: {masterCode}</p>
-      <RadioButtonGroup
-        options={optionsradio}
-        selectedValue={selectedOption}
-        name="fruits"
-        onChange={handleRadioChange}
-      />
-
-      <Imagepillsselection options={validImages} handleselection={handleimageselection}/> */}
       
       </form>
     </div>
