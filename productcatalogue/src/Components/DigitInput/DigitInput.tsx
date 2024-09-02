@@ -1,16 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './DigitInput.scss'
-import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
+import { UseFormRegister, UseFormSetValue ,FieldError} from 'react-hook-form';
 
 interface DigitInputProps {
   name:string;
   inputCount: number;
+  validation?: any; 
   register: UseFormRegister<any>;
+  error?:FieldError;
   setValue: UseFormSetValue<any>;
+
 
 }
 
-const DigitInput: React.FC<DigitInputProps> = ({name,register,setValue, inputCount, }) => {
+const DigitInput: React.FC<DigitInputProps> = ({name,setValue,error,register, validation,inputCount }) => {
 
   const [inputs, setInputs] = useState<string[]>(Array(inputCount).fill('')); 
   const inputRefs = useRef<HTMLInputElement[]>([]);
@@ -38,6 +41,7 @@ const DigitInput: React.FC<DigitInputProps> = ({name,register,setValue, inputCou
       inputRefs.current[index - 1].focus();
     }
   };
+ 
 
   return (
     <div className="mastecodeinputs">
@@ -46,8 +50,8 @@ const DigitInput: React.FC<DigitInputProps> = ({name,register,setValue, inputCou
           key={index}
           type="text"
           maxLength={1}
+          {...register(name,validation)}
           value={inputs[index]}
-          {...register(`digit${index}`)} // Register each digit input
           onKeyPress={(event) => {
             if (!/[0-9]/.test(event.key)) {
               event.preventDefault();
@@ -59,6 +63,7 @@ const DigitInput: React.FC<DigitInputProps> = ({name,register,setValue, inputCou
           className='digit-input'
         />
       ))}
+      {error && <p className='Input-Field-Error-message'>{error.message}</p>}
     </div>
   );
 };

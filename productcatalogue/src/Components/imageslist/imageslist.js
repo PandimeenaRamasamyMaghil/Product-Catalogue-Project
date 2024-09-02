@@ -68,7 +68,6 @@ const imageslist = [
     image: gluten6,
     id: "2751",
   },
-  ,
   {
     name: "Fish",
     image: Fish,
@@ -79,7 +78,6 @@ const imageslist = [
     image: Legumes,
     id: "8307",
   },
-  ,
   {
     name: "gluten",
     image: gluten4,
@@ -94,6 +92,7 @@ const imageslist = [
     name: "gluten",
     image: gluten5,
     id: "9163",
-  },
+  }
 ];
+
 export default imageslist;

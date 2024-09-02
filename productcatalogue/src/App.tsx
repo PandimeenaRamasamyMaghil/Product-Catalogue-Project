@@ -1,11 +1,12 @@
-import Landing from './Pages/Landingpage'
+
+import MainPage from './Pages/MainPage/MainPage';
 import React from 'react';
 function App() {
   return (
  
     <>
  
-<Landing/>
+<MainPage/>
 
  
 </>

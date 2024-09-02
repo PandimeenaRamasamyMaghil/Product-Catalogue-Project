@@ -414,12 +414,9 @@ const tooltipstyles={
 
   const handleImageUpload = (event) => {
     const files = Array.from(event.target.files);
-  
-    // Filter valid files based on type and size
     const validFiles = files.filter((file) => {
       const validTypes = ['image/jpeg', 'image/png'];
-      const maxSizeInBytes = 2 * 1024 * 1024; // 2MB
-  
+      const maxSizeInBytes = 2 * 1024 * 1024;
       if (!validTypes.includes(file.type)) {
         alert(`Invalid file type: ${file.name}. Only PNG and JPG are allowed.`);
         return false;
@@ -432,14 +429,10 @@ const tooltipstyles={
   
       return true;
     });
-  
-    // Check if the number of valid files can be added
     if (validFiles.length + images.length > maxImages) {
       alert(`You can only upload up to ${maxImages} images.`);
       return;
     }
-  
-    // Convert valid files to Base64
     const readFileAsDataURL = (file) => {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -453,8 +446,6 @@ const tooltipstyles={
         reader.readAsDataURL(file);
       });
     };
-  
-    // Process valid files
     Promise.all(validFiles.map(readFileAsDataURL))
       .then((base64Images) => {
         console.log("basestr", base64Images);
@@ -3356,4 +3347,4 @@ export default PrimaryDetails;
 // }
 
 
-// {"locationId":"9c485244-afd4-11eb-b6c7-42010a010026","altName":"alt name","price":"12","categoryId":"2434d5ed-8144-408f-b75a-c0e50f8de102","subCategoryId":"","kitchenStations":["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],"taxFeeId":"","ingredients":["03348389-4b2a-4fca-affa-6ad4291b0241"],"modifiers":[],"availabilityId":["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],"category":"","subCategory":"","itemId":null}
+/* controller , validation ,error message , image uploading , allergens selection , ingredient selection , redux connection*/

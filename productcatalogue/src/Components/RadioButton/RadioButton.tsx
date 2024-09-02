@@ -13,9 +13,10 @@ interface RadioButtonGroupProps {
   name: string;
   onChange: (value: string) => void;
   register: UseFormRegister<any>;
+  defaultvalue:string
 }
 
-const RadioButton: React.FC<RadioButtonGroupProps> = ({ options, selectedValue, name, onChange, register }) => {
+const RadioButton: React.FC<RadioButtonGroupProps> = ({ options, selectedValue, name, onChange, register,defaultvalue }) => {
   return (
     <div className="radio-button-group">
       {options.map((option) => (

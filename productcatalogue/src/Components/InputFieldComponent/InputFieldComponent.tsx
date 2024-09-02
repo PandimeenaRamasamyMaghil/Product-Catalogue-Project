@@ -1,30 +1,37 @@
 import React from 'react'
 import './InputFieldComponent.scss'
-import { UseFormRegister } from 'react-hook-form';
+import { UseFormRegister ,FieldError,UseFormTrigger} from 'react-hook-form';
 
 
 interface Inputfieldinterface
 {
     name:string;
-    // value:string;
-    // onChange:(param:string)=>void
-    blurfunction:()=>void
     type?: string;
     register: UseFormRegister<any>;
     required?: boolean;
+    validation?: any; 
+    error?: FieldError; 
+    trigger:UseFormTrigger<any>;
+    placeholder?:string
 }
 
-const InputFieldComponent:React.FC<Inputfieldinterface> = ({name,blurfunction,type='text',register, required = false}) => {
+const InputFieldComponent:React.FC<Inputfieldinterface> = ({name,type='text',register,required = false,validation,
+  error,trigger,placeholder}) => {
 
-
-    const handleclick=()=>{
-        console.log("hi hello");
+    const handleBlur=()=>{
+      trigger(name);
 
     }
+
+
+
+   
   return (
     <div>
-        <input {...register(name, { required })} type={type} autoComplete='off' name={name}  onBlur={blurfunction} className='Input-Filed'/>
-
+      <div className='input-and-spantext'>
+        <input {...register(name,validation)} type={type} autoComplete='off' name={name} onBlur={handleBlur}   className='Input-Filed'/>
+         <span className='placeholder'>{placeholder}</span></div>
+        {error && <p className='Input-Field-Error-message'>{error.message}</p>}
     </div>
   )
 }

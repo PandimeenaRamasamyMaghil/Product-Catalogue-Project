@@ -1,5 +1,20 @@
+// import React from 'react'
+// import './PrimaryDetailsReviewpage.scss'
+// import ReviewValues from '../../Components/ReviewValues/ReviewValues'
+// const PrimaryDetailsReviewpage = () => {
+//   return (
+//     <div>
+
+// <ReviewValues label="name"  textvalue="dosa"/>
+
+//     </div>
+//   )
+// }
+
+// export default PrimaryDetailsReviewpage
+
 import React, { useContext, useState, useEffect } from "react";
-import "./Reviewpage.scss";
+import "../ReviewPage/Reviewpage.scss";
 import axios from "axios";
 
 import emptyfoodimg from "../../assets/png/emptyfoodimg.png";
@@ -12,20 +27,98 @@ import { ApiPost } from "../../redux/Actions";
 import Step2 from "../../Components/Step2/Step2";
 import { Contextpagejs } from "../contextpage";
 import ReviewValues from "../../Components/ReviewValues/ReviewValues";
+import ImagePillsSelected from "../../Components/ImagePillsSelected/ImagePillsSelected";
 import Step3Review from "../../Components/Step3Review/Step3Review";
 import PrimaryImageSelected from "../../Components/PrimaryImageSelected/PrimaryImageSelected";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
-const Reviewpage = () => {
+interface Image {
+  id: string;
+  image: string;
+  name: string;
+  mimeType?: string;
+  base64String?: string;
+}
+interface AllergenImage {
+  id: string;
+  name: string;
+}
+interface Base64Image {
+  mimeType: string;
+  base64String: string;
+}
+
+interface PrimaryData {
+  locationId: string;
+  altName: string;
+  price: string;
+  subCategoryId: string;
+  categoryId: string;
+  kitchenStations: string[];
+  taxFeeId: string;
+
+  modifiers: string[];
+  availabilityId: string[];
+
+  itemId: string;
+  itemName?: string;
+  category?: string;
+  subCategory?: string;
+  itemCode?: string;
+
+  description?: string;
+  dietaryType?: string;
+  cuisine?: string;
+  mealType?: string;
+  bestPair?: string;
+  ingredients: AllergenImage[];
+  alcohol: string;
+  barCode: string;
+  caloriePoint?: string;
+  selectedcolorie: string;
+  portionSize?: string;
+  selectedPortion: string;
+  tax: string;
+  masterCode: string;
+  imageUrls: Base64Image[];
+  allergens: AllergenImage[];
+}
+interface RootState {
+  primarypage: {
+    data: PrimaryData;
+  };
+  PricingDetailReducer: {
+    prizingData: {
+      mainForm: {
+        KitchenStationId?: {
+          KitchenStationId: string[];
+        };
+        normalForm?: {
+          availabilityid: {
+            availabilityid: string[];
+          };
+        };
+        specialForm?: {
+          availabilityid: {
+            availabilityid: string[];
+          };
+        };
+      };
+    };
+  };
+}
+
+const PrimaryDetailsReviewpage: React.FC = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isExpanded, setIsExpanded } = useContext(Contextpagejs);
-  const primarydata = useSelector((state) => state.primarypage.data);
+  const { isExpanded, setActiveCategory } = useContext(Contextpagejs);
+  const primarydata = useSelector((state: RootState) => state.primarypage.data);
   const fetchedprimarydata = primarydata;
-  console.log("fetchedprimarydata", fetchedprimarydata);
-  const { activeCategory, pages, setActiveCategory } =
-    useContext(Contextpagejs);
+  //   console.log("fetchedprimarydata", fetchedprimarydata);
+  const {} = useContext(Contextpagejs);
 
-  const [imagenamesfromapi, setimagenamesfromapi] = useState([]);
+  const [imagenamesfromapi, setimagenamesfromapi] = useState<Image[]>([]);
+  const [allergenimage, setallergenimage] = useState<AllergenImage[]>();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,8 +134,12 @@ const Reviewpage = () => {
     fetchData();
   }, []);
 
-  const primarypagedetails = useSelector((state) => state);
-  console.log("primary", primarypagedetails);
+  const primarypagedetails = useSelector((state: RootState) => state);
+  console.log("primary",  primarypagedetails.primarypage.data.itemCode);
+
+  // {"locationId":"9c485244-afd4-11eb-b6c7-42010a010026","itemCode":"","altName":"alt name","itemName":"","description":"","price":"12","categoryId":"","subCategoryId":"","kitchenStations":[],"taxFeeId":"","ingredients":[],"modifiers":[],"availabilityId":[],"category":"","subCategory":"","itemId":null}
+ const data1={"locationId":"9c485244-afd4-11eb-b6c7-42010a010026","itemCode":"","altName":"alt name","itemName":"item name","description":"desc","price":"12","categoryId":"2434d5ed-8144-408f-b75a-c0e50f8de102","subCategoryId":"","kitchenStations":["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],"taxFeeId":"","ingredients":["03348389-4b2a-4fca-affa-6ad4291b0241"],"modifiers":[],"availabilityId":["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],"category":"","subCategory":"","itemId":null}
+
 
   const data = {
     locationId: "9c485244-afd4-11eb-b6c7-42010a010026",
@@ -53,74 +150,43 @@ const Reviewpage = () => {
     price: "12",
     categoryId: primarypagedetails.primarypage.data.categoryId,
     subCategoryId: "",
-    kitchenStations:
-      primarypagedetails.PricingDetailReducer.prizingData.mainForm
-        ?.KitchenStationId?.KitchenStationId || [],
+    kitchenStations: ["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],
     taxFeeId: "",
     ingredients:
-      (primarypagedetails.primarypage.data.ingredients &&
-        primarypagedetails.primarypage.data.ingredients) ||
-      [],
+    ["03348389-4b2a-4fca-affa-6ad4291b0241"],
     modifiers: [],
-    availabilityId:
-      primarypagedetails.PricingDetailReducer.prizingData.mainForm?.normalForm
-        ?.availabilityid?.availabilityid ||
-      primarypagedetails.PricingDetailReducer.prizingData.mainForm?.specialForm
-        ?.availabilityid?.availabilityid ||
-      [],
+    availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
     category: primarypagedetails.primarypage.data.category,
     subCategory: primarypagedetails.primarypage.data.subCategory,
     itemId: null,
   };
 
-  // const imageslist = [
-  //   {
-  //     name: "Egg",
-  //     image: Egg2,
-  //   },
-  //   {
-  //     name: "Shellfish",
-  //     image: Shellfish,
-  //   },
-  //   {
-  //     name: "Dairy",
-  //     image: Dairy,
-  //   },
+  // const foundItemsallergens =
+  //   fetchedprimarydata &&
+  //   fetchedprimarydata?.allergens &&
+  //   imagenamesfromapi.filter((item) =>
+  //     fetchedprimarydata?.allergens?.includes(item.id)
+  //   );
+  // const foundItemsingredient =
+  //   fetchedprimarydata &&
+  //   fetchedprimarydata?.ingredients &&
+  //   imagenamesfromapi.filter((item) =>
+  //     fetchedprimarydata?.ingredients?.includes(item.id)
+  //   );
 
-  //   {
-  //     name: "Fish",
-  //     image: Fish,
-  //   },
-  //   {
-  //     name: "Legumes",
-  //     image: Legumes,
-  //   },
-
-  //   {
-  //     name: "nuts",
-  //     image: nuts,
-  //   },
-  // ];
-  const foundItemsallergens =
-    fetchedprimarydata &&
-    fetchedprimarydata.allergensFood &&
-    imageslist.filter((item) =>
-      fetchedprimarydata.allergensFood.includes(item.id)
-    );
-  const foundItemsingredient =
-    fetchedprimarydata &&
-    fetchedprimarydata.ingredientFood &&
-    imagenamesfromapi.filter((item) =>
-      fetchedprimarydata.ingredientFood.includes(item.id)
-    );
-
-  const handleedit = (navlink) => {
+  const handleedit = (navlink: string) => {
     // dispatch(primarypost(fetchedprimarydata));
 
     if ("Primary" === navlink) {
       setActiveCategory("Step 1: Primary Details");
     }
   };
+  const ingredientsValue =fetchedprimarydata.ingredients ;
+
+  const selectedImages =
+    typeof ingredientsValue === "string"
+      ? JSON.parse(ingredientsValue)
+      : ingredientsValue;
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -152,8 +218,8 @@ const Reviewpage = () => {
                       <ReviewValues
                         label="Dietary type"
                         textvalue={
-                          fetchedprimarydata.dietary
-                            ? fetchedprimarydata.itemName
+                          fetchedprimarydata.dietaryType
+                            ? fetchedprimarydata.dietaryType
                             : "-"
                         }
                       />
@@ -172,7 +238,7 @@ const Reviewpage = () => {
 
                     <div>
                       <ReviewValues
-                        label="Item Name"
+                        label="Category"
                         textvalue={
                           fetchedprimarydata.category
                             ? fetchedprimarydata.category
@@ -207,9 +273,7 @@ const Reviewpage = () => {
                       <ReviewValues
                         label="Tax Class Association"
                         textvalue={
-                          fetchedprimarydata.taxClassAssociation
-                            ? fetchedprimarydata.taxClassAssociation
-                            : "-"
+                          fetchedprimarydata.tax ? fetchedprimarydata.tax : "-"
                         }
                       />
                     </div>
@@ -253,8 +317,8 @@ const Reviewpage = () => {
                       <ReviewValues
                         label="SubCategory"
                         textvalue={
-                          fetchedprimarydata.SubCategory
-                            ? fetchedprimarydata.SubCategory
+                          fetchedprimarydata.subCategory
+                            ? fetchedprimarydata.subCategory
                             : "-"
                         }
                       />
@@ -264,8 +328,8 @@ const Reviewpage = () => {
                       <ReviewValues
                         label="Unit of measurement"
                         textvalue={
-                          fetchedprimarydata.portionSizeSeleted
-                            ? fetchedprimarydata.portionSizeSeleted
+                          fetchedprimarydata.selectedPortion
+                            ? fetchedprimarydata.selectedPortion
                             : "-"
                         }
                       />
@@ -306,64 +370,9 @@ const Reviewpage = () => {
                 <div className="primaryimages">
                   <p>Primary Image</p>
 
-                  <PrimaryImageSelected  fetchedprimarydata={fetchedprimarydata}
-       />
-                  <div className="images">
-                    <ol>
-                      {fetchedprimarydata &&
-                        fetchedprimarydata.imageUrls &&
-                        fetchedprimarydata.imageUrls.length > 0 && (
-                          <li>
-                            <img
-                              src={`data:${
-                                fetchedprimarydata.imageUrls[0] &&
-                                fetchedprimarydata.imageUrls[0].mimeType &&
-                                fetchedprimarydata.imageUrls[0].mimeType
-                              };base64,${
-                                fetchedprimarydata.imageUrls[0] &&
-                                fetchedprimarydata.imageUrls[0].base64String &&
-                                fetchedprimarydata.imageUrls[0].base64String
-                              }`}
-                              alt=""
-                            />
-                          </li>
-                        )}
-
-                      {fetchedprimarydata &&
-                        fetchedprimarydata.imageUrls &&
-                        fetchedprimarydata.imageUrls.length === 0 &&
-                        [0].map((_, index) => (
-                          <li key={index + 1}>
-                            <img src={emptyfoodimg} alt={`sample ${index}`} />
-                          </li>
-                        ))}
-
-                      <div className="selectediagelist">
-                      
-
-                        {fetchedprimarydata &&
-                          fetchedprimarydata.imageUrls &&
-                          fetchedprimarydata.imageUrls
-                            .slice(1)
-                            .map((image, index) => (
-                              <li key={index + 1}>
-                                <img
-                                  src={`data:${image.mimeType};base64,${image.base64String}`}
-                                  alt={`uploaded ${index}`}
-                                />
-                              </li>
-                            ))}
-                        {fetchedprimarydata &&
-                          fetchedprimarydata.imageUrls &&
-                          fetchedprimarydata.imageUrls.length === 0 &&
-                          [0, 1, 2, 3, 4, 5].slice(1).map((_, index) => (
-                            <li key={index + 1}>
-                              <img src={emptyfoodimg} alt={`sample ${index}`} />
-                            </li>
-                          ))}
-                      </div>
-                    </ol>
-                  </div>
+                  <PrimaryImageSelected
+                    fetchedprimarydata={fetchedprimarydata}
+                  />
                 </div>
               }
 
@@ -389,38 +398,20 @@ const Reviewpage = () => {
               }
 
               <div className="allergensandingredients">
-                {fetchedprimarydata &&
-                  fetchedprimarydata.ingredientFood &&
-                  fetchedprimarydata.ingredientFood.length > 0 && (
-                    <div className="ingredients">
-                      <p>Ingredients</p>
-                      <div className="imagesingredients">
-                        {foundItemsingredient &&
-                          foundItemsingredient.map((image) => (
-                            <div className="selectedingredientsimage">
-                              <img src={image.image} alt="image" />
-                              <span>{image.name}</span>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  )}
-                {fetchedprimarydata &&
-                  fetchedprimarydata.allergensFood &&
-                  fetchedprimarydata.allergensFood.length > 0 && (
-                    <div className=" allergens">
-                      <p> Allergens</p>
-                      <div className="imagesallergens">
-                        {foundItemsallergens &&
-                          foundItemsallergens.map((image) => (
-                            <div className="selectedallergensimage">
-                              <img src={image.image} alt="image" />
-                              <span>{image.name}</span>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  )}
+                <div>
+                <p className="ingredients">Ingredients</p>
+                  <ImagePillsSelected
+                         imageselected={fetchedprimarydata}
+                        name="Ingredients"
+                      /></div>
+              
+               <div>
+               <p className="allergen">Allergens</p> <ImagePillsSelected
+                         imageselected={fetchedprimarydata}
+                        name="allergens"
+                      /></div>
+                  
+               
               </div>
             </div>
 
@@ -455,4 +446,4 @@ const Reviewpage = () => {
   );
 };
 
-export default Reviewpage;
+export default PrimaryDetailsReviewpage;
