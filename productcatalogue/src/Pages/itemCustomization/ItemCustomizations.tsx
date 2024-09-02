@@ -239,14 +239,20 @@ newModifications[index][property] = value as Modification[typeof property];
     console.log("item cleared");
   };
 
-  const handleSelectedValueChange = (index: number, value: string) => {
-    setSelectedValue(value);
+  const handleSelectedValueChange = (index: number, value: string | string[]) => {
+    const stringValue = Array.isArray(value) ? value.join(', ') : value;
+    console.log(stringValue)
+  
+    setSelectedValue(stringValue);
+  
     const newArray = [...modifications];
-    newArray[index].selectedValue = value;
+    newArray[index].selectedValue = stringValue;
     setModifications(newArray);
-  };
+
+  };;
 
   const handleSelect = (index: number, value: string) => {
+
     handleSelectedValueChange(index, value);
   };
 
@@ -260,6 +266,7 @@ newModifications[index][property] = value as Modification[typeof property];
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
+  console.log(modifications)
 
   return (
     <div className="mainItemCustomizations">
@@ -522,17 +529,17 @@ newModifications[index][property] = value as Modification[typeof property];
               </div>
             </div>
             <div className="dropDown-item" >
-            {/* <DropDownItem
+            <DropDownItem
             // selectedValues={modifier.selectedValue}
 
 
-            onSelect={(value) => handleSelect(modIndex, value)}
+            onSelect={(value) => handleSelect(modIndex, value )}
       options={options}
       addOption={addOption1}
       // placeholder="Available Service Stream* "
       // onChange={(e)=>handleSelectedValueChange(modIndex,e.target.value)}
       label="Meal Type*"
-    /> */}
+    />
     </div>
           </div>
         </div>
