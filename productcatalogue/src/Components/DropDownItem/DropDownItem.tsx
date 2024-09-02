@@ -1,98 +1,113 @@
-import React, { useState, useRef, useEffect } from 'react';
-import './DropDownItem.scss';
+import React, { useState, useRef, useEffect, ChangeEvent, FormEvent, MouseEvent } from 'react';
 import UpArrow from "../../assets/png/dropdown.png";
-
-// Define the types for the props
-interface DropdownProps {
+ 
+// Define the types for props
+interface DropDown3Props {
   selectedValues?: string[];
-  onSelect: (selectedValues: string) => void;
+  onSelect: (values: string[]) => void;
   options?: string[];
   addOption: (option: string) => void;
   label: string;
+  index?:number;
+  placeholder:string
+ 
+  validation?: {
+    isValid: boolean;
+    errorMessage?: string;
+  };
+  onBlur?: () => void;
 }
-
-const Dropdown: React.FC<DropdownProps> = ({ selectedValues = [], onSelect, options = [], addOption, label }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [inputValue, setInputValue] = useState('');
-  const [showTextBox, setShowTextBox] = useState(false);
-  const [rotateImg, setRotateImg] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Handle clicks outside the dropdown to close it
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-        setRotateImg(false);
-      }
-    };
-
-    // Add event listener on mount
-    document.addEventListener('mousedown', handleClickOutside);
-
-    // Clean up event listener on unmount
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
+ 
+const DropDown3: React.FC<DropDown3Props> = ({
+  selectedValues = [],
+  onSelect,
+  options = [],
+  addOption,
+ 
+  label,
+  validation,
+  placeholder,
+  onBlur
+}) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>('');
+  const [rotateImg, setRotateImg] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+ 
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+  //       setIsOpen(false);
+  //       setRotateImg(false);
+  //     }
+  //   };
+ 
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, []);
+ 
   const handleDropdownClick = () => {
     setIsOpen(!isOpen);
     setRotateImg(!rotateImg);
   };
-
-  const handleOptionClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+ 
+  const handleOptionClick = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    // console.log('Checkbox clicked:', value);
     const newSelectedValues = selectedValues.includes(value)
       ? selectedValues.filter((item) => item !== value)
       : [...selectedValues, value];
-  
-    
-    // If you need a single string, join the array or pick one:
-    // or
-    // onSelect(newSelectedValues[0]);  // Picking the first item in the array
+    onSelect(newSelectedValues);
   };
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+ 
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
-
-  const addNewItem = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (inputValue.trim() !== '') {
-      addOption(inputValue);
-      setInputValue(''); // Clear the input field after adding
+ 
+ 
+ 
+  const handleBlur = () => {
+    if (onBlur) {
+      onBlur();
     }
   };
-
-  const toggleTextBox = () => {
-    setShowTextBox(!showTextBox);
-  };
-
+ 
   return (
-    <div className="dropdown-containerPricing" ref={dropdownRef}>
-      <label className='droplabelPricing'>{label}</label>
-      <div className="dropdownPricing" onClick={handleDropdownClick}>
+    <div className="dropdown-containerPricing2" ref={dropdownRef}>
+      <label className='droplabelPricing2'>{label}</label>
+      <div
+        className={!validation?.isValid ? "dropdownPricingred2" : "dropdownPricing2"}
+        onClick={handleDropdownClick}
+        onBlur={handleBlur}
+        tabIndex={0}
+      >
         {selectedValues.length > 0 ? (
-          <div className='valuePricing'>
+          <div className='valuePricing2'>
             {selectedValues.slice(0, 3).join(', ')}
           </div>
         ) : (
-          <div>
-            {/* Placeholder when no values are selected */}
+          <div className='valuePlaceholder2'>
+            {/* Placeholder or empty state can be handled here */}
           </div>
         )}
-        <div><img src={UpArrow} className={rotateImg ? 'arrowrotatePricing' : 'arrowdropPricing'} alt="Dropdown Arrow" /></div>
+        <div>
+          <img
+            src={UpArrow}
+            className={rotateImg ? 'arrowrotatePricing2' : 'arrowdropPricing2'}
+            alt="arrow"
+          />
+        </div>
       </div>
       {isOpen && (
-        <div className="optionsPricing">
+        <div className="optionsPricing2">
           {options.length > 0 ? (
             options.map((option, index) => (
               <label key={index}>
                 <input
                   type="checkbox"
                   name={option}
-                  className="checkboxPricing"
+                  className="checkboxPricing2"
                   value={option}
                   checked={selectedValues.includes(option)}
                   onChange={handleOptionClick}
@@ -105,8 +120,13 @@ const Dropdown: React.FC<DropdownProps> = ({ selectedValues = [], onSelect, opti
           )}
         </div>
       )}
+      {!validation?.isValid && (
+        <p style={{ color: 'red', fontSize: "0.75rem", fontWeight: "500" }}>
+          {validation?.errorMessage}
+        </p>
+      )}
     </div>
   );
 };
-
-export default Dropdown;
+ 
+export default DropDown3;
