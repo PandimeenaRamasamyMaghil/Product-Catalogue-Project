@@ -7,7 +7,7 @@ interface DaysOfWeekProps {
   setDays: React.Dispatch<React.SetStateAction<number[]>>; // Function to update the selected days
 }
 
-const DaysOfWeek: React.FC<DaysOfWeekProps> = ({ days, setDays }) => {
+const DaysOfWeek: React.FC<DaysOfWeekProps> = ({ days = [], setDays }) => {
     const daysOfWeek = ["S", "M", "T", "W", "Th", "F", "S"];
 
     const toggleHighlight = (index: number) => {
