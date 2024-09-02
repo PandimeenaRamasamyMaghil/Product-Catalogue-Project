@@ -1,12 +1,22 @@
 .KitchenRelatedHeadingNormal{
     margin-top: 0.5rem;
-    font-size: 1rem;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0.063rem;
+    margin-top: 10px;
+    
+}
+.AvailableServiceHeading{
+    
+    font-size: 16px;
     font-weight: 500;
     margin-bottom: 0.063rem;
-    
+    margin-top: 20px;
+color: rgba(0, 0, 0, 1);
 }
 
 .dayschecking{
+    margin-top: 15px;
     // width: 900px;
     height: 50px;
     // border: 1px solid red;
@@ -55,8 +65,11 @@
     margin-top: 1rem;
     
 }
-.Delete{
+.DeleteButtonDine{
+    margin-top: 12px;
     margin-left: 15px;
+    color: red;
+    font-size: 14px;
 }
 
 .dayspickup{
@@ -349,7 +362,7 @@
 .AvailableDaysHeadingNormal    {
     font-size: 14px;
     font-weight: 400;
-    margin-top: 1rem;
+    margin-top: 22px;
     margin-bottom: 0.1rem;
 }
 .AvailDaycheck{

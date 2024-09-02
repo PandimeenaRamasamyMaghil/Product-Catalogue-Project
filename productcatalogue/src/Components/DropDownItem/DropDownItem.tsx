@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, ChangeEvent, FormEvent, MouseEvent } from 'react';
-import './DropDown3.scss';
 import UpArrow from "../../assets/png/dropdown.png";
  
 // Define the types for props

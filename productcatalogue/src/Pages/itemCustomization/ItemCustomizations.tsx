@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Savenextbutton from "../../Components/Savenextbutton/Savenextbutton";
 import Serachicon from '../../assets/png/searchicon.png';
 import DropDownItem from "../../Components/DropDownItem/DropDownItem";
+import DropDown3 from "../../Components/DropDownItem/DropDownItem";
 
 
 // Define types
@@ -41,7 +42,7 @@ interface Modification {
   minSelection: number;
   maxSelection: number;
   freeCustomization: number;
-  selectedValue: string;
+  selectedValue: string[];
   endDate?: string;
   startDate?: string;
   selectionType?: string;
@@ -62,12 +63,13 @@ const ItemCustomizations: React.FC = () => {
   const itemCustomizationData = useSelector(
     (state: State) => state.itemCustomizationsReducer1.itemData
   );
+  console.log(itemCustomizationData)
 
   const [showModifiers, setShowModifiers] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const [options, setOptions] = useState<string[]>(['Option3', 'Option2', 'Option 3']);
-  const [selectedValue, setSelectedValue] = useState<string>('');
+  const [selectedValue, setSelectedValue] = useState<string[]>([]);
 
   const [customItemavailability, setCustomItemavailability] = useState<boolean>(false);
   const [isvalid, setIsValid] = useState<boolean>(false);
@@ -84,7 +86,7 @@ const ItemCustomizations: React.FC = () => {
       minSelection: 1,
       maxSelection: 1,
       freeCustomization: 1,
-      selectedValue: "",
+       selectedValue: selectedValue,
     },
   ]);
 
@@ -106,7 +108,7 @@ const ItemCustomizations: React.FC = () => {
         minSelection: item.minSelection || 1,
         maxSelection: item.maxSelection || 1,
         freeCustomization: item.freeCustomization || 1,
-        selectedValue: item.selectedValue || "",
+        selectedValue: item.selectedValue.map((elem)=>elem) || "",
         endDate: item.endDate || "",
         startDate: item.startDate || "",
         selectionType: item.selectionType || "",
@@ -129,7 +131,7 @@ const ItemCustomizations: React.FC = () => {
         minSelection: 1,
         maxSelection: 1,
         freeCustomization: 1,
-        selectedValue: "",
+        selectedValue: selectedValue,
       },
     ]);
   };
@@ -238,18 +240,17 @@ newModifications[index][property] = value as Modification[typeof property];
   const clerall = () => {
     console.log("item cleared");
   };
-
-  const handleSelectedValueChange = (index: number, value: string) => {
-    setSelectedValue(value);
-    const newArray = [...modifications];
-    newArray[index].selectedValue = value;
-    setModifications(newArray);
+  const handleSelect3 = (values: string[], index: number): void => {
+    // Update selectedValue state
+    setSelectedValue(values);
+  
+    // Update modifications state
+    setModifications((prevModifications) => {
+      const newModifications = [...prevModifications];
+      newModifications[index] = { ...newModifications[index], selectedValue: values };
+      return newModifications;
+    });
   };
-
-  const handleSelect = (index: number, value: string) => {
-    handleSelectedValueChange(index, value);
-  };
-
   useEffect(() => {
     const filtered = modifications.filter(modifier =>
       modifier.modifierName.toLowerCase().includes(searchQuery.toLowerCase())
@@ -260,6 +261,8 @@ newModifications[index][property] = value as Modification[typeof property];
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
+  console.log(selectedValue)
+  console.log(modifications)
 
   return (
     <div className="mainItemCustomizations">
@@ -522,17 +525,16 @@ newModifications[index][property] = value as Modification[typeof property];
               </div>
             </div>
             <div className="dropDown-item" >
-            {/* <DropDownItem
-            // selectedValues={modifier.selectedValue}
+            <DropDown3
+            selectedValues={selectedValue}
 
 
-            onSelect={(value) => handleSelect(modIndex, value)}
+            onSelect={(value) => handleSelect3(value,modIndex )}
       options={options}
       addOption={addOption1}
-      // placeholder="Available Service Stream* "
-      // onChange={(e)=>handleSelectedValueChange(modIndex,e.target.value)}
+      placeholder="Available Service Stream* "
       label="Meal Type*"
-    /> */}
+    />
     </div>
           </div>
         </div>

@@ -2,10 +2,21 @@ import React, { useEffect, useState } from 'react';
 import "./DaysCheckDinein.scss";
 import axios from 'axios';
 
-const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
-  const [data, setData] = useState([]);
+interface DaysCheckProps {
+  checkedItems: number[][];
+  setCheckedItems: (items: number[][]) => void;
+  index: number;
+}
 
-  const handleCheckboxChange = (event) => {
+interface DataItem {
+  id: string;
+  name: string;
+}
+
+const DaysCheck: React.FC<DaysCheckProps> = ({ checkedItems, setCheckedItems, index }) => {
+  const [data, setData] = useState<DataItem[]>([]);
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, checked } = event.target;
     const newCheckedItems = [...checkedItems];
 
@@ -25,9 +36,9 @@ const DaysCheck = ({ checkedItems, setCheckedItems, index }) => {
     getApi();
   }, []);
 
-  const getApi = async () => {
+  const getApi = async (): Promise<void> => {
     try {
-      const response = await axios.get("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Availability");
+      const response = await axios.get<DataItem[]>("https://api.magilhub.com/magilhub-data-services/merchants/itemAttributes?locationId=9c485244-afd4-11eb-b6c7-42010a010026&id=&option=Availability");
       console.log(response.data);
       setData(response.data);
     } catch (error) {

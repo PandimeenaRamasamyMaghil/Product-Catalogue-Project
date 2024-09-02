@@ -1,4 +1,4 @@
-import {React,useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import Toggle from '../Toggle/Toggle'
 import './Normalavail.scss'
 import DaysCheck from '../DayCheck/DaysCheck'
@@ -6,36 +6,84 @@ import Dropdown2 from '../DropDown2/DropDown2'
 import DropDown3 from '../DropDown3/DropDown3'
 import DaysCheckDin from "../DayCheckDinein/DaysCheckDinein"
 import { useSelector } from 'react-redux'
+interface NormalForm {
+  PickuppriceNormal: string;
+  PickupmealtypeNormal: string;
+  DeliverypriceNormal: string;
+  DeliverymealtypeNormal: string;
+  SwiggyorzomatoNormal: string;
+  SwiggyNormal: string;
+  SwiggymealtypeNormal: string;
+  ZomatoNormal: string;
+  ZomatomealtypeNormal: string;
+}
+interface DineInField {
+  DineInPrice: string;
+  DineInMealType: string[];
+  DineInService: string;
+  showDay: boolean;
+  dayButtonText: string;
+}
+type DropdownValidationState = {
+  [key: string]: { isValid: boolean; errorMessage: string }; // Adjust this as necessary
+};
+
+interface NormalavailProps {
+  getNormalForm: (form: any) => void;
+  validateDropdown: (value: string[], key: keyof DropdownValidationState) => void;
+
+  validationState: { [key: string]: { isValid: boolean; errorMessage: string } };
+  dinein: boolean;
+  setDineIn: React.Dispatch<React.SetStateAction<boolean>>;
+  
+}
+
+type MealType1 = string; 
+type MealType = string[]; 
+type SelectedValueType = string;
+type SelectedValuesMealTypeState = MealType[];
+type ServiceValueType = string;
+interface SelectedValuesState {
+  [key: number]: any; // Replace `any` with the actual type of `values`
+}
+type OptionType = string;
  
-const Specialavail = ({getNormalForm,validateDropdown,validationState,dinein,setDineIn}) => {
+const Normalavail: React.FC<NormalavailProps>= ({getNormalForm,validateDropdown,validationState,dinein,setDineIn}) => {
  
   const [online, setOnline] = useState(false)
   const [pickup, setPickup] = useState(false)
   const [delivery, setDelivery] = useState(false)
-  const [dineinentry, setDineInEntry] = useState([""]);
- const[Normaldays, setNormalDays ]=useState([ ])
- const [options2, setOptions2] = useState(['Breakfast', 'Lunch', 'Dinner']);
+  const [dineinfields, setDineInFields] = useState<DineInField[]>([
+    { DineInPrice: '', DineInMealType: [], DineInService: '', showDay: false, dayButtonText: 'Add Day' }
+  ]);
+const [dineinentry, setDineInEntry] = useState<string[]>([]);
+const [Normaldays, setNormalDays] = useState<number[]>([]);
+ const [options2, setOptions2] = useState(['Breakfast', 'Lunch', 'Dinner']);;
+
  const [options3, setOptions3] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options4, setOptions4] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options5, setOptions5] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options6, setOptions6] = useState(['Breakfast', 'Lunch', 'Dinner']);
- const [availabilityid,setAvailabilityid]=useState([])
- const [selectedValues, setSelectedValues] = useState("");
- const [selectedValues2, setSelectedValues2] = useState("");
- const [selectedValues3, setSelectedValues3] = useState("");
- const [selectedValues4, setSelectedValues4] = useState("");
- const [selectedValues5, setSelectedValues5] = useState("");
+ const [availabilityid, setAvailabilityid] = useState<string[]>([]); 
+ const [selectedValues, setSelectedValues] = React.useState<SelectedValuesState>({});
+
+
+ const [selectedValues2, setSelectedValues2] = useState<string[]>([]);
+ const [selectedValues3, setSelectedValues3] = useState<string[]>([]);
+ const [selectedValues4, setSelectedValues4] = useState<string[]>([]);
+ const [selectedValues5, setSelectedValues5] = useState<string[]>([])
  
  
  
- const [selectedValuesmealtype, setSelectedValuesMealType] = useState([]);
- const [optionsmealtype, setOptionsMealType] = useState(['Breakfast', 'Lunch', 'Dinner']);
+ const [selectedValuesmealtype, setSelectedValuesMealType] = React.useState<SelectedValuesMealTypeState>([]);
+ const [optionsmealtype, setOptionsMealType] = useState(['Breakfast', 'Lunch', 'Dinner']);;
 //   {_-------------------Array for Day Check---------------------------------}
 const[dineInDates,setDineInDates]=useState([])
-  const[DayPickup,setDayPickup]=useState([])
-  const[DayDelivery,setDayDelivery]=useState([])
-  const[DayThird,setDayThird]=useState([])
-  const [dineInDates1, setDineInDates1] = useState([[]]);
+  const[DayPickup,setDayPickup]=useState<number[]>([]);
+  const[DayDelivery,setDayDelivery]=useState<number[]>([])
+  const[DayThird,setDayThird]=useState<number[]>([])
+  const [dineInDates1, setDineInDates1] = useState<number[][]>([[]]);
+
  
  
 //   {_-------------------Use State  for Showing Day checck ---------------------------------}
@@ -44,7 +92,8 @@ const[showDayPickup,setShowDayPickup]=useState(false)
  
 const[showDayDelivery,setShowDayDelivery]=useState(false)
 const[showDayThird,setShowDayThird]=useState(false)
-const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingData.mainForm);
+const prizingDetail = useSelector((state: any) => state.PricingDetailReducer.prizingData.mainForm);
+
  
  
  
@@ -72,14 +121,6 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
  
      
  
-      const[dineinfields,setDineInFields]=useState([{
-        DineInPrice:"",
-        DineInMealType:"",
-        DineInService:"",
-        showDay:false,
-        dayButtonText: "Choose Day"  
-       
-      }])
       const [buttonText, setButtonText] = useState( [{ChooseDay: 'Choose Day'}]);
       const [Text, setText] = useState(dineinfields.map(() => 'Set up for Specific Day'));
  
@@ -98,8 +139,7 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
    
         thirdParty:DayThird,
       WeekDays:dineInDates1,
-      Delivery:DayDelivery,
-      thirdParty:DayThird,
+  
       DineIn:dineInDates1,
       Swiggy:selectedValues4,
       Zomato:selectedValues5
@@ -112,37 +152,33 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
               DeliverypriceNormal: prizingDetail.normalForm.formNormal.DeliverypriceNormal || "",
               DeliverymealtypeNormal: prizingDetail.normalForm.formNormal.DeliverymealtypeNormal || "",
               SwiggyorzomatoNormal: prizingDetail.normalForm.formNormal.SwiggyorzomatoNormal || "",
-              SwiggyNormal: prizingDetail.normalForm.formNormal.SwiggyNormal|| "",
+              SwiggyNormal: prizingDetail.normalForm.formNormal.SwiggyNormal || "",
               SwiggymealtypeNormal: prizingDetail.normalForm.formNormal.SwiggymealtypeNormal || "",
               ZomatoNormal: prizingDetail.normalForm.formNormal.ZomatoNormal || "",
               ZomatomealtypeNormal: prizingDetail.normalForm.formNormal.ZomatomealtypeNormal || "",
             });
- 
-            const updatedFields = prizingDetail?.normalForm?.dineinfields.map(item => ({
+      
+            const updatedFields = prizingDetail?.normalForm?.dineinfields.map((item: any) => ({
               DineInPrice: item?.DineInPrice || "",
               DineInMealType: item.DineInMealType || [], // Ensure it's an array for dropdowns
               DineInService: item?.DineInService || "",
- 
-              dayButtonText:"Choose Day"
- 
- 
-            }));
+              showDay: false,
+              dayButtonText: "Choose Day",
+            }))
        
             setDineInFields(updatedFields);
        
             // Initialize selected values
-            const initialSelectedValues = updatedFields.map(item => item.DineInMealType);
+            const initialSelectedValues = updatedFields.map((item: any) => item.DineInMealType);
             setSelectedValuesMealType(initialSelectedValues);
  
-            const initialSelectedValues2 = updatedFields.map(item => item.DineInService);
-            setSelectedValues(initialSelectedValues2);
-            setDineIn(true)
+            const initialSelectedValues2 = updatedFields.map((item: any) => item.DineInService);
+      setSelectedValues(initialSelectedValues2);
+      setDineIn(true);
  
-            const WeekDays = prizingDetail?.normalForm?.WeekDays;
-            if (Array.isArray(WeekDays) && WeekDays.every(Array.isArray)) {
-              setDineInDates1(WeekDays);
-              
-            }
+      const WeekDays = prizingDetail?.normalForm?.WeekDays;
+
+      
        
            
      
@@ -166,8 +202,7 @@ const prizingDetail = useSelector(state => state.PricingDetailReducer.prizingDat
  
       thirdParty:DayThird,
     WeekDays:dineInDates1,
-    Delivery:DayDelivery,
-    thirdParty:DayThird,
+  
     DineIn:dineInDates1,
    
       }
@@ -225,45 +260,66 @@ if (prizingDetail?.normalForm) {
  
  
         }, []);
-        const handleDelete = (index) => {
-          const newEntries = dineinfields.filter((_, i) => i !== index); // Filter out the entry at the given index
-          setDineInFields(newEntries); // Update the dineinfields state
-     
+        const handleDelete = (index: number): void => {
+          // Filter out the entry at the given index
+          const newEntries = dineinfields.filter((_, i) => i !== index);
+          setDineInFields(newEntries);
+        
+          // Handle selected values
           const newSelectedValues1 = { ...selectedValues };
           delete newSelectedValues1[index];
           setSelectedValues(newSelectedValues1);
-     
+        
+          // Handle selected meal type values
           const newSelectedValuesMealtype = { ...selectedValuesmealtype };
           delete newSelectedValuesMealtype[index];
           setSelectedValuesMealType(newSelectedValuesMealtype);
-          const newarrary=[...dineInDates1]
-          newarrary.splice(index,1)
-          setDineInDates1(newarrary)
-      };
-     
+        
+          // Handle dine-in dates
+          const newArray = [...dineInDates1];
+          newArray.splice(index, 1);
+          setDineInDates1(newArray);
+        };
    
        
    
-      const AddDineInEntry = () => {
-        setDineInEntry([...dineinentry, dineinentry])
-        setDineInFields([...dineinfields, { DineInPrice: '', DineInMealType: '', DineInService: '',dayButtonText:"Choose Day" }]);
-       
-     
-      }
-      const handleChange = (index, e) => {
-     
-        const newEntries = [...dineinfields];
-        newEntries[index][e.target.name] = e.target.value;
-        setDineInFields(newEntries);
-       
-      };
+        const AddDineInEntry = () => {
+          setDineInEntry([...dineinentry, ""]);
+          setDineInFields([...dineinfields, { DineInPrice: '', DineInMealType: [], DineInService: '', showDay: false, dayButtonText: "Choose Day" }]);
+        };
+        const handleChange = (index: number, e: React.ChangeEvent<HTMLInputElement>): void => {
+          // Create a copy of the current state
+          const newEntries = [...dineinfields];
+          
+          // Update the specific field in the copied state
+          newEntries[index] = {
+            ...newEntries[index],
+            [e.target.name as keyof DineInField]: e.target.value
+          };
+          
+          // Set the updated state
+          setDineInFields(newEntries);
+        };
  
-      const addDay = (index) => {
-        const updatedFields = [...dineinfields];
-        updatedFields[index].showDay = !updatedFields[index].showDay;
-        updatedFields[index].dayButtonText = updatedFields[index].showDay ? "Default Day" : "Choose Day";
-        setDineInFields(updatedFields);
-    };
+        const addDay = (index: number): void => {
+  const newText = [...Text];
+  const tempArray = [...dineInDates1];
+  const newDineInFields = [...dineinfields];
+  
+  if (Text[index] === 'Set up for Specific Day') {
+    newText[index] = 'Set up for All Days';
+    tempArray[index] = []; // Clears the dates for the specific index
+    newDineInFields[index].showDay = false;
+  } else {
+    newText[index] = 'Set up for Specific Day';
+    newDineInFields[index].showDay = true;
+    // tempArray[index] remains unchanged, so it keeps the current dates
+  }
+
+  setText(newText);
+  setDineInDates1(tempArray);
+  setDineInFields(newDineInFields);
+};
       const addDayPickup=()=>{
         setShowDayPickup(true)
  
@@ -291,96 +347,111 @@ if (prizingDetail?.normalForm) {
         setShowDayThird(false)
       }
       getNormalForm(mainForm)
- 
-      const handleSelect2 = (values, index) => {
-        setSelectedValues(prevState => ({
+      const handleSelect2 = (values: any, index: number): void => {
+        // Update selected values state
+        setSelectedValues((prevState: SelectedValuesState) => ({
           ...prevState,
-          [index]: values
+          [index]: values,
         }));
-     
+      
+        // Update dineinfields state
         const newDineInFields = [...dineinfields];
-        newDineInFields[index].DineInService = values;
+        newDineInFields[index] = {
+          ...newDineInFields[index],
+          DineInService: values
+        };
         setDineInFields(newDineInFields);
       };
      
-      const addOption2 = (newOption) => {
-        setOptions2([...options2, newOption]);
+      const addOption2 = (newOption: OptionType): void => {
+        setOptions2(prevOptions => [...prevOptions, newOption]);
       };
-const handleSelect3 = (value) => {
- 
-  setSelectedValues2(value);
-  validateDropdown(value, 'Pickup');
-};
-const addOption3 = (newOption) => {
-  setOptions3([...options3, newOption]);
-};
-const handleSelect4 = (value) => {
-  setSelectedValues3(value);
-  validateDropdown(value, 'Delivery');
-};
-const addOption4 = (newOption) => {
+      const handleSelect3 = (values: string[]): void => {
+        setSelectedValues2(values);
+        validateDropdown(values, 'Pickup');
+      };
+      const addOption3 = (newOption: OptionType): void => {
+        setOptions3(prevOptions => [...prevOptions, newOption]);
+      };
+      const handleSelect4 = (values: string[]): void => {
+        setSelectedValues3(values);
+        validateDropdown(values, 'Pickup');
+      };
+const addOption4=(newOption: OptionType): void => {
   setOptions4([...options4, newOption]);
 };
-const handleSelect5 = (value) => {
+const handleSelect5 = (value:string[]): void => {
   setSelectedValues4(value);
   validateDropdown(value, 'ThirdDelivery1');
  
 };
-const addOption5 = (newOption) => {
+const addOption5=(newOption: OptionType): void => {
   setOptions5([...options5, newOption]);
 };
-const handleSelect6 = (value) => {
+const handleSelect6 = (value:string[]): void => {
   setSelectedValues5(value);
   validateDropdown(value, 'ThirdDelivery2');
 };
-const addOption6 = (newOption) => {
+const addOption6 =(newOption: OptionType): void => {
   setOptions6([...options6, newOption]);
 };
  
-const handleSelectMealtype = (value, index) => {
+const handleSelectMealtype = (value: MealType, index: number): void => {
+  // Update selected values state
   const newSelectedValues = [...selectedValuesmealtype];
   newSelectedValues[index] = value;
   setSelectedValuesMealType(newSelectedValues);
- 
+
+  // Update dineinfields state
   const newDineInFields = [...dineinfields];
   newDineInFields[index].DineInMealType = value;
- 
   setDineInFields(newDineInFields);
-  if(dinein){
-validateDropdown(value,index)
-}
+
+  // Validate dropdown if 'dinein' is truthy
+  if (dinein) {
+    validateDropdown(value, index);
+
+  }
 };
-const addOptionMealType = (newOption) => {
+const addOptionMealType =(newOption: OptionType): void => {
   setOptionsMealType([...optionsmealtype, newOption]);
 };
-const handleServiceSelect2 = (index, value) => {
+const handleServiceSelect2 = (index: number, value: ServiceValueType): void => {
+  // Update selected values state
   setSelectedValues(value);
-  const newarrary=[...dineinfields];
-  newarrary[index].DineInService=value;
-  setDineInFields(newarrary)
- 
+
+  // Update dineinfields state
+  const newDineInFields = [...dineinfields];
+  newDineInFields[index].DineInService = value;
+  setDineInFields(newDineInFields);
 };
-const handleMealSelect2 = (index, value) => {
-    setSelectedValuesMealType(value);
-    const newarrary=[...dineinfields];
-    newarrary[index].DineInMealType=value;
-    setDineInFields(newarrary)
+const handleMealSelect2 = (index: number, value: MealType): void => {
+  // Ensure index is within the bounds of the array
+  if (index < 0 || index >= dineinfields.length) {
+    console.error("Index out of bounds");
+    return;
+  }
+
+  // Update selected values state
  
-  };
- 
+  // Update dineinfields state
+  const newDineInFields = [...dineinfields];
+  newDineInFields[index].DineInMealType = value;
+  setDineInFields(newDineInFields);
+};
   
  
  
   return (
     <div>
       <div className='AvailDaycheck'>
-        <h1 className='AvailableDaysHeading'>Available days</h1>
+        <h1 className='AvailableDaysHeadingNormal'>Available days</h1>
         <div className='dayschecking'>
         <DaysCheck checkedItems={Normaldays} setCheckedItems={setNormalDays} id={availabilityid} setId={setAvailabilityid}></DaysCheck>
  
         </div>
         </div>
-        <h1 className='KitchenRelatedHeadingNormal'>Avaliable Service Streams</h1>
+        <h1 className='AvailableServiceHeading'>Avaliable Service Streams</h1>
         {/* DineIn Related */}
         <div className='DineInRelated'>
           <h1 className='DineInRelatedHeadingNormalAvail'>Dine In</h1>
@@ -388,7 +459,7 @@ const handleMealSelect2 = (index, value) => {
         </div>
         {dinein ? (
           <>
-            {/* <h1 className='AvailableDaysHeadingNormal'>Available days</h1> */}
+          
            
             {dineinfields.map((entry,index) => {
               return (
@@ -415,7 +486,7 @@ const handleMealSelect2 = (index, value) => {
                     label="Meal Type*"
                     onBlur={() => validateDropdown(selectedValuesmealtype[index] || [], index)}
                     validation={validationState[index] || { isValid: true, errorMessage: '' }}
-                    onChange={(e)=>handleMealSelect2(index,e.target.value)}
+                    
                   />
  
 </div>
@@ -423,18 +494,15 @@ const handleMealSelect2 = (index, value) => {
        <div className='Service'>
           <Dropdown2
                     selectedValues={selectedValues[index] || ''}
-               
                     onSelect={(values) => handleSelect2(values, index)}
                     options={options2}
-                    addOption={addOption2}
-                    placeholder="Service Area*"
-                    index={index}
                     label="Service Area*"
+                    index={index}
                     onChange={(e)=>handleServiceSelect2(index,e.target.value)}
                   />
        
        </div>
-       <h1 onClick={() => handleDelete(index)} className='Delete'>- Delete</h1>
+       <h1 onClick={() => handleDelete(index)} className='DeleteButtonDine'>- Delete</h1>
         </div>
         <div className='dineInChooseDayContainer'>
              
@@ -484,16 +552,16 @@ const handleMealSelect2 = (index, value) => {
                    <div className='PickupInput11Normal'>
                     <input type="text" className='DineInInput1Normal'  value={formNormal.PickuppriceNormal}  onChange={(e) => setformNormal({ ...formNormal,"PickuppriceNormal":e.target.value })} ></input>
                 <div className='PrizeD'>
-                    <DropDown3
-          selectedValues={ selectedValues2}
-          onSelect={handleSelect3}
-          options={options3}
-          addOption={addOption3}
-          onBlur={() => validateDropdown(selectedValues2, 'Pickup')}
-              validation={validationState.Pickup}
-         
-          label="Meal Type*"
-        />
+                <DropDown3
+      selectedValues={selectedValues2}
+      onSelect={handleSelect3}
+      options={options3}
+      addOption={addOption3}
+      onBlur={() => validateDropdown(selectedValues2, 'Pickup')}
+      validation={validationState.Pickup}
+      label="Meal Type*"
+      placeholder='MealType'
+    />
         </div>
      
                     </div>
@@ -505,8 +573,14 @@ const handleMealSelect2 = (index, value) => {
           </div>
  
         <div className='dayspickup'>
-        {showDayPickup?<DaysCheck checkedItems={DayPickup} setCheckedItems={setDayPickup} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})}
-      />:""}
+        {showDayPickup?<DaysCheck
+          checkedItems={DayPickup}
+          setCheckedItems={setDayPickup}
+          {...(availabilityid.length > 0
+            ? { id: availabilityid, setId: setAvailabilityid }
+            : { id: [], setId: () => {} } // Provide default empty values if `availabilityid` is empty
+          )}
+        />:""}
  
         </div>
                    
@@ -538,6 +612,7 @@ const handleMealSelect2 = (index, value) => {
           label="Meal Type*"
           onBlur={() => validateDropdown(selectedValues3, 'Delivery')}
               validation={validationState.Delivery}
+              placeholder='Height'
         />
         </div>          
                     </div>
@@ -547,7 +622,13 @@ const handleMealSelect2 = (index, value) => {
           </div>
  
         <div className='dayspickup'>
-        {showDayDelivery?<DaysCheck checkedItems={DayDelivery} setCheckedItems={setDayDelivery} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})}
+        {showDayDelivery?<DaysCheck
+          checkedItems={DayDelivery}
+          setCheckedItems={setDayDelivery}
+          {...(availabilityid.length > 0
+            ? { id: availabilityid, setId: setAvailabilityid }
+            : { id: [], setId: () => {} } // Provide default empty values if `availabilityid` is empty
+          )}
         />:""}
  
         </div>
@@ -607,7 +688,13 @@ const handleMealSelect2 = (index, value) => {
  
  
         </div>
-        {showDayThird?<DaysCheck checkedItems={DayThird} setCheckedItems={setDayThird} {...(availabilityid ? { id: availabilityid, setId: setAvailabilityid } : {})}
+        {showDayThird? <DaysCheck
+          checkedItems={DayThird}
+          setCheckedItems={setDayThird}
+          {...(availabilityid.length > 0
+            ? { id: availabilityid, setId: setAvailabilityid }
+            : { id: [], setId: () => {} } // Provide default empty values if `availabilityid` is empty
+          )}
         />:""}
             </div>
              
@@ -619,5 +706,5 @@ const handleMealSelect2 = (index, value) => {
   )
 }
  
-export default Specialavail
+export default Normalavail
  

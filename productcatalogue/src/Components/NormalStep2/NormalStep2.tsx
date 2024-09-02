@@ -4,26 +4,84 @@
   import { useSelector } from 'react-redux'
   import { useEffect } from 'react'
 
+  interface NormalForm {
+    PickuppriceNormal: string;
+    PickupmealtypeNormal: string;
+    DeliverypriceNormal: string;
+    DeliverymealtypeNormal: string;
+    SwiggyorzomatoNormal: string;
+    SwiggyNormal: string;
+    SwiggymealtypeNormal: string;
+    ZomatoNormal: string;
+    ZomatomealtypeNormal: string;
+    DeliveryMealType:string
+
+  }
+  
+  interface DineInField {
+    DineInPrice: string;
+    DineInMealType: string[];
+    DineInService: string;
+    showDay: boolean;
+    dayButtonText: string;
+        
+
+  }
+  
+  interface NormalFormData {
+    normalForm: {
+      dineinfields: DineInField[];
+      DineIn: number[];
+      Pickup: number[];
+      Delivery: number[];
+      thirdParty:number[]
+      DeliveryMealType: string[];
+      PicupMealType:string[];
+
+      formNormal: {
+        PickuppriceNormal: string;
+        PicupMealType: string;
+        DeliverypriceNormal: string;
+        SwiggyNormal: string;
+        ZomatoNormal: string;
+      };
+      thirdPartyOrder: {
+        SwiggyNormal: string;
+        ZomatoNormal: string;
+      };
+    };
+  }
+  
+  interface RootState {
+    PricingDetailReducer: {
+      prizingData: {
+        mainForm: NormalFormData;
+      };
+    };
+  }
+
+
+
   const NormalStep2 = () => {
-    const prizingDetail=useSelector((state)=>state.PricingDetailReducer.prizingData.mainForm)
+    const prizingDetail=useSelector((state:RootState)=>state.PricingDetailReducer.prizingData.mainForm)
     const thirdParty= prizingDetail && prizingDetail.normalForm &&prizingDetail?.normalForm.thirdParty;
-    const [thirdParty1, setThirdParty1] = useState(thirdParty);
+    const [thirdParty1, setThirdParty1] = useState<number[]>(thirdParty);
 
 
     const Pickup=prizingDetail && prizingDetail.normalForm && prizingDetail?.normalForm.Pickup;
-    const [Pickup1, setPickup1] = useState(Pickup);
+    const [Pickup1, setPickup1] = useState<number[]>(Pickup);
 
     const Delivery=prizingDetail && prizingDetail.normalForm && prizingDetail?.normalForm.Delivery;
-    const [delivery1, setDelivery1] = useState(Delivery);
+    const [delivery1, setDelivery1] = useState<number[]>(Delivery);
 
 
     const Dinein=prizingDetail && prizingDetail.normalForm && prizingDetail?.normalForm.DineIn;
-    const [Dinein1, setDinein] = useState(Dinein);
+    const [Dinein1, setDinein] = useState<number[]>(Dinein);
     
     
     console.log(thirdParty)
 
-    console.log(prizingDetail)
+    console.log(Dinein1.map((elem)=>elem))
 
 
     return (
@@ -92,8 +150,9 @@
 
               <>
               <div className='dayacheckedavail'>
+
             
-            <DaysOfWeek days={elem} setDays={setDinein}/>
+            <DaysOfWeek days={[elem]} setDays={setDinein}/>
           </div>
               
               
