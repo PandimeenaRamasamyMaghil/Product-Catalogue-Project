@@ -225,6 +225,8 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
 
       // Handle form data here
   };
+  console.log(mainForm)
+
   return (
     <div className={isExpanded?"pricingdetails-container":"pricingdetails-containerExpanded"}>
       <form onSubmit={handleSubmit(onSubmit)}>

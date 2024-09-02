@@ -5,10 +5,16 @@ const DaysOfWeek = ({ days = [], setDays }) => {
     const daysOfWeek = ["S", "M", "T", "W", "Th", "F", "S"];
 
     const toggleHighlight = (index) => {
-        if (days.includes(index)) {
-            setDays(prevState => prevState.filter(day => day !== index));
+        // Convert index to a number (though index is already a number in this case)
+        const numericIndex = Number(index);
+
+        // Convert the days array strings to numbers
+        const numericDays = days.map(day => Number(day));
+
+        if (numericDays.includes(numericIndex)) {
+            setDays(prevState => prevState.filter(day => Number(day) !== numericIndex));
         } else {
-            setDays(prevState => [...prevState, index]);
+            setDays(prevState => [...prevState, numericIndex.toString()]);
         }
     };
 
@@ -17,8 +23,7 @@ const DaysOfWeek = ({ days = [], setDays }) => {
             {daysOfWeek.map((day, index) => (
                 <li 
                     key={index} 
-                    className={`list ${Array.isArray(days) && days.includes(index) ? "included" : ""}`}
-
+                    className={`list ${Array.isArray(days) && days.includes(index.toString()) ? "included" : ""}`}
                     onClick={() => toggleHighlight(index)}
                     role="button"
                     tabIndex={0}
