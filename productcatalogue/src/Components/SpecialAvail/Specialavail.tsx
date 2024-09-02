@@ -25,7 +25,7 @@ interface FormState {
 
 interface SpecialAvailProps {
   getSpecialForm: (form: any) => void;
-  validateDropdown: (value: string | string[], key: string | number) => void;
+  validateDropdown: (value: string[], key: string | number) => void; // Expecting only string[] for value
   validationState: Record<string | number, { isValid: boolean; errorMessage: string }>;
 }
 

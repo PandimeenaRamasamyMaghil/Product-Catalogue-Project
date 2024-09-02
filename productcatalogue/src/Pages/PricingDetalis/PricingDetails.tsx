@@ -132,6 +132,7 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
 
   const getSpecialForm = (specialForm: any) => {
     mainForm = { ...mainForm, specialForm };
+    console.log(mainForm)
   };
   
   let mainForm: MainForm = {
@@ -182,21 +183,21 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
     
 
     const dispatchEvent = () => {
-      // Validate each field individually before dispatching
-      const allFieldsValid = Object.keys(form).every(field => {
+      // // Validate each field individually before dispatching
+      // const allFieldsValid = Object.keys(form).every(field => {
           
-          return isValid;
-      });
+      //     return isValid;
+      // });
   
       // Optionally validate the entire form
-      const isValid = validateForm(); // Ensure validateForm handles overall form validation
+      // const isValid = validateForm(); // Ensure validateForm handles overall form validation
       
-      if (allFieldsValid && isValid) {
-          dispatch(PricingDetailRequest({ mainForm }));
+      // if (allFieldsValid && isValid) {
+          // dispatch(PricingDetailRequest({ mainForm }));
           navigate(`/Navigationpage/Itemcustomizations`, {
             state: { pagename: "Item customizations" },
           });
-      }
+      // }
 
     
   };
@@ -219,8 +220,10 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
   }
 
   const onSubmit: SubmitHandler<any> = (data:any) => {
-    // Handle form data here
-    console.log(data);
+      dispatch(PricingDetailRequest({ data }));
+      console.log(data)
+
+      // Handle form data here
   };
   return (
     <div className={isExpanded?"pricingdetails-container":"pricingdetails-containerExpanded"}>
@@ -400,7 +403,7 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
           </div>
         </div>
 
-        {isOptionTrue ? <Normalavail   getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState}   /> : "" }
+        {isOptionTrue ? <Normalavail   getNormalForm={getNormalForm} validateDropdown={validateDropdown} dinein={dinein} setDineIn={setDineIn} validationState={validationState}   /> : <Specialavail   getSpecialForm={getSpecialForm} validateDropdown={validateDropdown}  validationState={validationState}   />}
 
         
       </div>
