@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./DaysCheck.scss";
 import axios from 'axios';
-
+ 
 // Define the types for the component's props
 interface DaysCheckProps {
   checkedItems: string[]; // Changed to string[] if you're working with string IDs
@@ -10,20 +10,20 @@ interface DaysCheckProps {
   id: string[];
   setId: React.Dispatch<React.SetStateAction<string[]>>;
 }
-
+ 
 // Define the type for the data returned by the API
 interface DataItem {
   id: string;
   name: string;
 }
-
+ 
 const DaysCheck: React.FC<DaysCheckProps> = ({ checkedItems, setCheckedItems, index, id, setId }) => {
   const [data, setData] = useState<DataItem[]>([]);
-
+ 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
     const numericName = parseInt(name, 10);
-
+ 
     if (checked) {
       // Add the checkbox value to the state if it is checked
       setCheckedItems([...checkedItems, numericName.toString()]); // Convert to string
@@ -34,11 +34,11 @@ const DaysCheck: React.FC<DaysCheckProps> = ({ checkedItems, setCheckedItems, in
       setId(id.filter((itemId) => itemId !== data[numericName].id));
     }
   };
-
+ 
   useEffect(() => {
     getApi();
   }, []);
-
+ 
   const getApi = async () => {
     try {
       const response = await axios.get<DataItem[]>(
@@ -50,9 +50,9 @@ const DaysCheck: React.FC<DaysCheckProps> = ({ checkedItems, setCheckedItems, in
       console.log(error);
     }
   };
-
+ 
   console.log(checkedItems);
-
+ 
   return (
     <div>
       <div className="DaysCheckContainer1">
@@ -75,5 +75,6 @@ const DaysCheck: React.FC<DaysCheckProps> = ({ checkedItems, setCheckedItems, in
     </div>
   );
 };
-
+ 
 export default DaysCheck;
+ 

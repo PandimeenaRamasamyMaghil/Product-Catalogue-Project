@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import "./Toggle.css";
 
-// Define the interface for the props
 interface ToggleProps {
   toggle: boolean;
-  setToggle: React.Dispatch<React.SetStateAction<boolean>>
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>;
   togglevalue?: number;
 }
 
@@ -20,6 +19,7 @@ const Toggle: React.FC<ToggleProps> = ({ toggle, setToggle, togglevalue }) => {
   return (
     <div>
       <button
+        type="button"  // This prevents the form submission
         className={`toggleBtn${toggle ? " Toggled" : ""}`}
         onClick={() => setToggle(!toggle)}
       >
