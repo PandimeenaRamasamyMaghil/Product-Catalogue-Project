@@ -53,10 +53,12 @@ const Normalavail: React.FC<NormalavailProps>= ({getNormalForm,validateDropdown,
   const [online, setOnline] = useState(false)
   const [pickup, setPickup] = useState(false)
   const [delivery, setDelivery] = useState(false)
-  const [dineinfields, setDineInFields] = useState<DineInField[]>([]);
+  const [dineinfields, setDineInFields] = useState<DineInField[]>([
+    { DineInPrice: '', DineInMealType: [], DineInService: '', showDay: false, dayButtonText: 'Add Day' }
+  ]);
 const [dineinentry, setDineInEntry] = useState<string[]>([]);
 const [Normaldays, setNormalDays] = useState<string[]>([]);
- const [options2, setOptions2] = React.useState<OptionType[]>([]);
+ const [options2, setOptions2] = useState(['Breakfast', 'Lunch', 'Dinner']);;
 
  const [options3, setOptions3] = useState(['Breakfast', 'Lunch', 'Dinner']);
  const [options4, setOptions4] = useState(['Breakfast', 'Lunch', 'Dinner']);
@@ -74,13 +76,14 @@ const [Normaldays, setNormalDays] = useState<string[]>([]);
  
  
  const [selectedValuesmealtype, setSelectedValuesMealType] = React.useState<SelectedValuesMealTypeState>([]);
- const [optionsmealtype, setOptionsMealType] = React.useState<OptionType[]>([]);
+ const [optionsmealtype, setOptionsMealType] = useState(['Breakfast', 'Lunch', 'Dinner']);;
 //   {_-------------------Array for Day Check---------------------------------}
 const[dineInDates,setDineInDates]=useState([])
   const[DayPickup,setDayPickup]=useState<string[]>([]);
   const[DayDelivery,setDayDelivery]=useState<string[]>([])
   const[DayThird,setDayThird]=useState<string[]>([])
-  const [dineInDates1, setDineInDates1] = useState([[]]);
+  const [dineInDates1, setDineInDates1] = useState<number[][]>([[]]);
+
  
  
 //   {_-------------------Use State  for Showing Day checck ---------------------------------}
@@ -298,22 +301,25 @@ if (prizingDetail?.normalForm) {
           setDineInFields(newEntries);
         };
  
-        const addDay = (index: number) => {
-          const newText = [...Text];
-          if (Text[index] === 'Set up for Specific Day') {
-            newText[index] = 'Set up for All Days';
-            setText(newText);
-            const tempArray = [...dineInDates1];
-            tempArray[index] = [];
-            setDineInDates1(tempArray);
-          } else {
-            newText[index] = 'Set up for Specific Day';
-            setText(newText);
-            const tempArray = [...dineInDates1];
-            
-            setDineInDates1(tempArray);
-          }
-        };
+        const addDay = (index: number): void => {
+  const newText = [...Text];
+  const tempArray = [...dineInDates1];
+  const newDineInFields = [...dineinfields];
+  
+  if (Text[index] === 'Set up for Specific Day') {
+    newText[index] = 'Set up for All Days';
+    tempArray[index] = []; // Clears the dates for the specific index
+    newDineInFields[index].showDay = false;
+  } else {
+    newText[index] = 'Set up for Specific Day';
+    newDineInFields[index].showDay = true;
+    // tempArray[index] remains unchanged, so it keeps the current dates
+  }
+
+  setText(newText);
+  setDineInDates1(tempArray);
+  setDineInFields(newDineInFields);
+};
       const addDayPickup=()=>{
         setShowDayPickup(true)
  
@@ -439,13 +445,13 @@ const handleMealSelect2 = (index: number, value: MealType): void => {
   return (
     <div>
       <div className='AvailDaycheck'>
-        <h1 className='AvailableDaysHeading'>Available days</h1>
+        <h1 className='AvailableDaysHeadingNormal'>Available days</h1>
         <div className='dayschecking'>
         <DaysCheck checkedItems={Normaldays} setCheckedItems={setNormalDays} id={availabilityid} setId={setAvailabilityid}></DaysCheck>
  
         </div>
         </div>
-        <h1 className='KitchenRelatedHeadingNormal'>Avaliable Service Streams</h1>
+        <h1 className='AvailableServiceHeading'>Avaliable Service Streams</h1>
         {/* DineIn Related */}
         <div className='DineInRelated'>
           <h1 className='DineInRelatedHeadingNormalAvail'>Dine In</h1>
@@ -453,7 +459,7 @@ const handleMealSelect2 = (index: number, value: MealType): void => {
         </div>
         {dinein ? (
           <>
-            {/* <h1 className='AvailableDaysHeadingNormal'>Available days</h1> */}
+          
            
             {dineinfields.map((entry,index) => {
               return (
@@ -496,7 +502,7 @@ const handleMealSelect2 = (index: number, value: MealType): void => {
                   />
        
        </div>
-       <h1 onClick={() => handleDelete(index)} className='Delete'>- Delete</h1>
+       <h1 onClick={() => handleDelete(index)} className='DeleteButtonDine'>- Delete</h1>
         </div>
         <div className='dineInChooseDayContainer'>
              

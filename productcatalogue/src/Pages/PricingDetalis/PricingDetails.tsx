@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { Contextpagejs } from '../contextpage';
 import info from "../../assets/png/info.png";
 import { useSelector } from 'react-redux';
-
+import { SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 
 interface ValidationState {
@@ -218,13 +218,13 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
      }
   }
 
-  const onSubmit = (e: React.FormEvent, data: any) => {
-    e.preventDefault();
-    console.log('Form Data:', data);
+  const onSubmit: SubmitHandler<any> = (data:any) => {
+    // Handle form data here
+    console.log(data);
   };
   return (
     <div className={isExpanded?"pricingdetails-container":"pricingdetails-containerExpanded"}>
-      <form onSubmit={(e)=>onSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
       <div className='pricing-form'>
         <div className='Tool'>
           <p className='KitchenRelatedHeading'>Kitchen Related</p>
