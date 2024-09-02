@@ -81,7 +81,7 @@
     
     console.log(thirdParty)
 
-    console.log(prizingDetail)
+    console.log(Dinein1.map((elem)=>elem))
 
 
     return (
@@ -150,6 +150,7 @@
 
               <>
               <div className='dayacheckedavail'>
+
             
             <DaysOfWeek days={[elem]} setDays={setDinein}/>
           </div>
