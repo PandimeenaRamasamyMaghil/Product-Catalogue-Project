@@ -57,7 +57,7 @@ const Normalavail: React.FC<NormalavailProps>= ({getNormalForm,validateDropdown,
     { DineInPrice: '', DineInMealType: [], DineInService: '', showDay: false, dayButtonText: 'Add Day' }
   ]);
 const [dineinentry, setDineInEntry] = useState<string[]>([]);
-const [Normaldays, setNormalDays] = useState<string[]>([]);
+const [Normaldays, setNormalDays] = useState<number[]>([]);
  const [options2, setOptions2] = useState(['Breakfast', 'Lunch', 'Dinner']);;
 
  const [options3, setOptions3] = useState(['Breakfast', 'Lunch', 'Dinner']);
@@ -79,9 +79,9 @@ const [Normaldays, setNormalDays] = useState<string[]>([]);
  const [optionsmealtype, setOptionsMealType] = useState(['Breakfast', 'Lunch', 'Dinner']);;
 //   {_-------------------Array for Day Check---------------------------------}
 const[dineInDates,setDineInDates]=useState([])
-  const[DayPickup,setDayPickup]=useState<string[]>([]);
-  const[DayDelivery,setDayDelivery]=useState<string[]>([])
-  const[DayThird,setDayThird]=useState<string[]>([])
+  const[DayPickup,setDayPickup]=useState<number[]>([]);
+  const[DayDelivery,setDayDelivery]=useState<number[]>([])
+  const[DayThird,setDayThird]=useState<number[]>([])
   const [dineInDates1, setDineInDates1] = useState<number[][]>([[]]);
 
  

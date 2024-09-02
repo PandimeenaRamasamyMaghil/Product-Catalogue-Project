@@ -3,6 +3,9 @@
   import DaysOfWeek from "../DaysOfWeek/DaysOfWeek"
   import { useSelector } from 'react-redux'
   import { useEffect } from 'react'
+  
+
+  
 
   const NormalStep2 = () => {
     const prizingDetail=useSelector((state)=>state.PricingDetailReducer.prizingData.mainForm)
