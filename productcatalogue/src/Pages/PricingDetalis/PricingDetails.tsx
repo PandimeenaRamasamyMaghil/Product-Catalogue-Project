@@ -193,7 +193,7 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
       // const isValid = validateForm(); // Ensure validateForm handles overall form validation
       
       // if (allFieldsValid && isValid) {
-          // dispatch(PricingDetailRequest({ mainForm }));
+          dispatch(PricingDetailRequest({ mainForm }));
           navigate(`/Navigationpage/Itemcustomizations`, {
             state: { pagename: "Item customizations" },
           });
@@ -220,8 +220,8 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
   }
 
   const onSubmit: SubmitHandler<any> = (data:any) => {
-      dispatch(PricingDetailRequest({ data }));
-      console.log(data)
+    dispatchEvent();
+     
 
       // Handle form data here
   };
