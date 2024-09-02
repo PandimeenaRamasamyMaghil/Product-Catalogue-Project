@@ -61,8 +61,9 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
   const navigate = useNavigate();
   const { activeCategory, setActiveCategory } = useContext(Contextpagejs);
 
-  const [selectedValues, setSelectedValues] = useState([]);
-  const [selectedValue1, setSelectedValue1] = useState([]);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+
+  const [selectedValue1, setSelectedValue1] = useState<string[]>([]);
   const[id,setId]=useState([])
 
   const dispatch = useDispatch();
@@ -243,25 +244,30 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
         <div className='KitchenRelated'>
         <div className='D1kitchen'>
         <Controller
-          name="kitchen"
-          control={control}
-          defaultValue={[]}
-          rules={{ required: 'Please select at least one option' }}
-          render={({ field }) => (
-            <Dropdown 
-              selectedValues={field.value}
-              onSelect={(values) => {
-                field.onChange(values);
-                validateDropdown(values, 'kitchen');
-              }}
-              options={['Option 1', 'Option 2', 'Option 3']} // Example options, adjust as needed
-              
-              label="Kitchen Station1*"
-              onBlur={() => validateDropdown(selectedValues, 'kitchen')}
-              validation={validationState.kitchen}
-            />
-          )}
-        />
+  name="kitchen"
+  control={control}
+  defaultValue={selectedValues}
+  rules={{ required: 'Please select at least one option' }}
+  render={({ field }) => (
+    <Dropdown 
+      selectedValues={field.value}
+      onSelect={(values) => {
+        setSelectedValues(values); // Update local state
+
+        field.onChange(values); // Update react-hook-form state
+
+        validateDropdown(values, 'kitchen'); // Validate the dropdown
+      }}
+      options={['Option 1', 'Option 2', 'Option 3']} // Example options
+      label="Kitchen Station1*"
+      onBlur={() => {
+        field.onBlur();
+        validateDropdown(field.value, 'kitchen');
+      }}
+      validation={validationState.kitchen}
+    />
+  )}
+/>
         
       </div>
       <div className='D1kitchen'>
@@ -274,6 +280,7 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
             <Dropdown 
               selectedValues={field.value}
               onSelect={(values) => {
+                setSelectedValue1(values)
               field.onChange(values);
               validateDropdown(values, 'preparationTime');
                 
@@ -281,7 +288,10 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
               options={['Option 1', 'Option 2', 'Option 3']} // Example options, adjust as needed
               
               label="Preparation*"
-              onBlur={() => validateDropdown(selectedValues, 'preparationTime')}
+              onBlur={() => {
+                field.onBlur();
+                validateDropdown(field.value, 'kitchen');
+              }}
               validation={validationState.preparationTime}
             />
           )}
@@ -318,8 +328,14 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
             type="text"
             {...field}
             onChange={(e) => {
-              field.onChange(e); // To update Controller's value
-               
+              const value = e.target.value;
+              field.onChange(value); // To update Controller's value
+      
+              // Update the form state
+              setForm((prevState) => ({
+                ...prevState,
+                Inventory1: value, // Update Inventory1 in form state
+              }));
             }}
             
             style={{
@@ -347,8 +363,14 @@ const PricingDetails: React.FC<PricingDetailsProps> = () => {
             type="text"
             {...field}
             onChange={(e) => {
-              field.onChange(e); // To update Controller's value
-               
+              const value = e.target.value;
+              field.onChange(value); // To update Controller's value
+      
+              // Update the form state
+              setForm((prevState) => ({
+                ...prevState,
+                Inventory2: value, // Update Inventory2 in form state
+              }));
             }}
             
             style={{
