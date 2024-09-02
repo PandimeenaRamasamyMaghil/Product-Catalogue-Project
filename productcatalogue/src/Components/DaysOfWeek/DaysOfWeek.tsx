@@ -1,10 +1,16 @@
 import React from 'react';
 import "./DaysOfWeek.scss";
 
-const DaysOfWeek = ({ days = [], setDays }) => {
+// Define the types for the props
+interface DaysOfWeekProps {
+  days: number[]; // Array of numbers representing the selected days
+  setDays: React.Dispatch<React.SetStateAction<number[]>>; // Function to update the selected days
+}
+
+const DaysOfWeek: React.FC<DaysOfWeekProps> = ({ days, setDays }) => {
     const daysOfWeek = ["S", "M", "T", "W", "Th", "F", "S"];
 
-    const toggleHighlight = (index) => {
+    const toggleHighlight = (index: number) => {
         if (days.includes(index)) {
             setDays(prevState => prevState.filter(day => day !== index));
         } else {
@@ -17,8 +23,7 @@ const DaysOfWeek = ({ days = [], setDays }) => {
             {daysOfWeek.map((day, index) => (
                 <li 
                     key={index} 
-                    className={`list ${Array.isArray(days) && days.includes(index) ? "included" : ""}`}
-
+                    className={`list ${days.includes(index) ? "included" : ""}`}
                     onClick={() => toggleHighlight(index)}
                     role="button"
                     tabIndex={0}
