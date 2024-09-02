@@ -4,11 +4,30 @@ import Edit from '../../assets/png/edit.png';
 import { useSelector } from "react-redux";
 import { Contextpagejs } from "../../Pages/contextpage";
 import { useNavigate, Link } from "react-router-dom";
+interface Option {
+  item: string;
+  price: number;
+}
+interface ItemCustomization {
+  modifierName: string;
+  selectionType: string;
+  minSelection?: number;
+  maxSelection?: number;
+  options?: Option[];
+  freeCustomization?: string;
+  selectedValue?: string[];
+  serviceStreams?: string[];
+}
+interface RootState {
+  itemCustomizationsReducer1: {
+    itemData: ItemCustomization[];
+  };
+}
 
 
-const Step3Review = () => {
+const Step3Review:React.FC = () => {
   // Access itemCustomizationsReducer1 from the Redux store
-  const itemCustomizationData = useSelector((state) => state.itemCustomizationsReducer1.itemData);
+  const itemCustomizationData = useSelector((state:RootState) => state.itemCustomizationsReducer1.itemData);
   const {setActiveCategory}=useContext(Contextpagejs);
 
 
@@ -75,7 +94,7 @@ const Step3Review = () => {
 
             <div className="Free-Modification-Section">
               <h3 className="Step-3-Modifier-Section-Menu-heading">Service Stream</h3>
-              <h3 class   className="Step-3-free-details">{elem.selectedValue && elem.selectedValue.map((e)=> e +" "+"") || "-"}   </h3>
+              <h3    className="Step-3-free-details">{elem?.selectedValue && elem?.selectedValue.map((e)=> e +" "+"") || "-"}   </h3>
               <div className="Step-3-Review-Stream-Modification-container">
                 {elem.serviceStreams && elem.serviceStreams.map((stream, streamIndex) => (
                   <h1 key={streamIndex} className="Step-3-Review-Stream-Modification-heading">{stream} </h1>
