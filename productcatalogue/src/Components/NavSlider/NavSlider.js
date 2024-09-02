@@ -17,7 +17,7 @@ const NavMenu = ({pen,sidebartext}) => {
   const availabilityRef = useRef(null);
   const inventoryRef = useRef(null);
   const customizeRef = useRef(null);
-  const handleItemClick = (item) => {
+  const handleItemClick = (item) => { 
     setActive(item);
     
     scrollToComponent(item);
