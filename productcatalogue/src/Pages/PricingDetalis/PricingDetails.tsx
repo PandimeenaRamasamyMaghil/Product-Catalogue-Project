@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import "./PricingDetails.scss";
-import Toggle from "../../Components/Toggle/Toggle"
-import Specialavail from '../../Components/SpecialAvail/Specialavail';
-import Normalavail from '../../Components/Normalavail/Normalavail';
+import Toggle from "../../ProductCatalogue/Components/Toggle/Toggle"
+import Specialavail from '../../ProductCatalogue/Components/SpecialAvail/Specialavail';
+import Normalavail from '../../ProductCatalogue/Components/Normalavail/Normalavail';
 import { useDispatch } from 'react-redux';
-import Tooltip from '../../Components/Tooltip/Tooltip';
+import Tooltip from '../../ProductCatalogue/Components/Tooltip/Tooltip';
 import { PricingDetailRequest } from '../../redux/Actions';
-import Dropdown from '../../Components/DropDown/Dropdown';
+import Dropdown from '../../ProductCatalogue/Components/DropDown/Dropdown';
 import { useNavigate } from 'react-router-dom';
 import { Contextpagejs } from '../contextpage';
 import info from "../../assets/png/info.png";

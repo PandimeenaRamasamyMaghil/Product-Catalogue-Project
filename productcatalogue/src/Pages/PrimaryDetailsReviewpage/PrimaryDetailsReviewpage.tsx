@@ -21,15 +21,15 @@ import emptyfoodimg from "../../assets/png/emptyfoodimg.png";
 import edit from "../../assets/png/edit.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import imageslist from "../../Components/imageslist/imageslist";
+// import imageslist from "../../Components/imageslist/imageslist"0
 import { ApiPost } from "../../redux/Actions";
 
-import Step2 from "../../Components/Step2/Step2";
+import Step2 from "../../ProductCatalogue/Components/Step2/Step2";
 import { Contextpagejs } from "../contextpage";
-import ReviewValues from "../../Components/ReviewValues/ReviewValues";
-import ImagePillsSelected from "../../Components/ImagePillsSelected/ImagePillsSelected";
-import Step3Review from "../../Components/Step3Review/Step3Review";
-import PrimaryImageSelected from "../../Components/PrimaryImageSelected/PrimaryImageSelected";
+import ReviewValues from "../../ProductCatalogue/Components/ReviewValues/ReviewValues";
+import ImagePillsSelected from "../../ProductCatalogue/Components/ImagePillsSelected/ImagePillsSelected";
+import Step3Review from "../../ProductCatalogue/Components/Step3Review/Step3Review";
+import PrimaryImageSelected from "../../ProductCatalogue/Components/PrimaryImageSelected/PrimaryImageSelected";
 import { getValue } from "@testing-library/user-event/dist/utils";
 
 interface Image {

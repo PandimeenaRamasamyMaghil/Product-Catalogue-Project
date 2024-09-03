@@ -2,16 +2,16 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import "./ItemCustomizations.scss";
 
 import dotted from '../../assets/png/dotted.png'
-import Toggle from "../../Components/Toggle/Toggle";
+import Toggle from "../../ProductCatalogue/Components/Toggle/Toggle"
 import Polygon1 from "../../assets/png/Polygon 1.png";
 import Polygon2 from "../../assets/png/Polygon 2.png";
 import { useDispatch, useSelector } from "react-redux";
 import { itemCustomizationPost } from "../../redux/Actions";
 import { useNavigate } from "react-router-dom";
-import Savenextbutton from "../../Components/Savenextbutton/Savenextbutton";
+import Savenextbutton from "../../ProductCatalogue/Components/Savenextbutton/Savenextbutton"
 import Serachicon from '../../assets/png/searchicon.png';
-import DropDownItem from "../../Components/DropDownItem/DropDownItem";
-import DropDown3 from "../../Components/DropDownItem/DropDownItem";
+import DropDownItem from "../../ProductCatalogue/Components/DropDownItem/DropDownItem";
+import DropDown3 from "../../ProductCatalogue/Components/DropDown3/DropDown3";
 
 
 // Define types
@@ -108,7 +108,7 @@ const ItemCustomizations: React.FC = () => {
         minSelection: item.minSelection || 1,
         maxSelection: item.maxSelection || 1,
         freeCustomization: item.freeCustomization || 1,
-        selectedValue: item.selectedValue.map((elem)=>elem) || "",
+        selectedValue: item.selectedValue,
         endDate: item.endDate || "",
         startDate: item.startDate || "",
         selectionType: item.selectionType || "",

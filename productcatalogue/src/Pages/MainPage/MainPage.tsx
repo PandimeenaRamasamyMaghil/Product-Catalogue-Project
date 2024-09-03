@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navigationpage from "../../Components/Navigation/NavigationPage";
+import Navigationpage from "../../ProductCatalogue/Components/Navigation/NavigationPage";
  import "./MainPage.scss";
 import ItemCustomization from "../itemCustomization/ItemCustomizations";
 import Primarypage from "../PrimaryPage/PrimaryPage";
@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import PricingDetails from "../PricingDetalis/PricingDetails";
 import PrimaryDetailsReviewpage from "../PrimaryDetailsReviewpage/PrimaryDetailsReviewpage";
 import { Menulisting } from "../Menulisting/Menulisting";
-import Sidenav from "../../Components/SideNav/Sidenav";
+import Sidenav from "../../ProductCatalogue/Components/SideNav/Sidenav";
 
 const MainPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
