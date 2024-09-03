@@ -16,6 +16,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../ReviewPage/Reviewpage.scss";
 import axios from "axios";
+import { primaryDetails } from "../../interface/PrimayDetailsApi";
 
 import emptyfoodimg from "../../assets/png/emptyfoodimg.png";
 import edit from "../../assets/png/edit.png";
@@ -56,16 +57,13 @@ interface PrimaryData {
   categoryId: string;
   kitchenStations: string[];
   taxFeeId: string;
-
   modifiers: string[];
   availabilityId: string[];
-
   itemId: string;
   itemName?: string;
   category?: string;
   subCategory?: string;
   itemCode?: string;
-
   description?: string;
   dietaryType?: string;
   cuisine?: string;
@@ -137,10 +135,7 @@ const PrimaryDetailsReviewpage: React.FC = () => {
   const primarypagedetails = useSelector((state: RootState) => state);
   console.log("primary",  primarypagedetails.primarypage.data.itemCode);
 
-  // {"locationId":"9c485244-afd4-11eb-b6c7-42010a010026","itemCode":"","altName":"alt name","itemName":"","description":"","price":"12","categoryId":"","subCategoryId":"","kitchenStations":[],"taxFeeId":"","ingredients":[],"modifiers":[],"availabilityId":[],"category":"","subCategory":"","itemId":null}
- const data1={"locationId":"9c485244-afd4-11eb-b6c7-42010a010026","itemCode":"","altName":"alt name","itemName":"item name","description":"desc","price":"12","categoryId":"2434d5ed-8144-408f-b75a-c0e50f8de102","subCategoryId":"","kitchenStations":["3bdfa61-0e4f-48e6-b2bb-b4bd1d103950"],"taxFeeId":"","ingredients":["03348389-4b2a-4fca-affa-6ad4291b0241"],"modifiers":[],"availabilityId":["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],"category":"","subCategory":"","itemId":null}
-
-
+  
   const data = {
     locationId: "9c485244-afd4-11eb-b6c7-42010a010026",
     itemCode: primarypagedetails.primarypage.data.itemCode,
@@ -161,21 +156,10 @@ const PrimaryDetailsReviewpage: React.FC = () => {
     itemId: null,
   };
 
-  // const foundItemsallergens =
-  //   fetchedprimarydata &&
-  //   fetchedprimarydata?.allergens &&
-  //   imagenamesfromapi.filter((item) =>
-  //     fetchedprimarydata?.allergens?.includes(item.id)
-  //   );
-  // const foundItemsingredient =
-  //   fetchedprimarydata &&
-  //   fetchedprimarydata?.ingredients &&
-  //   imagenamesfromapi.filter((item) =>
-  //     fetchedprimarydata?.ingredients?.includes(item.id)
-  //   );
+  
 
   const handleedit = (navlink: string) => {
-    // dispatch(primarypost(fetchedprimarydata));
+   
 
     if ("Primary" === navlink) {
       setActiveCategory("Step 1: Primary Details");
