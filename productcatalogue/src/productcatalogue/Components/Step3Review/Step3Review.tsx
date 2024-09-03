@@ -20,15 +20,16 @@ interface ItemCustomization {
 }
 interface RootState {
   itemCustomizationsReducer1: {
-    itemData: ItemCustomization[];
+    itemData:ItemCustomization[]
   };
 }
 
 
 const Step3Review:React.FC = () => {
   // Access itemCustomizationsReducer1 from the Redux store
-  const itemCustomizationData = useSelector((state:RootState) => state.itemCustomizationsReducer1.itemData);
-  const {setActiveCategory}=useContext(Contextpagejs);
+  const itemCustomizationData = useSelector((state: RootState) => 
+    state.itemCustomizationsReducer1.itemData
+  );  const {setActiveCategory}=useContext(Contextpagejs);
 
 
   // Log the data to inspect its structure
