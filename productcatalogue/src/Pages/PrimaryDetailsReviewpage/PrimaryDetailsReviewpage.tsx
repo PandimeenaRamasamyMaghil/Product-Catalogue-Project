@@ -14,7 +14,7 @@
 // export default PrimaryDetailsReviewpage
 
 import React, { useContext, useState, useEffect } from "react";
-import "../ReviewPage/Reviewpage.scss";
+import "./PrimaryDetailsReviewpage.scss";
 import axios from "axios";
 import { primaryDetails } from "../../interface/PrimayDetailsApi";
 
@@ -22,15 +22,15 @@ import emptyfoodimg from "../../assets/png/emptyfoodimg.png";
 import edit from "../../assets/png/edit.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import imageslist from "../../Components/imageslist/imageslist";
+import imageslist from "../../productcatalogue/Components/imageslist/imageslist";
 import { ApiPost } from "../../redux/Actions";
 
-import Step2 from "../../Components/Step2/Step2";
+import Step2 from "../../productcatalogue/Components/Step2/Step2";
 import { Contextpagejs } from "../contextpage";
-import ReviewValues from "../../Components/ReviewValues/ReviewValues";
-import ImagePillsSelected from "../../Components/ImagePillsSelected/ImagePillsSelected";
-import Step3Review from "../../Components/Step3Review/Step3Review";
-import PrimaryImageSelected from "../../Components/PrimaryImageSelected/PrimaryImageSelected";
+import ReviewValues from "../../productcatalogue/Components/ReviewValues/ReviewValues";
+import ImagePillsSelected from "../../productcatalogue/Components/ImagePillsSelected/ImagePillsSelected";
+import Step3Review from "../../productcatalogue/Components/Step3Review/Step3Review";
+import PrimaryImageSelected from "../../productcatalogue/Components/PrimaryImageSelected/PrimaryImageSelected";
 import { getValue } from "@testing-library/user-event/dist/utils";
 
 interface Image {

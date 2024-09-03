@@ -2,16 +2,16 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import "./ItemCustomizations.scss";
 
 import dotted from '../../assets/png/dotted.png'
-import Toggle from "../../Components/Toggle/Toggle";
+import Toggle from "../../productcatalogue/Components/Toggle/Toggle";
 import Polygon1 from "../../assets/png/Polygon 1.png";
 import Polygon2 from "../../assets/png/Polygon 2.png";
 import { useDispatch, useSelector } from "react-redux";
 import { itemCustomizationPost } from "../../redux/Actions";
 import { useNavigate } from "react-router-dom";
-import Savenextbutton from "../../Components/Savenextbutton/Savenextbutton";
+import Savenextbutton from "../../productcatalogue/Components/Savenextbutton/SaveAndNext";
 import Serachicon from '../../assets/png/searchicon.png';
-import DropDownItem from "../../Components/DropDownItem/DropDownItem";
-import DropDown3 from "../../Components/DropDownItem/DropDownItem";
+import DropDownItem from "../../productcatalogue/Components/DropDownItem/DropDownItem";
+import DropDown3 from "../../productcatalogue/Components/DropDownItem/DropDownItem";
 
 
 // Define types
@@ -551,12 +551,12 @@ newModifications[index][property] = value as Modification[typeof property];
 <div className="dropdown-container">
 
 <div className="footer-save-next">
-<Savenextbutton
+{/* <Savenextbutton
 selectedpage="ItemCustomization"
 formData={modifications}
 validation={validationforitemcustom}
 formclear={clerall}
-/>
+/> */}
 </div>
 </div>
   </div>

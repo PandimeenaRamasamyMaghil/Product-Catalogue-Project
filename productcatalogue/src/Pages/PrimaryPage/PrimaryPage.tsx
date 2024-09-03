@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import LableComponent from "../../Components/LableComponent/LableComponent";
-import InputFieldComponent from "../../Components/InputFieldComponent/InputFieldComponent";
-import Dropdown from "../../Components/DropDownList/DropDownList";
-import DigitInput from "../../Components/DigitInput/DigitInput";
-import RadioButtonGroup from "../../Components/RadioButton/RadioButton";
+import LableComponent from "../../productcatalogue/Components/LableComponent/LableComponent";
+import InputFieldComponent from "../../productcatalogue/Components/InputFieldComponent/InputFieldComponent";
+import Dropdown from "../../productcatalogue/Components/DropDownList/DropDownList";
+import DigitInput from "../../productcatalogue/Components/DigitInput/DigitInput";
+import RadioButtonGroup from "../../productcatalogue/Components/RadioButton/RadioButton";
 import "./PrimaryPage.scss";
 import { ImCross } from "react-icons/im";
 import ImgaeUploading from "../../assets/png/addimage.png";
@@ -11,8 +11,8 @@ import axios from "axios";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { ApiPost } from "../../redux/Actions";
-import Imagepillsselection from "../../Components/ImagePillsSelection/ImagePillsSelection";
-import SaveAndNext from "../../Components/Savenextbutton/SaveAndNext";
+import Imagepillsselection from "../../productcatalogue/Components/ImagePillsSelection/ImagePillsSelection";
+import SaveAndNext from "../../productcatalogue/Components/Savenextbutton/SaveAndNext";
 import {
   imageslist,
   dietarytype,

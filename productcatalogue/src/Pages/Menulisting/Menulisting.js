@@ -4,25 +4,25 @@ import dots from "../../assets/svg/dots.svg";
 import dollar from "../../assets/svg/dollar.svg";
 import removeicon from "../../assets/svg/removeicon.svg";
 import apple from "../../assets/svg/fish.svg";
-import Toggle from "../../Components/Toggle/Toggle";
-import Header from "../../Components/Header/Header";
+import Toggle from "../../productcatalogue/Components/Toggle/Toggle";
+import Header from "../../productcatalogue/Components/Header/Header";
 import closeicon from "../../assets/svg/closeicon.svg";
 import toggleround from "../../assets/svg/toggleround.svg";
 import dollaricon from "../../assets/svg/dollaricon.svg";
 import togglebtns from "../../assets/svg/togglebtn.svg";
-import Slider from "../../Components/Slider/Slider";
+import Slider from "../../productcatalogue/Components/Slider/Slider";
 import { Contextpagejs } from "../../Pages/contextpage";
-import Menulistingtableone from "../../Components/Menulistingtableone/Menulistingtableone";
+import Menulistingtableone from "../../productcatalogue/Components/Menulistingtableone/Menulistingtableone";
 
 import { itemsdata,itemsfooddata } from "../../assets/Mock_data/Moca_data";
 
-import StringDisplay from "../../Components/StringDisplay/StringDisplay";
-import InsertColumnList from "../../Components/InsertColumnList/InsertColumnList";
-import TableFirstHeader from "../../Components/TableFirstHeader/TableFirstHeader";
-import TableSecondHeader from "../../Components/TableSecondHeader/TableSecondHeader";
-import TableTwoBody from "../../Components/TableTwoBody/TableTwoBody";
-import TableOneBody from "../../Components/TableOneBody/TableOneBody";
-import RowHeading from "../../Components/RowHeading/RowHeading";
+import StringDisplay from "../../productcatalogue/Components/StringDisplay/StringDisplay";
+import InsertColumnList from "../../productcatalogue/Components/InsertColumnList/InsertColumnList";
+import TableFirstHeader from "../../productcatalogue/Components/TableFirstHeader/TableFirstHeader";
+import TableSecondHeader from "../../productcatalogue/Components/TableSecondHeader/TableSecondHeader";
+import TableTwoBody from "../../productcatalogue/Components/TableTwoBody/TableTwoBody";
+import TableOneBody from "../../productcatalogue/Components/TableOneBody/TableOneBody";
+import RowHeading from "../../productcatalogue/Components/RowHeading/RowHeading";
 
 export const Menulisting = () => {
   const { setActive } = useContext(Contextpagejs);
