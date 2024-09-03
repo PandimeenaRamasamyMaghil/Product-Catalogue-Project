@@ -32,8 +32,8 @@ const Menu120 = () => {
 
         {data.map((elem,index)=>{
             return(
-                <>
-                <div className="Menu120-Tooltip-container-heading" key={index}>
+                <div key={index}>
+                <div className="Menu120-Tooltip-container-heading" >
                     <div className="Menu120-Heading">{elem.OutletName}</div>
                     <div className="Menu120-sub-Heading">{elem.Live}</div>
                     <div className="Menu120-sub-Heading">{elem.Unavailable}</div>
@@ -45,7 +45,7 @@ const Menu120 = () => {
                 
 
                 
-                </>
+                </div>
             )
         })}
         

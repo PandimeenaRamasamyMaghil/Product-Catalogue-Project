@@ -12,7 +12,7 @@ import dollaricon from "../../assets/svg/dollaricon.svg";
 import togglebtns from "../../assets/svg/togglebtn.svg";
 import Slider from "../../productcatalogue/Components/Slider/Slider";
 import { Contextpagejs } from "../../Pages/contextpage";
-import Menulistingtableone from "../../productcatalogue/Components/Menulistingtableone/Menulistingtableone";
+// import Menulistingtableone from "../../productcatalogue/Components/Menulistingtableone/Menulistingtableone";
 
 import { itemsdata,itemsfooddata } from "../../assets/Mock_data/Moca_data";
 
