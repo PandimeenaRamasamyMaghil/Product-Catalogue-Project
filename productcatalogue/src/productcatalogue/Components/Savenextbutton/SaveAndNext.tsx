@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext, ModifierKey } from "react";
 import "./Savenextbutton.scss";
 import { useDispatch } from "react-redux";
 
@@ -69,17 +69,34 @@ interface FormData {
     item: string;
     price: string;
   }
+  interface Modification {
+    modifierName: string;
+    options: Option[];
+    minSelection: number;
+    maxSelection: number;
+    freeCustomization: number;
+    selectedValue: string[];
+    endDate?: string;
+    startDate?: string;
+    selectionType?: string;
+    field1?: number;
+    field2?: number;
+    [key: string]: any; // Define specific types if known, e.g., number | string
+  }
 
   
 
 interface SubmitButtonProps {
-    getFormData: () => FormData;
+    getFormData: () => FormData| Modification;
     seletedpage:string
     reset: () => void;
+    modifications?: Modification[]; // Add this line to include modifications array
+
+
   }
   
 
-const SaveAndNext:React.FC<SubmitButtonProps> = ({getFormData,seletedpage,reset}) => {
+const SaveAndNext:React.FC<SubmitButtonProps> = ({getFormData,seletedpage,reset,modifications }) => {
   let navigate = useNavigate();
   const{isExpanded,setIsExpanded}=useContext(Contextpagejs)
   const extractFields = (formData: FormData) => {
@@ -143,11 +160,17 @@ const SaveAndNext:React.FC<SubmitButtonProps> = ({getFormData,seletedpage,reset}
 
     }  
     else if (seletedpage === "ItemCustomization") {
-    
+      // Access modifications here
+     const modificationArray = modifications; 
+     console.log("ddddddddd",modificationArray)
+      const formData = getFormData();
+      
+      // Dispatch your action with formData
+      dispatch(itemCustomizationPost(modificationArray));
+      
+      // Navigate to the next page
       navigate('/Reviewpage');
-
-    //   dispatch(itemCustomizationPost(probs.formData));
-    } 
+  }
     
    
     scrollToTop();

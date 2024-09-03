@@ -1,5 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import "./ItemCustomizations.scss";
+import { useForm, Controller } from 'react-hook-form';
+
 
 import dotted from '../../assets/png/dotted.png'
 import Toggle from "../../productcatalogue/Components/Toggle/Toggle";
@@ -29,6 +31,7 @@ interface ModificationError {
   options?: Option[];
   modifierName?:number
 }
+
 const index = 0;
 
 const modificationError: ModificationError[] = [];
@@ -56,6 +59,7 @@ interface State {
     itemData: Modification[];
   };
 }
+
 
 const ItemCustomizations: React.FC = () => {
   const navigate1 = useNavigate();
@@ -89,6 +93,27 @@ const ItemCustomizations: React.FC = () => {
        selectedValue: selectedValue,
     },
   ]);
+
+  const { control, handleSubmit, setValue, watch } = useForm({
+    defaultValues: {
+      modifications: [
+        {
+          modifierName: "",
+          options: [
+            {
+              item: "",
+              price: "",
+            },
+          ],
+          minSelection: 1,
+          maxSelection: 1,
+          freeCustomization: 1,
+          selectedValue: [],
+        },
+      ],
+    },
+  });
+
 
   const [filteredModifications, setFilteredModifications] = useState<Modification[]>([]);
 
@@ -137,8 +162,14 @@ const ItemCustomizations: React.FC = () => {
   };
 
   const handleModifierChange = (index: number, e: ChangeEvent<HTMLInputElement>) => {
+    
     const { name, value } = e.target;
+
     const newModifications = [...modifications];
+    
+  if (name === 'modifierName') {
+    newModifications[index].modifierName = value;
+  } 
     const property = name.split("-")[0];
 
 newModifications[index][property] = value as Modification[typeof property];
@@ -271,7 +302,14 @@ newModifications[index][property] = value as Modification[typeof property];
   console.log(selectedValue)
   console.log(modifications)
 
+  const onSubmit = (data: any) => {
+    dispatch(itemCustomizationPost(data.modifications));
+    console.log(data.modifications)
+  };
+
   return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+    
     <div className="mainItemCustomizations">
     <div className="itemcustomizationpage">
     <div className="AddModifiersSection">
@@ -332,16 +370,23 @@ newModifications[index][property] = value as Modification[typeof property];
                 alt="dotted"
               />
               <h3 className="paraItemCustomizations">{modIndex + 1}.</h3>
-              <input
+
+              <Controller
+              control={control}
+              name={`modifications.${modIndex}.modifierName`} // Correct path
+
+              render={({ field }) => (
+                <input
                 placeholder="Modifier Name"
-                className={!modificationError[modIndex]?.modifierName?"inputItemCustomizations":"inputItemCustomizationserror"}
+                className={!modificationError[modIndex]?.modifierName ? "inputItemCustomizations" : "inputItemCustomizationserror"}
                 name="modifierName"
                 value={filteredModifications[modIndex].modifierName}
                 onChange={(e) => handleModifierChange(modIndex, e)}
-                onBlur={(e)=>handleBlur(e,modIndex)}
-                
+                onBlur={(e) => handleBlur(e, modIndex)}
               />
-            
+              )}
+              rules={{ required: "Modifier name is required" }} 
+            />  
             
             
           </div>
@@ -550,6 +595,8 @@ newModifications[index][property] = value as Modification[typeof property];
   )))}
 
 </div>
+<button type="submit">ffffffffff</button>
+
 
 
 
@@ -561,7 +608,9 @@ newModifications[index][property] = value as Modification[typeof property];
 <Savenextbutton
     seletedpage="ItemCustomization"
     getFormData={getFormData}  // Pass the function instead of the array
-    reset={clerall}/>
+    reset={clerall}
+    modifications={modifications} // Pass the modifications array here
+/>
 </div>
 </div>
   </div>
@@ -612,6 +661,7 @@ newModifications[index][property] = value as Modification[typeof property];
   </div>
 
 </div>
+</form>
   );
 };
 
