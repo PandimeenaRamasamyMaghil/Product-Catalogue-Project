@@ -150,7 +150,7 @@ const PrimaryDetailsReviewpage: React.FC = () => {
     ingredients:
     ["03348389-4b2a-4fca-affa-6ad4291b0241"],
     modifiers: [],
-    availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"],
+    availabilityId:["b1492143-2c4c-4a4f-bc49-a3b99cbb1349"], 
     category: primarypagedetails.primarypage.data.category,
     subCategory: primarypagedetails.primarypage.data.subCategory,
     itemId: null,
