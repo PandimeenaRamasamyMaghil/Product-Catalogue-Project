@@ -3,7 +3,6 @@ import Navigationpage from "../../Components/Navigation/NavigationPage";
  import "./MainPage.scss";
 import ItemCustomization from "../itemCustomization/ItemCustomizations";
 import Primarypage from "../PrimaryPage/PrimaryPage";
-import Reviewpage from "../ReviewPage/Reviewpage";
 import { Routes, Route } from "react-router-dom";
 import PricingDetails from "../PricingDetalis/PricingDetails";
 import PrimaryDetailsReviewpage from "../PrimaryDetailsReviewpage/PrimaryDetailsReviewpage";
