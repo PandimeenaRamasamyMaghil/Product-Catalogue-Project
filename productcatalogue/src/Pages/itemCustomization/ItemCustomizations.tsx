@@ -261,6 +261,13 @@ newModifications[index][property] = value as Modification[typeof property];
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
+  const getFormData = (): FormData => {
+    const formData = new FormData();
+    modifications.forEach((modification, index) => {
+        formData.append(`modification_${index}`, JSON.stringify(modification));
+    });
+    return formData;
+};
   console.log(selectedValue)
   console.log(modifications)
 
@@ -551,12 +558,10 @@ newModifications[index][property] = value as Modification[typeof property];
 <div className="dropdown-container">
 
 <div className="footer-save-next">
-{/* <Savenextbutton
-selectedpage="ItemCustomization"
-formData={modifications}
-validation={validationforitemcustom}
-formclear={clerall}
-/> */}
+<Savenextbutton
+    seletedpage="ItemCustomization"
+    getFormData={getFormData}  // Pass the function instead of the array
+    reset={clerall}/>
 </div>
 </div>
   </div>
