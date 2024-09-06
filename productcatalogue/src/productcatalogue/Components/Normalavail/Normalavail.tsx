@@ -6,6 +6,7 @@ import Dropdown2 from '../DropDown2/DropDown2'
 import DropDown3 from '../DropDown3/DropDown3'
 import DaysCheckDin from "../DayCheckDinein/DaysCheckDinein"
 import { useSelector } from 'react-redux'
+import LableComponent from '../LableComponent/LableComponent';
 interface NormalForm {
   PickuppriceNormal: string;
   PickupmealtypeNormal: string;
@@ -464,7 +465,9 @@ const handleMealSelect2 = (index: number, value: MealType): void => {
             {dineinfields.map((entry,index) => {
               return (
                 <>
-                 <p className='LabelPrice'>Price*</p>
+                <div className='LabelPrice'>
+                 <LableComponent lable="Price*"/>
+                 </div>
                    <div className='DineInInput11Normal' key={index} style={{ zIndex: dineinfields.length - index }}>
           <input
             type="text"
@@ -548,7 +551,9 @@ const handleMealSelect2 = (index: number, value: MealType): void => {
                 <div className='PickupSectionNormal'>
                 {pickup ?
                  <div>
-                   <p className='LabelPricePickup'> Price*</p>
+                    <div className='LabelPricePickup'>
+                 <LableComponent lable="Price*"/>
+                 </div>
                    <div className='PickupInput11Normal'>
                     <input type="text" className='DineInInput1Normal'  value={formNormal.PickuppriceNormal}  onChange={(e) => setformNormal({ ...formNormal,"PickuppriceNormal":e.target.value })} ></input>
                 <div className='PrizeD'>
